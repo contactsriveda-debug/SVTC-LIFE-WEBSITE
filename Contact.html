@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SRI VEDHA TALENT COMPETITIVE - Contact Us</title>
+
+    <!-- Load Tailwind CSS --><script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Load Lucide Icons --><script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Google Font --><link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+
+    <style>
+        /* THEME COLORS: NAVY AND CRIMSON */
+        :root {
+            --primary-color: #192841; /* Deep Navy Blue */
+            --secondary-color: #C62828; /* Bright Crimson Red */
+            --support-color: #CFD8DC; /* Light Silver */
+        }
+
+        body {
+            font-family: 'Roboto Slab', serif;
+            background-color: #f0f4f8;
+        }
+
+        .container-card {
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+            border-radius: 1rem;
+            transition: all 0.4s ease;
+            border-top: 6px solid var(--secondary-color);
+        }
+
+        .container-card:hover {
+            box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.15);
+        }
+
+        .input-field {
+            border: 2px solid #D1D5DB;
+            transition: border-color 0.3s;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 3px rgba(198, 40, 40, 0.4);
+        }
+
+        /* NEW Header Style based on image */
+        .simple-header {
+            background: linear-gradient(135deg, #192841 0%, #C62828 100%); /* REVERTED to live color gradient */
+            padding: 1rem 0; /* Reduced padding */
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); /* Darker shadow for dark bg */
+            /* REMOVED: border-bottom: 2px solid #e0e0e0; */
+        }
+        
+        /* Custom styles for the logo image */
+        .header-logo {
+            width: 50px; /* Smaller size as per the image */
+            height: 50px; /* Smaller size as per the image */
+            object-fit: contain; /* Ensure the image fits well */
+            background-color: white; /* White background for the logo */
+            padding: 3px; /* Padding inside the circular background */
+            border-radius: 50%; /* Make it circular */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            flex-shrink: 0; /* Prevent shrinking */
+        }
+        @media (min-width: 640px) { /* Adjust for sm screens and up */
+            .header-logo {
+                width: 60px;
+                height: 60px;
+            }
+        }
+
+        /* Original crimson tagline strip is removed as per request */
+
+        /* Existing styles below */
+        .card-icon {
+            color: var(--primary-color);
+            filter: drop-shadow(0 4px 6px rgba(25, 40, 65, 0.2));
+        }
+
+        .card-shadow {
+             box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        
+        /* === NEW STYLES FOR CONTACT BUTTONS === */
+        /* Base class for the sliding color effect */
+        .color-slide-btn {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .color-slide-btn::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.2); /* White overlay for shine */
+            z-index: -1;
+            transform: translateX(-100%); /* Start off-screen */
+            transition: transform 0.4s ease-out;
+        }
+
+        .color-slide-btn:hover::after {
+            transform: translateX(0); /* Slide across */
+        }
+        
+        /* Specific Phone Number Box Styling (static element) */
+        .phone-box {
+            background-color: var(--primary-color); /* Navy background */
+            color: white;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .phone-box:hover {
+            background-color: var(--secondary-color); /* Crimson hover */
+            transform: translateY(-2px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* === STYLISH SUBMIT BUTTON === */
+        .submit-btn-style {
+            /* Base: Subtle gradient for depth (Navy to slightly lighter Navy) */
+            background: linear-gradient(145deg, var(--primary-color), #293D5C);
+            transition: all 0.3s ease-in-out;
+            border: none;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        .submit-btn-style:hover {
+            /* Hover: Shift to Crimson gradient */
+            background: linear-gradient(145deg, var(--secondary-color), #A51A1A); 
+            box-shadow: 0 10px 20px -5px rgba(198, 40, 40, 0.5); /* Stronger crimson shadow on hover */
+            transform: translateY(-2px) scale(1.01); /* Lift and expand slightly more */
+        }
+        .submit-btn-style:active {
+            /* Press effect */
+            transform: translateY(0px) scale(1.00);
+            box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.4);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen">
+
+    <!-- NEW Header based on the provided image --><header class="simple-header">
+        <div class="max-w-7xl mx-auto px-4 flex items-center space-x-4 py-4">
+            <!-- Left: Logo Image --><div class="flex-shrink-0">
+                <img src="https://i.postimg.cc/C1Xnmwg9/veda-logo.jpg" alt="SRI VEDHA Logo" class="header-logo">
+            </div>
+            
+            <!-- Center: Title & Subtitle --><div class="flex flex-col justify-center">
+                <h1 class="font-bold text-white" style="font-size: clamp(1.4rem, 2.5vw, 2.25rem);">
+                    Sri Veda Talent Competition
+                </h1>
+                <p class="text-gray-200 font-medium" style="font-size: clamp(0.9rem, 1.5vw, 1.25rem);">
+                    Student Support Corner
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content - NOW WITH py-12 FOR TOP AND BOTTOM PADDING --><main class="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-3 gap-8 py-12">
+
+        <!-- Left Column --><div class="lg:col-span-2 space-y-8">
+
+            <!-- Contact Channels (UPDATED SECTION) --><section class="container-card bg-gray-50 p-6 sm:p-8">
+                <h2 class="text-2xl font-bold text-gray-800 flex items-center mb-6 border-b pb-3 border-gray-200">
+                    <i data-lucide="phone-call" class="w-6 h-6 mr-3 text-secondary-color"></i> Immediate Contact Channels
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <!-- WhatsApp Button: Added color-slide-btn class --><a href="https://wa.me/918985170500" target="_blank" class="flex items-center justify-center p-4 bg-green-500 text-white font-bold rounded-xl transition transform hover:scale-[1.02] shadow-lg color-slide-btn">
+                        <i data-lucide="message-circle" class="w-6 h-6 mr-2"></i> WhatsApp Chat
+                    </a>
+
+                    <!-- Phone Number Box: Added phone-box class for Navy/Crimson style --><div class="flex items-center justify-center p-4 text-white font-bold rounded-xl shadow-lg phone-box">
+                        <i data-lucide="smartphone" class="w-6 h-6 mr-2 text-secondary-color"></i> 8985170500
+                    </div>
+
+                    <!-- Telegram Button: Added color-slide-btn class --><a href="https://t.me/srivedatc" target="_blank" class="flex flex-col items-center justify-center p-4 bg-blue-500 text-white font-bold rounded-xl transition transform hover:scale-[1.02] shadow-lg color-slide-btn">
+                        <i data-lucide="send" class="w-6 h-6"></i> Telegram Support
+                        <span class="text-xs mt-1 font-medium opacity-80 text-center">General Queries & Updates</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Inquiry Form --><section class="container-card bg-white p-6 sm:p-10">
+                <h2 class="text-3xl font-extrabold text-primary-color mb-6 border-b pb-3 border-secondary-color">
+                    <i data-lucide="file-text" class="w-7 h-7 mr-2 inline-block text-secondary-color"></i> Detailed Inquiry Form
+                </h2>
+                <p class="text-gray-600 mb-6">Use this form for detailed, non-urgent account, subscription, or profile-related issues. We promise a prompt response.</p>
+
+                <form id="contactForm" onsubmit="handleFormSubmit(event)">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label for="firstName" class="block text-sm font-semibold text-gray-700 mb-1">First Name (Required)</label>
+                            <input type="text" id="firstName" name="firstName" required class="w-full p-3 input-field rounded-lg shadow-inner" placeholder="Enter your first name">
+                        </div>
+                        <div>
+                            <label for="phoneNumber" class="block text-sm font-semibold text-gray-700 mb-1">Contact Number (Required)</label>
+                            <input type="tel" id="phoneNumber" name="phoneNumber" required pattern="[0-9]{10,15}" title="Please enter a valid phone number (10-15 digits)" class="w-full p-3 input-field rounded-lg shadow-inner" placeholder="e.g., 1122334455">
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <label for="issueType" class="block text-sm font-semibold text-gray-700 mb-1">Issue Type (Required)</label>
+                        <select id="issueType" name="issueType" required class="w-full p-3 input-field rounded-lg bg-white appearance-none shadow-inner">
+                            <option value="">-- Select Category --</option>
+                            <option value="General">General Inquiry</option>
+                            <option value="Account">Account Access / Login</option>
+                            <option value="Profile">Profile Update / Correction</option>
+                            <option value="Subscription">Subscription / Payment</option>
+                            <option value="Others">Other Technical / Non-Technical</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-8">
+                        <label for="description" class="block text-sm font-semibold text-gray-700 mb-1">Detailed Description (Required)</label>
+                        <textarea id="description" name="description" rows="5" required class="w-full p-3 input-field rounded-lg shadow-inner resize-none" placeholder="Describe your query or issue in detail..."></textarea>
+                    </div>
+
+                    <!-- SUBMIT BUTTON with new style class --><button type="submit" class="w-full py-4 text-white font-extrabold text-lg rounded-xl shadow-xl focus:outline-none focus:ring-4 focus:ring-secondary-color focus:ring-opacity-70 submit-btn-style">
+                        SUBMIT YOUR QUERY
+                    </button>
+
+                    <div id="formMessage" class="mt-6 p-4 bg-secondary-color bg-opacity-10 text-primary-color border border-secondary-color rounded-lg hidden font-medium"></div>
+                </form>
+            </section>
+        </div>
+
+        <!-- Right Column --><div class="lg:col-span-1">
+            <section class="container-card bg-gray-100 p-6 sm:p-8 h-full flex flex-col justify-start">
+                <h2 class="text-2xl font-bold text-gray-800 flex items-center mb-6 border-b pb-3 border-gray-300">
+                    <i data-lucide="target" class="w-6 h-6 mr-3 text-secondary-color"></i> Our Mission
+                </h2>
+
+                <p class="text-gray-700 mb-6 leading-relaxed">
+                    At <span class="font-extrabold text-secondary-color">SRI VEDHA</span>, we are dedicated to transforming raw talent into competitive excellence. We provide focused coaching and high-quality resources to ensure every student achieves their highest potential.
+                </p>
+
+                <div class="space-y-4 pt-4 border-t border-gray-300">
+                    
+                    <!-- NEW POINT 1: Personalized Learning --><div class="flex items-start space-x-3">
+                        <i data-lucide="users-2" class="w-6 h-6 text-secondary-color mt-1"></i>
+                        <div>
+                            <h3 class="font-semibold text-gray-800">Personalized Learning</h3>
+                            <p class="text-sm text-gray-600">Tailored study plans to focus on individual weak areas and strengths.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- NEW POINT 2: Strategic Preparation --><div class="flex items-start space-x-3">
+                        <i data-lucide="trending-up" class="w-6 h-6 text-secondary-color mt-1"></i>
+                        <div>
+                            <h3 class="font-semibold text-gray-800">Strategic Preparation</h3>
+                            <p class="text-sm text-gray-600">Systematically covering all subjects and mastering exam-specific patterns.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- EXISTING POINT: Clear Guidance --><div class="flex items-start space-x-3">
+                        <i data-lucide="check-circle" class="w-6 h-6 text-secondary-color mt-1"></i>
+                        <div>
+                            <h3 class="font-semibold text-gray-800">Clear Guidance</h3>
+                            <p class="text-sm text-gray-600">Expert help for all exam queries and challenges.</p>
+                        </div>
+                    </div>
+
+                    <!-- EXISTING POINT: Focused Results --><div class="flex items-start space-x-3">
+                        <i data-lucide="book-open" class="w-6 h-6 text-secondary-color mt-1"></i>
+                        <div>
+                            <h3 class="font-semibold text-gray-800">Focused Results</h3>
+                            <p class="text-sm text-gray-600">A track record of success in major competitive fields.</p>
+                        </div>
+                    </div>
+
+                    <!-- EXISTING POINT: Prompt Support --><div class="flex items-start space-x-3">
+                        <i data-lucide="zap" class="w-6 h-6 text-secondary-color mt-1"></i>
+                        <div>
+                            <h3 class="font-semibold text-gray-800">Prompt Support</h3>
+                            <p class="text-sm text-gray-600">Quick and effective resolutions for your issues.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 pt-4 border-t border-gray-300 text-center">
+                    <p class="text-lg font-extrabold text-primary-color mb-3 uppercase tracking-wider">
+                        START YOUR SUCCESS JOURNEY TODAY!
+                    </p>
+                    <div class="space-y-2">
+                        <p class="text-sm text-gray-700 font-medium flex items-center justify-center">
+                            <i data-lucide="award" class="w-4 h-4 mr-2 text-secondary-color"></i>
+                            Access Top 1% Study Material
+                        </p>
+                        <p class="text-sm text-gray-700 font-medium flex items-center justify-center">
+                            <i data-lucide="trending-up" class="w-4 h-4 mr-2 text-secondary-color"></i>
+                            Proven Results and Rank Holders
+                        </p>
+                        <p class="text-sm text-gray-700 font-medium flex items-center justify-center">
+                            <i data-lucide="users-2" class="w-4 h-4 mr-2 text-secondary-color"></i>
+                            Join a Highly Motivated Community
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- NEW FOOTER STYLE (Light Theme) --><footer class="bg-white text-gray-800 mt-16 pt-16 pb-8 border-t-2 border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                
+                <!-- Column 1: About --><div class="space-y-4">
+                    <h3 class="text-xl font-extrabold text-primary-color tracking-wider uppercase">Sri Veda Talent Competition</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Dedicated to transforming raw talent into competitive excellence with focused coaching.
+                    </p>
+                    <div class="space-y-2 pt-2">
+                        <a href="tel:+918985170500" class="flex items-center text-gray-700 hover:text-primary-color transition-colors font-medium group">
+                            <i data-lucide="phone" class="w-5 h-5 mr-3 text-secondary-color flex-shrink-0"></i>
+                            <span class="group-hover:underline">+91 89851 70500</span>
+                        </a>
+                        <a href="mailto:CONTACT.SRIVEDHA@GMAIL.COM" class="flex items-center text-gray-700 hover:text-primary-color transition-colors font-medium group">
+                            <i data-lucide="mail" class="w-5 h-5 mr-3 text-secondary-color flex-shrink-0"></i>
+                            <span class="group-hover:underline">contact.sriveda@gmail.com</span>
+                        </a>
+                    </div>
+                </div>
+    
+                <!-- Column 2: Quick Links --><div class="space-y-4">
+                    <h4 class="text-lg font-bold text-primary-color uppercase tracking-wider">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="https://www.svtc.life/home" target="_blank" class="text-gray-600 hover:text-primary-color hover:underline">HOME</a></li>
+                        <li><a href="https://www.svtc.life/register" target="_blank" class="text-gray-600 hover:text-primary-color hover:underline">REGISTER</a></li>
+                        <li><a href="https://www.svtc.life/pricing" target="_blank" class="text-gray-600 hover:text-primary-color hover:underline">PRICING</a></li>
+                        <li><a href="https://www.svtc.life/connect" target="_blank" class="text-gray-600 hover:text-primary-color hover:underline">CONNECT</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Legal & More --><div class="space-y-4">
+                    <h4 class="text-lg font-bold text-primary-color uppercase tracking-wider">Information</h4>
+                    <ul class="space-y-2">
+                        <li><a href="https://www.svtc.life/about-us" target="_blank" class="text-gray-600 hover:text-primary-color hover:underline">ABOUT US</a></li>
+                        <li><a href="https://www.svtc.life/contact" target="_blank" class="text-gray-600 hover:text-primary-color hover:underline">CONTACT</a></li>
+                        <li><a href="https://www.svtc.life/terms-privacy" target="_blank" class="text-gray-600 hover:text-primary-color hover:underline">Terms & Privacy</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Column 4: Social --><div class="space-y-4">
+                    <h4 class="text-lg font-bold text-primary-color uppercase tracking-wider">Follow Us</h4>
+                    <p class="text-gray-600">Stay updated on our social channels.</p>
+                    <div class="flex space-x-5 pt-2">
+                        <!-- WhatsApp --><a href="http://wa.me/918985170500" target="_blank" class="text-gray-500 hover:text-green-500 transition transform hover:scale-110" aria-label="WhatsApp">
+                            <i data-lucide="message-circle" class="w-7 h-7"></i>
+                        </a>
+                        <!-- Instagram --><a href="https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=zreta93" target="_blank" class="text-gray-500 hover:text-pink-500 transition transform hover:scale-110" aria-label="Instagram">
+                            <i data-lucide="instagram" class="w-7 h-7"></i>
+                        </a>
+                        <!-- Facebook --><a href="https://www.facebook.com/share/1ZXXCLRGwh" target="_blank" class="text-gray-500 hover:text-blue-600 transition transform hover:scale-110" aria-label="Facebook">
+                            <i data-lucide="facebook" class="w-7 h-7"></i>
+                        </a>
+                        <!-- Telegram --><a href="https://t.me/srivedatc" target="_blank" class="text-gray-500 hover:text-blue-400 transition transform hover:scale-110" aria-label="Telegram">
+                            <i data-lucide="send" class="w-7 h-7"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bottom Bar --><div class="border-t border-gray-200 pt-8 text-center text-gray-500 text-sm">
+                <p>&copy; 2025 Sri Veda Talent Competition. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript --><script>
+        lucide.createIcons();
+
+        function handleFormSubmit(event) {
+            event.preventDefault(); // ఫారమ్ సబ్మిట్ అవ్వకుండా ఆపుతుంది
+            const formMessage = document.getElementById('formMessage');
+            // const formData = new FormData(event.target); // డేటా సేకరణ ఇప్పుడు అవసరం లేదు
+            // const data = Object.fromEntries(formData.entries()); // ఇది కూడా అవసరం లేదు
+            
+            // console.log("Form Data Submitted:", data); // డీబగ్గింగ్ కోసం ఉంచవచ్చు
+
+            // మీరు అడిగిన కొత్త మెయింటెనెన్స్ సందేశం
+            formMessage.textContent = "This Form Under maintenance. Please contact WhatsApp";
+
+            // సందేశం స్టైల్‌ను మారుస్తున్నాము (సమాచారం కోసం నీలం రంగు)
+            formMessage.className = "mt-6 p-4 bg-blue-100 text-blue-800 border border-blue-300 rounded-lg font-medium";
+            
+            // సందేశాన్ని చూపించడానికి 'hidden' క్లాస్‌ను తీసివేస్తున్నాము
+            formMessage.classList.remove('hidden');
+            
+            // event.target.reset(); // ఫారమ్ ఫీల్డ్‌లను రీసెట్ చేయాల్సిన అవసరం లేదు
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+
+

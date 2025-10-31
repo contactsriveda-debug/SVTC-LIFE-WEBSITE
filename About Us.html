@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Us — Sri Veda Talent Competition</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Font: Roboto Slab -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body {
+      font-family: 'Roboto Slab', serif;
+    }
+    /* Custom Theme Colors */
+    :root {
+      --sv-primary: #0d47a1; /* Deep Blue */
+      --sv-secondary: #00695c; /* Teal Green (matches logo) */
+      --sv-accent: #c62828; /* Red */
+      --sv-dark: #263238; /* Dark Grey / Almost Black */
+    }
+    .text-primary { color: var(--sv-primary); }
+    .text-secondary { color: var(--sv-secondary); }
+    .text-accent { color: var(--sv-accent); }
+    .bg-primary { background-color: var(--sv-primary); }
+    .bg-secondary { background-color: var(--sv-secondary); }
+    .bg-dark { background-color: var(--sv-dark); }
+    .border-secondary { border-color: var(--sv-secondary); }
+
+    .feature-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-sv-dark antialiased">
+
+  <!-- Header -->
+  <!-- Updated Header: Removed sticky, top-0, z-50 to make it scroll with the page -->
+  <header class="bg-gradient-to-r from-teal-600 to-blue-800 shadow-lg">
+    <!-- MODIFIED: py-6 to py-4 md:py-6 for dynamic size, removed justify-between -->
+    <div class="container mx-auto px-6 py-4 md:py-6 flex items-center">
+      <!-- Logo and Title -->
+      <div class="flex items-center space-x-4">
+        <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-white shadow-lg">
+          <img src="https://i.postimg.cc/C1Xnmwg9/veda-logo.jpg" alt="Sri Veda Talent Competition Logo" class="w-full h-full object-cover" />
+        </div>
+        <div>
+          <!-- MODIFIED: Increased font size again -->
+          <h1 class="text-3xl md:text-4xl font-bold text-white">Sri Veda Talent Competition</h1>
+          <!-- MODIFIED: Increased font size again -->
+          <p class="text-lg text-gray-200">Learn more About us</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-6 py-12">
+
+    <!-- Hero Section -->
+    <!-- Updated background gradient as requested -->
+    <section class="bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 text-white rounded-2xl p-8 md:p-12 shadow-2xl text-center">
+      <h2 class="text-3xl md:text-4xl font-bold leading-tight">Our Commitment to Student Excellence</h2>
+      <p class="mt-4 text-lg text-gray-200 max-w-3xl mx-auto">
+        We are a genuine, 24/7 organization dedicated to one thing: unlocking your child's true potential. We meticulously craft new, innovative pathways to improve knowledge for students from 3rd to 10th grade.
+      </p>
+    </section>
+
+    <!-- Core Philosophy Section -->
+    <!-- MODIFIED: Reduced margin-top from mt-12 to mt-8 -->
+    <section class="mt-8">
+      <h3 class="text-3xl font-bold text-center text-primary mb-10">Our Core Philosophy</h3>
+      <div class="grid md:grid-cols-3 gap-8">
+        
+        <!-- Card 1: 3rd to 10th Grade -->
+        <div class="feature-card bg-white rounded-lg p-6 shadow-lg text-center border-t-4 border-secondary">
+          <i data-lucide="users-2" class="w-12 h-12 text-secondary mx-auto"></i>
+          <h4 class="text-xl font-bold mt-4 mb-2">For Every Student (3rd-10th)</h4>
+          <p class="text-gray-600">We provide tailored tests and content that match each student's specific class, age, and aptitude.</p>
+        </div>
+        
+        <!-- Card 2: Personalized Learning -->
+        <div class="feature-card bg-white rounded-lg p-6 shadow-lg text-center border-t-4 border-accent">
+          <i data-lucide="brain-cog" class="w-12 h-12 text-accent mx-auto"></i>
+          <h4 class="text-xl font-bold mt-4 mb-2">Targeted Mind Development</h4>
+          <p class="text-gray-600">Our questions aren't one-size-fits-all. They are designed to challenge and grow each student's individual mind.</p>
+        </div>
+        
+        <!-- Card 3: 24/7 Online Platform -->
+        <div class="feature-card bg-white rounded-lg p-6 shadow-lg text-center border-t-4 border-primary">
+          <i data-lucide="clock" class="w-12 h-12 text-primary mx-auto"></i>
+          <h4 class="text-xl font-bold mt-4 mb-2">24/7 Online Access</h4>
+          <p class="text-gray-600">Our platform is 100% online. Students can log in and take exams anytime, anywhere, during their free time.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Our Learning Model Section -->
+    <!-- MODIFIED: Reduced margin-top from mt-12 to mt-8 -->
+    <section class="mt-8">
+      <h3 class="text-3xl font-bold text-center text-primary mb-10">Our Unique Learning Model</h3>
+      <div class="bg-white rounded-lg shadow-xl overflow-hidden">
+        <div class="grid md:grid-cols-2">
+          
+          <!-- Image Side -->
+          <div class="hidden md:block">
+            <!-- Updated image as requested -->
+            <img src="https://i.postimg.cc/cHDqCvtJ/Screenshot-2025-10-26-125725.png" alt="Students engaging with learning material" class="w-full h-full object-cover">
+          </div>
+
+          <!-- Content Side -->
+          <div class="p-8 md:p-12 space-y-8">
+            
+            <div>
+              <i data-lucide="globe-2" class="w-10 h-10 text-secondary mb-2"></i>
+              <h4 class="text-2xl font-bold text-secondary">General Awareness (G.A.)</h4>
+              <p class="text-gray-600 mt-2">
+                We believe G.A. is vital for future entrance and job exams. We teach it from an early age using an <strong>"Easy-to-Hard"</strong> method, gradually building a strong foundation of worldly knowledge.
+              </p>
+            </div>
+            
+            <hr>
+
+            <div>
+              <i data-lucide="calculator" class="w-10 h-10 text-accent mb-2"></i>
+              <h4 class="text-2xl font-bold text-accent">The Mathematics Edge</h4>
+              <p class="text-gray-600 mt-2 mb-4">
+                Mathematics is critical for every government exam. We have a dual approach to ensure mastery:
+              </p>
+              <ul class="list-disc list-inside space-y-1 text-gray-600">
+                <li><strong>General Maths:</strong> Focuses on universal logic and problem-solving skills.</li>
+                <li><strong>Advance Maths:</strong> Prepares students for higher-level competitive challenges.</li>
+              </ul>
+            </div>
+            
+            <hr>
+
+            <div>
+              <i data-lucide="book-marked" class="w-10 h-10 text-primary mb-2"></i>
+              <h4 class="text-2xl font-bold text-primary">State Syllabus Mastery (AP)</h4>
+              <p class="text-gray-600 mt-2">
+                Alongside general aptitude, we provide dedicated, class-wise, and lesson-wise practice tests that align perfectly with the Andhra Pradesh state syllabus, helping students excel in their school exams.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <!-- MODIFIED: Reduced margin-top from mt-12 to mt-8 -->
+    <section class="mt-8">
+      <h3 class="text-3xl font-bold text-center text-primary mb-10">The Path to Mastery</h3>
+      <div class="grid lg:grid-cols-3 gap-8 text-center">
+
+        <!-- Step 1: Mastery Progression -->
+        <div class="bg-white rounded-lg p-8 shadow-lg">
+          <i data-lucide="trending-up" class="w-16 h-16 text-accent mx-auto mb-4"></i>
+          <h4 class="text-xl font-bold mb-2">1. Mastery Progression</h4>
+          <p class="text-gray-600">To unlock the next test, a student must score <strong>95% or more</strong> on the current one. This ensures slow, steady, and confirmed learning, not just rushing through.
+          </p>
+        </div>
+
+        <!-- Step 2: The "TC Score" -->
+        <div class="bg-white rounded-lg p-8 shadow-lg">
+          <i data-lucide="star" class="w-16 h-16 text-yellow-500 mx-auto mb-4"></i>
+          <h4 class="text-xl font-bold mb-2">2. The "TC Score"</h4>
+          <p class="text-gray-600">We provide a "TC Score" (Talent Competition Score) that updates with quiz performance. This score allows parents and students to easily track talent and progress daily.
+          </p>
+        </div>
+
+        <!-- Step 3: 24/7 Support -->
+        <div class="bg-white rounded-lg p-8 shadow-lg">
+          <i data-lucide="headset" class="w-16 h-16 text-secondary mx-auto mb-4"></i>
+          <h4 class="text-xl font-bold mb-2">3. 24/7 Full Support</h4>
+          <p class="text-gray-600">
+            If students have doubts, they can call us directly for support. Our team also makes proactive calls to guide and help. For more details, please visit our Terms & Conditions.
+          </p>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- New Footer -->
+  <!-- MODIFIED: Reduced margin-top from mt-12 to mt-8 -->
+  <footer class="bg-dark text-gray-200 mt-8 pt-16 pb-8">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+        
+        <!-- Column 1: About & Contact -->
+        <div class="md:col-span-1 space-y-4">
+          <div class="flex items-center space-x-2">
+              <img src="https://i.postimg.cc/C1Xnmwg9/veda-logo.jpg" alt="Logo" class="w-10 h-10 rounded-full bg-white p-1">
+              <h3 class="text-xl font-bold text-white uppercase">Sri Veda Talent</h3>
+          </div>
+          <p class="text-gray-300 text-sm">
+            Dedicating our time to improving student knowledge and building future-ready skills.
+          </p>
+          <div class="space-y-2">
+            <p class="flex items-center">
+              <i data-lucide="phone" class="w-4 h-4 mr-3 text-gray-400"></i>
+              <a href="tel:+918985170500" class="hover:text-white text-sm">+91 89851 70500</a>
+            </p>
+            <p class="flex items-center">
+              <i data-lucide="mail" class="w-4 h-4 mr-3 text-gray-400"></i>
+              <a href="mailto:CONTACT.SRIVEDA@GMAIL.COM" class="hover:text-white text-sm">contact.sriveda@gmail.com</a>
+            </p>
+          </div>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div class="space-y-4">
+          <h4 class="text-lg font-bold text-white uppercase tracking-wider">Quick Links</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://www.svtc.life/home" target="_blank" class="text-gray-300 hover:text-white hover:underline">HOME</a></li>
+            <li><a href="https://www.svtc.life/https://www.svtc.life/join-now" target="_blank" class="text-gray-300 hover:text-white hover:underline">JOIN NOW</a></li>
+            <li><a href="https://www.svtc.life/pricing" target="_blank" class="text-gray-300 hover:text-white hover:underline">PRICING</a></li>
+            <li><a href="https://www.svtc.life/connect" target="_blank" class="text-gray-300 hover:text-white hover:underline">CONNECT</a></li>
+            <li><a href="https://www.svtc.life/contact" target="_blank" class="text-gray-300 hover:text-white hover:underline">CONTACT</a></li>
+            <li><a href="https://www.svtc.life/about-us" target="_blank" class="text-gray-300 hover:text-white hover:underline">ABOUT US</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Legal & Support -->
+        <div class="space-y-4">
+          <h4 class="text-lg font-bold text-white uppercase tracking-wider">Support</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://www.svtc.life/terms-privacy" target="_blank" class="text-gray-300 hover:text-white hover:underline">Terms & Privacy</a></li>
+            <li><a href="https://www.svtc.life/contact" target="_blank" class="text-gray-300 hover:text-white hover:underline">Help Center</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Social Media -->
+        <div class="space-y-4">
+          <h4 class="text-lg font-bold text-white uppercase tracking-wider">Follow Us</h4>
+          <div class="flex space-x-5">
+            <a href="http://wa.me/918985170500" target="_blank" class="text-gray-300 hover:text-green-400 transition transform hover:scale-110" aria-label="WhatsApp">
+              <i data-lucide="message-circle" class="w-7 h-7"></i>
+            </a>
+            <a href="https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=zreta93" target="_blank" class="text-gray-300 hover:text-pink-400 transition transform hover:scale-110" aria-label="Instagram">
+              <i data-lucide="instagram" class="w-7 h-7"></i>
+            </a>
+            <a href="https://www.facebook.com/share/1ZXXCLRGwh" target="_blank" class="text-gray-300 hover:text-blue-400 transition transform hover:scale-110" aria-label="Facebook">
+              <i data-lucide="facebook" class="w-7 h-7"></i>
+            </a>
+            <a href="httpst://t.me/srivedatc" target="_blank" class="text-gray-300 hover:text-blue-300 transition transform hover:scale-110" aria-label="Telegram">
+              <i data-lucide="send" class="w-7 h-7"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+      
+      <!-- Copyright Bottom Bar -->
+      <div class="border-t border-gray-700 pt-6 text-center text-gray-400 text-xs">
+        © <span id="year"></span> Sri Veda Talent Competition. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    lucide.createIcons();
+  </script>
+</body>
+</html>
+
+
+
+
