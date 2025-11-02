@@ -15,29 +15,16 @@
       font-family: "Sitka Small", "Sitka", "Poppins", sans-serif;
       font-weight: 600; /* Semibold */
       
-      /* Removed animated gradient, set to a simple light color */
       background: #f4f7f6; /* A light, clean background */
       min-height: 100vh;
-      /* Removed padding-top, as header is now sticky */
       padding-bottom: 2rem;
     }
     
-    /* Removed the gradientBG keyframes as they are no longer used */
-    /*
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    */
-
     .form-container {
       animation: fadeInUp 0.8s ease both;
-      transition: opacity 0.3s ease, transform 0.3s ease, padding 0.3s ease; /* Added padding transition */
-      /* Centering the container with margin auto */
+      transition: opacity 0.3s ease, transform 0.3s ease, padding 0.3s ease;
       margin: 0 auto;
-      /* Removed padding-top as header is no longer sticky */
-      padding: 0 0.5rem 2rem; /* Removed padding-top */
+      padding: 0 0.5rem 2rem;
     }
 
     @keyframes fadeInUp {
@@ -45,18 +32,13 @@
       to { opacity: 1; transform: translateY(0); }
     }
     
-    /* Animation class for the success message */
-    .animate-fadeInUp {
-        animation: fadeInUp 0.8s ease both;
-    }
-
     /* Custom input styling for focus and look */
     .styled-input {
       transition: all 0.3s ease;
       background-color: #f9fafb;
       border: 2px solid #e5e7eb;
-      padding: 0.5rem 0.75rem; /* Decreased padding further */
-      font-size: 0.90rem; /* Decreased font size further */
+      padding: 0.5rem 0.75rem;
+      font-size: 0.90rem;
     }
     .styled-input:focus {
       border-color: #2563eb; /* Blue 600 */
@@ -106,22 +88,13 @@
         color: #1f2937; /* text-gray-800 */
         font-size: 1.1rem;
     }
-
-    /* New class to center the final success message */
-    .center-content {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding-top: 0; /* Reset padding when centering */
-    }
   </style>
 </head>
 <body class="antialiased">
 
-  <!-- Header (Now scrolls with page) -->
-  <!-- Updated header: Removed sticky, top-0, z-50. Added mb-6 (margin-bottom) -->
-  <header id="formHeader" class="w-full p-4 shadow-lg border-b-4 border-blue-500 bg-gradient-to-r from-[#e0f2fe] via-[#dcfce7] to-[#f3e8ff] mb-6">
-    <div class="max-w-4xl mx-auto flex items-center space-x-4"> <!-- Decreased max-w-5xl to max-w-4xl -->
+  <!-- Header: Removed mb-6 to attach navigation -->
+  <header id="formHeader" class="w-full p-4 shadow-lg border-b-4 border-blue-500 bg-gradient-to-r from-[#e0f2fe] via-[#dcfce7] to-[#f3e8ff]">
+    <div class="max-w-4xl mx-auto flex items-center space-x-4">
       <!-- Circular Logo -->
       <img  
         src="https://i.postimg.cc/GLhP3pS3/veda-logo.jpg"  
@@ -131,17 +104,43 @@
       >
       <!-- Titles -->
       <div>
-        <h2 class="text-lg md:text-2xl font-extrabold text-gray-800 tracking-tight">Sri Veda Talent Competition</h2> <!-- Decreased text size -->
-        <h3 class="text-base md:text-lg font-semibold text-blue-700">Student Registration</h3> <!-- Decreased text size -->
+        <h2 class="text-lg md:text-2xl font-extrabold text-gray-800 tracking-tight">Sri Veda Talent Competition</h2>
+        <h3 class="text-base md:text-lg font-semibold text-blue-700">Student Registration</h3>
       </div>
     </div>
   </header>
 
+  <!-- NEW NAVIGATION BAR (Attached to header, unique colors) -->
+  <nav id="mainNav" class="w-full bg-white shadow-xl sticky top-0 z-40 mb-4 border-t border-gray-100">
+    <div class="max-w-4xl mx-auto flex flex-wrap justify-between md:justify-around items-center p-2 md:p-3 space-y-1 md:space-y-0">
+        <!-- Button 1: Home (Blue) -->
+        <a href="https://www.svtc.life" target="_blank" class="w-full md:w-auto text-center px-4 py-2 text-sm font-bold rounded-full transition duration-150 shadow-sm
+            bg-blue-50 text-blue-700 hover:bg-blue-100 hover:text-blue-800">
+            Home
+        </a>
+        <!-- Button 2: Join Now (Green) -->
+        <a href="https://www.svtc.life/Join%20now.html" target="_blank" class="w-full md:w-auto text-center px-4 py-2 text-sm font-bold rounded-full transition duration-150 shadow-sm
+            bg-green-50 text-green-700 hover:bg-green-100 hover:text-green-800">
+            Join Now
+        </a>
+        <!-- Button 3: Dashboard (Purple) -->
+        <a href="https://www.svtc.life/Dashboard.html" target="_blank" class="w-full md:w-auto text-center px-4 py-2 text-sm font-bold rounded-full transition duration-150 shadow-sm
+            bg-purple-50 text-purple-700 hover:bg-purple-100 hover:text-purple-800">
+            Dashboard
+        </a>
+        <!-- Button 4: Connect (Indigo) -->
+        <a href="https://www.svtc.life/connect.html" target="_blank" class="w-full md:w-auto text-center px-4 py-2 text-sm font-bold rounded-full transition duration-150 shadow-sm
+            bg-indigo-50 text-indigo-700 hover:bg-indigo-100 hover:text-indigo-800">
+            Connect
+        </a>
+    </div>
+  </nav>
+
   <!-- Main Container -->
-  <div class="form-container w-full max-w-4xl"> <!-- Decreased max-w-5xl to max-w-4xl -->
+  <div class="form-container w-full max-w-4xl">
     
     <!-- New Instructions Box (Visible only with the form) -->
-    <div id="instructionBox" class="bg-yellow-50 border-l-4 border-yellow-500 text-yellow-800 p-4 rounded-lg shadow-md mb-6 max-w-4xl mx-auto px-4"> <!-- Decreased max-w-5xl to max-w-4xl -->
+    <div id="instructionBox" class="bg-yellow-50 border-l-4 border-yellow-500 text-yellow-800 p-4 rounded-lg shadow-md mb-6 max-w-4xl mx-auto px-4">
       <p class="font-bold text-lg mb-2 flex items-center">
         <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
         Important Instructions for Registration
@@ -157,20 +156,20 @@
     </div>
     
     <!-- 1. The main form content (Visible initially) -->
-    <main id="formContent" class="px-4 max-w-4xl mx-auto"> <!-- Decreased max-w-5xl to max-w-4xl -->
+    <main id="formContent" class="px-4 max-w-4xl mx-auto">
       <form id="registrationForm" class="space-y-6" novalidate>
         
         <!-- Student Details -->
         <fieldset class="bg-white p-6 md:p-8 rounded-xl shadow-2xl border-t-4 border-indigo-400">
-          <legend class="text-lg font-semibold text-indigo-700 px-4 py-2 rounded-lg border bg-indigo-50 border-indigo-300 mb-6 flex items-center">Student Details</legend> <!-- Decreased text-xl to text-lg -->
+          <legend class="text-lg font-semibold text-indigo-700 px-4 py-2 rounded-lg border bg-indigo-50 border-indigo-300 mb-6 flex items-center">Student Details</legend>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             
             <div>
-              <label for="full_name" class="block text-sm font-medium text-gray-700 font-bold">Full Name *</label>
+              <label for="full_name" class="block text-sm font-medium text-gray-700 font-bold">Full Name</label>
               <input type="text" id="full_name" name="full_name" required class="styled-input mt-1 block w-full rounded-lg shadow-sm">
             </div>
             <div>
-              <label for="present_class" class="block text-sm font-medium text-gray-700 font-bold">Present Class *</label>
+              <label for="present_class" class="block text-sm font-medium text-gray-700 font-bold">Present Class</label>
               <select id="present_class" name="present_class" required class="styled-input mt-1 block w-full rounded-lg shadow-sm">
                 <option value="">-- Select Class --</option>
                 <option value="3rd Class">3rd Class</option>
@@ -204,15 +203,15 @@
         
         <!-- Contact Details -->
         <fieldset class="bg-white p-6 md:p-8 rounded-xl shadow-2xl border-t-4 border-green-400">
-          <legend class="text-lg font-semibold text-green-700 px-4 py-2 rounded-lg border bg-green-50 border-green-300 mb-6 flex items-center">Parent & Contact Information</legend> <!-- Decreased text-xl to text-lg -->
+          <legend class="text-lg font-semibold text-green-700 px-4 py-2 rounded-lg border bg-green-50 border-green-300 mb-6 flex items-center">Parent & Contact Information</legend>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             
             <div>
-              <label for="parent_name" class="block text-sm font-medium text-gray-700 font-bold">Father / Mother Name *</label>
+              <label for="parent_name" class="block text-sm font-medium text-gray-700 font-bold">Father / Mother Name</label>
               <input type="text" id="parent_name" name="parent_name" required class="styled-input mt-1 block w-full rounded-lg shadow-sm">
             </div>
             <div>
-              <label for="parent_number" class="block text-sm font-medium text-gray-700 font-bold">Parent’s Number *</label>
+              <label for="parent_number" class="block text-sm font-medium text-gray-700 font-bold">Parent’s Number</label>
               <input type="text" id="parent_number" name="parent_number" required class="styled-input mt-1 block w-full rounded-lg shadow-sm">
             </div>
 
@@ -227,7 +226,7 @@
 
         <!-- Academic Details -->
         <fieldset class="bg-white p-6 md:p-8 rounded-xl shadow-2xl border-t-4 border-purple-400">
-          <legend class="text-lg font-semibold text-purple-700 px-4 py-2 rounded-lg border bg-purple-50 border-purple-300 mb-6 flex items-center">Academic Details</legend> <!-- Decreased text-xl to text-lg -->
+          <legend class="text-lg font-semibold text-purple-700 px-4 py-2 rounded-lg border bg-purple-50 border-purple-300 mb-6 flex items-center">Academic Details</legend>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
             <div class="md:col-span-2">
@@ -321,7 +320,7 @@
 
         <!-- Location & Aspirations -->
         <fieldset class="bg-white p-6 md:p-8 rounded-xl shadow-2xl border-t-4 border-teal-400">
-          <legend class="text-lg font-semibold text-teal-700 px-4 py-2 rounded-lg border bg-teal-50 border-teal-300 mb-6 flex items-center">Location & Aspirations</legend> <!-- Decreased text-xl to text-lg -->
+          <legend class="text-lg font-semibold text-teal-700 px-4 py-2 rounded-lg border bg-teal-50 border-teal-300 mb-6 flex items-center">Location & Aspirations</legend>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
             <div class="md:col-span-2">
@@ -405,39 +404,38 @@
         </button>
       </div>
     </div>
-
-    <!-- 3. Final Success Message (Hidden initially, centered in body via CSS) -->
-    <div id="finalSuccessMsg" class="bg-white p-8 md:p-12 rounded-xl shadow-2xl border-t-8 border-green-500 text-center hidden" style="max-width: 600px; margin: auto;">
-        <h2 class="text-4xl font-extrabold text-gray-800 mb-3">🎉 Thank You for Registering!</h2>
-        <p class="text-lg text-gray-600 mb-8">We truly appreciate you joining SVTC.</p>
-        
-        <div class="text-left bg-gray-50 p-6 rounded-lg border border-gray-200 space-y-4">
-            <h3 class="text-xl font-bold text-gray-700 mb-3">💬 Next Steps:</h3>
-            <ul class="list-none space-y-3 text-gray-700">
-                <li class="flex items-start">
-                    <span class="text-green-500 mr-3 mt-1">✔</span>
-                    <span>Your login details will be shared with you shortly via message.</span>
-                </li>
-                <li class="flex items-start">
-                    <span class="text-yellow-500 mr-3 mt-1">💡</span>
-                    <span>If you don’t receive it, you can WhatsApp us using only your registered number.</span>
-                </li>
-                 <li class="flex items-start">
-                    <span class="text-blue-500 mr-3 mt-1">🔑</span>
-                    <span>Once you receive your credentials, please log in using the link below.</span>
-                </li>
-            </ul>
-        </div>
-
-        <div class="mt-8">
-            <a href="https://www.svtc.life/dashboard" target="_blank" class="inline-block w-full btn-submit px-8 py-4 bg-blue-600 text-white font-bold text-xl rounded-full shadow-lg hover:bg-blue-700">
-                🔗 Login to Your Dashboard
-            </a>
-        </div>
-    </div>
-
-
   </div>
+
+  <!-- 3. Final Success Message (Simplified and Centered) -->
+  <div id="finalSuccessMsg" class="bg-white p-8 md:p-12 rounded-xl shadow-2xl border-t-8 border-green-500 text-center hidden mx-auto mt-10" style="max-width: 600px;">
+      <h2 class="text-3xl font-bold text-gray-800 mb-4">Registration Successful!</h2>
+      <p class="text-lg text-gray-600 mb-6 font-semibold">
+          Thank you for registering. We will call you shortly to confirm your details. 
+          Please be ready to attempt our call.
+      </p>
+      <ul class="list-none space-y-3 text-gray-700 text-base mb-8 mx-auto text-center max-w-sm">
+          <li class="flex items-start justify-center">
+              <span class="text-green-500 mr-3 mt-1 font-extrabold">✓</span>
+              <span>Your login details will be sent via SMS after confirmation.</span>
+          </li>
+          <li class="flex items-start justify-center">
+              <span class="text-blue-500 mr-3 mt-1 font-extrabold">→</span>
+              <span>You can login to your dashboard using the button below.</span>
+          </li>
+      </ul>
+
+      <div class="flex flex-col space-y-4">
+          <!-- Button 1: Login to Dashboard -->
+          <a href="https://www.svtc.life/Dashboard.html" target="_blank" class="w-full px-8 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition duration-150">
+              Login to Dashboard
+          </a>
+          <!-- Button 2: Go Back Home -->
+          <a href="https://www.svtc.life" target="_blank" class="w-full px-8 py-3 bg-gray-200 text-gray-700 font-semibold rounded-lg shadow-md hover:bg-gray-300 transition duration-150">
+              Go Back Home
+          </a>
+      </div>
+  </div>
+
 
   <script>
     const url ='https://script.google.com/macros/s/AKfycbw6GayIqaCD3y_OgHOmaS_08YcsAwg-Oy02AeK8q8eIBIOV-H2Od-8_WngVyl89Rjc/exec';
@@ -446,35 +444,36 @@
     const form = document.getElementById('registrationForm');
     const formContent = document.getElementById('formContent');
     const formHeader = document.getElementById('formHeader');
-    const instructionBox = document.getElementById('instructionBox'); // Added instruction box reference
+    const instructionBox = document.getElementById('instructionBox');
     const previewContainer = document.getElementById('previewContainer');
     const previewDetails = document.getElementById('previewDetails');
     const previewErrorMsg = document.getElementById('previewErrorMsg');
-    const finalSuccessMsg = document.getElementById('finalSuccessMsg');
     const confirmButton = document.getElementById('confirmButton');
-    const previewButton = document.getElementById('previewButton');
     const formContainer = formContent.parentElement; // Get the main .form-container
+    
+    // NEW SIMPLE SUCCESS MESSAGE REFERENCE
+    const finalSuccessMsg = document.getElementById('finalSuccessMsg');
 
     let currentFormData = null; // To hold form data between preview and submission
 
     // --- State Management Functions ---
 
     function showForm() {
-        // Resetting to an encouraging initial message and showing the instruction box
-        document.body.classList.remove('center-content'); // Allow scrolling
+        // Restore document scrolling
+        document.body.style.overflow = '';
         
         // Restore padding to the form-container
         if (formContainer) {
-            formContainer.style.padding = ''; // Reset to CSS default
+            formContainer.style.padding = '0 0.5rem 2rem'; // Restore original padding
         }
 
         instructionBox.classList.remove('hidden');
         formContent.classList.remove('hidden');
         previewContainer.classList.add('hidden');
-        finalSuccessMsg.classList.add('hidden');
-        finalSuccessMsg.classList.remove('animate-fadeInUp'); // Remove animation class
         previewErrorMsg.classList.add('hidden');
         formHeader.classList.remove('hidden'); // Ensure header is visible
+        document.getElementById('mainNav').classList.remove('hidden'); // Ensure Nav is visible
+        finalSuccessMsg.classList.add('hidden'); // Hide the simple success message
         window.scrollTo(0, 0); // Scroll to top
     }
 
@@ -501,18 +500,18 @@
             'present_class': 'Present Class',
             'gender': 'Gender',
             'dob': 'Date of Birth',
-            'parent_name': 'Parent Name',
-            'parent_number': 'Parent Number',
+            'parent_name': 'Father / Mother Name',
+            'parent_number': 'Parent’s Number',
             'email_id': 'Email ID',
             'school_name': 'School Name',
             'medium': 'Medium',
-            'school_type': 'School Type',
+            'school_type': 'Current School Type',
             'read_write_telugu': 'Read/Write Telugu',
             'read_write_english': 'Read/Write English',
             'read_write_hindi': 'Read/Write Hindi',
             'favorite_subject': 'Favorite Subject',
-            'address': 'Address',
-            'city': 'City / Town',
+            'address': 'House No/Viallage Name',
+            'city': 'Mandal',
             'district': 'District',
             'state': 'State',
             'dream_goal': 'Dream / Goal',
@@ -560,7 +559,6 @@
         }
 
         // Add Terms & Conditions status (This field is required and should always show)
-        // Corrected from 'terms_agreed' to 'agree'
         const termsAgreed = data.get('agree') ? 'Agreed' : 'Not Agreed';
         html += `
             <div class="preview-detail border-t mt-4 pt-4 border-gray-300">
@@ -572,31 +570,29 @@
 
         // 3. Update preview container and show
         
-        // Hiding instructions and updating header text as requested
         instructionBox.classList.add('hidden');
         
         previewDetails.innerHTML = html;
         formContent.classList.add('hidden');
         previewContainer.classList.remove('hidden');
-        finalSuccessMsg.classList.add('hidden');
         window.scrollTo(0, 0); // Scroll to top
     }
 
     function handleSubmissionSuccess() {
-        document.body.classList.add('center-content'); // Add class to center content
-        
-        // Find the form-container and remove its padding for true centering
-        if (formContainer) {
-            formContainer.style.padding = '0'; // Remove padding
-        }
-
+        // 1. Hide all main content
         formContent.classList.add('hidden');
         previewContainer.classList.add('hidden');
-        formHeader.classList.add('hidden'); // Hide the header for a clean center message
-        instructionBox.classList.add('hidden'); // Ensure instructions are also hidden
+        formHeader.classList.add('hidden'); 
+        document.getElementById('mainNav').classList.add('hidden'); 
+        instructionBox.classList.add('hidden'); 
+
+        // 2. Show the simple success message
         finalSuccessMsg.classList.remove('hidden');
-        finalSuccessMsg.classList.add('animate-fadeInUp'); // Add animation
-        window.scrollTo(0, 0); // Scroll to top
+        
+        // 3. Keep body scrolling enabled
+        document.body.style.overflow = ''; 
+
+        window.scrollTo(0, 0); 
     }
     
     // --- Submission Logic ---
@@ -613,9 +609,7 @@
         previewErrorMsg.classList.add('hidden');
 
         try {
-            // With 'no-cors' mode, we "fire and forget". 
-            // We can't await the response or check response.ok.
-            // We assume success if the fetch call itself doesn't throw a network error.
+            // "Fire and forget" submission using no-cors mode
             fetch(url, {
                 method: 'POST',
                 body: currentFormData,
@@ -623,13 +617,12 @@
             });
             
             // Assume success and show the final message immediately.
-            // We add a small delay just to make the "Submitting..." text visible
             setTimeout(() => {
                 handleSubmissionSuccess();
-            }, 500); // 0.5 second delay
+            }, 500); 
 
         } catch (err) {
-            // This will only catch network errors (e.g., user is offline)
+            // Only catches network errors
             console.error('Submission Network Error:', err);
             previewErrorMsg.classList.remove('hidden');
             // Re-enable button on failure
@@ -642,7 +635,7 @@
     form.addEventListener('submit', showPreview);
     confirmButton.addEventListener('click', handleConfirmation);
     document.getElementById('editButton').addEventListener('click', showForm);
-
+    
     // Initial State Setup
     document.addEventListener('DOMContentLoaded', () => {
         showForm(); // Ensure only the form is visible on load and state is correct
