@@ -5,7 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Sri Veda Talent Competition</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- FAVICON UPDATE: Using the new circle logo -->
+    <link rel="icon" type="image/jpeg" href="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg">
+
     <style>
         @keyframes blink { 50% { opacity: 0.5; } }
         .blink { animation: blink 1.2s infinite; }
@@ -31,6 +36,41 @@
             background: linear-gradient(145deg,#fffbeb,#fef3c7,#fde68a);
             color:#44403c;
         }
+
+        /* NEW: Navigation Button Styling - Matches the requested boxed look */
+        .nav-button {
+            display: flex;
+            align-items: center;
+            /* DECREASED SIZE HERE */
+            padding: 0.4rem 0.6rem; /* Reduced padding */
+            color: #1f2937; /* Dark Gray text */
+            background-color: white; /* White background box */
+            border: 2px solid #F59E0B; /* Orange border */
+            border-radius: 9999px; 
+            font-size: 0.75rem; /* Reduced font size */
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.2s ease-in-out;
+            margin: 4px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            flex-shrink: 0;
+        }
+        .nav-button:hover {
+            color: white; 
+            background-color: #F59E0B; /* Orange background on hover */
+            border-color: #4F46E5; /* Indigo border on hover */
+            transform: scale(1.03);
+        }
+        /* Mobile adjustment for navigation buttons (Ensures even smaller size on small screens if needed, but current sizing is good) */
+        @media (max-width: 640px) {
+            .nav-button {
+                flex-grow: 1; /* Allows buttons to fill space better on mobile */
+                justify-content: center;
+                font-size: 0.7rem; /* Slightly smaller on very small screens */
+                padding: 0.35rem 0.5rem; /* Slightly smaller padding */
+            }
+        }
     </style>
 </head>
 <body class="bg-gradient-to-r from-indigo-50 via-white to-pink-50">
@@ -38,8 +78,9 @@
     <header class="relative py-6 shadow-xl" style="background: linear-gradient(120deg, #4F46E5 0%, #D946EF 50%, #DC2626 100%);"> <!-- NEW Vibrant Gradient -->
         <div class="max-w-6xl mx-auto px-4 sm:px-6 flex items-center space-x-4">
             
-            <!-- Logo -->
-            <img src="https://i.postimg.cc/C1Xnmwg9/veda-logo.jpg" alt="Sri Veda Logo" class="header-logo flex-shrink-0">
+            <!-- Logo - UPDATED URL -->
+            <img src="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg" alt="Sri Veda Logo" class="header-logo flex-shrink-0"
+                 onerror="this.onerror=null; this.src='https://i.postimg.cc/C1Xnmwg9/veda-logo.jpg';">
             
             <!-- Titles -->
             <div>
@@ -50,6 +91,32 @@
             </div>
         </div>
     </header>
+
+    <!-- NEW: PRIMARY NAVIGATION BAR (Updated to show only 4 buttons) -->
+    <nav class="bg-indigo-700 py-2 shadow-inner">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <!-- Centered buttons on desktop, wrapping on mobile -->
+            <div class="flex flex-wrap justify-center sm:justify-around -m-1">
+                <!-- 1. Home -->
+                <a href="https://www.svtc.life" class="nav-button">
+                    <i class="fas fa-home mr-1"></i> HOME
+                </a>
+                <!-- 2. Dashboard -->
+                <a href="https://www.svtc.life/Dashboard.html" class="nav-button">
+                    <i class="fas fa-tachometer-alt mr-1"></i> DASHBOARD
+                </a>
+                <!-- 3. Join Now -->
+                <a href="https://www.svtc.life/Join%20now.html" class="nav-button">
+                    <i class="fas fa-user-plus mr-1"></i> JOIN NOW
+                </a>
+                <!-- 4. Connect -->
+                <a href="https://www.svtc.life/connect.html" class="nav-button">
+                    <i class="fas fa-headset mr-1"></i> CONNECT
+                </a>
+            </div>
+        </div>
+    </nav>
+    <!-- END NEW: PRIMARY NAVIGATION BAR -->
 
     <!-- Offer Timer -->
     <section class="max-w-6xl mx-auto mt-8 px-4">
@@ -476,9 +543,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
