@@ -1,2165 +1,611 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>SRI VEDA TALENT COMPETITION — Dashboard</title>
-
-  <!-- Google Font Import for Roboto Slab -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700;800&display=swap" rel="stylesheet">
-  
-  <!-- Font Awesome Icons (needed for social follow) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-
-  <!-- Final combined stylesheet -->
-  <style>
-    :root{
-      --maroon: #8b3a3a;
-      --maroon-2: #6f2e2e;
-      --accent-gradient: linear-gradient(90deg, #89f7fe, #66a6ff);
-      --gold: #ffd700;
-      --page-max-width: 1600px;
-      --lock-color: #6c757d;
-      --login-primary: #3b82f6; /* Blue for Login elements */
-      /* NEW: Custom colors derived from the landing page, adapted for the maroon theme */
-      --sv-blue: var(--maroon);
-      --sv-orange: #FF8C00; 
-      --sv-yellow: var(--gold);
-    }
-
-    /* Base */
-    * { box-sizing:border-box }
-    body {
-      margin:0;
-      font-family: 'Roboto Slab', serif;
-      background: linear-gradient(160deg, #ffffff 50%, #fdf8f8 100%);
-      color:#222;
-      min-height: 100vh; /* Ensure full viewport height for centering login */
-    }
-    a { color:inherit; text-decoration: none; }
-
-    /* Login Screen Container */
-    #loginScreen {
-      position: relative; /* Changed from fixed */
-      width: 100%;
-      height: auto; /* Changed from 100% */
-      min-height: calc(100vh - 100px); /* Ensure space below header */
-      
-      /* MODIFIED: Updated gradient and animation for a more "live" feel */
-      background: linear-gradient(135deg, #6f2e2e, #a47b7b, #8b3a3a, #f7dada, #6f2e2e);
-      background-size: 400% 400%; /* Make gradient larger for smoother animation */
-      animation: gradientShift 12s ease infinite; /* Apply animation */
-      
-      display: flex;
-      /* MODIFIED: Centered card vertically within the remaining space */
-      align-items: center; 
-      padding-top: 3rem; 
-      padding-bottom: 3rem; 
-      justify-content: center;
-      z-index: 1000;
-      overflow-y: auto; /* Allow scrolling on small devices */
-    }
-
-    .login-card {
-      background: #fff;
-      padding: 30px 35px; /* Increased horizontal padding */
-      border-radius: 16px;
-      /* MODIFIED: Deeper, more impressive shadow */
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1), 0 5px 10px rgba(0, 0, 0, 0.05);
-      width: 90%;
-      /* MODIFIED: Decreased max-width */
-      max-width: 350px; 
-      animation: fadeIn .4s ease-out;
-      border: 1px solid #f0f0f0; /* Added subtle border */
-    }
-
-    .login-branding {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-bottom: 20px; /* Add space below branding */
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sri Veda Talent Competition</title>
     
-    .login-logo {
-        width: 80px; /* Same max size as header logo */
-        height: 80px;
-        border-radius: 50%;
-        border: 3px solid var(--maroon-2); /* Use maroon border */
-        margin-bottom: 10px;
-    }
+    <!-- Tailwind CSS --><script src="https://cdn.tailwindcss.com"></script>
     
-    .login-brand-title {
-        font-size: 1.2rem; /* A bit smaller than the main title */
-        font-weight: 700;
-        color: var(--maroon);
-        text-align: center;
-        text-transform: uppercase;
-        line-height: 1.3;
-    }
+    <!-- Google Fonts - Roboto Slab --><link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700;900&display=swap" rel="stylesheet">
     
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(-10px); }
-        to { opacity: 1, transform: translateY(0); }
-    }
-    
-    @keyframes gradientShift {
-        0% { background-position: 0% 0%; }
-        50% { background-position: 100% 100%; }
-        100% { background-position: 0% 0%; }
-    }
+    <!-- Font Awesome Icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    .login-card h2 {
-      text-align: center;
-      margin: 0 0 10px;
-      color: var(--maroon);
-      font-size: 1.5rem;
-      font-weight: 700;
-    }
-    .login-card p {
-      text-align: center;
-      margin: 0 0 25px;
-      color: #555;
-      font-size: 1rem;
-    }
-    
-    .login-input {
-      width: 100%;
-      padding: 14px 16px;
-      margin-bottom: 15px;
-      border: 2px solid #ddd;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-family: 'Roboto Slab', serif;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-    .login-input:focus {
-      outline: none;
-      border-color: var(--maroon);
-      box-shadow: 0 0 0 3px rgba(139, 58, 58, 0.2);
-    }
-    
-    .login-btn-submit {
-      width: 100%;
-      padding: 12px; 
-      border: none;
-      border-radius: 8px;
-      background: linear-gradient(135deg, var(--maroon), var(--maroon-2));
-      color: #fff;
-      font-size: 1rem; 
-      font-weight: 800;
-      cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-    }
-    .login-btn-submit:hover:not(:disabled) {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(139, 58, 58, 0.4);
-    }
-    .login-btn-submit:disabled {
-      background: #c79a9a;
-      cursor: not-allowed;
-    }
+    <!-- Favicon: Added the Veda logo for the browser tab -->
+    <link rel="icon" type="image/jpeg" href="https://contactsriveda-debug.github.io/images/veda-logo.jpg">
 
-    .status-box {
-      padding: 12px 16px;
-      margin-bottom: 15px;
-      border-radius: 8px;
-      font-size: 0.95rem;
-      border: 1px solid;
-    }
-    .hidden { display: none !important; }
-    .status-error {
-        background: #fff1f2;
-        color: #e11d48;
-    }
-    .status-success {
-        background: #f0fdf4;
-        color: #22c55e;
-    }
+    <style>
+        /* Custom Styles */
+        :root {
+            --sv-blue: #00008B; /* Dark Blue */
+            --sv-orange: #FF8C00; /* Dark Orange */
+            --sv-yellow: #FFD700; /* Gold/Yellow */
+            --sv-maroon: #800000; /* Maroon */
+        }
+        
+        /* Apply Roboto Slab universally to the entire page */
+        body {
+            font-family: 'Roboto Slab', serif;
+        }
+        
+        /* Utility Classes */
+        .bg-sv-blue { background-color: var(--sv-blue); }
+        .text-sv-blue { color: var(--sv-blue); }
+        .bg-sv-orange { background-color: var(--sv-orange); }
+        .text-sv-orange { color: var(--sv-orange); }
+        .bg-sv-yellow { background-color: var(--sv-yellow); }
+        .text-sv-yellow { color: var(--sv-yellow); }
+        
+        .hover\:shadow-sv-yellow\/50:hover {
+            box-shadow: 0 10px 15px -3px var(--sv-yellow), 0 4px 6px -4px var(--sv-yellow);
+        }
 
-    .register-link-container {
-        text-align: center;
-        margin-top: 20px;
-    }
-    .register-link-btn {
-        display: inline-block;
-        padding: 10px 16px;
-        background: #fdf8f8; /* Light maroon-ish white */
-        color: var(--maroon-2); /* Maroon text */
-        border-radius: 8px;
-        font-weight: 700;
-        text-decoration: none;
-        font-size: 0.95rem;
-        border: 1px solid var(--maroon); /* Maroon border */
-        transition: background 0.2s, box-shadow 0.2s, color 0.2s;
-    }
-    .register-link-btn:hover {
-        background: var(--maroon);
-        color: #fff;
-        box-shadow: 0 2px 8px rgba(139, 58, 58, 0.3);
-    }
+        /* Scrolling Text Animation */
+        .scrolling-text-container {
+            width: 100%;
+            overflow: hidden;
+            padding: 8px 0;
+        }
+        .scrolling-text {
+            display: inline-block;
+            white-space: nowrap;
+            padding-left: 100%;
+            animation: scroll-left 40s linear infinite;
+        }
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(0%);
+            }
+            100% {
+                transform: translateX(-200%);
+            }
+        }
 
-    .loading-spinner {
-        animation: spin 1s linear infinite;
-        width: 20px; /* Set fixed size for the spinner */
-        height: 20px;
-    }
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
+        /* Custom Button Style for Exams/Courses */
+        .course-button {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            margin: 0.25rem;
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #333;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .course-button:hover {
+            background-color: var(--sv-orange);
+            color: white;
+            border-color: var(--sv-orange);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        /* Standard CTA Button */
+        .cta-button {
+            display: inline-block;
+            background-color: var(--sv-orange);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            font-size: 1.125rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-align: center;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(255, 140, 0, 0.4);
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            background-color: #e67e00;
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(255, 140, 0, 0.6);
+        }
+        
+        /* Secondary CTA Button */
+        .cta-button-secondary {
+            display: inline-block;
+            background-color: var(--sv-blue);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            font-size: 1.125rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-align: center;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 139, 0.3);
+            transition: all 0.3s ease;
+        }
+        .cta-button-secondary:hover {
+            background-color: #0000cd;
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 139, 0.5);
+        }
+        
+        /* Final Large CTA Button */
+        .cta-button-large {
+            display: inline-block;
+            background-color: var(--sv-blue);
+            color: white;
+            padding: 0.8rem 2.5rem;
+            border-radius: 9999px;
+            font-size: 1.25rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            text-align: center;
+            text-decoration: none;
+            box-shadow: 0 8px 15px rgba(0, 0, 139, 0.5);
+            transition: all 0.3s ease;
+        }
+        .cta-button-large:hover {
+            background-color: #0000cd;
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 139, 0.8);
+        }
 
-    /* HEADER (NEW STYLES APPLIED) */
-    .top-header {
-        background-color: var(--sv-blue); /* Use Maroon for the background */
-        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        color: #fff;
-        padding: 1rem 0;
-        /* REMOVED position: sticky; top: 0; */
-        z-index: 2000; /* Ensure it stays above everything */
-        overflow: hidden; /* FIX: Clip the flower flourishes to remove unwanted lines */
-    }
+        /* NEW: Navigation Button Style for the main navbar - Modified for persistent background box */
+        .nav-button {
+            display: flex;
+            align-items: center;
+            padding: 0.6rem 1.2rem;
+            color: var(--sv-blue); /* Dark blue text on white background */
+            background-color: white; /* White background box added */
+            border: 2px solid var(--sv-orange); /* Orange border for definition */
+            border-radius: 9999px; /* Fully rounded like other CTAs */
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin: 4px 0; /* Vertical margin for wrap on mobile */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for lift */
+        }
+        .nav-button:hover {
+            color: white; /* White text on hover */
+            background-color: var(--sv-orange); /* Orange background on hover */
+            border-color: var(--sv-blue); /* Blue border on hover */
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(255, 140, 0, 0.6);
+        }
+        /* Ensure the button links are responsive for smaller screens */
+        @media (max-width: 640px) {
+            .nav-button {
+                flex-grow: 1; /* Makes buttons grow to fill space */
+                justify-content: center;
+                margin: 4px 2px;
+                font-size: 0.8rem;
+                padding: 0.4rem 0.8rem;
+            }
+        }
 
-    .top-header .header-content {
-        max-width: var(--page-max-width);
-        margin: auto;
-        padding: 0 1rem;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-between;
-        gap: 1rem;
-        position: relative; /* Context for z-index of time/logout */
-        z-index: 200; /* Ensure content is above flourishes */
-    }
-    
-    .title-logo-block { 
-        display: flex;
-        align-items: center;
-        gap: 0.8rem;
-        flex-grow: 1; /* Allow to take space */
-        z-index: 250; /* Z-index fix for logo area */
-    }
-
-    .logo { 
-        width: 70px; /* Slightly reduced size */
-        height: 70px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 3px solid var(--sv-yellow); /* Gold border */
-        flex-shrink: 0;
-        z-index: 250; /* Z-index fix for logo area */
-    }
-
-    .title-text { 
-        display: flex;
-        flex-direction: column;
-        line-height: 1.2;
-    }
-    .title-text .title { 
-        font-size: clamp(1.4rem, 2.5vw, 1.8rem); /* Slightly smaller title */
-        font-weight: 800;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        color: var(--sv-yellow); /* Title in Gold */
-    }
-    .title-text .subtitle { 
-        font-size: clamp(0.8rem, 1.2vw, 1rem); 
-        color: #fffbe6;
-        font-weight: 500;
-        margin-top: 4px;
-    }
-
-    /* Right Group Styles (Timer/Logout) */
-    .right-group { 
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        flex-shrink: 0;
-        flex-wrap: wrap;
-        justify-content: flex-end;
-    }
-    .timestamp, .session-timer { 
-        padding: .35rem .55rem;
-        border-radius: 8px;
-        font-size: clamp(.78rem,.95vw,.88rem);
-        font-weight: 600;
-    }
-    /* Adjusted colors to fit the maroon/gold theme */
-    .timestamp { background: linear-gradient(135deg, #a54f4f, #c0392b); color: #fff; }
-    .session-timer { background: linear-gradient(135deg, #b8860b, #ffd700); color: var(--maroon-2); }
-    .logout-btn { 
-        padding: .35rem .7rem;
-        border-radius: 8px;
-        border: none;
-        background: var(--sv-orange); /* Orange button */
-        color: #fff;
-        font-weight: 700;
-        cursor: pointer;
-        font-size: clamp(.78rem,.95vw,.92rem);
-        transition: background 0.2s;
-    }
-    .logout-btn:hover { background-color: #e67e00; }
-    
-    /* Flower/Vine SVG Styles */
-    .flower-flourish {
-        width: clamp(3rem, 6vw, 4rem); /* w-12/w-16 equivalent */
-        height: clamp(3rem, 6vw, 4rem); /* h-12/h-16 equivalent */
-        text-color: var(--sv-yellow); /* Gold */
-        position: absolute;
-        z-index: 100; /* MODIFIED: Set z-index lower than header content (200) */
-        fill: var(--sv-yellow); /* Set fill color */
-        /* Adjusted positioning to prevent bleeding outside the header due to overflow: hidden */
-    }
-    /* REMOVED: position: sticky; */
-
-    /* NEW: Free Test Promo Section Style */
-    .free-test-promo-section {
-        max-width: var(--page-max-width);
-        margin: 30px auto;
-        padding: 20px 16px;
-        text-align: center;
-    }
-    .free-test-promo-section h3 {
-        font-size: clamp(1.4rem, 2.5vw, 1.8rem);
-        color: var(--maroon-2);
-        margin-bottom: 8px;
-        font-weight: 800;
-        text-shadow: 1px 1px 1px rgba(0,0,0,0.05);
-    }
-    .free-test-promo-section p {
-        max-width: 700px;
-        margin: 0.5rem auto 1.5rem auto;
-        font-size: 1rem;
-        line-height: 1.5;
-        color: #333;
-    }
-    .free-test-promo-section button {
-        padding: 12px 25px;
-        border: none;
-        border-radius: 10px;
-        background: linear-gradient(135deg, #1e6b34, #4caf50); /* Green gradient */
-        color: #fff;
-        font-size: 1.05rem;
-        font-weight: 800;
-        cursor: pointer;
-        transition: transform 0.2s, box-shadow 0.2s;
-        box-shadow: 0 4px 10px rgba(76, 175, 80, 0.3);
-    }
-    .free-test-promo-section button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 15px rgba(76, 175, 80, 0.4);
-    }
-
-
-    /* Welcome area + top stars (first star gold) */
-    .welcome-stars { display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;max-width:var(--page-max-width);margin:10px auto;padding:0 20px;color:#6f2e2e }
-    .welcome { font-size:clamp(14px,2vw,20px) }
-    .welcome .student-name { color:#b33030;font-weight:700 }
-    .stars-btn { display:flex;gap:6px }
-    .stars-btn .star { width:clamp(14px,2vw,22px);height:clamp(14px,2vw,22px);clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%) }
-    .stars-btn .star:first-child { background:linear-gradient(135deg,var(--gold),#ffb84d);box-shadow:0 4px 10px rgba(255,184,0,0.22) }
-    .stars-btn .star:nth-child(2) { background:#e5e4e2 }
-    .stars-btn .star:nth-child(3) { background:linear-gradient(135deg,#e5e4e2,#b9f2ff) }
-
-    /* TC Panel */
-    .tc-panel-wrap { max-width:var(--page-max-width);margin:20px auto;padding:0 16px }
-    .tc-panel { display:flex;gap:14px;align-items:center;justify-content:space-between;background:linear-gradient(180deg,#fff,#fafafa);border-radius:14px;padding:14px;flex-wrap:wrap }
-    /* MODIFIED: Reduced circle size to 80px min / 100px max */
-    .tc-score { --size:clamp(80px,10vw,100px);width:var(--size);height:var(--size);border-radius:50%;display:grid;place-items:center;position:relative }
-    .tc-ring { position:absolute;inset:0;border-radius:50%;transform:rotate(-90deg);transition:background .3s linear;box-shadow:0 8px 20px rgba(0,0,0,0.08), inset 0 6px 18px rgba(255,255,255,0.25) }
-    .tc-inner { position:relative;z-index:2;width:82%;height:82%;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-direction:column;background:radial-gradient(circle at top,#fff 60%,#f6f6f6) }
-    /* MODIFIED: Reduced h2 font size to fit smaller circle */
-    .tc-inner h2 { font-size:clamp(16px,2vw,20px);margin:0 }
-    /* MODIFIED: Reduced margin-top */
-    .tc-inner small { display:block;color:#777;margin-top:4px }
-    /* MODIFIED: Reduced margin-top */
-    .tc-label { width:100%;text-align:center;margin-top:6px;font-size:clamp(16px,2vw,20px);color:#6f2e2e;font-weight:700 }
-
-    /* MODIFIED: Reduced padding-left */
-    .tc-actions { flex:1;min-width:260px;padding-left:4px }
-    .tc-actions h3 { margin:0 0 8px 0;font-size:18px;color:#333 }
-    /* MODIFIED: Reduced gap */
-    .tc-actions ul { list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px }
-    /* MODIFIED: Changed min-width to use flex-basis (180px) so items are dynamically sized and wrap better on small devices. */
-    /* MODIFIED: Reduced padding and gap */
-    .tc-actions li { background:#fff;padding:8px 10px;border-radius:10px;flex: 1 1 180px;display:flex;align-items:flex-start;gap:8px } 
-    .dot.daily { background:#ffb74d }.dot.openpractice { background:#4caf50 }.dot.completecourse { background:#42a5f5 }.dot.weekly { background:#ba68c8 }.dot.monthly { background:#9575cd }
-    .tc-actions li strong { display:block;font-size:14px;color:#222 }
-    .tc-actions li small { color:#666;display:block;margin-top:4px }
-
-    /* TESTS - simplified cards (no heavy backgrounds/shadows), reduced size */
-    .live-tests { width:100%;padding:18px 0;background:transparent }
-    .tests-inner { max-width:var(--page-max-width);margin:0 auto;padding:0 12px }
-    /* Updated test-row to center the single card */
-    .test-row { display:flex;justify-content:center;flex-wrap:wrap;gap:14px }
-    .test-card { background:#fff;border-radius:12px;padding:14px;box-shadow:none;min-height:150px;position:relative;overflow:hidden;transition:transform .18s ease;width:clamp(300px, 100%, 380px) }
-    .test-card:hover { transform:translateY(-6px) }
-    .live-badge { position:absolute;top:10px;right:10px;background:#b33030;color:#fff;padding:6px 8px;border-radius:8px;font-weight:800;font-size:.78rem }
-    .test-card h3 { margin:10px 0;font-size:1.03rem;color:var(--maroon) }
-    .test-lead { font-size:.95rem;color:#3d3d3d;line-height:1.45;margin-bottom:10px;font-weight:600 }
-    .card-actions { display:flex;gap:10px;align-items:center }
-    .btn-test { background:linear-gradient(135deg,#009688,#00e0b3);color:#fff;border:none;padding:9px 14px;border-radius:10px;font-weight:800;cursor:pointer;font-size:.92rem;display: flex; align-items: center; justify-content: center; gap: 6px; } /* ADDED flex and gap for icon */
-    .details-link { font-weight:700;color:#6f2e2e;text-decoration:underline;cursor:pointer;font-size:.92rem }
-
-    /* Student Report (score bar + stats + 3 stars where first is gold) */
-    /* MODIFIED: Reduced top/bottom margin from 28px to 18px */
-    .student-report { max-width:var(--page-max-width);margin:18px auto;padding:0 16px }
-    .sr-box { background:#fff;border-radius:14px;padding:18px;overflow:hidden }
-    /* Score bar and stars removed */
-    .score-bar { display:none; }
-    .sr-stars { display:none; }
-
-    /* New Plan Promotion Box */
-    .plan-promo-box {
-      background: linear-gradient(135deg, #fffcf0, #fff3b2); /* Light gold/yellow background */
-      border: 2px solid var(--gold);
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 25px; /* Space above stats */
-      text-align: center;
-      box-shadow: 0 5px 15px rgba(255, 215, 0, 0.2);
-    }
-    .plan-promo-box h3 {
-      font-size: clamp(1.1rem, 1.8vw, 1.4rem);
-      color: var(--maroon-2);
-      margin-top: 0;
-      margin-bottom: 15px;
-      font-weight: 800;
-    }
-    .plan-actions-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      align-items: stretch; /* Ensures the cards stretch to equal height */
-    }
-    .plan-action-card {
-      flex: 1 1 280px; /* Adjusted size for three columns */
-      background: #fff;
-      padding: 15px;
-      border-radius: 8px;
-      border: 1px solid #ffeb8d;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-      display: flex; /* NEW: Enable flex on the card to align content */
-      flex-direction: column; /* NEW: Stack content vertically */
-      justify-content: space-between; /* NEW: Pushes the button to the bottom */
-    }
-    .plan-action-card p {
-      font-size: 0.95rem;
-      color: #555;
-      margin-bottom: 15px;
-      font-weight: 600;
-      flex-grow: 1; /* Ensures text fills available space */
-      /* NEW FIX: Align text to the top for vertical stacking on mobile */
-      text-align: center; /* Keep text centered horizontally */
-      display: flex; /* Treat p content as flex container */
-      flex-direction: column; /* Stack content (the text lines) vertically */
-      justify-content: flex-start; /* IMPORTANT: Align content to the top */
-    }
-    .plan-action-card button {
-      padding: 10px 20px;
-      border: none;
-      border-radius: 8px;
-      font-weight: 700;
-      cursor: pointer;
-      width: 100%;
-      transition: transform 0.2s;
-    }
-    .plan-action-card button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-    /* --- UPDATED BUTTON STYLES USING CLASSES FOR 3 CARDS --- */
-    .plan-action-card .new-plan-btn {
-        background: linear-gradient(135deg, var(--gold), #ff8c00);
-        color: #fff;
-    }
-    .plan-action-card .renewal-btn {
-        background: linear-gradient(135deg, #c0392b, #8b3a3a); /* Maroon/Red theme for renewal */
-        color: #fff;
-    }
-    .plan-action-card .update-plan-btn {
-        background: linear-gradient(135deg, #7a67ff, #4b3eb0); /* Use the timestamp/session gradient */
-        color: #fff;
-    }
-    /* --- END UPDATED BUTTON STYLES --- */
-    
-    /* Mobile adaptation for new plan box */
-    /* MODIFIED: Increased breakpoint to 660px to match when flex items wrap */
-    @media (max-width: 660px) {
-      .plan-actions-container {
-        flex-direction: column;
-        gap: 12px;
-      }
-      /* NEW FIX: Stop the card from justifying content (pushing button to bottom) */
-      .plan-action-card {
-        justify-content: flex-start; /* Stack from the top */
-        /* IMPORTANT: Ensure card size is dynamic based on content */
-        flex: 0 0 auto; /* NEW: Prevents card from unnecessarily stretching vertically */
-      }
-      /* IMPROVEMENT: Ensure card content has less vertical margin on mobile to tighten up space */
-      .plan-action-card p {
-        margin-bottom: 10px; /* Reduced vertical margin */
-        flex-grow: 0; /* NEW: Stop the paragraph from growing and creating a gap on mobile */
-      }
-    }
-    
-    .sr-stats { display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-top:0 } /* Changed margin-top to 0 */
-    .stat { background:linear-gradient(180deg,#fffdeb,#fff7c9);border-radius:10px;padding:12px;text-align:center }
-    .stat-icon { width:36px;height:36px;margin-bottom:6px }
-    .stat-value { font-size:1rem;font-weight:800 }
-
-    /* General Tests Corner - NEW LIST STYLE (Green) */
-    .subject-tests {
-      max-width: var(--page-max-width);
-      margin: 40px auto;
-      padding: 20px;
-      background: #f5fbf5; /* Light green background */
-      border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    .subject-tests h2 {
-      text-align: center;
-      font-size: clamp(1.6rem, 2.5vw, 2rem);
-      color: #1e6b34; /* Dark green color */
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 24px;
-      font-weight: 800;
-      text-decoration: underline; /* Added underline */
-      text-underline-offset: 6px; /* Added spacing for underline */
-      text-decoration-thickness: 2px; /* Made underline thicker */
-    }
-    
-    /* NEW STYLE: Replacing .subject-tests-grid and .subject-card */
-    .test-list-container {
-      display: flex;
-      flex-direction: column;
-      gap: 12px; /* Space between rows */
-    }
-    
-    .test-list-item {
-      display: flex;
-      flex-wrap: wrap; /* Allow wrapping on small screens */
-      align-items: center;
-      justify-content: space-between;
-      padding: 16px 20px;
-      border-radius: 12px;
-      background: #fff;
-      gap: 16px; /* Space between content and button */
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-    
-    .test-list-item-content {
-      flex: 1 1 300px; /* Grow and shrink, base width 300px */
-    }
-    
-    .test-list-item-content h3 {
-      /* MODIFIED: Fluid scaling for list item titles */
-      font-size: clamp(1.05rem, 3.5vw, 1.2rem); 
-      margin: 0 0 4px 0;
-      font-weight: 700;
-    }
-    
-    .test-list-item-content p {
-      /* MODIFIED: Fluid scaling for list item descriptions */
-      font-size: clamp(0.85rem, 2.5vw, 0.95rem); 
-      color: #555;
-      margin: 0;
-      line-height: 1.5;
-    }
-    
-    .test-list-item .btn-test {
-      flex: 0 0 auto; /* Don't grow or shrink */
-      padding: 10px 20px; /* Adjust padding */
-      width: auto; /* Remove 100% width */
-      font-size: 0.9rem;
-    }
-    
-    /* Style for locked buttons */
-    .btn-test.locked {
-        background: #e9ecef; /* Light gray background */
-        color: var(--lock-color); /* Gray text color */
-        cursor: not-allowed;
-    }
-    .btn-test.locked:hover {
-        transform: none;
-        box-shadow: none;
-    }
-    .btn-test.locked svg {
-        fill: var(--lock-color); /* Ensure lock icon is gray */
-    }
-    .btn-test.locked .btn-text {
-        color: var(--lock-color);
-    }
-    .btn-test:not(.locked) svg {
-        fill: #fff; /* Ensure live test icon is white */
-    }
-
-    /* Lock SVG Icon (same as used in General tests) */
-    .lock-icon {
-        width: 18px;
-        height: 18px;
-        fill: currentColor; /* Use current text color */
-    }
-
-    /* --- THEMES FOR EACH SECTION --- */
-    
-    /* General Tests (Green) */
-    .subject-tests .test-list-item {
-      border: 1px solid #d4e9d9;
-    }
-    .subject-tests .test-list-item-content h3 {
-      color: #1e6b34; /* Green title */
-    }
-
-    /* Student Subject Tests Corner - NEW LIST STYLE (Purple) */
-    .student-subject-tests {
-      max-width: var(--page-max-width);
-      margin: 40px auto;
-      padding: 20px;
-      background: #f9f8ff; /* Light purple background */
-      border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      border: 1px solid #e0d9f5;
-    }
-    .student-subject-tests h2 {
-      text-align: center;
-      font-size: clamp(1.6rem, 2.5vw, 2rem);
-      color: #4a148c; /* Dark purple color */
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 24px;
-      font-weight: 800;
-      text-decoration: underline; /* Added underline */
-      text-underline-offset: 6px; /* Added spacing for underline */
-      text-decoration-thickness: 2px; /* Made underline thicker */
-    }
-    /* Re-use .test-list-container and .test-list-item */
-    .student-subject-tests .test-list-item {
-      border: 1px solid #e0d9f5; /* Light purple border */
-    }
-    .student-subject-tests .test-list-item-content h3 {
-      color: #673ab7; /* Purple title */
-    }
-
-    /* --- PROFILE SECTION --- */
-    .profile-section {
-      max-width: var(--page-max-width);
-      margin: 40px auto;
-      padding: 24px;
-      background: #fff; /* Clean white background */
-      border-radius: 16px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-    }
-    .profile-section h2 {
-      text-align: center;
-      font-size: clamp(1.6rem, 2.5vw, 2rem);
-      color: var(--maroon-2); /* Use maroon theme color */
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 24px;
-      font-weight: 800;
-      text-decoration: underline;
-      text-underline-offset: 6px;
-      text-decoration-thickness: 2px;
-    }
-    .profile-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive columns */
-      gap: 16px;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .profile-item {
-      background: #fdfdfd;
-      border: 1px solid #eee;
-      border-radius: 10px;
-      padding: 14px 18px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.04);
-    }
-    .profile-label {
-      display: block;
-      font-size: 0.9rem;
-      color: #777;
-      font-weight: 600;
-      margin-bottom: 4px;
-      text-transform: uppercase;
-    }
-    .profile-value {
-      display: block;
-      font-size: 1.1rem;
-      color: #111;
-      font-weight: 700;
-    }
-    /* Special handling for 'agreed' status */
-    .profile-value.agreed {
-      color: #1e6b34; /* Green color for 'Agreed' */
-    }
-
-    /* --- SUBSCRIPTION SECTION --- */
-    .subscription-section {
-      max-width: var(--page-max-width);
-      margin: 40px auto;
-      padding: 24px;
-      background: #f7fcff; /* Light blue background */
-      border-radius: 16px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-      border: 1px solid #e0f0ff;
-    }
-    .subscription-section h2 {
-      text-align: center;
-      font-size: clamp(1.6rem, 2.5vw, 2rem);
-      color: #0d47a1; /* Dark blue color */
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 24px;
-      font-weight: 800;
-      text-decoration: underline;
-      text-underline-offset: 6px;
-      text-decoration-thickness: 2px;
-    }
-    .subscription-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive columns */
-      gap: 16px;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .subscription-item {
-      background: #fff;
-      border: 1px solid #eee;
-      border-radius: 10px;
-      padding: 14px 18px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.04);
-    }
-    .subscription-label {
-      display: block;
-      font-size: 0.9rem;
-      color: #557;
-      font-weight: 600;
-      margin-bottom: 4px;
-      text-transform: uppercase;
-    }
-    .subscription-value {
-      display: block;
-      font-size: 1.1rem;
-      color: #111;
-      font-weight: 700;
-    }
-    /* Special style for plan */
-    .subscription-plan-value {
-      color: #b8860b; /* Gold-like color */
-      font-weight: 800;
-    }
-    .subscription-days-left {
-      color: #c0392b; /* Red-ish color */
-      font-weight: 800;
-    }
-
-    /* --- CONTACT SECTION --- */
-    .contact-section {
-      max-width: var(--page-max-width);
-      margin: 40px auto;
-      padding: 24px;
-      background: #fdf6f6; /* New light maroon */
-      border-radius: 16px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-      color: #333;
-      border: 1px solid #e6dada;
-    }
-    .contact-section h2 {
-      text-align: center;
-      font-size: clamp(1.8rem, 2.8vw, 2.2rem);
-      color: var(--maroon-2);
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      margin-bottom: 30px;
-      font-weight: 800;
-      text-shadow: none;
-    }
-    .contact-content-wrapper {
-      display: grid;
-      grid-template-columns: 1fr 1.5fr;
-      gap: 30px;
-    }
-    .contact-links {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      justify-content: center;
-    }
-    .contact-link-btn {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 12px 16px;
-      background: rgba(139, 58, 58, 0.05);
-      border-radius: 10px;
-      border: 1px solid rgba(139, 58, 58, 0.2);
-      color: var(--maroon-2);
-      font-size: 1.1rem;
-      font-weight: 700;
-      transition: all 0.2s ease-in-out;
-    }
-    .contact-link-btn:hover {
-      background: rgba(139, 58, 58, 0.1);
-      transform: translateY(-3px);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    }
-    .contact-link-btn svg {
-      width: 24px;
-      height: 24px;
-      fill: var(--maroon-2);
-    }
-    .contact-form-container {
-      background: #fff;
-      border-radius: 12px;
-      padding: 24px;
-      color: #333;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    }
-    .contact-form .form-group {
-      margin-bottom: 16px;
-    }
-    .contact-form .form-label {
-      display: block;
-      font-size: 0.9rem;
-      color: var(--maroon);
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-    .contact-form .form-input,
-    .contact-form .form-textarea {
-      width: 100%;
-      padding: 12px 14px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-family: inherit;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-    .contact-form .form-input:focus,
-    .contact-form .form-textarea:focus {
-      border-color: var(--maroon);
-      box-shadow: 0 0 0 3px rgba(139, 58, 58, 0.2);
-      outline: none;
-    }
-    .contact-form .form-textarea {
-      resize: vertical;
-      min-height: 100px;
-    }
-    .contact-form .form-submit-btn {
-      width: 100%;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 8px;
-      background: linear-gradient(135deg, #b33030, #ff7b00);
-      color: #fff;
-      font-size: 1.1rem;
-      font-weight: 800;
-      cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .contact-form .form-submit-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 4px 12px rgba(255, 123, 0, 0.3);
-    }
-    @media (max-width: 900px) {
-      .contact-content-wrapper {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* --- FOOTER SECTION --- */
-    .main-footer {
-      background: #222; /* Block color */
-      color: #ccc;
-      padding: 40px 20px 20px 20px;
-      margin-top: 40px;
-    }
-    .footer-content {
-      max-width: var(--page-max-width);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 30px;
-      /* MODIFIED: Add a border *above* the grid content for the visible line */
-      border-top: 1px solid #555; 
-      padding-top: 20px; /* Add padding below the line */
-    }
-    .footer-column h3 {
-      color: #fff;
-      font-size: 1.1rem;
-      text-transform: uppercase;
-      margin-bottom: 15px;
-      letter-spacing: 0.5px;
-    }
-    .footer-column ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .footer-column li {
-      margin-bottom: 10px;
-    }
-    .footer-column a,
-    .footer-column span {
-      color: #ccc;
-      text-decoration: none;
-      font-size: 0.95rem;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .footer-column a:hover {
-      color: #fff;
-      text-decoration: underline;
-    }
-    .social-links {
-      display: flex;
-      gap: 12px;
-      margin-top: 10px;
-    }
-    .social-links a {
-      display: inline-block;
-      padding: 8px;
-      background: #444;
-      border-radius: 50%;
-      line-height: 0;
-      transition: background 0.2s;
-    }
-    .social-links a:hover {
-      background: var(--maroon);
-      text-decoration: none;
-    }
-    .social-links svg {
-      width: 20px;
-      height: 20px;
-      fill: #fff;
-    }
-    .footer-bottom {
-      max-width: var(--page-max-width);
-      margin: 30px auto 0 auto;
-      padding-top: 20px;
-      /* REMOVED: Border-top moved to footer-content */
-      /* border-top: 1px solid #555; */ 
-      text-align: center;
-      font-size: 0.9rem;
-      color: #aaa;
-    }
-
-
-    /* Utilities & responsive */
-    @keyframes scrollColor{0%{background-position:0% 50%}100%{background-position:100% 50%}}
-    @media (max-width:1100px){
-      /* .test-row{grid-template-columns:repeat(2,1fr)} */ /* No longer needed */
-    }
-    @media (max-width:640px){
-      /* .test-row{grid-template-columns:1fr} */ /* No longer needed */
-      .final-stars .star{width:56px;height:56px}
-    }
-
-    /* Small header-specific overrides for very small screens */
-    @media (max-width:640px){
-      .top-header{padding:0.8rem 0;}
-      .top-header .header-content {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-      .title-logo-block{flex: 1 1 100%; justify-content:center; text-align:center;}
-      .right-group{
-        flex: 1 1 100%; 
-        justify-content:center; 
-        gap:8px; 
-        margin-top:6px;
-        padding-bottom: 0.8rem; /* Add some spacing at the bottom on mobile */
-      }
-      .title-text .title{white-space:normal}
-
-      .test-list-item {
-        flex-direction: column; /* Stack vertically */
-        align-items: flex-start; /* Align content to start */
-        padding: 12px 16px; /* NEW: Reduced padding for mobile vertical stacking */
-        gap: 8px; /* NEW: Reduced gap between content and button/content items */
-      }
-      .test-list-item-content {
-        flex: 1 1 100%; /* NEW: Make text content take full width */
-      }
-      .test-list-item-content p {
-          margin-bottom: 8px; /* NEW: Added some margin below description for separation */
-      }
-      .test-list-item .btn-test {
-        width: 100%; /* Make button full width */
-        text-align: center;
-      }
-    }
-    
-    /* Responsive Design for login card */
-    @media (max-width: 480px) {
-      .login-card {
-        padding: 25px 20px;
-      }
-      .login-brand-title {
-          font-size: 1.1rem;
-      }
-    }
-
-    @media (min-width:641px) and (max-width:980px){
-      .title-logo-block{flex: 1 1 60%}
-      .right-group{flex: 0 0 auto}
-    }
-
-    @media (prefers-reduced-motion: reduce){*{transition:none !important}}
-  </style>
+    </style>
 </head>
-<body>
+<body class="bg-gray-50">
 
-<!-- -------------------------------------------------------------------------------- -->
-<!-- HEADER (MODIFIED TO BE OUTSIDE DASHBOARD CONTENT, ALWAYS VISIBLE) -->
-<!-- -------------------------------------------------------------------------------- -->
-    <header class="top-header" id="mainHeader">
-        
+    <!-- Header Section (Non-sticky) -->
+    <header class="bg-sv-blue shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between py-4 md:py-3 md:h-28 space-y-4 md:space-y-0">
+                
+                <!-- Logo and Title Container -->
+                <div class="flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-6">
+                    
+                    <!-- Logo (UPDATED SRC) -->
+                    <img src="https://contactsriveda-debug.github.io/images/veda-logo.jpg" 
+                            onerror="this.onerror=null; this.src='https://placehold.co/80x80/1e3a8a/ffffff?text=VEDA';" 
+                            alt="Veda Logo" 
+                            class="w-20 h-20 object-contain shadow-md rounded-full bg-white p-1 flex-shrink-0">
+                    
+                    <div class="text-center sm:text-left flex flex-col justify-center">
+                        <!-- Title -->
+                        <h1 class="text-2xl sm:text-3xl font-extrabold tracking-wider text-white">
+                            SRI VEDA TALENT COMPETITION
+                        </h1>
+                        
+                        <!-- Yellow Separator Line under Title -->
+                        <div class="w-3/4 max-w-xs h-0.5 bg-sv-yellow my-1 mx-auto sm:mx-0"></div>
 
-        
-        <!-- Header Content -->
-        <div class="header-content">
-            <div class="title-logo-block">
-                <!-- NOTE: Keeping user's provided logo URL for continuity -->
-                <img class="logo" src="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg" alt="SVTC logo">
-                <div class="title-text">
-                    <div class="title">SRI VEDA TALENT COMPETITION</div>
-                    <div class="subtitle">(BRIGHT CHILD LIFE)</div>
+                        <!-- Subtitle (Yellow with Quotes) -->
+                        <p class="text-base sm:text-lg font-semibold text-sv-yellow mt-1">
+                            "BRIGHT CHILD LIFE"
+                        </p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="right-group">
-                <!-- MODIFIED: Hidden before login -->
-                <div id="liveTime" class="timestamp hidden">--/--/----, --:--:--</div>
-                <!-- MODIFIED: Hidden before login -->
-                <div id="sessionTimer" class="session-timer hidden">Session: 00:00:00</div>
-                <!-- Log out button is ONLY shown when logged in. It remains inside right-group to maintain layout integrity. -->
-                <button id="logoutBtn" class="logout-btn hidden">Logout</button> 
+                <!-- Right Side Icons -->
+                <div class="flex items-center space-x-4 sm:space-x-8 lg:space-x-10">
+                    <i class="fas fa-book text-2xl sm:text-3xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Our Courses"></i>
+                    <i class="fas fa-pencil-ruler text-2xl sm:text-3xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Practice Tests"></i>
+                    <i class="fas fa-graduation-cap text-2xl sm:text-3xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Study Material"></i>
+                    <i class="fas fa-lightbulb text-2xl sm:text-3xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Insights & Guidance"></i>
+                </div>
             </div>
         </div>
     </header>
 
-<!-- -------------------------------------------------------------------------------- -->
-<!-- LOGIN SCREEN (Displayed initially) -->
-<!-- -------------------------------------------------------------------------------- -->
-<div id="loginScreen">
-    <div class="login-card">
-        <!-- NEW: Branding Section -->
-        <div class="login-branding">
-            <!-- MODIFIED: Fixed logo URL -->
-            <img src="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg" alt="SRI VEDA Logo" class="login-logo">
-            <h3 class="login-brand-title">SRI VEDA TALENT COMPETITIONS</h3>
+    <!-- NEW: Navigation Menu with boxed buttons -->
+    <nav class="bg-sv-blue shadow-lg border-t-2 border-sv-yellow">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Ensure flex-wrap for mobile responsiveness -->
+            <div class="flex flex-wrap justify-center sm:justify-between py-2 space-x-2 sm:space-x-4">
+                <!-- Buttons now have a white background box -->
+                <a href="https://www.svtc.life/Dashboard.html" class="nav-button">
+                    <i class="fas fa-tachometer-alt mr-2"></i> DASHBOARD
+                </a>
+                <a href="https://www.svtc.life/Join%20now.html" class="nav-button">
+                    <i class="fas fa-user-plus mr-2"></i> JOIN NOW
+                </a>
+                <a href="https://www.svtc.life/Pricing.html" class="nav-button">
+                    <i class="fas fa-tags mr-2"></i> PRICING
+                </a>
+                <a href="https://www.svtc.life/connect.html" class="nav-button">
+                    <i class="fas fa-headset mr-2"></i> CONNECT
+                </a>
+            </div>
         </div>
-        
-        <h2 id="loginTitle">STUDENT LOGIN - PROFILE</h2>
-        <p id="loginSubtitle">Please enter your Username and Password with Caps.</p>
+    </nav>
+    <!-- End New Navigation Menu -->
+    
+    <!-- Scrolling Announcement Bar (Slow Scroll Speed) -->
+    <div class="scrolling-text-container bg-yellow-200 shadow-inner py-1">
+        <div class="scrolling-text text-sv-blue font-bold text-lg">
+            Announcement : New tests and general awareness quizzes are waiting for you — go take them now and boost your knowledge! 🚀
+        </div>
+    </div>
+    
+    <!-- Top Mission Statement Block (Compact, Plain Text) -->
+    <section class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 text-center bg-gray-50">
+        <p class="text-base text-gray-700 font-medium leading-relaxed">
+            At Sri Veda Talent Competition (SVTC), we are committed to forging the next generation of successful leaders. We provide 24/7 dedicated support to our students, ensuring they excel not only in academics but also gain crucial General Awareness and master Advanced Mathematics. Our mission is to prepare them for competitive entrance exams while broadening their knowledge of the world. Every Subject Test, General Awareness Quiz, and Advanced Maths Module is meticulously crafted to ensure comprehensive learning and high performance.
+        </p>
+    </section>
 
-        <form id="loginForm">
-            <div id="statusMessage" class="status-box status-error hidden" role="alert"></div>
+    <!-- Registration Call-to-Action Section -->
+    <section class="w-full py-6 md:py-8 bg-white shadow-inner">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
+                <!-- Register Now Block (Closer Spacing) -->
+                <div class="bg-white p-5 rounded-xl shadow-xl border-t-4 border-sv-orange hover:shadow-2xl transition duration-300">
+                    <h2 class="text-2xl font-bold text-sv-blue mb-3">New User? Join Today!</h2>
+                    <p class="text-base text-gray-700 mb-4">
+                        Unlock your full potential with specialized awareness and maths skill tests.
+                    </p>
+                    <a href="https://www.svtc.life/Join%20now.html" class="cta-button">
+                        Join NOW
+                    </a>
+                </div>
+                
+                <!-- Login Block (Closer Spacing) -->
+                <div class="bg-white p-5 rounded-xl shadow-xl border-t-4 border-sv-blue hover:shadow-2xl transition duration-300">
+                    <h2 class="text-2xl font-bold text-sv-blue mb-3">Already a Subscriber?</h2>
+                    <p class="text-base text-gray-700 mb-4">
+                        Access your personalized profile and continue your test preparation journey.
+                    </p>
+                    <!-- MODIFIED: Updated href link -->
+                    <a href="https://www.svtc.life/Dashboard.html" class="cta-button-secondary">
+                        LOGIN TO PROFILE
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+    </section>
 
-            <input type="text" id="username" name="username" required
-                class="login-input" placeholder="Username">
+    <!-- Monthly Achiever Showcase Section -->
+    <section class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+        <div class="bg-white shadow-2xl rounded-2xl overflow-hidden border border-gray-200">
+            <!-- Achiever Details Card (Closer Spacing) -->
+            <div class="p-4 md:p-6">
+                <h2 class="text-center text-3xl font-extrabold text-sv-orange mb-4 border-b-2 pb-2">
+                    SVTC MONTHLY ACHIEVER
+                </h2>
+                
+                <div class="flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-8">
+                    <!-- Achiever Photo (UPDATED SRC) -->
+                    <div class="text-center md:text-left md:w-1/3 flex-shrink-0">
+                        <div class="relative w-40 h-40 md:w-48 md:h-48 mx-auto mb-4">
+                            <img class="w-full h-full rounded-full object-cover border-4 border-sv-orange shadow-lg" 
+                                    src="https://contactsriveda-debug.github.io/images/stu-oct-achiver.png" 
+                                    alt="M S Meghana"
+                                    onerror="this.onerror=null; this.src='https://placehold.co/192x192/00008B/FFFFFF?text=M+S+M';">
+                            <span class="absolute bottom-1 right-1 bg-sv-yellow text-sv-blue text-xs font-bold px-2 py-1 rounded-full shadow-md">
+                                ACHIEVER
+                            </span>
+                        </div>
+                        <h3 class="text-xl font-bold text-sv-blue">M S Meghana</h3>
+                        <p class="text-base font-medium text-gray-700">6th Class</p>
+                        <p class="text-base font-semibold text-sv-orange mt-1">Excellent Performance</p>
+                    </div>
 
-            <input type="password" id="password" name="password" required
-                class="login-input" placeholder="Password">
+                    <!-- Testimonial/Quote (More Impressive Text) -->
+                    <div class="md:w-2/3 mt-6 md:mt-0 flex items-center h-full">
+                        <div class="p-4 bg-sv-orange/10 rounded-lg border-l-4 border-sv-orange w-full">
+                            <h3 class="text-lg font-semibold text-sv-orange mb-2">Achiever's Insight</h3>
+                            <p class="text-gray-700 italic">
+                                "The SVTC tests were transformative for my preparation. The focused General Awareness and Advanced Maths modules didn't just drill concepts; they gave me a deep, conceptual understanding that is essential for top scores. This platform truly ignited my confidence to tackle complex problems and secure a competitive edge against other students, pushing me towards excellence in my academic journey. I highly recommend SVTC for serious learners aiming for success."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <button type="submit" id="loginButton" class="login-btn-submit">
-                <span id="buttonText">Login</span>
-                <svg id="loadingSpinner" class="loading-spinner h-5 w-5 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" stroke="#ffffff"></circle>
-                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                </svg>
-            </button>
-        </form>
+    <!-- Why SVTC is Unique Section (Moved after Achiever) -->
+    <section class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+        <div class="bg-sv-blue/5 shadow-2xl rounded-2xl border border-gray-200">
+            <div class="p-4 md:p-6 text-center">
+                <h2 class="text-3xl font-extrabold text-sv-blue mb-4">
+                    WHY SRI VEDA IS UNIQUE
+                </h2>
 
-        <!-- NEW: Registration Link Section -->
-        <div class="register-link-container">
-            <!-- MODIFIED: Updated registration link -->
-            <a href="https://www.svtc.life/Join%20now.html" target="_blank" class="register-link-btn">
-                New Registers? Click Here
+                <!-- Core Value Proposition -->
+                <div class="p-4 bg-white rounded-lg border-l-4 border-sv-blue mx-auto mb-4 max-w-4xl">
+                    <h3 class="text-lg font-semibold text-sv-blue mb-2">Our Focus: Building a Bright Child Life</h3>
+                    <p class="text-gray-700 text-base">
+                        At Sri Veda Talent Competition (SVTC), we focus completely on enhancing students' General Awareness and improving their performance in subject tests. We provide specialized practice tests and preparation materials essential for building a strong foundation in General Maths, enabling them to face entrance tests and other exams with confidence. Our goal is to prepare students for all upcoming challenges.
+                    </p>
+                </div>
+                
+                <!-- Features Grid (Closer Spacing) -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                    <div class="bg-white p-3 rounded-xl shadow-lg text-center border-b-4 border-sv-orange hover:shadow-sv-yellow/50 transition duration-300">
+                        <h3 class="text-xl font-bold text-sv-blue mb-2">TEST YOUR KNOWLEDGE</h3>
+                        <p class="text-gray-600 text-sm">Our unique tests are designed to test students' General Awareness and boost their knowledge in all subjects, especially Maths.</p>
+                    </div>
+                    <div class="bg-white p-3 rounded-xl shadow-lg text-center border-b-4 border-sv-orange hover:shadow-sv-yellow/50 transition duration-300">
+                        <h3 class="text-xl font-bold text-sv-blue mb-2">GET SVTC SCORE</h3>
+                        <p class="text-gray-600 text-sm">Get detailed analysis and scores after every test. This helps you understand your strengths and weaknesses and continuously improve.</p>
+                    </div>
+                    <div class="bg-white p-3 rounded-xl shadow-lg text-center border-b-4 border-sv-orange hover:shadow-sv-yellow/50 transition duration-300">
+                        <h3 class="text-xl font-bold text-sv-blue mb-2">24/7 MENTOR SUPPORT</h3>
+                        <p class="text-gray-600 text-sm">Top performers receive advanced preparation materials and special guidance from our dedicated 24/7 team.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SVTC Commitment Section -->
+    <section class="bg-sv-orange py-6 md:py-8 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-4xl font-extrabold text-white mb-4">
+                SVTC: THE FUTURE-READY ADVANTAGE
+            </h2>
+            <p class="text-xl text-white font-medium mb-6">
+                We don't just teach subjects; we cultivate talent for life's toughest challenges.
+            </p>
+            <div class="bg-white p-6 rounded-xl shadow-2xl max-w-5xl mx-auto border-b-8 border-sv-blue">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sv-blue">
+                    <div class="p-2 border-r md:border-r-2 border-gray-200">
+                        <i class="fas fa-brain text-3xl mb-2"></i>
+                        <h3 class="font-bold text-lg">Holistic Knowledge</h3>
+                        <p class="text-sm">Beyond textbooks, preparing students for real-world scenarios and comprehensive General Awareness.</p>
+                    </div>
+                    <div class="p-2 border-r md:border-r-2 border-gray-200">
+                        <i class="fas fa-rocket text-3xl mb-2"></i>
+                        <h3 class="font-bold text-lg">Competitive Edge</h3>
+                        <p class="text-sm">Specialized Advanced Maths modules to ensure success in all major Entrance Exams.</p>
+                    </div>
+                    <div class="p-2">
+                        <i class="fas fa-headset text-3xl mb-2"></i>
+                        <h3 class="font-bold text-lg">Unwavering Support</h3>
+                        <p class="text-sm">24/7 expert mentorship ensures personalized guidance is always available.</p>
+                    </div>
+                </div>
+            </div>
+            <a href="https://www.svtc.life/Join%20now.html" class="mt-6 inline-block bg-sv-blue text-white py-3 px-8 rounded-full text-lg font-bold shadow-lg hover:bg-sv-blue/80 transition duration-300 transform hover:scale-105">
+                Start Your Preparation Today
             </a>
         </div>
-    </div>
-</div>
+    </section>
 
-<!-- -------------------------------------------------------------------------------- -->
-<!-- DASHBOARD CONTENT (Hidden until login is successful) -->
-<!-- -------------------------------------------------------------------------------- -->
-<div id="dashboardContent" class="hidden">
-  
-  <!-- Welcome + top stars -->
-  <div class="welcome-stars">
-    <!-- UPDATED: Student details will be injected here after login -->
-    <div class="welcome">Welcome <span id="studentNameDisplay" class="student-name"></span>, <strong id="studentClassDisplay" style="color: var(--maroon-2);"></strong>...</div>
-    <div class="stars-btn" aria-hidden="true">
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-    </div>
-  </div>
+    <!-- Test Types Section -->
+    <section class="bg-sv-yellow/30 py-6 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-3xl font-extrabold text-sv-blue mb-3">
+                BOOST YOUR GENERAL AWARENESS - START YOUR CAREER GROWTH
+            </h2>
+            <p class="text-lg text-gray-700 mb-4">
+                The comprehensive practice tests and preparation offered by Sri Veda are the first step to a successful future.
+            </p>
 
-  <!-- TC SCORE PANEL -->
-  <div class="tc-panel-wrap">
-    <div class="tc-panel">
-      <div>
-        <div class="tc-score" aria-hidden="true">
-          <div class="tc-ring" id="tcRing" style="--pct:0"></div>
-          <div class="tc-inner">
-            <h2 id="tcPercent">0%</h2>
-            <small>Progress</small>
-          </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6">
+                <!-- Test Blocks -->
+                <a href="https://www.svtc.life/join-now" class="bg-sv-orange p-3 rounded-xl text-center shadow-lg hover:scale-[1.03] transition duration-300 course-button block">
+                    <h3 class="text-xl font-bold text-black">FREE TESTS</h3>
+                    <p class="text-gray-700 text-sm">Start your General Awareness journey immediately!</p>
+                </a>
+                <a href="https://www.svtc.life/join-now" class="bg-sv-orange p-3 rounded-xl text-center shadow-lg hover:scale-[1.03] transition duration-300 course-button block">
+                    <h3 class="text-xl font-bold text-black">GENERAL AWARENESS</h3>
+                    <p class="text-gray-700 text-sm">Improve your knowledge through consistent practice.</p>
+                </a>
+                <a href="https://www.svtc.life/join-now" class="bg-sv-orange p-3 rounded-xl text-center shadow-lg hover:scale-[1.03] transition duration-300 course-button block">
+                    <h3 class="text-xl font-bold text-black">ADVANCED MATHS</h3>
+                    <p class="text-gray-700 text-sm">A comprehensive evaluation to track your progress.</p>
+                </a>
+            </div>
         </div>
-        <div class="tc-label">TC SCORE</div>
-      </div>
-
-      <div class="tc-actions">
-        <h3>Increase your score.....</h3>
-        <ul>
-          <li><span class="dot daily"></span><div><strong>Daily login</strong><small>Keep streaks to boost rank</small></div></li>
-          <li><span class="dot openpractice"></span><div><strong>Open all practice</strong><small>Use practice sets daily</small></div></li>
-          <li><span class="dot completecourse"></span><div><strong>Complete full course</strong><small>Finish lessons & track progress</small></div></li>
-          <li><span class="dot weekly"></span><div><strong>Weekly test</strong><small>Attempt weekly assessments</small></div></li>
-          <li><span class="dot monthly"></span><div><strong>Monthly test</strong><small>Participate in monthly tests</small></div></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- NEW: FREE TEST PROMOTION SECTION (After TC Panel) -->
-  <section class="free-test-promo-section" id="freeTestPromo">
-    <h3>Test Your Knowledge for Free!</h3>
-    <p>Ready to see how much you really know? Take our quick and easy knowledge test to challenge yourself and discover your score instantly. These tests are completely free, fun, and designed to help you learn while you play. Improve your skills and track your progress — Check Now!</p>
-    <!-- MODIFIED: Linked to new general_free_test URL -->
-    <button onclick="handleTestClick('general_free_test')">Start Free Test</button>
-  </section>
-
-  <!-- TESTS (Removed all but Free Test, which was then removed) -->
-  <section class="live-tests">
-    <div class="tests-inner">
-      <div class="test-row">
-        <!-- All test cards removed as requested -->
-      </div>
-    </div>
-  </section>
-
-  <!-- Student report (score bar + stats + 3 stars where first is gold) -->
-  <section class="student-report">
-    <div class="sr-box" role="region" aria-label="Student report">
-      <!-- Score bar and stars removed as requested -->
-
-      <!-- NEW: PLAN PROMOTION SECTION (Updated to three cards with distinct buttons) -->
-      <div class="plan-promo-box">
-        <h3>Unlock Your Full Potential!</h3>
-        <div class="plan-actions-container">
-          <!-- CTA 1: New Students / Non-Subscribers (New Plan) -->
-          <div class="plan-action-card">
-            <p>Please take a Plan now and access all learning programs and premium tests!</p>
-            <!-- MODIFIED: All plan buttons now use the openPricingPage function, which I've updated in the script -->
-            <button class="new-plan-btn" onclick="openPricingPage()">Take New Plan</button>
-          </div>
-          <!-- NEW: Renewal CTA Card (Renew Plan) -->
-          <div class="plan-action-card">
-            <p>If your plan is expiring soon, renew it here to ensure uninterrupted access!</p>
-            <!-- MODIFIED: All plan buttons now use the openPricingPage function, which I've updated in the script -->
-            <button class="renewal-btn" onclick="openPricingPage()">Renew My Plan</button>
-          </div>
-          <!-- CTA 3: Existing Students / Upgrade (Update Plan) -->
-          <div class="plan-action-card">
-            <p>Existing students: Update your plan here to continue accessing more learning programs and premium tests.</p>
-            <!-- MODIFIED: All plan buttons now use the openPricingPage function, which I've updated in the script -->
-            <button class="update-plan-btn" onclick="openPricingPage()">Update My Plan</button>
-          </div>
-        </div>
-      </div>
-      <!-- END PLAN PROMOTION SECTION -->
-
-      <!-- MODIFIED: Added IDs to stat-value divs to make them dynamic -->
-      <div class="sr-stats" aria-hidden="true">
-        <div class="stat"><img class="stat-icon" src="https://cdn-icons-png.flaticon.com/512/1828/1828859.png" alt=""><div class="stat-label">Logins</div><div class="stat-value" id="statLogins">N/A</div></div>
-        <div class="stat"><img class="stat-icon" src="https://cdn-icons-png.flaticon.com/512/2088/2088617.png" alt=""><div class="stat-label">Time Spent</div><div class="stat-value" id="statTimeSpent">N/A</div></div>
-        <div class="stat"><img class="stat-icon" src="https://cdn-icons-png.flaticon.com/512/3094/3094834.png" alt=""><div class="stat-label">Genaral tests</div><div class="stat-value" id="statGeneralTests">N/A</div></div>
-        <div class="stat"><img class="stat-icon" src="https://cdn-icons-png.flaticon.com/512/3107/3107679.png" alt=""><div class="stat-label">Subject tests</div><div class="stat-value" id="statSubjectTests">N/A</div></div>
-        <div class="stat"><img class="stat-icon" src="https://cdn-icons-png.flaticon.com/512/2989/2989988.png" alt=""><div class="stat-label">Subscription</div><div class="stat-value" id="statSubscription">N/A</div></div>
-        <div class="stat"><img class="stat-icon" src="https://cdn-icons-png.flaticon.com/512/733/733635.png" alt=""><div class="stat-label">Social Follow</div><div class="stat-value" id="statSocialFollow">Yes</div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- STUDENT GENERAL TEST CORNER (Green List) -->
-  <section class="subject-tests">
-    <h2>Student General Test Corner</h2>
-    <div class="test-list-container">
-      <!-- Item 1 (General Awareness - MODIFIED) -->
-      <article class="test-list-item">
-        <div class="test-list-item-content">
-          <h3>General Awareness learn & tests</h3>
-          <p>Sharpen your knowledge of current events, history, and the world around you.</p>
-        </div>
-        <!-- MODIFIED: Button unlocked and linked to handleTestClick -->
-        <button id="btn_general_awareness" class="btn-test" onclick="handleTestClick('general_awareness')">
-            <span class="btn-text">Take Test</span>
-        </button>
-      </article>
-      <!-- Item 2 (General Maths Awareness - MODIFIED) -->
-      <article class="test-list-item">
-        <div class="test-list-item-content">
-          <h3>General Maths Awareness learn & tests </h3>
-          <p>Challenge your problem-solving skills with a comprehensive mathematics assessment.</p>
-        </div>
-        <!-- MODIFIED: Button unlocked and linked to handleTestClick -->
-        <button id="btn_general_maths" class="btn-test" onclick="handleTestClick('general_maths')">
-            <span class="btn-text">Take Test</span>
-        </button>
-      </article>
-      <!-- Item 3 (Advance Maths - MODIFIED) -->
-      <article class="test-list-item">
-        <div class="test-list-item-content">
-          <h3>Advance Maths for Entrance exams</h3>
-          <p>Prepare for competitive exams with advanced concepts and challenging problems.</p>
-        </div>
-        <!-- MODIFIED: Button unlocked and linked to handleTestClick -->
-        <button id="btn_advance_maths" class="btn-test" onclick="handleTestClick('advance_maths')">
-            <span class="btn-text">Take Test</span>
-        </button>
-      </article>
-    </div>
-  </section>
-
-  <!-- STUDENT SUBJECT TESTS CORNER (Purple List) -->
-  <!-- ADDED ID TO HIDE THIS SECTION COMPLETELY FOR 3rd, 4th, 5th CLASSES -->
-  <section class="student-subject-tests" id="studentSubjectTestsSection">
-    <h2>Student Subject Tests Corner</h2>
-    <div class="test-list-container">
-      <!-- Item 1: Telugu -->
-      <article class="test-list-item" id="item_telugu">
-        <div class="test-list-item-content">
-          <!-- REMOVED CLASS RANGE FROM TITLE -->
-          <h3>Telugu Subject Tests</h3>
-          <p>Test your understanding of Telugu grammar and literature.</p>
-        </div>
-        <button id="btn_telugu" class="btn-test" onclick="handleTestClick('telugu')">Take Test</button>
-      </article>
-      <!-- Item 2: English -->
-      <article class="test-list-item" id="item_english">
-        <div class="test-list-item-content">
-          <!-- REMOVED CLASS RANGE FROM TITLE -->
-          <h3>English Subject Tests</h3>
-          <p>Assess your English comprehension, vocabulary, and grammar skills.</p>
-        </div>
-        <button id="btn_english" class="btn-test" onclick="handleTestClick('english')">Take Test</button>
-      </article>
-      <!-- Item 3: Evs SEM1 -->
-      <article class="test-list-item" id="item_evs_sem1">
-        <div class="test-list-item-content">
-          <!-- REMOVED CLASS RANGE FROM TITLE -->
-          <h3>Evs SEM1 Subject Tests</h3>
-          <p>Explore your knowledge of Environmental Science (Semester 1) concepts.</p>
-        </div>
-        <button id="btn_evs_sem1" class="btn-test" onclick="handleTestClick('evs_sem1')">Take Test</button>
-      </article>
-      <!-- Item 4: Evs SEM2 -->
-      <article class="test-list-item" id="item_evs_sem2">
-        <div class="test-list-item-content">
-          <!-- REMOVED CLASS RANGE FROM TITLE -->
-          <h3>Evs SEM2 Subject Tests</h3>
-          <p>Explore your knowledge of Environmental Science (Semester 2) concepts.</p>
-        </div>
-        <button id="btn_evs_sem2" class="btn-test" onclick="handleTestClick('evs_sem2')">Take Test</button> 
-      </article>
-      <!-- Item 5: Maths SEM1 -->
-      <article class="test-list-item" id="item_maths_sem1">
-        <div class="test-list-item-content">
-          <!-- REMOVED CLASS RANGE FROM TITLE -->
-          <h3>Maths SEM1 Subject Tests</h3>
-          <p>Practice and master all the mathematics (Semester 1) topics.</p>
-        </div>
-        <button id="btn_maths_sem1" class="btn-test" onclick="handleTestClick('maths_sem1')">Take Test</button>
-      </article>
-      <!-- Item 6: Maths SEM2 -->
-      <article class="test-list-item" id="item_maths_sem2">
-        <div class="test-list-item-content">
-          <!-- REMOVED CLASS RANGE FROM TITLE -->
-          <h3>Maths SEM2 Subject Tests</h3>
-          <p>Practice and master all the mathematics (Semester 2) topics.</p>
-        </div>
-        <button id="btn_maths_sem2" class="btn-test" onclick="handleTestClick('maths_sem2')">Take Test</button>
-      </article>
-      <!-- Item 7: Hindi (New) -->
-      <article class="test-list-item" id="item_hindi">
-        <div class="test-list-item-content">
-          <!-- REMOVED CLASS RANGE FROM TITLE -->
-          <h3>Hindi Subject Tests</h3>
-          <p>Test your knowledge of Hindi grammar and language skills.</p>
-        </div>
-        <button id="btn_hindi" class="btn-test" onclick="handleTestClick('hindi')">Take Test</button>
-      </article>
-      <!-- Item 8: General Science (New) -->
-      <article class="test-list-item" id="item_general_science">
-        <div class="test-list-item-content">
-          <!-- REMOVED CLASS RANGE FROM TITLE -->
-          <h3>General Science Subject Tests</h3>
-          <p>Explore general science topics covering basics of Physics, Chemistry, and Biology.</p>
-        </div>
-        <button id="btn_general_science" class="btn-test" onclick="handleTestClick('general_science')">Take Test</button>
-      </article>
-      <!-- Item 9: Physical Science SEM 1 (New) -->
-      <article class="test-list-item" id="item_physical_sem1">
-        <div class="test-list-item-content">
-          <!-- REMOVED CLASS RANGE FROM TITLE -->
-          <h3>Physical Science SEM 1 Tests</h3>
-          <p>Semester 1 assessment for Physics and Chemistry topics.</p>
-        </div>
-        <button id="btn_physical_sem1" class="btn-test" onclick="handleTestClick('physical_sem1')">Take Test</button>
-      </article>
-      <!-- Item 10: Physical Science SEM 2 (New) -->
-      <article class="test-list-item" id="item_physical_sem2">
-        <div class="test-list-item-content">
-          <!-- REMOVED CLASS RANGE FROM TITLE -->
-          <h3>Physical Science SEM 2 Tests</h3>
-          <p>Semester 2 assessment for Physics and Chemistry topics.</p>
-        </div>
-        <button id="btn_physical_sem2" class="btn-test" onclick="handleTestClick('physical_sem2')">Take Test</button>
-      </article>
-      <!-- Item 11: Biological Science SEM 1 (New) -->
-      <article class="test-list-item" id="item_biological_sem1">
-        <div class="test-list-item-content">
-          <!-- REMOVED CLASS RANGE FROM TITLE -->
-          <h3>Biological Science SEM 1 Tests</h3>
-          <p>Semester 1 assessment for Biology and Life Science topics.</p>
-        </div>
-        <button id="btn_biological_sem1" class="btn-test" onclick="handleTestClick('biological_sem1')">Take Test</button>
-      </article>
-      <!-- Item 12: Biological Science SEM 2 (New) -->
-      <article class="test-list-item" id="item_biological_sem2">
-        <div class="test-list-item-content">
-          <!-- REMOVED CLASS RANGE FROM TITLE -->
-          <h3>Biological Science SEM 2 Tests</h3>
-          <p>Semester 2 assessment for Biology and Life Science topics.</p>
-        </div>
-        <button id="btn_biological_sem2" class="btn-test" onclick="handleTestClick('biological_sem2')">Take Test</button>
-      </article>
-      <!-- Item 13: Social Studies SEM 1 (New) -->
-      <article class="test-list-item" id="item_social_sem1">
-        <div class="test-list-item-content">
-          <!-- REMOVED CLASS RANGE FROM TITLE -->
-          <h3>Social Studies SEM 1 Tests</h3>
-          <p>Semester 1 assessment covering History, Civics, and Geography.</p>
-        </div>
-        <button id="btn_social_sem1" class="btn-test" onclick="handleTestClick('social_sem1')">Take Test</button>
-      </article>
-      <!-- Item 14: Social Studies SEM 2 (New) -->
-      <article class="test-list-item" id="item_social_sem2">
-        <div class="test-list-item-content">
-          <!-- REMOVED CLASS RANGE FROM TITLE -->
-          <h3>Social Studies SEM 2 Tests</h3>
-          <p>Semester 2 assessment covering History, Civics, and Geography.</p>
-        </div>
-        <button id="btn_social_sem2" class="btn-test" onclick="handleTestClick('social_sem2')">Take Test</button>
-      </article>
-    </div>
-  </section>
-
-  <!-- NEW: PROFILE SECTION -->
-  <section class="profile-section">
-    <h2>Student Profile</h2>
-    <ul class="profile-list">
-      <li class="profile-item">
-        <span class="profile-label">Username</span>
-        <span class="profile-value" id="profileUsername">N/A</span>
-      </li>
-      <li class="profile-item">
-        <span class="profile-label">Full Name</span>
-        <span class="profile-value" id="profileFullName">N/A</span>
-      </li>
-      <li class="profile-item">
-        <span class="profile-label">Father's Name</span>
-        <span class="profile-value" id="profileFatherName">N/A</span>
-      </li>
-      <li class="profile-item">
-        <span class="profile-label">Mobile Number</span>
-        <span class="profile-value" id="profileMobile">N/A</span>
-      </li>
-      <li class="profile-item">
-        <span class="profile-label">Present Class</span>
-        <span class="profile-value" id="profileClass">N/A</span>
-      </li>
-      <li class="profile-item">
-        <span class="profile-label">School Name</span>
-        <span class="profile-value" id="profileSchool">N/A</span>
-      </li>
-      <li class="profile-item">
-        <span class="profile-label">Terms & Conditions</span>
-        <span class="profile-value" id="profileTerms">N/A</span>
-      </li>
-    </ul>
-  </section>
-
-  <!-- NEW: SUBSCRIPTION DETAILS SECTION -->
-  <section class="subscription-section">
-    <h2>Subscription Details</h2>
-    <ul class="subscription-list">
-      <li class="subscription-item">
-        <span class="subscription-label">Full Name</span>
-        <span class="subscription-value" id="subFullName">N/A</span>
-      </li>
-      <li class="subscription-item">
-        <span class="subscription-label">Subscription Plan</span>
-        <span class="subscription-value subscription-plan-value" id="subPlan">N/A</span>
-      </li>
-      <li class="subscription-item">
-        <span class="subscription-label">Login Times</span>
-        <span class="subscription-value" id="subLoginTimes">N/A</span>
-      </li>
-      <li class="subscription-item">
-        <span class="subscription-label">Start Date</span>
-        <span class="subscription-value" id="subStartDate">N/A</span>
-      </li>
-      <li class="subscription-item">
-        <span class="subscription-label">Expiration Date</span>
-        <span class="subscription-value" id="subExpDate">N/A</span>
-      </li>
-      <li class="subscription-item">
-        <span class="subscription-label">Days Left</span>
-        <span class="subscription-value subscription-days-left" id="subDaysLeft">N/A</span>
-      </li>
-    </ul>
-  </section>
-
-  <!-- NEW: CONTACT US SECTION -->
-  <section class="contact-section">
-    <h2>Contact Us</h2>
-    <div class="contact-content-wrapper">
-      <div class="contact-links">
-        <!-- UPDATED WHATSAPP LINK -->
-        <a href="http://wa.me/918985170500" target="_blank" class="contact-link-btn">
-          <!-- WhatsApp Icon -->
-          <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.06 21.94L7.3 20.58C8.75 21.38 10.36 21.82 12.04 21.82C17.5 21.82 21.95 17.37 21.95 11.91C21.95 6.45 17.5 2 12.04 2M17.83 15.24C17.57 15.91 16.63 16.44 16.09 16.5C15.65 16.55 14.96 16.7 12.65 15.76C9.92 14.65 8.1 12.59 7.85 12.3C7.6 12.02 6.84 10.97 6.84 9.87C6.84 8.77 7.42 8.24 7.64 8.02C7.86 7.8 8.17 7.74 8.45 7.74C8.73 7.74 8.95 7.74 9.13 7.74C9.3 7.74 9.5 7.72 9.73 8.24C9.97 8.77 10.45 10.04 10.53 10.19C10.61 10.33 10.66 10.5 10.53 10.7C10.41 10.9 10.33 11.01 10.18 11.17C10.04 11.33 9.89 11.48 9.77 11.6C9.65 11.72 9.53 11.86 9.7 12.13C9.87 12.4 10.42 13.23 11.23 13.95C12.25 14.86 13.1 15.24 13.38 15.4C13.67 15.56 13.9 15.54 14.1 15.26C14.33 14.98 14.67 14.54 15.01 14.1C15.36 13.66 15.68 13.56 16.03 13.56C16.37 13.56 17.29 14.05 17.52 14.63C17.75 15.21 17.75 15.24 17.83 15.24Z"/></svg>
-          <span>WhatsApp</span>
-        </a>
-        <!-- UPDATED TELEGRAM LINK -->
-        <a href="https://t.me/srivedatc" target="_blank" class="contact-link-btn">
-          <!-- Telegram Icon -->
-          <svg viewBox="0 0 24 24"><path d="M9.78 18.65l.28-4.23l7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3L3.64 11.9c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.3 1.39.2 1.02 1.01l-4.21 16.18c-.17.72-.69 1.25-1.22.91L9.78 18.65z"/></svg>
-          <span>Telegram</span>
-        </a>
-        <!-- UPDATED PHONE LINK -->
-        <a href="tel:+918985170500" class="contact-link-btn">
-          <!-- Phone Icon -->
-          <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24c1.12.37 2.33.57 3.57.57c.55 0 1 .45 1 1V20c0 .55-.45 1-1 1c-9.39 0-17-7.61-17-17c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1c0 1.24.2 2.45.57 3.57c.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-          <span>Call Us</span>
-        </a>
-      </div>
-      <div class="contact-form-container">
-        <!-- UPDATED onsubmit to use showServerMaintenance function -->
-        <form class="contact-form" onsubmit="event.preventDefault(); showServerMaintenance('Message sent (demo)!');">
-          <div class="form-group">
-            <label for="contactName" class="form-label">Your Name</label>
-            <input type="text" id="contactName" class="form-input" required placeholder="Enter your full name">
-          </div>
-          <div class="form-group">
-            <label for="contactNumber" class="form-label">Mobile Number</label>
-            <input type="tel" id="contactNumber" class="form-input" required placeholder="Enter your 10-digit number">
-          </div>
-          <div class="form-group">
-            <label for="contactMessage" class="form-label">Your Message</label>
-            <textarea id="contactMessage" class="form-textarea" rows="4" required placeholder="Write your message here..."></textarea>
-          </div>
-          <button type="submit" class="form-submit-btn">Send Message</button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- NEW: FOOTER SECTION -->
-  <footer class="main-footer">
-    <div class="footer-content">
-      <div class="footer-column">
-        <h3>Contact & Support</h3>
-        <ul>
-          <!-- UPDATED PHONE NUMBER WITH PREFIX -->
-          <li><span><!-- Phone Icon --><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24c1.12.37 2.33.57 3.57.57c.55 0 1 .45 1 1V20c0 .55-.45 1-1 1c-9.39 0-17-7.61-17-17c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1c0 1.24.2 2.45.57 3.57c.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg> +91 8985170500</span></li>
-          <li><a href="mailto:contact.sriveda@gmail.com"><!-- Email Icon --><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg> contact.srivedatc@gmail.com</a></li>
-        </ul>
-        <h3>Follow Us</h3>
-        <div class="social-links">
-          <!-- UPDATED FACEBOOK LINK -->
-          <a href="https://www.facebook.com/share/1ZXXCLRGwh" target="_blank" aria-label="Facebook"><!-- Facebook Icon -->
-            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2zm3.1 10.9h-2.1v6.1h-3v-6.1H8.9v-2.5h1.1v-1.8c0-1.1.5-2.8 2.8-2.8l2.2.1v2.4h-1.4c-.1 0-.3.1-.3.4v1.7h1.8l-.2 2.5z"/></svg>
-          </a>
-
-          <!-- UPDATED TELEGRAM LINK -->
-          <a href="https://t.me/srivedatc" target="_blank" aria-label="Telegram"><!-- Telegram Icon -->
-            <svg viewBox="0 0 24 24"><path d="M9.78 18.65l.28-4.23l7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3L3.64 11.9c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.3 1.39.2 1.02 1.01l-4.21 16.18c-.17.72-.69 1.25-1.22.91L9.78 18.65z"/></svg>
-          </a>
-          <!-- UPDATED WHATSAPP LINK -->
-          <a href="http://wa.me/918985170500" target="_blank" aria-label="WhatsApp"><!-- WhatsApp Icon -->
-            <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.06 21.94L7.3 20.58C8.75 21.38 10.36 21.82 12.04 21.82C17.5 21.82 21.95 17.37 21.95 11.91C21.95 6.45 17.5 2 12.04 2M17.83 15.24C17.57 15.91 16.63 16.44 16.09 16.5C15.65 16.55 14.96 16.7 12.65 15.76C9.92 14.65 8.1 12.59 7.85 12.3C7.6 12.02 6.84 10.97 6.84 9.87C6.84 8.77 7.42 8.24 7.64 8.02C7.86 7.8 8.17 7.74 8.45 7.74C8.73 7.74 8.95 7.74 9.13 7.74C9.3 7.74 9.5 7.72 9.73 8.24C9.97 8.77 10.45 10.04 10.53 10.19C10.61 10.33 10.66 10.5 10.53 10.7C10.41 10.9 10.33 11.01 10.18 11.17C10.04 11.33 9.89 11.48 9.77 11.6C9.65 11.72 9.53 11.86 9.7 12.13C9.87 12.4 10.42 13.23 11.23 13.95C12.25 14.86 13.1 15.24 13.38 15.4C13.67 15.56 13.9 15.54 14.1 15.26C14.33 14.98 14.67 14.54 15.01 14.1C15.36 13.66 15.68 13.56 16.03 13.56C16.37 13.56 17.29 14.05 17.52 14.63C17.75 15.21 17.75 15.24 17.83 15.24Z"/></svg>
-          </a>
-          <!-- NEW INSTAGRAM LINK -->
-          <a href="https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=zreta93" target="_blank" aria-label="Instagram">
-            <!-- Instagram Icon -->
-            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.77 1.624 4.908 4.829.057 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.148 3.252-1.624 4.77-4.829 4.908-1.266.057-1.646.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.77-1.624-4.908-4.829-.057-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.148-3.252 1.624-4.77 4.829-4.908 1.266-.057 1.646-.07 4.85-.07zm0 2.133c-3.197 0-3.565.013-4.82.07c-2.454.112-3.34 1.01-3.45 3.464-.056 1.255-.07 1.623-.07 4.82s.013 3.565.07 4.82c.11 2.454.996 3.34 3.45 3.45 1.255.056 1.623.07 4.82.07s3.565-.013 4.82-.07c2.454-.11 3.34-.996 3.45-3.45.056-1.255.07-1.623.07-4.82s-.013-3.565-.07-4.82c-.11-2.454-.996-3.34-3.45-3.45-1.255-.056-1.623-.07-4.82-.07zm0 1.958a3.958 3.958 0 1 0 0 7.916 3.958 3.958 0 0 0 0-7.916zm0 5.82a1.862 1.862 0 1 1 0-3.725 1.862 1.862 0 0 1 0 3.725zm6.541-6.191a.925.925 0 1 0 0-1.85.925.925 0 0 0 0 1.85z"/></svg>
-          </a>
-        </div>
-      </div>
-      <!-- MODIFIED: Footer Quick Links -->
-      <div class="footer-column">
-        <h3>Quick Links</h3>
-        <ul>
-          <li><a href="https://www.svtc.life/home">Home</a></li>
-          <li><a href="https://www.svtc.life/join-now">Join Now</a></li>
-          <li><a href="https://www.svtc.life/pricing">Pricing</a></li>
-          <li><a href="https://www.svtc.life/connect">Connect</a></li>
-          <li><a href="https://www.svtc.life/contact">Contact</a></li>
-          <li><a href="https://www.svtc.life/about-us">About Us</a></li>
-        </ul>
-      </div>
-      <!-- MODIFIED: Footer Legal Links -->
-      <div class="footer-column">
-        <h3>Legal</h3>
-        <ul>
-          <li><a href="https://www.svtc.life/terms-privacy">Terms & Privacy</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      © 2025 Sri Veda TC. All India rights reserved.
-    </div>
-  </footer>
-</div>
-
-<!-- SCRIPTS: live time, session, animations, interactions -->
-<script>
-    // MODIFIED: Updated Apps Script URL per user request
-    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwENT3dutyj_FLsEymhaMpaYkXadcukRmur41VoetHKq93bv010mLu4qTypwcscd8Y/exec";
+    </section>
     
-    // --- Global State and DOM Elements ---
-    const loginScreen = document.getElementById('loginScreen');
-    const dashboardContent = document.getElementById('dashboardContent');
-    const loginForm = document.getElementById('loginForm');
-    const statusMessage = document.getElementById('statusMessage');
-    const loginButton = document.getElementById('loginButton');
-    const buttonText = document.getElementById('buttonText');
-    const loadingSpinner = document.getElementById('loadingSpinner');
-    const logoutBtn = document.getElementById('logoutBtn');
-
-    // Display elements for user data
-    const studentNameDisplay = document.getElementById('studentNameDisplay');
-    const studentClassDisplay = document.getElementById('studentClassDisplay');
-    const profileUsername = document.getElementById('profileUsername');
-    const profileFullName = document.getElementById('profileFullName');
-    const profileClass = document.getElementById('profileClass');
-    const subFullName = document.getElementById('subFullName');
+    <!-- Skill Analysis Section (Decreased Size/Padding) -->
+    <section class="bg-sv-blue py-6 md:py-8 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-3xl font-extrabold text-sv-yellow mb-4">
+                SKILL-BASED GUIDANCE: YOUR NEXT CAREER MOVE
+            </h2>
+            <p class="text-xl text-white font-medium mb-6">
+                We believe in your potential, not just performance.
+            </p>
+            <div class="bg-white p-5 rounded-xl shadow-2xl max-w-4xl mx-auto border-b-8 border-sv-orange">
+                <p class="text-base text-gray-700 leading-relaxed italic">
+                    "Based on your performance in SVTC tests, we analyze your skills (especially in General Maths and General Awareness). We don't just recommend exams; we create a personalized preparation plan that aligns with your future goals. Your unique skills are the foundation for your brilliant career."
+                </p>
+            </div>
+            <a href="https://www.svtc.life/Join%20now.html" class="mt-6 inline-block bg-sv-orange text-white py-3 px-8 rounded-full text-lg font-bold shadow-lg hover:bg-orange-600 transition duration-300 transform hover:scale-105">
+                Get My Personalized Skill Analysis
+            </a>
+        </div>
+    </section>
     
-    // NEW: Get Subject Tests Section element
-    const studentSubjectTestsSection = document.getElementById('studentSubjectTestsSection');
+    <!-- Recommended Courses Section -->
+    <section class="max-w-7xl mx-auto py-6 md:py-8 px-4 sm:px-6 lg:px-8">
+        <h2 class="text-center text-3xl font-extrabold text-sv-orange mb-4">Recommended Courses & Exams</h2>
 
-    // NEW: Add remaining profile and subscription elements
-    const profileFatherName = document.getElementById('profileFatherName');
-    const profileMobile = document.getElementById('profileMobile');
-    const profileSchool = document.getElementById('profileSchool');
-    const profileTerms = document.getElementById('profileTerms');
-    const subPlan = document.getElementById('subPlan');
-    const subLoginTimes = document.getElementById('subLoginTimes');
-    const subStartDate = document.getElementById('subStartDate');
-    const subExpDate = document.getElementById('subExpDate');
-    const subDaysLeft = document.getElementById('subDaysLeft');
-
-
-    let studentClass = 0; // Dynamic variable to hold the logged-in student's class (3, 4, 5, etc.)
-    // REMOVED: let testWindow = null; 
-
-    // Define the mapping of URLs based on test ID and Class
-    const urlMap = {
-
-        // NEW: General Free Test for all classes (Linked to the button in the free-test-promo-section)
-        'general_free_test': {
-            3: 'https://www.svtc.life',
-            4: 'https://www.svtc.life',
-            5: 'https://www.svtc.life',
-            6: 'https://www.svtc.life',
-            7: 'https://www.svtc.life',
-            8: 'https://www.svtc.life',
-            9: 'https://www.svtc.life',
-            10: 'https://www.svtc.life',
-        },
-
-        'telugu': {
-            // Empty string means the subject test section handles visibility (for classes 3, 4, 5)
-            3: '',
-            4: '',
-            5: '',
-            6: 'https://www.svtc.life',
-            7: 'https://www.svtc.life',
-            8: 'https://www.svtc.life',
-            9: 'https://www.svtc.life',
-            10: 'https://www.svtc.life',
-        },
-        'english': { 
-            3: '',
-            4: '',
-            5: '',
-            6: 'https://www.svtc.life',
-            7: 'https://www.svtc.life',
-            8: 'https://www.svtc.life',
-            9: 'https://www.svtc.life',
-            10: 'https://www.svtc.life',
-        },
-        'evs_sem1': { 
-            3: '',
-            4: '',
-            5: '',
-            6: 'locked',
-            7: 'locked',
-            8: 'locked',
-            9: 'locked',
-            10: 'locked',
-        },
-        'evs_sem2': { 
-            3: '',
-            4: '',
-            5: '',
-            6: 'locked',
-            7: 'locked',
-            8: 'locked',
-            9: 'locked',
-            10: 'locked',
-        },
-        'maths_sem1': { 
-            3: '',
-            4: '',
-            5: '',
-            6: 'https://www.svtc.life',
-            7: 'https://www.svtc.life',
-            8: 'https://www.svtc.life',
-            9: 'https://www.svtc.life',
-            10: 'https://www.svtc.life',
-        },
-        'maths_sem2': { 
-            3: '',
-            4: '',
-            5: '',
-            6: 'https://www.svtc.life',
-            7: 'https://www.svtc.life',
-            8: 'https://www.svtc.life',
-            9: 'https://www.svtc.life',
-            10: 'https://www.svtc.life',
-        },
-        // --- NEW SUBJECTS (Original) ---
-        'hindi': {
-            3: '',
-            4: '',
-            5: '',
-            6: 'https://www.svtc.life',
-            7: 'https://www.svtc.life',
-            8: 'https://www.svtc.life',
-            9: 'https://www.svtc.life',
-            10: 'https://www.svtc.life',
-        },
-        'general_science': { 
-            3: '',
-            4: '',
-            5: '',
-            6: 'https://www.svtc.life',
-            7: 'https://www.svtc.life',
-            8: 'locked',
-            9: 'locked',
-            10: 'locked',
-        },
-        'physical_sem1': { 
-            3: '',
-            4: '',
-            5: '',
-            6: 'locked',
-            7: 'locked',
-            8: 'https://www.svtc.life',
-            9: 'https://www.svtc.life',
-            10: 'https://www.svtc.life',
-        },
-        'physical_sem2': { 
-            3: '',
-            4: '',
-            5: '',
-            6: 'locked',
-            7: 'locked',
-            8: 'https://www.svtc.life',
-            9: 'https://www.svtc.life',
-            10: 'https://www.svtc.life',
-        },
-        'biological_sem1': { 
-            3: '',
-            4: '',
-            5: '',
-            6: 'locked',
-            7: 'locked',
-            8: 'https://www.svtc.life',
-            9: 'https://www.svtc.life',
-            10: 'https://www.svtc.life',
-        },
-        'biological_sem2': { 
-            3: '',
-            4: '',
-            5: '',
-            6: 'locked',
-            7: 'locked',
-            8: 'https://www.svtc.life',
-            9: 'https://www.svtc.life',
-            10: 'https://www.svtc.life',
-        },
-        'social_sem1': { 
-            3: '',
-            4: '',
-            5: '',
-            6: 'https://www.svtc.life',
-            7: 'https://www.svtc.life',
-            8: 'https://www.svtc.life',
-            9: 'https://www.svtc.life',
-            10: 'https://www.svtc.life',
-        },
-        'social_sem2': { 
-            3: '',
-            4: '',
-            5: '',
-            6: 'https://www.svtc.life',
-            7: 'https://www.svtc.life',
-            8: 'https://www.svtc.life',
-            9: 'https://www.svtc.life',
-            10: 'https://www.svtc.life',
-        },
-        // --- NEW: GENERAL TESTS (Unlocked) ---
-        'general_awareness': {
-            3: 'https://www.svtc.life',
-            4: 'https://www.svtc.life',
-            5: 'https://www.svtc.life',
-            6: 'https://www.svtc.life',
-            7: 'https://www.svtc.life',
-            8: 'https://www.svtc.life',
-            9: 'https://www.svtc.life',
-            10: 'https://www.svtc.life',
-        },
-        'general_maths': {
-            3: 'https://www.svtc.life',
-            4: 'https://www.svtc.life',
-            5: 'https://www.svtc.life',
-            6: 'https://www.svtc.life',
-            7: 'https://www.svtc.life',
-            8: 'https://www.svtc.life',
-            9: 'https://www.svtc.life',
-            10: 'https://www.svtc.life',
-        },
-        'advance_maths': {
-            3: 'https://www.svtc.life',
-            4: 'https://www.svtc.life',
-            5: 'https://www.svtc.life',
-            6: 'https://www.svtc.life',
-            7: 'https://www.svtc.life',
-            8: 'https://www.svtc.life',
-            9: 'https://www.svtc.life',
-            10: 'https://www.svtc.life',
-        },
-    };
-    // --- Time and Session Clock Functions ---
-
-    function pad(n){return n.toString().padStart(2,'0')}
-    function updateTime(){
-        const now=new Date();
-        const display = document.getElementById('liveTime');
-        // MODIFIED: Check if display element is available and not hidden
-        if (display && !display.classList.contains('hidden')) display.textContent = `${pad(now.getDate())}/${pad(now.getMonth()+1)}/${now.getFullYear()}, ${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`
-    }
-    updateTime();
-    setInterval(updateTime,1000);
-
-    let session = parseInt(sessionStorage.getItem('sessionTime') || 0);
-    function formatHMS(s){const h=Math.floor(s/3600), m=Math.floor((s%3600)/60), sec=s%60;return `${pad(h)}:${pad(m)}:${pad(sec)}`}
-    function updateSession(){
-        session++;
-        sessionStorage.setItem('sessionTime', session);
-        const display = document.getElementById('sessionTimer');
-        // MODIFIED: Check if display element is available and not hidden
-        if (display && !display.classList.contains('hidden')) display.textContent = 'Session: '+formatHMS(session);
-    }
-    updateSession();
-    setInterval(updateSession,1000);
-
-    // --- Utility Functions ---
-
-    // Function to display messages (success/error) on the login screen
-    function showStatus(message, isSuccess = false) {
-        statusMessage.textContent = message;
-        statusMessage.classList.remove('hidden', 'status-error', 'status-success');
+        <!-- Competitive Exams Before 10th Grade -->
+        <h3 class="text-xl font-bold text-sv-blue mb-3 border-b pb-2">Competitive Exams Before 10th Grade</h3>
+        <p class="text-sm text-gray-500 italic mb-4">For all these entrance tests, we have BASIC and PRO level preparation tests.</p>
+        <div class="flex flex-wrap justify-center gap-2">
+            <a href="#" class="course-button">NTSE</a>
+            <a href="#" class="course-button">Olympiads (NSO, IMO, IEO)</a>
+            <a href="#" class="course-button">KVPY (SA Stream)</a>
+            <a href="#" class="course-button">Homi Bhabha Balvaidnyanik</a>
+            <a href="#" class="course-button">NSTSE</a>
+            <a href="#" class="course-button">SilverZone Olympiads</a>
+            <a href="#" class="course-button">UIEO (Unified International English Olympiad)</a>
+            <a href="#" class="course-button">UCO (Unified Cyber Olympiad)</a>
+        </div>
         
-        if (isSuccess) {
-            statusMessage.classList.add('status-success');
-        } else {
-            statusMessage.classList.add('status-error');
-        }
-    }
+        <!-- Importance of Entrance Exams Section (Plain Text) -->
+        <div class="text-center py-6 mb-4 mt-6">
+            <h3 class="text-2xl font-extrabold text-sv-blue mb-4">
+                DON'T MISS THE BIG PICTURE: Why Every Entrance Test Counts
+            </h3>
+            <p class="text-lg text-gray-700 leading-relaxed mb-6 italic font-medium max-w-5xl mx-auto">
+                Do you know why these competitive exams are crucial, even at an early age? Writing a minor entrance test today is the only way to gauge your future potential and secure the best educational opportunities, including highly competitive Free Seats offered by both State and Central Government institutions. The small scores you achieve now are not just marks—are the decisive steps that shape your career trajectory. Gain the essential knowledge to take control of your academic future.
+            </p>
+            <a href="https://www.svtc.life/Join%20now.html" class="cta-button-secondary">
+                KNOW MORE ABOUT ENTRANCE EXAMS
+            </a>
+        </div>
+        
+        <!-- Career Paths After 10th Grade -->
+        <h3 class="text-xl font-bold text-sv-blue mb-3 mt-4 border-b pb-2">Career Paths After 10th Grade</h3>
+        <p class="text-sm text-gray-500 italic mb-4">For all these entrance tests, we have BASIC and PRO level preparation tests.</p>
+        <div class="flex flex-wrap justify-center gap-2">
+            <!-- Course Buttons -->
+            <a href="#" class="course-button">JEE (Main & Advanced)</a>
+            <a href="#" class="course-button">NEET (UG)</a>
+            <a href="#" class="course-button">BITSAT</a>
+            <a href="#" class="course-button">VITEEE</a>
+            <a href="#" class="course-button">SRMJEEE</a>
+            <a href="#" class="course-button">NDA</a>
+            <a href="#" class="course-button">CLAT</a>
+            <a href="#" class="course-button">AILET</a>
+            <a href="#" class="course-button">CA Foundation</a>
+            <a href="#" class="course-button">CS Foundation</a>
+            <a href="#" class="course-button">CMA Foundation</a>
+            <a href="#" class="course-button">NID DAT</a>
+            <a href="#" class="course-button">UCEED</a>
+            <a href="#" class="course-button">NIFT Entrance Exam</a>
+            <a href="#" class="course-button">NCHM JEE (Hotel Management)</a>
+            <a href="#" class="course-button">STATE CETs (EAMCET, MHTCET, etc.)</a>
+            <a href="#" class="course-button">POLYTECHNIC CET</a>
+            <a href="#" class="course-button">ITI ENTRANCE</a>
+            <a href="#" class="course-button">RAILWAY (RRB) ALP/TECHNICIAN</a>
+            <a href="#" class="course-button">SSC CHSL (10+2)</a>
+            <a href="#" class="course-button">INDIAN ARMY (Soldier GD/Technical)</a>
+            <a href="#" class="course-button">INDIAN NAVY (Sailor - AA/SSR)</a>
+            <a href="#" class="course-button">INDIAN AIR FORCE (Airman Group X & Y)</a>
+        </div>
+    </section>
+    
+    <!-- Final CTA - Register Now Section (Before Footer, Reduced Size & Style Changed) -->
+    <section class="bg-sv-orange py-6 md:py-8 px-4 sm:px-6 lg:px-8 border-t-8 border-sv-blue">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-3">
+                YOUR NEXT STEP IS CRITICAL
+            </h2>
+            <p class="text-lg sm:text-xl text-white font-medium mb-6 max-w-4xl mx-auto leading-snug">
+                The most important decision you can make now is to Register. Once registered, we will personally contact you to clearly explain your next steps, assess your goals, and guide you through a proven preparation strategy. Don't delay your success—your future starts with this click.
+            </p>
+            <a href="https://www.svtc.life/Join%20now.html" class="cta-button-large">
+                JOIN NOW & START YOUR JOURNEY
+            </a>
+        </div>
+    </section>
 
-    // Function to control login button loading state
-    function setLoading(isLoading) {
-        loginButton.disabled = isLoading;
-        if (isLoading) {
-            buttonText.textContent = "Loading...";
-            loadingSpinner.classList.remove('hidden');
-        } else {
-            buttonText.textContent = "login";
-            loadingSpinner.classList.add('hidden');
-        }
-    }
-
-    // Details click => Server Maintenance toast (for all demo links)
-    function showServerMaintenance(message = 'This function is currently locked or under maintenance.'){
-      const t = document.createElement('div');
-      t.textContent = message;
-      t.style.position = 'fixed';
-      t.style.left = '50%';
-      t.style.top = '22px';
-      t.style.transform = 'translateX(-50%)';
-      t.style.background = 'linear-gradient(90deg, #b33030, #ff7b00)';
-      t.style.color = '#fff';
-      t.style.padding = '12px 20px';
-      t.style.borderRadius = '10px';
-      t.style.zIndex = 14000;
-      t.style.fontWeight = 900;
-      document.body.appendChild(t);
-      setTimeout(()=>{ t.style.transition = 'opacity .4s'; t.style.opacity = '0'; setTimeout(()=>t.remove(),500); }, 2500);
-    }
-
-    // NEW: Function to open the pricing page (UPDATED URL)
-    function openPricingPage() {
-        window.open('https://www.svtc.life/Pricing.html', '_blank'); // UPDATED LINK
-    }
-
-
-    // --- Core Logic: Login, Logout, Dashboard Show ---
-
-    async function handleLogin(event) {
-        event.preventDefault();
-        setLoading(true);
-
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
-
-        const params = new URLSearchParams();
-        params.append('username', username);
-        params.append('password', password);
-
-        try {
-            const response = await fetch(APPS_SCRIPT_URL, {
-                method: 'POST',
-                mode: 'cors',
-                cache: 'no-cache',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                body: params.toString()
-            });
-
-            const result = await response.json();
-            
-            if (result.success) {
-                showStatus("Login successful!", true);
+    <!-- Footer Section (Separate) -->
+    <footer class="bg-sv-blue text-white py-6 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
                 
-                // MODIFIED: Store all user data from the result (new script)
-                sessionStorage.setItem('isLoggedIn', 'true');
-                sessionStorage.setItem('username', result.username); // B (from script)
-                sessionStorage.setItem('fullName', result.fullName); // F
-                sessionStorage.setItem('fatherName', result.fatherName); // K
-                sessionStorage.setItem('mobileNumber', result.mobileNumber); // L
-                sessionStorage.setItem('class', result.class); // J
-                sessionStorage.setItem('schoolName', result.schoolName); // M
-                sessionStorage.setItem('termsConditions', result.termsConditions); // O
-                sessionStorage.setItem('subscription', result.subscription); // N (Replaced plan_N)
-                sessionStorage.setItem('loginTimes', result.loginTimes); // E
-                sessionStorage.setItem('startDate', result.startDate); // G
-                sessionStorage.setItem('endDate', result.endDate); // H
-                sessionStorage.setItem('daysLeft', result.daysLeft); // I
-                // NEW fields from updated script
-                sessionStorage.setItem('timeSpent', result.timeSpent); // P
-                sessionStorage.setItem('generalTests', result.generalTests); // Q
-                sessionStorage.setItem('subjectTests', result.subjectTests); // R
-                
-                // Transition to Dashboard View
-                setTimeout(showDashboard, 1000); 
+                <!-- Footer Logo (UPDATED SRC) -->
+                <div>
+                    <img class="h-14 w-auto mb-3 object-contain shadow-md rounded-full bg-white p-1" 
+                            src="https://contactsriveda-debug.github.io/images/veda-logo.jpg" 
+                            alt="Sri Veda Logo"
+                            onerror="this.onerror=null; this.src='https://placehold.co/56x56/1e3a8a/ffffff?text=VEDA';">
+                    <p class="text-gray-300 text-sm">
+                        Sri Veda Talent Competition<br>
+                        Empowering students with knowledge and skills for a bright future.
+                    </p>
+                </div>
 
-            } else {
-                showStatus(result.message || "Login Failed Please check USERNAME & PASSWROD.", false);
-            }
+                <!-- Quick Links -->
+                <div>
+                    <h5 class="text-lg font-bold text-sv-yellow mb-3">Quick Links</h5>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="https://www.svtc.life/index.html" class="text-gray-300 hover:text-white transition">Home</a></li>
+                        <li><a href="https://www.svtc.life/Join%20now.html" class="text-gray-300 hover:text-white transition">Join Now</a></li>
+                        <li><a href="https://www.svtc.life/Pricing.html" class="text-gray-300 hover:text-white transition">Pricing</a></li>
+                        <li><a href="https://www.svtc.life/connect.html" class="text-gray-300 hover:text-white transition">Connect</a></li>
+                    </ul>
+                </div>
 
-        } catch (error) {
-            console.error("Fetch Error:", error);
-            showStatus("Please retry.", false);
-        } finally {
-            setLoading(false);
-        }
-    }
-    
-    function handleLogout() {
-        sessionStorage.clear();
-        session = 0; // Reset session time on logout
-        updateSession(); // Update the timer display to 00:00:00
-        
-        // When logging out, hide dashboard content and show login screen
-        dashboardContent.classList.add('hidden');
-        loginScreen.classList.remove('hidden');
-        
-        // Hide the header content elements when logging out
-        document.getElementById('liveTime').classList.add('hidden');
-        document.getElementById('sessionTimer').classList.add('hidden');
-        logoutBtn.classList.add('hidden'); 
-        
-        // Clear inputs and status message
-        loginForm.reset();
-        statusMessage.classList.add('hidden');
-        
-        // Reset dynamic student class variable to prevent accidental test access
-        studentClass = 0; 
-    }
+                <!-- Company Links -->
+                <div>
+                    <h5 class="text-lg font-bold text-sv-yellow mb-3">Company</h5>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="https://www.svtc.life/About%20Us.html" class="text-gray-300 hover:text-white transition">About Us</a></li>
+                        <li><a href="https://www.svtc.life/connect.html" class="text-gray-300 hover:text-white transition">Contact</a></li>
+                        <li><a href="https://www.svtc.life/Privacy%20policy.html" class="text-gray-300 hover:text-white transition">Terms & Privacy</a></li>
+                    </ul>
+                </div>
 
-    // MODIFIED: Updated function to load all data from sessionStorage
-    function showDashboard() {
-        // Retrieve all data from sessionStorage
-        const username = sessionStorage.getItem('username') || 'N/A';
-        const fullName = sessionStorage.getItem('fullName') || 'N/A';
-        const classString = sessionStorage.getItem('class') || 'N/A';
-        const fatherName = sessionStorage.getItem('fatherName') || 'N/A';
-        const mobileNumber = sessionStorage.getItem('mobileNumber') || 'N/A';
-        const schoolName = sessionStorage.getItem('schoolName') || 'N/A';
-        const termsConditions = sessionStorage.getItem('termsConditions') || 'N/A';
-        const subscription = sessionStorage.getItem('subscription') || 'N/A'; // MODIFIED: was plan_N
-        const loginTimes = sessionStorage.getItem('loginTimes') || 'N/A';
-        const startDate = sessionStorage.getItem('startDate') || 'N/A';
-        const endDate = sessionStorage.getItem('endDate') || 'N/A';
-        const daysLeft = sessionStorage.getItem('daysLeft') || 'N/A';
-        // NEW: Retrieve new stats fields
-        const timeSpent = sessionStorage.getItem('timeSpent') || 'N/A';
-        const generalTests = sessionStorage.getItem('generalTests') || 'N/A';
-        const subjectTests = sessionStorage.getItem('subjectTests') || 'N/A';
-
-        // NEW: Get stat elements
-        const statLogins = document.getElementById('statLogins');
-        const statTimeSpent = document.getElementById('statTimeSpent');
-        const statGeneralTests = document.getElementById('statGeneralTests');
-        const statSubjectTests = document.getElementById('statSubjectTests');
-        const statSubscription = document.getElementById('statSubscription');
-        
-        // 1. Update the global studentClass variable used for test linking
-        const classMatch = classString.match(/(\d+)/);
-        studentClass = classMatch ? parseInt(classMatch[1], 10) : 0; // e.g., '4th Class' -> 4
-
-        // 2. Update all UI elements
-        
-        // Header (MODIFIED VISIBILITY)
-        document.getElementById('liveTime').classList.remove('hidden');
-        document.getElementById('sessionTimer').classList.remove('hidden');
-        logoutBtn.classList.remove('hidden'); 
-        studentNameDisplay.textContent = fullName;
-        studentClassDisplay.textContent = classString;
-        
-        // Profile Section (Mapped to user's request)
-        profileUsername.textContent = username; // B
-        profileFullName.textContent = fullName; // F
-        profileFatherName.textContent = fatherName; // K
-        
-        // MODIFIED: Masked Mobile Number Logic
-        let maskedMobile = 'N/A';
-        if (mobileNumber && mobileNumber !== 'N/A' && mobileNumber.length >= 10) {
-            // Assumes a 10-digit number, masks 6 digits in the middle
-            maskedMobile = `${mobileNumber.substring(0, 2)}XXXXXX${mobileNumber.substring(mobileNumber.length - 2)}`;
-        } else if (mobileNumber) {
-            maskedMobile = mobileNumber; // Show as-is if not 10+ digits
-        }
-        profileMobile.textContent = maskedMobile; // L (Masked)
-        
-        profileClass.textContent = classString; // J
-        profileSchool.textContent = schoolName; // M
-        profileTerms.textContent = termsConditions; // O
-        // Handle 'Agreed' status styling for Terms
-        if (termsConditions.toLowerCase().trim() === 'agreed') {
-            profileTerms.classList.add('agreed');
-        } else {
-            profileTerms.classList.remove('agreed');
-        }
-        
-        // Subscription Section (Mapped to user's request)
-        subFullName.textContent = fullName; // F
-        subPlan.textContent = subscription; // N (MODIFIED: was plan_N)
-        subLoginTimes.textContent = loginTimes; // E
-        subStartDate.textContent = startDate; // G
-        subExpDate.textContent = endDate; // H
-        subDaysLeft.textContent = daysLeft; // I
-
-        // NEW: Update Stats Section
-        if(statLogins) statLogins.textContent = loginTimes; // E
-        if(statTimeSpent) statTimeSpent.textContent = timeSpent; // P
-        if(statGeneralTests) statGeneralTests.textContent = generalTests; // Q
-        if(statSubjectTests) statSubjectTests.textContent = subjectTests; // R
-        if(statSubscription) statSubscription.textContent = subscription; // N
-        // Social Follow is static 'Yes' per user request
-        
-        // 3. Initialize dynamic features based on the new class
-        setupSubjectButtons();
-        animateTCRing();
-        
-        // 4. Show the dashboard and hide the login
-        loginScreen.classList.add('hidden');
-        dashboardContent.classList.remove('hidden');
-        
-        // MODIFIED: Logic to hide the entire Student Subject Tests section for 3rd, 4th, 5th classes
-        if (studentSubjectTestsSection && [3, 4, 5].includes(studentClass)) {
-             studentSubjectTestsSection.classList.add('hidden');
-        } else if (studentSubjectTestsSection) {
-             studentSubjectTestsSection.classList.remove('hidden');
-        }
-    }
-
-    // Initial check on page load
-    function checkLoginStatus() {
-        if (sessionStorage.getItem('isLoggedIn') === 'true') {
-            showDashboard();
-            // Header elements visibility is now handled inside showDashboard
-        } else {
-            loginScreen.classList.remove('hidden');
-            dashboardContent.classList.add('hidden');
-            // Header elements are hidden by default/handled by logout function
-        }
-    }
-
-    // --- Subject Button Setup (moved here to run after login) ---
-
-    function setupSubjectButtons() {
-        const testIds = Object.keys(urlMap).filter(id => id !== 'general_free_test'); // Exclude the free test which uses its own button
-        
-        testIds.forEach(testId => {
-            const button = document.getElementById(`btn_${testId}`);
-            const listItem = document.getElementById(`item_${testId}`); // Get the parent list item
+                <!-- Contact & Socials -->
+                <div>
+                    <h5 class="text-lg font-bold text-sv-yellow mb-3">Get In Touch</h5>
+                    <ul class="space-y-2 text-sm">
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-sv-yellow"></i>
+                            <a href="tel:+918985170500" class="text-gray-300 hover:text-white transition">+91 8985170500</a>
+                        </li>
+                    </ul>
+                    <h5 class="text-lg font-bold text-sv-yellow mt-4 mb-3">Connect With Us</h5>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/share/1ZXXCLRGwh" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-sv-yellow transition text-xl">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=zreta93" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-sv-yellow transition text-xl">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="httpst.me/srivedatc" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-sv-yellow transition text-xl">
+                            <i class="fab fa-telegram-plane"></i>
+                        </a>
+                        <a href="http://wa.me/918985170500" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-sv-yellow transition text-xl">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
             
-            if (!button || !listItem) return;
-            
-            const targetUrl = (urlMap[testId] && urlMap[testId][studentClass]) ? urlMap[testId][studentClass] : 'locked';
+            <!-- Copyright -->
+            <div class="border-t border-gray-700 mt-5 pt-5 text-center">
+                <p class="text-gray-400 text-xs">
+                    &copy; 2025 Sri Veda Talent Competition. All Rights Reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
 
-            // Reset visibility first
-            listItem.classList.remove('hidden'); 
-
-            if (targetUrl === '') {
-                 // The empty string path is used for classes 3, 4, 5 where the entire section should be hidden
-                 // If the section is still visible (i.e. if the user is 6-10), then this subject should be hidden
-                 if (studentClass >= 6) {
-                    listItem.classList.add('hidden'); 
-                 } else {
-                    // Safety check: if somehow class 3,4,5 elements are rendered, hide them individually
-                    listItem.classList.add('hidden'); 
-                 }
-
-            } else if (targetUrl === 'locked') {
-                // If it's explicitly locked (for classes >= 6), hide the entire item as requested.
-                if (studentClass >= 6) {
-                    listItem.classList.add('hidden'); 
-                } else {
-                    // Fallback to showing lock icon/message if somehow visible for other classes
-                    button.classList.add('locked');
-                    // MODIFIED: If locked, use the Server Maintenance message
-                    button.setAttribute('onclick', `showServerMaintenance('This subject is not available for your current class (${studentClass}th Class).');`);
-                    button.innerHTML = `<svg class="lock-icon" viewBox="0 0 24 24"><path d="M12 17c1.1 0 2-.9 2-2s-.9-2-2-2s-2 .9-2 2s.9 2 2 2zm6-9h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM8.9 6c0-1.71 1.39-3.1 3.1-3.1s3.1 1.39 3.1 3.1v2H8.9V6zM18 20H6V10h12v10z"/></svg> <span class="btn-text">Take Test</span>`;
-                }
-
-            } else {
-                // Fully visible and unlocked (targetUrl is a valid link)
-                button.classList.remove('locked');
-                listItem.classList.remove('hidden');
-                // MODIFIED: If unlocked, use the launch function
-                button.setAttribute('onclick', `handleTestClick('${testId}')`);
-                button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M10 17l5-5-5-5v10z"/></svg> <span class="btn-text">Take Test</span>`;
-            }
-        });
-    }
-
-    // --- TC Ring Animation (Now a function to be called on dashboard load) ---
-
-    function animateTCRing(){
-      const target = 29;
-      const ring = document.getElementById('tcRing');
-      const pctText = document.getElementById('tcPercent');
-      let current = 0;
-      const step = Math.max(1, Math.round(target / 60));
-      // Clear any existing interval to prevent multiple animations running
-      if (window.tcRingInterval) clearInterval(window.tcRingInterval); 
-
-      window.tcRingInterval = setInterval(()=>{
-        current += step;
-        if(current >= target){ current = target; clearInterval(window.tcRingInterval); }
-        ring.style.background = `conic-gradient(#ffd700 0 ${current}%, #e6e6e6 ${current}% 100%)`;
-        pctText.textContent = current + '%';
-      },16);
-    }
-    
-    // --- Test Launch Logic ---
-
-    function handleTestClick(testId) {
-        const classUrls = urlMap[testId];
-        // Check availability against the dynamically set studentClass
-        const targetUrl = (classUrls && classUrls[studentClass]) 
-                            ? classUrls[studentClass] 
-                            : 'locked'; 
-
-        const button = document.getElementById(`btn_${testId}`);
-        
-        // MODIFIED: Only execute if targetUrl is a valid URL (not 'locked' or empty)
-        if (targetUrl === 'locked') {
-            showServerMaintenance(`This subject is not available for your current class (${studentClass}th Class).`);
-            return;
-        }
-        
-        if (targetUrl === '') {
-             // Treat empty string (used for 3,4,5 class subjects) as unavailable
-             showServerMaintenance(`Test URL is missing for this subject. Please contact support.`);
-             return;
-        }
-
-        // This will open the targetUrl in a new browser tab.
-        const newWindow = window.open(targetUrl, '_blank'); 
-
-        if (newWindow) {
-            // Focus the new tab, just in case
-            newWindow.focus();
-        } else {
-             // This will trigger if the browser's pop-up blocker stops the new tab.
-             showServerMaintenance('Pop-ups blocked! Please allow pop-ups to start the test.');
-        }
-        
-        // Keep the button animation
-        if (button) button.animate([{transform:'scale(1)'},{transform:'scale(1.04)'},{transform:'scale(1)'}],{duration:360});
-    }
-
-    // Assign global functions
-    window.handleTestClick = handleTestClick;
-    window.takeTest = handleTestClick; // Keep takeTest for backward compatibility
-    window.showServerMaintenance = showServerMaintenance;
-    window.openPricingPage = openPricingPage; // ADDED: Make new function globally accessible
-
-    // --- Event Listeners and Initialization ---
-
-    loginForm.addEventListener('submit', handleLogin);
-    logoutBtn.addEventListener('click', handleLogout);
-
-    // Initial check must run when the DOM is ready
-    document.addEventListener('DOMContentLoaded', checkLoginStatus);
-</script>
 </body>
 </html>
