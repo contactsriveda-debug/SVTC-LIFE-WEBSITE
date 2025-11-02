@@ -5,10 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SRI VEDA TALENT COMPETITION — Dashboard</title>
 
-  <!-- NEW: Google Font Import for Roboto Slab -->
+  <!-- Google Font Import for Roboto Slab -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons (needed for social follow) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 
   <!-- Final combined stylesheet -->
   <style>
@@ -20,15 +24,17 @@
       --page-max-width: 1600px;
       --lock-color: #6c757d;
       --login-primary: #3b82f6; /* Blue for Login elements */
+      /* NEW: Custom colors derived from the landing page, adapted for the maroon theme */
+      --sv-blue: var(--maroon);
+      --sv-orange: #FF8C00; 
+      --sv-yellow: var(--gold);
     }
 
     /* Base */
     * { box-sizing:border-box }
     body {
       margin:0;
-      /* MODIFIED: Changed font-family to Roboto Slab */
       font-family: 'Roboto Slab', serif;
-      /* MODIFIED: Added subtle angle gradient background */
       background: linear-gradient(160deg, #ffffff 50%, #fdf8f8 100%);
       color:#222;
       min-height: 100vh; /* Ensure full viewport height for centering login */
@@ -37,29 +43,24 @@
 
     /* Login Screen Container */
     #loginScreen {
-      position: fixed;
-      top: 0;
-      left: 0;
+      position: relative; /* Changed from fixed */
       width: 100%;
-      height: 100%;
-      /* MODIFIED: Changed to a more vibrant, animated gradient */
-      /* background: linear-gradient(135deg, #f8d0d0, #e8c0c0, #f7dada, #f0cccc); */
-      /* MODIFIED: Increased maroon color saturation per request */
-      /* background: linear-gradient(135deg, #d6aaaa, #c79a9a, #e0baba, #ccaaaa); */
-      /* NEW STYLE: Using richer maroon tones for the background animation */
+      height: auto; /* Changed from 100% */
+      min-height: calc(100vh - 100px); /* Ensure space below header */
+      
       /* MODIFIED: Updated gradient and animation for a more "live" feel */
       background: linear-gradient(135deg, #6f2e2e, #a47b7b, #8b3a3a, #f7dada, #6f2e2e);
       background-size: 400% 400%; /* Make gradient larger for smoother animation */
       animation: gradientShift 12s ease infinite; /* Apply animation */
       
       display: flex;
-      /* MODIFIED: Moved login card further up */
-      align-items: flex-start;
-      padding-top: 2rem; /* Was 3rem */
-      padding-bottom: 3rem; /* Added bottom padding for small screens */
+      /* MODIFIED: Centered card vertically within the remaining space */
+      align-items: center; 
+      padding-top: 3rem; 
+      padding-bottom: 3rem; 
       justify-content: center;
-      z-index: 2000;
-      overflow-y: auto; /* MODIFIED: Allow scrolling on small devices */
+      z-index: 1000;
+      overflow-y: auto; /* Allow scrolling on small devices */
     }
 
     .login-card {
@@ -69,12 +70,12 @@
       /* MODIFIED: Deeper, more impressive shadow */
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1), 0 5px 10px rgba(0, 0, 0, 0.05);
       width: 90%;
-      max-width: 400px;
+      /* MODIFIED: Decreased max-width */
+      max-width: 350px; 
       animation: fadeIn .4s ease-out;
       border: 1px solid #f0f0f0; /* Added subtle border */
     }
 
-    /* NEW: Add styles for the logo container inside the login card */
     .login-branding {
         display: flex;
         flex-direction: column;
@@ -98,22 +99,18 @@
         text-transform: uppercase;
         line-height: 1.3;
     }
-    /* END NEW STYLES */
     
     @keyframes fadeIn {
         from { opacity: 0; transform: translateY(-10px); }
         to { opacity: 1, transform: translateY(0); }
     }
     
-    /* NEW: Keyframes for animated gradient */
-    /* MODIFIED: Changed animation path for a more dynamic "live" feel */
     @keyframes gradientShift {
         0% { background-position: 0% 0%; }
         50% { background-position: 100% 100%; }
         100% { background-position: 0% 0%; }
     }
 
-    /* MODIFIED: Changed title text to English */
     .login-card h2 {
       text-align: center;
       margin: 0 0 10px;
@@ -121,7 +118,6 @@
       font-size: 1.5rem;
       font-weight: 700;
     }
-    /* MODIFIED: Changed subtitle text to English */
     .login-card p {
       text-align: center;
       margin: 0 0 25px;
@@ -136,26 +132,23 @@
       border: 2px solid #ddd;
       border-radius: 8px;
       font-size: 1rem;
-      /* MODIFIED: Changed font-family to Roboto Slab */
       font-family: 'Roboto Slab', serif;
       transition: border-color 0.2s, box-shadow 0.2s;
     }
     .login-input:focus {
       outline: none;
-      /* MODIFIED: Focus color changed to maroon */
       border-color: var(--maroon);
       box-shadow: 0 0 0 3px rgba(139, 58, 58, 0.2);
     }
     
     .login-btn-submit {
       width: 100%;
-      padding: 14px;
+      padding: 12px; 
       border: none;
       border-radius: 8px;
-      /* MODIFIED: Changed background to maroon gradient */
       background: linear-gradient(135deg, var(--maroon), var(--maroon-2));
       color: #fff;
-      font-size: 1.1rem;
+      font-size: 1rem; 
       font-weight: 800;
       cursor: pointer;
       transition: transform 0.2s, box-shadow 0.2s;
@@ -166,11 +159,9 @@
     }
     .login-btn-submit:hover:not(:disabled) {
       transform: translateY(-2px);
-      /* MODIFIED: Shadow color changed to maroon */
       box-shadow: 0 4px 12px rgba(139, 58, 58, 0.4);
     }
     .login-btn-submit:disabled {
-      /* MODIFIED: Disabled color changed to light maroon */
       background: #c79a9a;
       cursor: not-allowed;
     }
@@ -192,7 +183,6 @@
         color: #22c55e;
     }
 
-    /* NEW: Styles for the registration link */
     .register-link-container {
         text-align: center;
         margin-top: 20px;
@@ -200,7 +190,6 @@
     .register-link-btn {
         display: inline-block;
         padding: 10px 16px;
-        /* MODIFIED: Changed background and border to match theme */
         background: #fdf8f8; /* Light maroon-ish white */
         color: var(--maroon-2); /* Maroon text */
         border-radius: 8px;
@@ -211,12 +200,10 @@
         transition: background 0.2s, box-shadow 0.2s, color 0.2s;
     }
     .register-link-btn:hover {
-        /* MODIFIED: Hover effect */
         background: var(--maroon);
         color: #fff;
         box-shadow: 0 2px 8px rgba(139, 58, 58, 0.3);
     }
-    /* END NEW STYLES */
 
     .loading-spinner {
         animation: spin 1s linear infinite;
@@ -228,28 +215,147 @@
       to { transform: rotate(360deg); }
     }
 
-    /* HEADER */
-    header.top-header {
-      display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between;
-      /* MODIFIED: Removed 4rem bottom padding for the angle */
-      padding:1.5rem 1rem; 
-      height:auto; gap:0.6rem;
-      background:linear-gradient(90deg,var(--maroon),var(--maroon-2));
-      color:#fff; box-shadow:0 10px 28px rgba(0,0,0,0.18); z-index:1100;
-      /* MODIFIED: Removed Angle Design clip-path for a 'proper' straight header */
-      /* clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%); */
+    /* HEADER (NEW STYLES APPLIED) */
+    .top-header {
+        background-color: var(--sv-blue); /* Use Maroon for the background */
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        color: #fff;
+        padding: 1rem 0;
+        position: sticky; /* Make it sticky */
+        top: 0; /* Stick to the top */
+        z-index: 2000; /* Ensure it stays above everything */
     }
-    .title-logo-block { display:flex;align-items:center;gap:.8rem;flex: 1 1 380px;min-width:160px }
-    .logo { width:clamp(45px,7.5vh,80px);height:clamp(45px,7.5vh,80px);border-radius:50%;object-fit:cover;border:3px solid rgba(255,255,255,0.9);flex:0 0 auto }
-    .title-text { display:flex;flex-direction:column;line-height:1;overflow:hidden }
-    .title-text .title { font-size:clamp(18px,2.4vw,26px);text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis }
-    .title-text .subtitle { font-size:clamp(11px,1.4vw,15px);color:#fffbe6 }
 
-    .right-group { display:flex;align-items:center;gap:.5rem;flex:0 0 auto;min-width:120px }
-    .timestamp,.session-timer { padding:.35rem .55rem;border-radius:8px;font-size:clamp(.78rem,.95vw,.88rem) }
-    .timestamp { background:linear-gradient(135deg,#4b3eb0,#7a67ff);color:#fff }
-    .session-timer { background:linear-gradient(135deg,#009688,#00e0b3);color:#fff }
-    .logout-btn { padding:.35rem .7rem;border-radius:8px;border:none;background:linear-gradient(135deg,#ff7b00,#ff3300);color:#fff;font-weight:700;cursor:pointer;font-size:clamp(.78rem,.95vw,.92rem) }
+    .top-header .header-content {
+        max-width: var(--page-max-width);
+        margin: auto;
+        padding: 0 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        position: relative; /* Context for z-index of time/logout */
+        z-index: 200; /* Ensure content is above flourishes */
+    }
+    
+    .title-logo-block { 
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        flex-grow: 1; /* Allow to take space */
+        z-index: 250; /* Z-index fix for logo area */
+    }
+
+    .logo { 
+        width: 70px; /* Slightly reduced size */
+        height: 70px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid var(--sv-yellow); /* Gold border */
+        flex-shrink: 0;
+        z-index: 250; /* Z-index fix for logo area */
+    }
+
+    .title-text { 
+        display: flex;
+        flex-direction: column;
+        line-height: 1.2;
+    }
+    .title-text .title { 
+        font-size: clamp(1.4rem, 2.5vw, 1.8rem); /* Slightly smaller title */
+        font-weight: 800;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--sv-yellow); /* Title in Gold */
+    }
+    .title-text .subtitle { 
+        font-size: clamp(0.8rem, 1.2vw, 1rem); 
+        color: #fffbe6;
+        font-weight: 500;
+        margin-top: 4px;
+    }
+
+    /* Right Group Styles (Timer/Logout) */
+    .right-group { 
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        flex-shrink: 0;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+    .timestamp, .session-timer { 
+        padding: .35rem .55rem;
+        border-radius: 8px;
+        font-size: clamp(.78rem,.95vw,.88rem);
+        font-weight: 600;
+    }
+    /* Adjusted colors to fit the maroon/gold theme */
+    .timestamp { background: linear-gradient(135deg, #a54f4f, #c0392b); color: #fff; }
+    .session-timer { background: linear-gradient(135deg, #b8860b, #ffd700); color: var(--maroon-2); }
+    .logout-btn { 
+        padding: .35rem .7rem;
+        border-radius: 8px;
+        border: none;
+        background: var(--sv-orange); /* Orange button */
+        color: #fff;
+        font-weight: 700;
+        cursor: pointer;
+        font-size: clamp(.78rem,.95vw,.92rem);
+        transition: background 0.2s;
+    }
+    .logout-btn:hover { background-color: #e67e00; }
+    
+    /* Flower/Vine SVG Styles */
+    .flower-flourish {
+        width: clamp(3rem, 6vw, 4rem); /* w-12/w-16 equivalent */
+        height: clamp(3rem, 6vw, 4rem); /* h-12/h-16 equivalent */
+        text-color: var(--sv-yellow); /* Gold */
+        position: absolute;
+        z-index: 100; /* MODIFIED: Set z-index lower than header content (200) */
+        fill: var(--sv-yellow); /* Set fill color */
+    }
+    .top-header { position: sticky; } /* Ensure positioning context for absolute children */
+
+    /* NEW: Free Test Promo Section Style */
+    .free-test-promo-section {
+        max-width: var(--page-max-width);
+        margin: 30px auto;
+        padding: 20px 16px;
+        text-align: center;
+    }
+    .free-test-promo-section h3 {
+        font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+        color: var(--maroon-2);
+        margin-bottom: 8px;
+        font-weight: 800;
+        text-shadow: 1px 1px 1px rgba(0,0,0,0.05);
+    }
+    .free-test-promo-section p {
+        max-width: 700px;
+        margin: 0.5rem auto 1.5rem auto;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #333;
+    }
+    .free-test-promo-section button {
+        padding: 12px 25px;
+        border: none;
+        border-radius: 10px;
+        background: linear-gradient(135deg, #1e6b34, #4caf50); /* Green gradient */
+        color: #fff;
+        font-size: 1.05rem;
+        font-weight: 800;
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+        box-shadow: 0 4px 10px rgba(76, 175, 80, 0.3);
+    }
+    .free-test-promo-section button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(76, 175, 80, 0.4);
+    }
+
 
     /* Welcome area + top stars (first star gold) */
     .welcome-stars { display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;max-width:var(--page-max-width);margin:10px auto;padding:0 20px;color:#6f2e2e }
@@ -521,6 +627,7 @@
       background: #f9f8ff; /* Light purple background */
       border-radius: 16px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border: 1px solid #e0d9f5;
     }
     .student-subject-tests h2 {
       text-align: center;
@@ -785,6 +892,9 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 30px;
+      /* MODIFIED: Add a border *above* the grid content for the visible line */
+      border-top: 1px solid #555; 
+      padding-top: 20px; /* Add padding below the line */
     }
     .footer-column h3 {
       color: #fff;
@@ -840,7 +950,8 @@
       max-width: var(--page-max-width);
       margin: 30px auto 0 auto;
       padding-top: 20px;
-      border-top: 1px solid #555;
+      /* REMOVED: Border-top moved to footer-content */
+      /* border-top: 1px solid #555; */ 
       text-align: center;
       font-size: 0.9rem;
       color: #aaa;
@@ -859,16 +970,20 @@
 
     /* Small header-specific overrides for very small screens */
     @media (max-width:640px){
-      /* MODIFIED: Removed padding-bottom for angle and adjusted clip-path */
-      .top-header{
-        /* MODIFIED: Removed bottom padding and clip-path for a straight header on mobile */
-        padding:.8rem .6rem; 
-        /* clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%); */
-      } 
-      .title-logo-block{flex: 1 1 100%; align-items:center}
-      .right-group{flex: 1 1 100%; justify-content:flex-start; gap:8px; margin-top:6px}
-      /* .menu-bar{padding:6px 8px} */ /* Removed */
-      /* .menu-item{min-width:80px} */ /* Removed */
+      .top-header{padding:0.8rem 0;}
+      .top-header .header-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .title-logo-block{flex: 1 1 100%; justify-content:center; text-align:center;}
+      .right-group{
+        flex: 1 1 100%; 
+        justify-content:center; 
+        gap:8px; 
+        margin-top:6px;
+        padding-bottom: 0.8rem; /* Add some spacing at the bottom on mobile */
+      }
       .title-text .title{white-space:normal}
 
       .test-list-item {
@@ -908,6 +1023,36 @@
   </style>
 </head>
 <body>
+
+<!-- -------------------------------------------------------------------------------- -->
+<!-- HEADER (MODIFIED TO BE OUTSIDE DASHBOARD CONTENT, ALWAYS VISIBLE) -->
+<!-- -------------------------------------------------------------------------------- -->
+    <header class="top-header" id="mainHeader">
+       
+
+        
+        <!-- Header Content -->
+        <div class="header-content">
+            <div class="title-logo-block">
+                <!-- MODIFIED: Fixed logo URL -->
+                <img class="logo" src="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg" alt="SVTC logo">
+                <div class="title-text">
+                    <div class="title">SRI VEDA TALENT COMPETITION</div>
+                    <div class="subtitle">(BRIGHT CHILD LIFE)</div>
+                </div>
+            </div>
+
+            <div class="right-group">
+                <!-- MODIFIED: Hidden before login -->
+                <div id="liveTime" class="timestamp hidden">--/--/----, --:--:--</div>
+                <!-- MODIFIED: Hidden before login -->
+                <div id="sessionTimer" class="session-timer hidden">Session: 00:00:00</div>
+                <!-- Log out button is ONLY shown when logged in. It remains inside right-group to maintain layout integrity. -->
+                <button id="logoutBtn" class="logout-btn hidden">Logout</button> 
+            </div>
+        </div>
+    </header>
+
 <!-- -------------------------------------------------------------------------------- -->
 <!-- LOGIN SCREEN (Displayed initially) -->
 <!-- -------------------------------------------------------------------------------- -->
@@ -915,13 +1060,12 @@
     <div class="login-card">
         <!-- NEW: Branding Section -->
         <div class="login-branding">
-            <img src="https://i.postimg.cc/C1Xnmwg9/veda-logo.jpg" alt="SRI VEDA Logo" class="login-logo">
+            <!-- MODIFIED: Fixed logo URL -->
+            <img src="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg" alt="SRI VEDA Logo" class="login-logo">
             <h3 class="login-brand-title">SRI VEDA TALENT COMPETITIONS</h3>
         </div>
         
-        <!-- MODIFIED: Title changed to English -->
         <h2 id="loginTitle">STUDENT LOGIN - PROFILE</h2>
-        <!-- MODIFIED: Text changed to English -->
         <p id="loginSubtitle">Please enter your Username and Password with Caps.</p>
 
         <form id="loginForm">
@@ -934,7 +1078,6 @@
                 class="login-input" placeholder="Password">
 
             <button type="submit" id="loginButton" class="login-btn-submit">
-                <!-- MODIFIED: Text changed to English -->
                 <span id="buttonText">Login</span>
                 <svg id="loadingSpinner" class="loading-spinner h-5 w-5 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                     <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" stroke="#ffffff"></circle>
@@ -956,24 +1099,7 @@
 <!-- DASHBOARD CONTENT (Hidden until login is successful) -->
 <!-- -------------------------------------------------------------------------------- -->
 <div id="dashboardContent" class="hidden">
-  <!-- HEADER -->
-  <header class="top-header" id="mainHeader">
-    <div class="title-logo-block">
-      <!-- Logo updated -->
-      <img class="logo" src="https://i.postimg.cc/C1Xnmwg9/veda-logo.jpg" alt="SVTC logo">
-      <div class="title-text">
-        <div class="title">SRI VEDA TALENT COMPETITION</div>
-        <div class="subtitle">(BRIGHT CHILD LIFE)</div>
-      </div>
-    </div>
-
-    <div class="right-group">
-      <div id="liveTime" class="timestamp">--/--/----, --:--:--</div>
-      <div id="sessionTimer" class="session-timer">Session: 00:00:00</div>
-      <button id="logoutBtn" class="logout-btn">Logout</button>
-    </div>
-  </header>
-
+  
   <!-- Welcome + top stars -->
   <div class="welcome-stars">
     <!-- UPDATED: Student details will be injected here after login -->
@@ -1011,6 +1137,14 @@
       </div>
     </div>
   </div>
+
+  <!-- NEW: FREE TEST PROMOTION SECTION (After TC Panel) -->
+  <section class="free-test-promo-section" id="freeTestPromo">
+    <h3>Test Your Knowledge for Free!</h3>
+    <p>Ready to see how much you really know? Take our quick and easy knowledge test to challenge yourself and discover your score instantly. These tests are completely free, fun, and designed to help you learn while you play. Improve your skills and track your progress — Check Now!</p>
+    <!-- MODIFIED: Linked to new general_free_test URL -->
+    <button onclick="handleTestClick('general_free_test')">Start Free Test</button>
+  </section>
 
   <!-- TESTS (Removed all but Free Test, which was then removed) -->
   <section class="live-tests">
@@ -1105,117 +1239,132 @@
   </section>
 
   <!-- STUDENT SUBJECT TESTS CORNER (Purple List) -->
-  <section class="student-subject-tests">
+  <!-- ADDED ID TO HIDE THIS SECTION COMPLETELY FOR 3rd, 4th, 5th CLASSES -->
+  <section class="student-subject-tests" id="studentSubjectTestsSection">
     <h2>Student Subject Tests Corner</h2>
     <div class="test-list-container">
       <!-- Item 1: Telugu -->
-      <article class="test-list-item">
+      <article class="test-list-item" id="item_telugu">
         <div class="test-list-item-content">
-          <h3>Telugu Subject Tests (3rd - 10th)</h3>
+          <!-- REMOVED CLASS RANGE FROM TITLE -->
+          <h3>Telugu Subject Tests</h3>
           <p>Test your understanding of Telugu grammar and literature.</p>
         </div>
         <button id="btn_telugu" class="btn-test" onclick="handleTestClick('telugu')">Take Test</button>
       </article>
       <!-- Item 2: English -->
-      <article class="test-list-item">
+      <article class="test-list-item" id="item_english">
         <div class="test-list-item-content">
-          <h3>English Subject Tests (3rd - 10th)</h3>
+          <!-- REMOVED CLASS RANGE FROM TITLE -->
+          <h3>English Subject Tests</h3>
           <p>Assess your English comprehension, vocabulary, and grammar skills.</p>
         </div>
         <button id="btn_english" class="btn-test" onclick="handleTestClick('english')">Take Test</button>
       </article>
       <!-- Item 3: Evs SEM1 -->
-      <article class="test-list-item">
+      <article class="test-list-item" id="item_evs_sem1">
         <div class="test-list-item-content">
-          <h3>Evs SEM1 Subject Tests (3rd - 5th)</h3>
+          <!-- REMOVED CLASS RANGE FROM TITLE -->
+          <h3>Evs SEM1 Subject Tests</h3>
           <p>Explore your knowledge of Environmental Science (Semester 1) concepts.</p>
         </div>
         <button id="btn_evs_sem1" class="btn-test" onclick="handleTestClick('evs_sem1')">Take Test</button>
       </article>
       <!-- Item 4: Evs SEM2 -->
-      <article class="test-list-item">
+      <article class="test-list-item" id="item_evs_sem2">
         <div class="test-list-item-content">
-          <h3>Evs SEM2 Subject Tests (3rd - 5th)</h3>
+          <!-- REMOVED CLASS RANGE FROM TITLE -->
+          <h3>Evs SEM2 Subject Tests</h3>
           <p>Explore your knowledge of Environmental Science (Semester 2) concepts.</p>
         </div>
         <button id="btn_evs_sem2" class="btn-test" onclick="handleTestClick('evs_sem2')">Take Test</button> 
       </article>
       <!-- Item 5: Maths SEM1 -->
-      <article class="test-list-item">
+      <article class="test-list-item" id="item_maths_sem1">
         <div class="test-list-item-content">
-          <h3>Maths SEM1 Subject Tests (3rd - 10th)</h3>
+          <!-- REMOVED CLASS RANGE FROM TITLE -->
+          <h3>Maths SEM1 Subject Tests</h3>
           <p>Practice and master all the mathematics (Semester 1) topics.</p>
         </div>
         <button id="btn_maths_sem1" class="btn-test" onclick="handleTestClick('maths_sem1')">Take Test</button>
       </article>
       <!-- Item 6: Maths SEM2 -->
-      <article class="test-list-item">
+      <article class="test-list-item" id="item_maths_sem2">
         <div class="test-list-item-content">
-          <h3>Maths SEM2 Subject Tests (3rd - 10th)</h3>
+          <!-- REMOVED CLASS RANGE FROM TITLE -->
+          <h3>Maths SEM2 Subject Tests</h3>
           <p>Practice and master all the mathematics (Semester 2) topics.</p>
         </div>
         <button id="btn_maths_sem2" class="btn-test" onclick="handleTestClick('maths_sem2')">Take Test</button>
       </article>
       <!-- Item 7: Hindi (New) -->
-      <article class="test-list-item">
+      <article class="test-list-item" id="item_hindi">
         <div class="test-list-item-content">
-          <h3>Hindi Subject Tests (6th - 10th)</h3>
+          <!-- REMOVED CLASS RANGE FROM TITLE -->
+          <h3>Hindi Subject Tests</h3>
           <p>Test your knowledge of Hindi grammar and language skills.</p>
         </div>
         <button id="btn_hindi" class="btn-test" onclick="handleTestClick('hindi')">Take Test</button>
       </article>
       <!-- Item 8: General Science (New) -->
-      <article class="test-list-item">
+      <article class="test-list-item" id="item_general_science">
         <div class="test-list-item-content">
-          <h3>General Science Subject Tests (6th - 7th)</h3>
+          <!-- REMOVED CLASS RANGE FROM TITLE -->
+          <h3>General Science Subject Tests</h3>
           <p>Explore general science topics covering basics of Physics, Chemistry, and Biology.</p>
         </div>
         <button id="btn_general_science" class="btn-test" onclick="handleTestClick('general_science')">Take Test</button>
       </article>
       <!-- Item 9: Physical Science SEM 1 (New) -->
-      <article class="test-list-item">
+      <article class="test-list-item" id="item_physical_sem1">
         <div class="test-list-item-content">
-          <h3>Physical Science SEM 1 Tests (8th - 10th)</h3>
+          <!-- REMOVED CLASS RANGE FROM TITLE -->
+          <h3>Physical Science SEM 1 Tests</h3>
           <p>Semester 1 assessment for Physics and Chemistry topics.</p>
         </div>
         <button id="btn_physical_sem1" class="btn-test" onclick="handleTestClick('physical_sem1')">Take Test</button>
       </article>
       <!-- Item 10: Physical Science SEM 2 (New) -->
-      <article class="test-list-item">
+      <article class="test-list-item" id="item_physical_sem2">
         <div class="test-list-item-content">
-          <h3>Physical Science SEM 2 Tests (8th - 10th) </h3>
+          <!-- REMOVED CLASS RANGE FROM TITLE -->
+          <h3>Physical Science SEM 2 Tests</h3>
           <p>Semester 2 assessment for Physics and Chemistry topics.</p>
         </div>
         <button id="btn_physical_sem2" class="btn-test" onclick="handleTestClick('physical_sem2')">Take Test</button>
       </article>
       <!-- Item 11: Biological Science SEM 1 (New) -->
-      <article class="test-list-item">
+      <article class="test-list-item" id="item_biological_sem1">
         <div class="test-list-item-content">
-          <h3>Biological Science SEM 1 Tests (8th - 10th)</h3>
+          <!-- REMOVED CLASS RANGE FROM TITLE -->
+          <h3>Biological Science SEM 1 Tests</h3>
           <p>Semester 1 assessment for Biology and Life Science topics.</p>
         </div>
         <button id="btn_biological_sem1" class="btn-test" onclick="handleTestClick('biological_sem1')">Take Test</button>
       </article>
       <!-- Item 12: Biological Science SEM 2 (New) -->
-      <article class="test-list-item">
+      <article class="test-list-item" id="item_biological_sem2">
         <div class="test-list-item-content">
-          <h3>Biological Science SEM 2 Tests (8th - 10th)</h3>
+          <!-- REMOVED CLASS RANGE FROM TITLE -->
+          <h3>Biological Science SEM 2 Tests</h3>
           <p>Semester 2 assessment for Biology and Life Science topics.</p>
         </div>
         <button id="btn_biological_sem2" class="btn-test" onclick="handleTestClick('biological_sem2')">Take Test</button>
       </article>
       <!-- Item 13: Social Studies SEM 1 (New) -->
-      <article class="test-list-item">
+      <article class="test-list-item" id="item_social_sem1">
         <div class="test-list-item-content">
-          <h3>Social Studies SEM 1 Tests (6th - 10th)</h3>
+          <!-- REMOVED CLASS RANGE FROM TITLE -->
+          <h3>Social Studies SEM 1 Tests</h3>
           <p>Semester 1 assessment covering History, Civics, and Geography.</p>
         </div>
         <button id="btn_social_sem1" class="btn-test" onclick="handleTestClick('social_sem1')">Take Test</button>
       </article>
       <!-- Item 14: Social Studies SEM 2 (New) -->
-      <article class="test-list-item">
+      <article class="test-list-item" id="item_social_sem2">
         <div class="test-list-item-content">
-          <h3>Social Studies SEM 2 Tests (6th - 10th)</h3>
+          <!-- REMOVED CLASS RANGE FROM TITLE -->
+          <h3>Social Studies SEM 2 Tests</h3>
           <p>Semester 2 assessment covering History, Civics, and Geography.</p>
         </div>
         <button id="btn_social_sem2" class="btn-test" onclick="handleTestClick('social_sem2')">Take Test</button>
@@ -1342,7 +1491,7 @@
         <ul>
           <!-- UPDATED PHONE NUMBER WITH PREFIX -->
           <li><span><!-- Phone Icon --><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24c1.12.37 2.33.57 3.57.57c.55 0 1 .45 1 1V20c0 .55-.45 1-1 1c-9.39 0-17-7.61-17-17c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1c0 1.24.2 2.45.57 3.57c.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg> +91 8985170500</span></li>
-          <li><a href="mailto:contact.sriveda@gmail.com"><!-- Email Icon --><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg> contact.sriveda@gmail.com</a></li>
+          <li><a href="mailto:contact.sriveda@gmail.com"><!-- Email Icon --><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg> contact.srivedatc@gmail.com</a></li>
         </ul>
         <h3>Follow Us</h3>
         <div class="social-links">
@@ -1414,6 +1563,9 @@
     const profileFullName = document.getElementById('profileFullName');
     const profileClass = document.getElementById('profileClass');
     const subFullName = document.getElementById('subFullName');
+    
+    // NEW: Get Subject Tests Section element
+    const studentSubjectTestsSection = document.getElementById('studentSubjectTestsSection');
 
     // NEW: Add remaining profile and subscription elements
     const profileFatherName = document.getElementById('profileFatherName');
@@ -1433,60 +1585,73 @@
     // Define the mapping of URLs based on test ID and Class
     const urlMap = {
 
+        // NEW: General Free Test for all classes (Linked to the button in the free-test-promo-section)
+        'general_free_test': {
+            3: 'https://www.svtc.life',
+            4: 'https://www.svtc.life',
+            5: 'https://www.svtc.life',
+            6: 'https://www.svtc.life',
+            7: 'https://www.svtc.life',
+            8: 'https://www.svtc.life',
+            9: 'https://www.svtc.life',
+            10: 'https://www.svtc.life',
+        },
+
         'telugu': {
-            3: 'https://www.svtc.life',
-            4: 'https://contactsriveda-debug.github.io/4th-Class-Telugu/',
-            5: 'https://www.svtc.life',
+            // Empty string means the subject test section handles visibility (for classes 3, 4, 5)
+            3: '',
+            4: '',
+            5: '',
             6: 'https://www.svtc.life',
             7: 'https://www.svtc.life',
             8: 'https://www.svtc.life',
             9: 'https://www.svtc.life',
             10: 'https://www.svtc.life',
         },
-        'english': { // 3rd - 10th
-            3: 'https://www.svtc.life',
-            4: 'https://www.svtc.life',
-            5: 'https://www.svtc.life',
+        'english': { 
+            3: '',
+            4: '',
+            5: '',
             6: 'https://www.svtc.life',
             7: 'https://www.svtc.life',
             8: 'https://www.svtc.life',
             9: 'https://www.svtc.life',
             10: 'https://www.svtc.life',
         },
-        'evs_sem1': { // 3rd - 5th
-            3: 'https://www.svtc.life',
-            4: 'https://www.svtc.life',
-            5: 'https://www.svtc.life',
+        'evs_sem1': { 
+            3: '',
+            4: '',
+            5: '',
             6: 'locked',
             7: 'locked',
             8: 'locked',
             9: 'locked',
             10: 'locked',
         },
-        'evs_sem2': { // 3rd - 5th
-            3: 'https://www.svtc.life',
-            4: 'https://www.svtc.life',
-            5: 'https://www.svtc.life',
+        'evs_sem2': { 
+            3: '',
+            4: '',
+            5: '',
             6: 'locked',
             7: 'locked',
             8: 'locked',
             9: 'locked',
             10: 'locked',
         },
-        'maths_sem1': { // 3rd - 10th
-            3: 'https://www.svtc.life',
-            4: 'https://www.svtc.life',
-            5: 'https://www.svtc.life',
+        'maths_sem1': { 
+            3: '',
+            4: '',
+            5: '',
             6: 'https://www.svtc.life',
             7: 'https://www.svtc.life',
             8: 'https://www.svtc.life',
             9: 'https://www.svtc.life',
             10: 'https://www.svtc.life',
         },
-        'maths_sem2': { // 3rd - 10th
-            3: 'https://www.svtc.life',
-            4: 'https://www.svtc.life',
-            5: 'https://www.svtc.life',
+        'maths_sem2': { 
+            3: '',
+            4: '',
+            5: '',
             6: 'https://www.svtc.life',
             7: 'https://www.svtc.life',
             8: 'https://www.svtc.life',
@@ -1495,79 +1660,79 @@
         },
         // --- NEW SUBJECTS (Original) ---
         'hindi': {
-            3: 'locked',
-            4: 'locked',
-            5: 'locked',
+            3: '',
+            4: '',
+            5: '',
             6: 'https://www.svtc.life',
             7: 'https://www.svtc.life',
             8: 'https://www.svtc.life',
             9: 'https://www.svtc.life',
             10: 'https://www.svtc.life',
         },
-        'general_science': { // 6th - 7th
-            3: 'locked',
-            4: 'locked',
-            5: 'locked',
+        'general_science': { 
+            3: '',
+            4: '',
+            5: '',
             6: 'https://www.svtc.life',
             7: 'https://www.svtc.life',
             8: 'locked',
             9: 'locked',
             10: 'locked',
         },
-        'physical_sem1': { // 8th - 10th
-            3: 'locked',
-            4: 'locked',
-            5: 'locked',
+        'physical_sem1': { 
+            3: '',
+            4: '',
+            5: '',
             6: 'locked',
             7: 'locked',
             8: 'https://www.svtc.life',
             9: 'https://www.svtc.life',
             10: 'https://www.svtc.life',
         },
-        'physical_sem2': { // 8th - 10th
-            3: 'locked',
-            4: 'locked',
-            5: 'locked',
+        'physical_sem2': { 
+            3: '',
+            4: '',
+            5: '',
             6: 'locked',
             7: 'locked',
             8: 'https://www.svtc.life',
             9: 'https://www.svtc.life',
             10: 'https://www.svtc.life',
         },
-        'biological_sem1': { // 8th - 10th
-            3: 'locked',
-            4: 'locked',
-            5: 'locked',
+        'biological_sem1': { 
+            3: '',
+            4: '',
+            5: '',
             6: 'locked',
             7: 'locked',
             8: 'https://www.svtc.life',
             9: 'https://www.svtc.life',
             10: 'https://www.svtc.life',
         },
-        'biological_sem2': { // 8th - 10th
-            3: 'locked',
-            4: 'locked',
-            5: 'locked',
+        'biological_sem2': { 
+            3: '',
+            4: '',
+            5: '',
             6: 'locked',
             7: 'locked',
             8: 'https://www.svtc.life',
             9: 'https://www.svtc.life',
             10: 'https://www.svtc.life',
         },
-        'social_sem1': { // 6th - 10th
-            3: 'locked',
-            4: 'locked',
-            5: 'locked',
+        'social_sem1': { 
+            3: '',
+            4: '',
+            5: '',
             6: 'https://www.svtc.life',
             7: 'https://www.svtc.life',
             8: 'https://www.svtc.life',
             9: 'https://www.svtc.life',
             10: 'https://www.svtc.life',
         },
-        'social_sem2': { // 6th - 10th
-            3: 'locked',
-            4: 'locked',
-            5: 'locked',
+        'social_sem2': { 
+            3: '',
+            4: '',
+            5: '',
             6: 'https://www.svtc.life',
             7: 'https://www.svtc.life',
             8: 'https://www.svtc.life',
@@ -1612,7 +1777,8 @@
     function updateTime(){
         const now=new Date();
         const display = document.getElementById('liveTime');
-        if (display) display.textContent = `${pad(now.getDate())}/${pad(now.getMonth()+1)}/${now.getFullYear()}, ${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`
+        // MODIFIED: Check if display element is available and not hidden
+        if (display && !display.classList.contains('hidden')) display.textContent = `${pad(now.getDate())}/${pad(now.getMonth()+1)}/${now.getFullYear()}, ${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`
     }
     updateTime();
     setInterval(updateTime,1000);
@@ -1623,7 +1789,8 @@
         session++;
         sessionStorage.setItem('sessionTime', session);
         const display = document.getElementById('sessionTimer');
-        if (display) display.textContent = 'Session: '+formatHMS(session);
+        // MODIFIED: Check if display element is available and not hidden
+        if (display && !display.classList.contains('hidden')) display.textContent = 'Session: '+formatHMS(session);
     }
     updateSession();
     setInterval(updateSession,1000);
@@ -1746,8 +1913,14 @@
         session = 0; // Reset session time on logout
         updateSession(); // Update the timer display to 00:00:00
         
+        // When logging out, hide dashboard content and show login screen
         dashboardContent.classList.add('hidden');
         loginScreen.classList.remove('hidden');
+        
+        // Hide the header content elements when logging out
+        document.getElementById('liveTime').classList.add('hidden');
+        document.getElementById('sessionTimer').classList.add('hidden');
+        logoutBtn.classList.add('hidden'); 
         
         // Clear inputs and status message
         loginForm.reset();
@@ -1790,7 +1963,10 @@
 
         // 2. Update all UI elements
         
-        // Header
+        // Header (MODIFIED VISIBILITY)
+        document.getElementById('liveTime').classList.remove('hidden');
+        document.getElementById('sessionTimer').classList.remove('hidden');
+        logoutBtn.classList.remove('hidden'); 
         studentNameDisplay.textContent = fullName;
         studentClassDisplay.textContent = classString;
         
@@ -1842,34 +2018,70 @@
         // 4. Show the dashboard and hide the login
         loginScreen.classList.add('hidden');
         dashboardContent.classList.remove('hidden');
+        
+        // MODIFIED: Logic to hide the entire Student Subject Tests section for 3rd, 4th, 5th classes
+        if (studentSubjectTestsSection && [3, 4, 5].includes(studentClass)) {
+             studentSubjectTestsSection.classList.add('hidden');
+        } else if (studentSubjectTestsSection) {
+             studentSubjectTestsSection.classList.remove('hidden');
+        }
     }
 
     // Initial check on page load
     function checkLoginStatus() {
         if (sessionStorage.getItem('isLoggedIn') === 'true') {
             showDashboard();
+            // Header elements visibility is now handled inside showDashboard
         } else {
             loginScreen.classList.remove('hidden');
             dashboardContent.classList.add('hidden');
+            // Header elements are hidden by default/handled by logout function
         }
     }
 
     // --- Subject Button Setup (moved here to run after login) ---
 
     function setupSubjectButtons() {
-        const testIds = Object.keys(urlMap);
+        const testIds = Object.keys(urlMap).filter(id => id !== 'general_free_test'); // Exclude the free test which uses its own button
+        
         testIds.forEach(testId => {
             const button = document.getElementById(`btn_${testId}`);
-            if (!button) return;
-
+            const listItem = document.getElementById(`item_${testId}`); // Get the parent list item
+            
+            if (!button || !listItem) return;
+            
             const targetUrl = (urlMap[testId] && urlMap[testId][studentClass]) ? urlMap[testId][studentClass] : 'locked';
 
-            if (targetUrl === 'locked') {
-                button.classList.add('locked');
-                button.setAttribute('onclick', `handleTestClick('${testId}')`);
-                button.innerHTML = `<svg class="lock-icon" viewBox="0 0 24 24"><path d="M12 17c1.1 0 2-.9 2-2s-.9-2-2-2s-2 .9-2 2s.9 2 2 2zm6-9h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM8.9 6c0-1.71 1.39-3.1 3.1-3.1s3.1 1.39 3.1 3.1v2H8.9V6zM18 20H6V10h12v10z"/></svg> <span class="btn-text">Take Test</span>`;
+            // Reset visibility first
+            listItem.classList.remove('hidden'); 
+
+            if (targetUrl === '') {
+                 // The empty string path is used for classes 3, 4, 5 where the entire section should be hidden
+                 // If the section is still visible (i.e. if the user is 6-10), then this subject should be hidden
+                 if (studentClass >= 6) {
+                    listItem.classList.add('hidden'); 
+                 } else {
+                    // Safety check: if somehow class 3,4,5 elements are rendered, hide them individually
+                    listItem.classList.add('hidden'); 
+                 }
+
+            } else if (targetUrl === 'locked') {
+                // If it's explicitly locked (for classes >= 6), hide the entire item as requested.
+                if (studentClass >= 6) {
+                    listItem.classList.add('hidden'); 
+                } else {
+                    // Fallback to showing lock icon/message if somehow visible for other classes
+                    button.classList.add('locked');
+                    // MODIFIED: If locked, use the Server Maintenance message
+                    button.setAttribute('onclick', `showServerMaintenance('This subject is not available for your current class (${studentClass}th Class).');`);
+                    button.innerHTML = `<svg class="lock-icon" viewBox="0 0 24 24"><path d="M12 17c1.1 0 2-.9 2-2s-.9-2-2-2s-2 .9-2 2s.9 2 2 2zm6-9h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM8.9 6c0-1.71 1.39-3.1 3.1-3.1s3.1 1.39 3.1 3.1v2H8.9V6zM18 20H6V10h12v10z"/></svg> <span class="btn-text">Take Test</span>`;
+                }
+
             } else {
+                // Fully visible and unlocked (targetUrl is a valid link)
                 button.classList.remove('locked');
+                listItem.classList.remove('hidden');
+                // MODIFIED: If unlocked, use the launch function
                 button.setAttribute('onclick', `handleTestClick('${testId}')`);
                 button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M10 17l5-5-5-5v10z"/></svg> <span class="btn-text">Take Test</span>`;
             }
@@ -1906,12 +2118,18 @@
 
         const button = document.getElementById(`btn_${testId}`);
         
+        // MODIFIED: Only execute if targetUrl is a valid URL (not 'locked' or empty)
         if (targetUrl === 'locked') {
             showServerMaintenance(`This subject is not available for your current class (${studentClass}th Class).`);
             return;
         }
+        
+        if (targetUrl === '') {
+             // Treat empty string (used for 3,4,5 class subjects) as unavailable
+             showServerMaintenance(`Test URL is missing for this subject. Please contact support.`);
+             return;
+        }
 
-        // --- MODIFIED: Simplified Test Launch Logic ---
         // This will open the targetUrl in a new browser tab.
         const newWindow = window.open(targetUrl, '_blank'); 
 
@@ -1927,8 +2145,6 @@
         if (button) button.animate([{transform:'scale(1)'},{transform:'scale(1.04)'},{transform:'scale(1)'}],{duration:360});
     }
 
-    // REMOVED: The window.onunload handler is no longer needed.
-    
     // Assign global functions
     window.handleTestClick = handleTestClick;
     window.takeTest = handleTestClick; // Keep takeTest for backward compatibility
@@ -1945,5 +2161,3 @@
 </script>
 </body>
 </html>
-
-
