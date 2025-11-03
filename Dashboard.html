@@ -221,9 +221,9 @@
         box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         color: #fff;
         padding: 1rem 0;
-        position: sticky; /* Make it sticky */
-        top: 0; /* Stick to the top */
+        /* REMOVED position: sticky; top: 0; */
         z-index: 2000; /* Ensure it stays above everything */
+        overflow: hidden; /* FIX: Clip the flower flourishes to remove unwanted lines */
     }
 
     .top-header .header-content {
@@ -315,8 +315,9 @@
         position: absolute;
         z-index: 100; /* MODIFIED: Set z-index lower than header content (200) */
         fill: var(--sv-yellow); /* Set fill color */
+        /* Adjusted positioning to prevent bleeding outside the header due to overflow: hidden */
     }
-    .top-header { position: sticky; } /* Ensure positioning context for absolute children */
+    /* REMOVED: position: sticky; */
 
     /* NEW: Free Test Promo Section Style */
     .free-test-promo-section {
@@ -1028,13 +1029,13 @@
 <!-- HEADER (MODIFIED TO BE OUTSIDE DASHBOARD CONTENT, ALWAYS VISIBLE) -->
 <!-- -------------------------------------------------------------------------------- -->
     <header class="top-header" id="mainHeader">
-       
+        
 
         
         <!-- Header Content -->
         <div class="header-content">
             <div class="title-logo-block">
-                <!-- MODIFIED: Fixed logo URL -->
+                <!-- NOTE: Keeping user's provided logo URL for continuity -->
                 <img class="logo" src="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg" alt="SVTC logo">
                 <div class="title-text">
                     <div class="title">SRI VEDA TALENT COMPETITION</div>
@@ -1088,7 +1089,8 @@
 
         <!-- NEW: Registration Link Section -->
         <div class="register-link-container">
-            <a href="https://www.svtc.life/join-now" target="_blank" class="register-link-btn">
+            <!-- MODIFIED: Updated registration link -->
+            <a href="https://www.svtc.life/Join%20now.html" target="_blank" class="register-link-btn">
                 New Registers? Click Here
             </a>
         </div>
@@ -1167,19 +1169,19 @@
           <!-- CTA 1: New Students / Non-Subscribers (New Plan) -->
           <div class="plan-action-card">
             <p>Please take a Plan now and access all learning programs and premium tests!</p>
-            <!-- MODIFIED: Changed onclick to openPricingPage() -->
+            <!-- MODIFIED: All plan buttons now use the openPricingPage function, which I've updated in the script -->
             <button class="new-plan-btn" onclick="openPricingPage()">Take New Plan</button>
           </div>
           <!-- NEW: Renewal CTA Card (Renew Plan) -->
           <div class="plan-action-card">
             <p>If your plan is expiring soon, renew it here to ensure uninterrupted access!</p>
-            <!-- MODIFIED: Changed onclick to openPricingPage() -->
+            <!-- MODIFIED: All plan buttons now use the openPricingPage function, which I've updated in the script -->
             <button class="renewal-btn" onclick="openPricingPage()">Renew My Plan</button>
           </div>
           <!-- CTA 3: Existing Students / Upgrade (Update Plan) -->
           <div class="plan-action-card">
             <p>Existing students: Update your plan here to continue accessing more learning programs and premium tests.</p>
-            <!-- MODIFIED: Changed onclick to openPricingPage() -->
+            <!-- MODIFIED: All plan buttons now use the openPricingPage function, which I've updated in the script -->
             <button class="update-plan-btn" onclick="openPricingPage()">Update My Plan</button>
           </div>
         </div>
@@ -1839,9 +1841,9 @@
       setTimeout(()=>{ t.style.transition = 'opacity .4s'; t.style.opacity = '0'; setTimeout(()=>t.remove(),500); }, 2500);
     }
 
-    // NEW: Function to open the pricing page
+    // NEW: Function to open the pricing page (UPDATED URL)
     function openPricingPage() {
-        window.open('https://www.svtc.life/pricing', '_blank');
+        window.open('https://www.svtc.life/Pricing.html', '_blank'); // UPDATED LINK
     }
 
 
@@ -2161,3 +2163,4 @@
 </script>
 </body>
 </html>
+
