@@ -41,7 +41,7 @@
         .scrolling-text-container {
             width: 100%;
             overflow: hidden;
-            padding: 6px 0; /* Reduced padding */
+            padding: 6px 0;
         }
         .scrolling-text {
             display: inline-block;
@@ -60,12 +60,12 @@
 
         .course-button {
             display: inline-block;
-            padding: 0.4rem 0.8rem; /* Reduced padding */
-            margin: 0.2rem; /* Reduced margin */
+            padding: 0.4rem 0.8rem;
+            margin: 0.2rem;
             background-color: #f0f0f0;
             border: 1px solid #ddd;
             border-radius: 9999px;
-            font-size: 0.8rem; /* Reduced font size */
+            font-size: 0.8rem;
             font-weight: 500;
             color: #333;
             text-align: center;
@@ -85,9 +85,9 @@
             display: inline-block;
             background-color: var(--sv-orange);
             color: white;
-            padding: 0.6rem 1.8rem; /* Reduced padding */
+            padding: 0.6rem 1.8rem;
             border-radius: 9999px;
-            font-size: 1rem; /* Reduced font size */
+            font-size: 1rem;
             font-weight: 700;
             text-transform: uppercase;
             text-align: center;
@@ -105,9 +105,9 @@
             display: inline-block;
             background-color: var(--sv-blue);
             color: white;
-            padding: 0.6rem 1.8rem; /* Reduced padding */
+            padding: 0.6rem 1.8rem;
             border-radius: 9999px;
-            font-size: 1rem; /* Reduced font size */
+            font-size: 1rem;
             font-weight: 700;
             text-transform: uppercase;
             text-align: center;
@@ -125,9 +125,9 @@
             display: inline-block;
             background-color: var(--sv-blue);
             color: white;
-            padding: 0.7rem 2rem; /* Reduced padding */
+            padding: 0.7rem 2rem;
             border-radius: 9999px;
-            font-size: 1.1rem; /* Reduced font size */
+            font-size: 1.1rem;
             font-weight: 900;
             text-transform: uppercase;
             text-align: center;
@@ -144,12 +144,12 @@
         .nav-button {
             display: flex;
             align-items: center;
-            padding: 0.5rem 1rem; /* Reduced padding */
+            padding: 0.5rem 1rem;
             color: var(--sv-blue);
             background-color: white;
             border: 2px solid var(--sv-orange);
             border-radius: 9999px;
-            font-size: 0.9rem; /* Reduced font size */
+            font-size: 0.9rem;
             font-weight: 700;
             text-transform: uppercase;
             text-decoration: none;
@@ -173,12 +173,54 @@
                 padding: 0.4rem 0.8rem;
             }
         }
+        
+        /* Custom Header Corner Design */
+        .header-bg {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Left Corner Flower Design */
+        .header-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><path id="leaf" d="M50 0 L60 20 L50 30 L40 20 Z" fill="%23FFD700" transform="rotate(-45 50 50)"/></defs><use href="%23leaf" transform="rotate(0 50 50)"/><use href="%23leaf" transform="rotate(90 50 50)"/><use href="%23leaf" transform="rotate(180 50 50)"/><use href="%23leaf" transform="rotate(270 50 50)"/><circle cx="50" cy="50" r="10" fill="%23FF8C00"/><path d="M10 10 L50 50 L10 90" stroke="%23FFD700" stroke-width="2" fill="none"/></svg>');
+            background-size: contain;
+            opacity: 0.4;
+            transform: translate(-30%, -30%) rotate(90deg);
+            z-index: 1;
+        }
+        
+        /* Right Corner Flower Design */
+        .header-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><path id="leaf" d="M50 0 L60 20 L50 30 L40 20 Z" fill="%23FFD700" transform="rotate(-45 50 50)"/></defs><use href="%23leaf" transform="rotate(0 50 50)"/><use href="%23leaf" transform="rotate(90 50 50)"/><use href="%23leaf" transform="rotate(180 50 50)"/><use href="%23leaf" transform="rotate(270 50 50)"/><circle cx="50" cy="50" r="10" fill="%23FF8C00"/><path d="M90 10 L50 50 L90 90" stroke="%23FFD700" stroke-width="2" fill="none"/></svg>');
+            background-size: contain;
+            opacity: 0.4;
+            transform: translate(30%, -30%) rotate(180deg);
+            z-index: 1;
+        }
+        
+        /* Ensure content is above the corner designs */
+        .header-content {
+            position: relative;
+            z-index: 10;
+        }
     </style>
 </head>
 <body class="bg-gray-50">
 
-    <header class="bg-sv-blue shadow-lg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header class="bg-sv-blue shadow-lg header-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 header-content">
             <div class="flex flex-col md:flex-row items-center justify-between py-3 md:py-2 space-y-3 md:space-y-0 md:h-24">
                 
                 <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4">
@@ -214,16 +256,16 @@
     <nav class="bg-sv-blue shadow-lg border-t-2 border-sv-yellow">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-wrap justify-center sm:justify-between py-1 space-x-1 sm:space-x-3">
-                <a href="https://www.svtc.life/Dashboard.html" class="nav-button">
+                <a href="https://www.svtc.life/Dashboard.html" class="nav-button" target="_blank">
                     <i class="fas fa-tachometer-alt mr-2"></i> DASHBOARD
                 </a>
-                <a href="https://www.svtc.life/Join%20now.html" class="nav-button">
+                <a href="https://www.svtc.life/Join%20now.html" class="nav-button" target="_blank">
                     <i class="fas fa-user-plus mr-2"></i> JOIN NOW
                 </a>
-                <a href="https://www.svtc.life/Pricing.html" class="nav-button">
+                <a href="https://www.svtc.life/Pricing.html" class="nav-button" target="_blank">
                     <i class="fas fa-tags mr-2"></i> PRICING
                 </a>
-                <a href="https://www.svtc.life/connect.html" class="nav-button">
+                <a href="https://www.svtc.life/connect.html" class="nav-button" target="_blank">
                     <i class="fas fa-headset mr-2"></i> CONNECT
                 </a>
             </div>
@@ -232,7 +274,7 @@
     
     <div class="scrolling-text-container bg-yellow-200 shadow-inner py-1">
         <div class="scrolling-text text-sv-blue font-bold text-base">
-            Announcement : New tests and general awareness quizzes are waiting for you — go take them now and boost your knowledge! 🚀
+            Announcement : New tests and general awareness quizzes are waiting for you — go take them now and boost your knowledge! ??
         </div>
     </div>
     
@@ -251,7 +293,7 @@
                     <p class="text-sm text-gray-700 mb-3">
                         Unlock your full potential with specialized awareness and maths skill tests.
                     </p>
-                    <a href="https://www.svtc.life/Join%20now.html" class="cta-button">
+                    <a href="https://www.svtc.life/Join%20now.html" class="cta-button" target="_blank">
                         Join NOW
                     </a>
                 </div>
@@ -261,7 +303,7 @@
                     <p class="text-sm text-gray-700 mb-3">
                         Access your personalized profile and continue your test preparation journey.
                     </p>
-                    <a href="https://www.svtc.life/Dashboard.html" class="cta-button-secondary">
+                    <a href="https://www.svtc.life/Dashboard.html" class="cta-button-secondary" target="_blank">
                         LOGIN TO PROFILE
                     </a>
                 </div>
@@ -316,7 +358,7 @@
                 <div class="p-3 bg-white rounded-lg border-l-4 border-sv-blue mx-auto mb-3 max-w-4xl">
                     <h3 class="text-base font-semibold text-sv-blue mb-1">Our Focus: Building a Bright Child Life</h3>
                     <p class="text-gray-700 text-sm">
-                        At Sri Veda Talent Competition (SVTC), we focus completely on enhancing students' General Awareness and improving their performance in subject tests. We provide specialized practice tests and preparation materials essential for building a strong foundation in General Maths, enabling them to face entrance tests and other exams with confidence. Our goal is to prepare students for all upcoming challenges.
+                        At Sri Veda Talent Competition (SVTC), we focus completely on enhancing students' General Awareness and improving their performance in subject tests. We provide specialized practice tests and preparation materials essential for building a strong foundation in General Maths, enabling them to face entrance tests and other exams with confidence. Our goal is to prepare them for all upcoming challenges.
                     </p>
                 </div>
                 
@@ -365,7 +407,7 @@
                     </div>
                 </div>
             </div>
-            <a href="https://www.svtc.life/Join%20now.html" class="mt-4 inline-block bg-sv-blue text-white py-2 px-6 rounded-full text-base font-bold shadow-lg hover:bg-sv-blue/80 transition duration-300 transform hover:scale-105">
+            <a href="https://www.svtc.life/Join%20now.html" class="mt-4 inline-block bg-sv-blue text-white py-2 px-6 rounded-full text-base font-bold shadow-lg hover:bg-sv-blue/80 transition duration-300 transform hover:scale-105" target="_blank">
                 Start Your Preparation Today
             </a>
         </div>
@@ -381,15 +423,15 @@
             </p>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-2 mb-4">
-                <a href="https://www.svtc.life/join-now" class="bg-sv-orange p-2 rounded-xl text-center shadow-lg hover:scale-[1.03] transition duration-300 course-button block">
+                <a href="https://www.svtc.life/Join%20now.html" class="bg-sv-orange p-2 rounded-xl text-center shadow-lg hover:scale-[1.03] transition duration-300 course-button block" target="_blank">
                     <h3 class="text-lg font-bold text-black">FREE TESTS</h3>
                     <p class="text-gray-700 text-xs">Start your General Awareness journey immediately!</p>
                 </a>
-                <a href="https://www.svtc.life/join-now" class="bg-sv-orange p-2 rounded-xl text-center shadow-lg hover:scale-[1.03] transition duration-300 course-button block">
+                <a href="https://www.svtc.life/Join%20now.html" class="bg-sv-orange p-2 rounded-xl text-center shadow-lg hover:scale-[1.03] transition duration-300 course-button block" target="_blank">
                     <h3 class="text-lg font-bold text-black">GENERAL AWARENESS</h3>
                     <p class="text-gray-700 text-xs">Improve your knowledge through consistent practice.</p>
                 </a>
-                <a href="https://www.svtc.life/join-now" class="bg-sv-orange p-2 rounded-xl text-center shadow-lg hover:scale-[1.03] transition duration-300 course-button block">
+                <a href="https://www.svtc.life/Join%20now.html" class="bg-sv-orange p-2 rounded-xl text-center shadow-lg hover:scale-[1.03] transition duration-300 course-button block" target="_blank">
                     <h3 class="text-lg font-bold text-black">ADVANCED MATHS</h3>
                     <p class="text-gray-700 text-xs">A comprehensive evaluation to track your progress.</p>
                 </a>
@@ -410,7 +452,7 @@
                     "Based on your performance in SVTC tests, we analyze your skills (especially in General Maths and General Awareness). We don't just recommend exams; we create a personalized preparation plan that aligns with your future goals. Your unique skills are the foundation for your brilliant career."
                 </p>
             </div>
-            <a href="https://www.svtc.life/Join%20now.html" class="mt-4 inline-block bg-sv-orange text-white py-2 px-6 rounded-full text-base font-bold shadow-lg hover:bg-orange-600 transition duration-300 transform hover:scale-105">
+            <a href="https://www.svtc.life/Join%20now.html" class="mt-4 inline-block bg-sv-orange text-white py-2 px-6 rounded-full text-base font-bold shadow-lg hover:bg-orange-600 transition duration-300 transform hover:scale-105" target="_blank">
                 Get My Personalized Skill Analysis
             </a>
         </div>
@@ -422,14 +464,14 @@
         <h3 class="text-lg font-bold text-sv-blue mb-2 border-b pb-1">Competitive Exams Before 10th Grade</h3>
         <p class="text-xs text-gray-500 italic mb-3">For all these entrance tests, we have BASIC and PRO level preparation tests.</p>
         <div class="flex flex-wrap justify-center gap-2">
-            <a href="#" class="course-button">NTSE</a>
-            <a href="#" class="course-button">Olympiads (NSO, IMO, IEO)</a>
-            <a href="#" class="course-button">KVPY (SA Stream)</a>
-            <a href="#" class="course-button">Homi Bhabha Balvaidnyanik</a>
-            <a href="#" class="course-button">NSTSE</a>
-            <a href="#" class="course-button">SilverZone Olympiads</a>
-            <a href="#" class="course-button">UIEO (Unified International English Olympiad)</a>
-            <a href="#" class="course-button">UCO (Unified Cyber Olympiad)</a>
+            <a href="#" class="course-button" target="_blank">NTSE</a>
+            <a href="#" class="course-button" target="_blank">Olympiads (NSO, IMO, IEO)</a>
+            <a href="#" class="course-button" target="_blank">KVPY (SA Stream)</a>
+            <a href="#" class="course-button" target="_blank">Homi Bhabha Balvaidnyanik</a>
+            <a href="#" class="course-button" target="_blank">NSTSE</a>
+            <a href="#" class="course-button" target="_blank">SilverZone Olympiads</a>
+            <a href="#" class="course-button" target="_blank">UIEO (Unified International English Olympiad)</a>
+            <a href="#" class="course-button" target="_blank">UCO (Unified Cyber Olympiad)</a>
         </div>
         
         <div class="text-center py-4 mb-3 mt-4">
@@ -439,7 +481,7 @@
             <p class="text-base text-gray-700 leading-relaxed mb-4 italic font-medium max-w-5xl mx-auto">
                 Do you know why these competitive exams are crucial, even at an early age? Writing a minor entrance test today is the only way to gauge your future potential and secure the best educational opportunities, including highly competitive Free Seats offered by both State and Central Government institutions. The small scores you achieve now are not just marks—are the decisive steps that shape your career trajectory. Gain the essential knowledge to take control of your academic future.
             </p>
-            <a href="https://www.svtc.life/Join%20now.html" class="cta-button-secondary">
+            <a href="https://www.svtc.life/Join%20now.html" class="cta-button-secondary" target="_blank">
                 KNOW MORE ABOUT ENTRANCE EXAMS
             </a>
         </div>
@@ -447,29 +489,29 @@
         <h3 class="text-lg font-bold text-sv-blue mb-2 mt-4 border-b pb-1">Career Paths After 10th Grade</h3>
         <p class="text-xs text-gray-500 italic mb-3">For all these entrance tests, we have BASIC and PRO level preparation tests.</p>
         <div class="flex flex-wrap justify-center gap-2">
-            <a href="#" class="course-button">JEE (Main & Advanced)</a>
-            <a href="#" class="course-button">NEET (UG)</a>
-            <a href="#" class="course-button">BITSAT</a>
-            <a href="#" class="course-button">VITEEE</a>
-            <a href="#" class="course-button">SRMJEEE</a>
-            <a href="#" class="course-button">NDA</a>
-            <a href="#" class="course-button">CLAT</a>
-            <a href="#" class="course-button">AILET</a>
-            <a href="#" class="course-button">CA Foundation</a>
-            <a href="#" class="course-button">CS Foundation</a>
-            <a href="#" class="course-button">CMA Foundation</a>
-            <a href="#" class="course-button">NID DAT</a>
-            <a href="#" class="course-button">UCEED</a>
-            <a href="#" class="course-button">NIFT Entrance Exam</a>
-            <a href="#" class="course-button">NCHM JEE (Hotel Management)</a>
-            <a href="#" class="course-button">STATE CETs (EAMCET, MHTCET, etc.)</a>
-            <a href="#" class="course-button">POLYTECHNIC CET</a>
-            <a href="#" class="course-button">ITI ENTRANCE</a>
-            <a href="#" class="course-button">RAILWAY (RRB) ALP/TECHNICIAN</a>
-            <a href="#" class="course-button">SSC CHSL (10+2)</a>
-            <a href="#" class="course-button">INDIAN ARMY (Soldier GD/Technical)</a>
-            <a href="#" class="course-button">INDIAN NAVY (Sailor - AA/SSR)</a>
-            <a href="#" class="course-button">INDIAN AIR FORCE (Airman Group X & Y)</a>
+            <a href="#" class="course-button" target="_blank">JEE (Main & Advanced)</a>
+            <a href="#" class="course-button" target="_blank">NEET (UG)</a>
+            <a href="#" class="course-button" target="_blank">BITSAT</a>
+            <a href="#" class="course-button" target="_blank">VITEEE</a>
+            <a href="#" class="course-button" target="_blank">SRMJEEE</a>
+            <a href="#" class="course-button" target="_blank">NDA</a>
+            <a href="#" class="course-button" target="_blank">CLAT</a>
+            <a href="#" class="course-button" target="_blank">AILET</a>
+            <a href="#" class="course-button" target="_blank">CA Foundation</a>
+            <a href="#" class="course-button" target="_blank">CS Foundation</a>
+            <a href="#" class="course-button" target="_blank">CMA Foundation</a>
+            <a href="#" class="course-button" target="_blank">NID DAT</a>
+            <a href="#" class="course-button" target="_blank">UCEED</a>
+            <a href="#" class="course-button" target="_blank">NIFT Entrance Exam</a>
+            <a href="#" class="course-button" target="_blank">NCHM JEE (Hotel Management)</a>
+            <a href="#" class="course-button" target="_blank">STATE CETs (EAMCET, MHTCET, etc.)</a>
+            <a href="#" class="course-button" target="_blank">POLYTECHNIC CET</a>
+            <a href="#" class="course-button" target="_blank">ITI ENTRANCE</a>
+            <a href="#" class="course-button" target="_blank">RAILWAY (RRB) ALP/TECHNICIAN</a>
+            <a href="#" class="course-button" target="_blank">SSC CHSL (10+2)</a>
+            <a href="#" class="course-button" target="_blank">INDIAN ARMY (Soldier GD/Technical)</a>
+            <a href="#" class="course-button" target="_blank">INDIAN NAVY (Sailor - AA/SSR)</a>
+            <a href="#" class="course-button" target="_blank">INDIAN AIR FORCE (Airman Group X & Y)</a>
         </div>
     </section>
     
@@ -481,7 +523,7 @@
             <p class="text-lg sm:text-xl text-white font-medium mb-4 max-w-4xl mx-auto leading-snug">
                 The most important decision you can make now is to Register. Once registered, we will personally contact you to clearly explain your next steps, assess your goals, and guide you through a proven preparation strategy. Don't delay your success—your future starts with this click.
             </p>
-            <a href="https://www.svtc.life/Join%20now.html" class="cta-button-large">
+            <a href="https://www.svtc.life/Join%20now.html" class="cta-button-large" target="_blank">
                 JOIN NOW & START YOUR JOURNEY
             </a>
         </div>
@@ -505,19 +547,19 @@
                 <div>
                     <h5 class="text-base font-bold text-sv-yellow mb-2">Quick Links</h5>
                     <ul class="space-y-1 text-sm">
-                        <li><a href="https://www.svtc.life/index.html" class="text-gray-300 hover:text-white transition">Home</a></li>
-                        <li><a href="https://www.svtc.life/Join%20now.html" class="text-gray-300 hover:text-white transition">Join Now</a></li>
-                        <li><a href="https://www.svtc.life/Pricing.html" class="text-gray-300 hover:text-white transition">Pricing</a></li>
-                        <li><a href="https://www.svtc.life/connect.html" class="text-gray-300 hover:text-white transition">Connect</a></li>
+                        <li><a href="https://www.svtc.life/index.html" class="text-gray-300 hover:text-white transition" target="_blank">Home</a></li>
+                        <li><a href="https://www.svtc.life/Join%20now.html" class="text-gray-300 hover:text-white transition" target="_blank">Join Now</a></li>
+                        <li><a href="https://www.svtc.life/Pricing.html" class="text-gray-300 hover:text-white transition" target="_blank">Pricing</a></li>
+                        <li><a href="https://www.svtc.life/connect.html" class="text-gray-300 hover:text-white transition" target="_blank">Connect</a></li>
                     </ul>
                 </div>
 
                 <div>
                     <h5 class="text-base font-bold text-sv-yellow mb-2">Company</h5>
                     <ul class="space-y-1 text-sm">
-                        <li><a href="https://www.svtc.life/About%20Us.html" class="text-gray-300 hover:text-white transition">About Us</a></li>
-                        <li><a href="file:///C:/Users/helpc/Documents/CONTACT.html" class="text-gray-300 hover:text-white transition">Contact</a></li>
-                        <li><a href="https://www.svtc.life/Privacy%20policy.html" class="text-gray-300 hover:text-white transition">Terms & Privacy</a></li>
+                        <li><a href="https://www.svtc.life/About%20Us.html" class="text-gray-300 hover:text-white transition" target="_blank">About Us</a></li>
+                        <li><a href="file:///C:/Users/helpc/Documents/CONTACT.html" class="text-gray-300 hover:text-white transition" target="_blank">Contact</a></li>
+                        <li><a href="https://www.svtc.life/Privacy%20policy.html" class="text-gray-300 hover:text-white transition" target="_blank">Terms & Privacy</a></li>
                     </ul>
                 </div>
 
@@ -526,7 +568,7 @@
                     <ul class="space-y-1 text-sm">
                         <li class="flex items-center">
                             <i class="fas fa-phone-alt mr-3 text-sv-yellow text-xs"></i>
-                            <a href="tel:+918985170500" class="text-gray-300 hover:text-white transition">+91 8985170500</a>
+                            <a href="tel:+918985170500" class="text-gray-300 hover:text-white transition" target="_blank">+91 8985170500</a>
                         </li>
                     </ul>
                     <h5 class="text-base font-bold text-sv-yellow mt-3 mb-2">Connect With Us</h5>
