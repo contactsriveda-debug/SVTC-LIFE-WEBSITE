@@ -1,116 +1,362 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sri Veda Talent Competition — Terms & Conditions</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Sri Veda Talent Competition - Privacy Policy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- FAVICON UPDATE: Using the new circle logo -->
+    <link rel="icon" type="image/jpeg" href="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg">
+
+    <style>
+        body { font-family: 'Roboto Slab', serif; }
+        h1,h2,h3,h4,h5,h6 { font-family: 'Roboto Slab', serif; }
+
+        /* NEW: Header logo style */
+        .header-logo {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            background-color: white;
+            padding: 5px;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Custom Colors */
+        :root {
+            --sv-blue: #111a4e; /* Deep Dark Blue for Nav */
+            --sv-orange: #FF8C00; /* Dark Orange */
+            --sv-pink: #D946EF; /* Pinkish-Purple for header gradient */
+            --sv-red: #DC2626; /* Red for header gradient */
+            --sv-indigo: #4F46E5; /* Indigo for header gradient */
+        }
+
+        /* Header specific styles to match image (Gradient) */
+        .header-bg {
+             background: linear-gradient(120deg, var(--sv-indigo) 0%, var(--sv-pink) 50%, var(--sv-red) 100%);
+             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Styles for the Navigation Bar based on the user's image */
+        .top-nav-bar {
+            background-color: var(--sv-blue); /* Dark Blue background */
+            padding: 0.8rem 0; 
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Navigation Button Styling - Matches the requested boxed look (Smallest size) */
+        .nav-button {
+            display: flex;
+            align-items: center;
+            padding: 0.3rem 1rem; /* Smallest size padding */
+            color: var(--sv-blue); /* Dark Blue text */
+            background-color: white; /* White background box */
+            border: 2px solid var(--sv-orange); /* Orange border */
+            border-radius: 9999px; 
+            font-size: 0.75rem; /* Smallest font size */
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.2s ease-in-out;
+            margin: 4px;
+            /* Match the box-shadow style from the previous version for the "boxed" look */
+            box-shadow: 0 0 0 2px var(--sv-orange), 0 0 0 5px white, 0 0 0 7px var(--sv-orange); 
+            flex-shrink: 0;
+        }
+
+        .nav-button:hover {
+            color: var(--sv-blue); /* Keep text dark */
+            background-color: #f0f0f0; /* Slight off-white on hover */
+            transform: scale(1.05);
+            /* Keep the box-shadow structure but change the inner color for visual feedback */
+            box-shadow: 0 0 0 2px var(--sv-orange), 0 0 0 5px #f0f0f0, 0 0 0 7px var(--sv-orange);
+        }
+        
+        /* Mobile adjustment for navigation buttons */
+        @media (max-width: 640px) {
+            .nav-button {
+                flex-grow: 1; 
+                justify-content: center;
+                font-size: 0.7rem; 
+                padding: 0.3rem 0.6rem; 
+            }
+        }
+        
+        /* --- STYLES FOR PRIVACY POLICY CONTENT --- */
+        .policy-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border-left: 6px solid var(--sv-orange); /* Orange accent bar */
+            margin-bottom: 1.5rem;
+        }
+        .policy-card h2 {
+            color: var(--sv-blue);
+            font-size: 1.5rem;
+            font-weight: 700;
+            border-bottom: 1px dashed #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+        .policy-card ul {
+            list-style-type: none; 
+            padding-left: 0;
+        }
+        .policy-card ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            color: #333; /* Darker text for readability */
+        }
+        .policy-card ul li::before {
+            content: "•";
+            color: var(--sv-orange); /* Orange bullet points */
+            font-size: 1.2rem;
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+        .policy-card p {
+            color: #333;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+    </style>
 </head>
-<body class="bg-gray-50 text-gray-800 leading-relaxed">
-  <header class="bg-white shadow">
-    <div class="max-w-4xl mx-auto px-6 py-8">
-      <h1 class="text-2xl font-extrabold">Sri Veda Talent Competition</h1>
-      <p class="mt-1 text-sm text-gray-600">Terms & Conditions — Online Learning & Test Services</p>
-    </div>
-  </header>
+<body class="bg-gray-100">
 
-  <main class="max-w-4xl mx-auto px-6 py-10">
-    <section class="bg-white p-6 rounded-2xl shadow-sm mb-6">
-      <h2 class="text-xl font-semibold mb-2">1. Service Overview</h2>
-      <p>We provide online learning and testing services to help improve students' cognitive skills. Our services are available only for students in Grades 3 through 10. The service includes:</p>
-      <ul class="list-disc pl-5 mt-3 space-y-2 text-sm text-gray-700">
-        <li>Class-wise practice question papers and scheduled weekly/monthly tests.</li>
-        <li>Clear, student-friendly explanations for each question.</li>
-        <li>Doubt-clearing support through the website, WhatsApp, and Telegram.</li>
-        <li>Study PDFs and guidance on how to read and prepare effectively.</li>
-      </ul>
-    </section>
+    <!-- HEADER (Student Subscription Corner) -->
+    <header class="header-bg shadow-lg">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 md:py-6 flex items-center space-x-4">
+            
+            <!-- Logo -->
+            <img src="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg" alt="Sri Veda Logo" class="header-logo flex-shrink-0"
+                 onerror="this.onerror=null; this.src='https://i.postimg.cc/C1Xnmwg9/veda-logo.jpg';">
+            
+            <!-- Titles -->
+            <div>
+                <h1 class="text-2xl sm:text-3xl font-bold text-white tracking-wide">Sri Veda Talent Competition</h1>
+                <p class="text-base sm:text-lg text-gray-200 mt-1 font-medium">
+                    Student Subscription Corner
+                </p>
+            </div>
+        </div>
+    </header>
 
-    <section class="bg-white p-6 rounded-2xl shadow-sm mb-6">
-      <h2 class="text-xl font-semibold mb-2">2. Payment, Refunds & Service Guarantee</h2>
-      <p>All fees collected are strictly for the online services listed above. By paying the fee, you are purchasing access to our test materials, doubt-clearing support, and study guidance.</p>
-      <p class="mt-2">Important points about payments and refunds:</p>
-      <ul class="list-disc pl-5 mt-3 space-y-2 text-sm text-gray-700">
-        <li>Payments must be made only through the official website. Do not pay anyone who asks for offline payments; such payments are not associated with Sri Veda Talent Competition.</li>
-        <li>We are collecting a small service charge from students for accessing our platform and services.</li>
-        <li>If the student is not satisfied with the service, a full refund will be issued on the same day of request.</li>
-        <li>Once service access is granted, fees are considered consumed for service delivery and processing; immediate refunds are available only if dissatisfaction is reported within the same day of payment.</li>
-        <li>We guarantee the delivery of the services described (weekly tests, monthly tests, explanations, and doubt support). We do not guarantee specific exam scores or results in government or board exams—student outcomes depend on their practice and effort.</li>
-      </ul>
-    </section>
+    <!-- PRIMARY NAVIGATION BAR (HOME, DASHBOARD, JOIN NOW, CONNECT) -->
+    <nav class="top-nav-bar shadow-xl">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <!-- Centered buttons on desktop, wrapping on mobile -->
+            <div class="flex flex-wrap justify-center sm:justify-around -m-1">
+                <!-- 1. Home -->
+                <a href="https://www.svtc.life" class="nav-button">
+                    <i class="fas fa-home mr-1"></i> HOME
+                </a>
+                <!-- 2. Dashboard -->
+                <a href="https://www.svtc.life/Dashboard.html" class="nav-button">
+                    <i class="fas fa-tachometer-alt mr-1"></i> DASHBOARD
+                </a>
+                <!-- 3. Join Now -->
+                <a href="https://www.svtc.life/Join%20now.html" class="nav-button">
+                    <i class="fas fa-user-plus mr-1"></i> JOIN NOW
+                </a>
+                <!-- 4. Connect -->
+                <a href="https://www.svtc.life/connect.html" class="nav-button">
+                    <i class="fas fa-headset mr-1"></i> CONNECT
+                </a>
+            </div>
+        </div>
+    </nav>
+    <!-- END PRIMARY NAVIGATION BAR -->
 
-    <section class="bg-white p-6 rounded-2xl shadow-sm mb-6">
-      <h2 class="text-xl font-semibold mb-2">3. Tests, Trial & Scoring</h2>
-      <p>After registration, students will receive access to online tests according to their subscription. A single free diagnostic test is available before payment to evaluate the student's current level.</p>
-      <ul class="list-disc pl-5 mt-3 space-y-2 text-sm text-gray-700">
-        <li>Weekly and monthly tests are scheduled and published on the website.</li>
-        <li>Test scores and feedback are provided to help students track progress.</li>
-        <li>Certain assessments may require parent supervision to ensure honest participation.</li>
-      </ul>
-    </section>
+    <!-- PRIVACY POLICY CONTENT SECTION -->
+    <main class="max-w-4xl mx-auto py-12 px-4 sm:px-6">
 
-    <section class="bg-white p-6 rounded-2xl shadow-sm mb-6">
-      <h2 class="text-xl font-semibold mb-2">4. Communication & Response Time</h2>
-      <p>We provide support through the website, WhatsApp, and Telegram. While we aim to reply promptly, response times can vary depending on traffic and staff availability.</p>
-      <ul class="list-disc pl-5 mt-3 space-y-2 text-sm text-gray-700">
-        <li>We cannot promise immediate replies at all times. During high-traffic periods, replies may be delayed.</li>
-        <li>For urgent issues, contact the phone number provided for faster assistance.</li>
-      </ul>
-    </section>
+        <!-- Main Title Block -->
+        <div class="text-center mb-10 pb-4 border-b-4 border-sv-orange">
+            <h1 class="text-4xl font-extrabold text-sv-blue tracking-tight">PRIVACY POLICY</h1>
+            <p class="text-sm text-gray-500 mt-1">Last Updated: November 3, 2025</p>
+        </div>
 
-    <section class="bg-white p-6 rounded-2xl shadow-sm mb-6">
-      <h2 class="text-xl font-semibold mb-2">5. Data Privacy & Retention</h2>
-      <p>All student and employee data is treated as confidential. Data provided during registration will be stored securely and accessed only for service delivery.</p>
-      <ul class="list-disc pl-5 mt-3 space-y-2 text-sm text-gray-700">
-        <li>Data will be retained for the period stated during registration and for the duration required to provide services.</li>
-        <li>After the retention period, data may be archived or deleted. If you rejoin after data deletion, you will need to register again.</li>
-        <li>We will not share personal student or employee data with third parties except where required by law or with explicit consent.</li>
-      </ul>
-    </section>
+        <section class="policy-card">
+            <h2>1. Our Company: Commitment to Original Content and Intellectual Property</h2>
+            <p>Welcome to  Sri Veda Talent Competition  (“Company”, “we”, “our”, or “us”). We are an independent educational platform dedicated to  enhancing students’ General Awareness, Advanced Mathematical ability, and Logical Reasoning  through high-quality, structured online tests. By using our services, you agree to the terms outlined below, which protect both you and our intellectual property.</p>
+            
+            <h3 class="text-lg font-semibold text-sv-orange mt-4 mb-2">1.1 Originality of Content - Our Core Promise</h3>
+            <p>Every single test, question paper, and study material offered on our platform is  100% originally created by our dedicated content team . We guarantee that we do  not copy, source, or reuse  content from any external platform, existing exam papers, or other educational institutions. This commitment ensures our content is unique, relevant, and free from any external copyright issues.</p>
+            
+            <h3 class="text-lg font-semibold text-sv-orange mt-4 mb-2">1.2 Strict Copyright Protection and Enforcement</h3>
+            <p>All test papers, questions, visual content, and educational materials are the  exclusive Intellectual Property of Sri Veda Talent Competition . </p>
+            <ul class="list-disc pl-5 mt-3 space-y-2 text-sm text-gray-700">
+                <li> Sharing and Copying is Prohibited:  Any unauthorized reproduction, duplication, sharing, or transmission of our test content, whether digital or physical, is  strictly prohibited .</li>
+                <li> Immediate Legal Action:  Violation of our content copyright will lead to immediate and  strict legal action  against the perpetrator under applicable copyright laws.</li>
+                <li> Verification Request:  If you ever suspect that any of our content resembles materials from other sources, please  contact us immediately  for internal verification and clarification.</li>
+            </ul>
+        </section>
 
-    <section class="bg-white p-6 rounded-2xl shadow-sm mb-6">
-      <h2 class="text-xl font-semibold mb-2">6. Account & Password Security</h2>
-      <p>Students must keep their account login credentials private. Do not share your password with others.</p>
-      <p class="mt-2">Security recommendations:</p>
-      <ul class="list-disc pl-5 mt-3 space-y-2 text-sm text-gray-700">
-        <li>Create a strong password and change it periodically.</li>
-        <li>Avoid storing passwords where others can access them.</li>
-        <li>Always log out on shared or public devices.</li>
-        <li>Be mindful of your surroundings when logging in to prevent others from seeing your credentials.</li>
-      </ul>
-    </section>
+        <section class="policy-card">
+            <h2>2. Student Participation, Goals, and Self-Improvement Policy</h2>
+            <p>Our platform is designed to promote  self-paced learning and self-discipline . We ensure every student, regardless of their background, receives  equal and fair treatment  and access to all subscribed materials.</p>
+            
+            <h3 class="text-lg font-semibold text-sv-orange mt-4 mb-2">2.1 No Personalized Coaching or Guarantees</h3>
+            <p>Please note that  we do not offer personalized coaching, one-on-one classes, or private tutoring . Our service is focused purely on providing structured tests and materials for self-assessment. </p>
+            <ul class="list-disc pl-5 mt-3 space-y-2 text-sm text-gray-700">
+                <li> Equal Opportunity:  Every student is treated equally. We provide the same comprehensive resources to all subscribers.</li>
+                <li> No Result Guarantee:  We  do not guarantee  any specific ranks, marks, or success in external government or board exams. Student outcomes are entirely dependent on their individual effort, practice, and self-discipline.</li>
+                <li> Doubt Resolution Only:  Subscription primarily grants access to tests. We will only provide explanations and clarify doubts when a student initiates a request (via WhatsApp or phone), otherwise, detailed explanations are generally provided after the test.</li>
+            </ul>
 
-    <section class="bg-white p-6 rounded-2xl shadow-sm mb-6">
-      <h2 class="text-xl font-semibold mb-2">7. Parent Supervision & Honesty</h2>
-      <p>For certain exams, parents should supervise the student to ensure honest completion. Supervised assessments improve result reliability and support the student’s learning progress.</p>
-    </section>
+            <h3 class="text-lg font-semibold text-sv-orange mt-4 mb-2">2.2 Importance of Self-Confidence and Discipline</h3>
+            <p>To truly improve your talent and knowledge,  self-confidence and honesty  during the tests are crucial. You must write the exams independently, preferably with a parent present to supervise, to gain genuine insight into your capabilities. Cheating is self-sabotage.</p>
+        </section>
 
-    <section class="bg-white p-6 rounded-2xl shadow-sm mb-6">
-      <h2 class="text-xl font-semibold mb-2">8. Online-only Service</h2>
-      <p>Our services are provided online only via the website, WhatsApp, and Telegram. We do not provide offline in-person classes or house visits as part of the standard subscription.</p>
-    </section>
+        <section class="policy-card">
+            <h2>3. Registration, Subscription, and Access Details</h2>
+            <p>To access our premium tests (General Awareness, Advanced Mathematics, and Moral Awareness), a paid subscription is required, following the details provided on the  'Pricing' page .</p>
+            
+            <h3 class="text-lg font-semibold text-sv-orange mt-4 mb-2">3.1 Account Registration and Confidentiality</h3>
+            <p>Upon registration using your valid details (name, contact number, email ID), you will receive a unique  Username and Password . </p>
+            <ul class="list-disc pl-5 mt-3 space-y-2 text-sm text-gray-700">
+                <li> Confidentiality is Key:  You are  solely responsible  for keeping your login credentials secret. Do not share your username or password with anyone.</li>
+                <li> Free Trial:  A single  Free Test  is available for first-time users to evaluate our platform before committing to a subscription.</li>
+            </ul>
 
-    <section class="bg-white p-6 rounded-2xl shadow-sm mb-6">
-      <h2 class="text-xl font-semibold mb-2">9. Third-Party Payments & Fraud Prevention</h2>
-      <p>Pay only through the official website. If anyone requests payment outside the website, that payment is not associated with Sri Veda Talent Competition. If you face any payment issues, contact us immediately.</p>
-    </section>
+            <h3 class="text-lg font-semibold text-sv-orange mt-4 mb-2">3.2 Strict Policy Against Multiple Logins (Security)</h3>
+            <p class="text-red-700 font-bold">This is a zero-tolerance policy:</p>
+            <ul class="list-disc pl-5 mt-3 space-y-2 text-sm text-gray-700">
+                <li> Immediate Cancellation:  Logging in from  two different devices simultaneously  (even with different mobiles) will result in an  immediate warning email .</li>
+                <li> Permanent Block:  Following the warning, if the double login persists or is repeated, the account will be  permanently cancelled/blocked  without refund.</li>
+                <li> Legal Recourse:  Repeated misuse of the login or sharing credentials to copy content may result in  legal reporting to the police  as it directly harms the company's integrity and intellectual property.</li>
+            </ul>
+        </section>
 
-    <section class="bg-white p-6 rounded-2xl shadow-sm mb-6">
-      <h2 class="text-xl font-semibold mb-2">10. Additional Notes</h2>
-      <ul class="list-disc pl-5 mt-3 space-y-2 text-sm text-gray-700">
-        <li>Regular study and consistent practice are necessary to benefit from our services; student effort directly affects outcomes.</li>
-        <li>We provide tests, explanations, and doubt support, but cannot guarantee specific marks in government or board exams.</li>
-        <li>If you want to add or change any points in these terms, inform us and we will update the page accordingly.</li>
-      </ul>
-    </section>
+        <section class="policy-card">
+            <h2>4. Payments and Non-Refundable Policy</h2>
+            <p class="text-red-700 font-bold text-xl">ALL PAYMENTS ARE STRICTLY FINAL AND NON-REFUNDABLE.</p>
+            <p>Before proceeding with payment, you must read, understand, and agree to this stringent refund policy. Fees cover immediate access to tests, service costs, and transaction taxes, which are irreversible once access is granted.</p>
 
-    <footer class="bg-white p-6 rounded-2xl shadow-sm text-sm text-gray-600">
-      <h3 class="font-semibold">Contact</h3>
-      <p class="mt-2">Company: Sri Veda Talent Competition</p>
-      <p>Email: <a href="mailto:contact.sriveda@gmail.com" class="underline">contact.sriveda@gmail.com</a></p>
-      <p>Phone: 8985170500</p>
-    </footer>
-  </main>
+            <h3 class="text-lg font-semibold text-sv-orange mt-4 mb-2">4.1 Irreversible Payment Confirmation</h3>
+            <ul class="list-disc pl-5 mt-3 space-y-2 text-sm text-gray-700">
+                <li> Think Before Paying:  You must  think a hundred times  and clear all doubts before making a payment.</li>
+                <li> No Refund After Payment:  Once the amount is paid and the subscription is active,  we will not return even one rupee  for any reason, including change of mind, technical issues (unless proven on our end), or incorrect payments.</li>
+            </ul>
+
+            <h3 class="text-lg font-semibold text-sv-orange mt-4 mb-2">4.2 Payment Channels and Fraud Prevention</h3>
+            <ul class="list-disc pl-5 mt-3 space-y-2 text-sm text-gray-700">
+                <li> Official Channels Only:  Payments must be made directly through the official website to ensure instant, automated service activation.</li>
+                <li> Unauthorized Payments:  We are  not responsible  for any amount paid to unauthorized persons. If you join through a referral, confirm the person's identity and ensure they register you correctly on the website.</li>
+                <li> Referral Agreement:  If joining via a referral, make a clear agreement with them regarding service and doubt support, as they receive a referral bonus to serve you. However, the company's direct refund policy remains  Non-Refundable .</li>
+            </ul>
+        </section>
+
+        <section class="policy-card">
+            <h2>5. Communication and Support Policy</h2>
+            <p>We are committed to providing support, but promptness depends on volume. We ensure clear communication channels are available.</p>
+            
+            <h3 class="text-lg font-semibold text-sv-orange mt-4 mb-2">5.1 Response Delays and WhatsApp Priority</h3>
+            <p>Due to the increasing number of student participants,  call response times may occasionally be delayed . We kindly ask for your patience.</p>
+            <ul class="list-disc pl-5 mt-3 space-y-2 text-sm text-gray-700">
+                <li> WhatsApp is Best:  The most efficient way to get support is by sending a detailed  WhatsApp message . We will reply as soon as possible.</li>
+                <li> Issue Resolution:  For technical or login issues, please send a  screenshot  via WhatsApp. This dramatically speeds up our ability to help you.</li>
+                <li> Team Callbacks:  Our team will call you back if necessary for explanations or clarifications. You will be clearly informed who has been  assigned  to assist you.</li>
+            </ul>
+
+            <h3 class="text-lg font-semibold text-sv-orange mt-4 mb-2">5.2 Technical & System Integrity</h3>
+            <p>The system is set up for automatic updates. Though we strive for continuous service, we reserve the right to:</p>
+            <ul class="list-disc pl-5 mt-3 space-y-2 text-sm text-gray-700">
+                <li> Maintenance:  Temporarily block access or put the system under technical maintenance without prior notice.</li>
+                <li> Updates:  Update or modify the platform features at any time.</li>
+            </ul>
+        </section>
+
+        <section class="policy-card">
+            <h2>6. Data Privacy and Security Measures</h2>
+            <p>We take the security of your data seriously. The privacy of students and employees is our top priority.</p>
+            
+            <h3 class="text-lg font-semibold text-sv-orange mt-4 mb-2">6.1 Data Collection and Protection</h3>
+            <p>We collect essential data (Name, Phone Number, Email, Login/Password) necessary only for service delivery.  Your data is never sold, rented, or shared  with any third party.</p>
+            <ul class="list-disc pl-5 mt-3 space-y-2 text-sm text-gray-700">
+                <li> Student Data:  Data is stored securely and is visible to you in your personal/student profile after login.</li>
+                <li> User Responsibility:  You are equally responsible for keeping your login credentials secret. Sharing your password exposes your data to risks.</li>
+            </ul>
+
+            <h3 class="text-lg font-semibold text-sv-orange mt-4 mb-2">6.2 Data Retention and Deletion</h3>
+            <ul class="list-disc pl-5 mt-3 space-y-2 text-sm text-gray-700">
+                <li> Subscription Expiry:  Your data will be automatically  removed from our database  upon subscription expiry.</li>
+                <li> Manual Deletion Request:  If you wish to remove your data earlier, you must send an official email request, and our team will comply.</li>
+            </ul>
+        </section>
+
+        <section class="policy-card">
+            <h2>7. Employee Conduct and Disciplinary Action Policy</h2>
+            <p>This section outlines the rules for all full-time or part-time employees working on behalf of Sri Veda Talent Competition.</p>
+
+            <h3 class="text-lg font-semibold text-sv-orange mt-4 mb-2">7.1 Code of Conduct and Work Ethic</h3>
+            <ul class="list-disc pl-5 mt-3 space-y-2 text-sm text-gray-700">
+                <li> Genuineness:  All employee work must be genuine and adhere to company conditions.</li>
+                <li> Communication:  Employees must maintain a  respectful and professional tone  with students, avoiding abusive language or unnecessary communication outside of work-related topics.</li>
+                <li> Monitoring:  Every employee action and time spent on tasks is  recorded  and monitored for efficiency and compliance.</li>
+            </ul>
+
+            <h3 class="text-lg font-semibold text-sv-orange mt-4 mb-2">7.2 Financial and Enrollment Rules</h3>
+            <ul class="list-disc pl-5 mt-3 space-y-2 text-sm text-gray-700">
+                <li> Immediate Informing:  If an employee accepts direct payment from a student, the employee must  immediately inform the management  and ensure the subscription is activated promptly.</li>
+                <li> Fraud is Zero-Tolerance:  Taking money from students for enrollment but failing to activate their subscription will result in  immediate police complaint  and termination.</li>
+                <li> Data Confidentiality:  Employees are  strictly forbidden  from sharing any student data with third parties. Violation will result in severe legal action.</li>
+            </ul>
+
+            <h3 class="text-lg font-semibold text-sv-orange mt-4 mb-2">7.3 Employee Compensation and Termination</h3>
+            <ul class="list-disc pl-5 mt-3 space-y-2 text-sm text-gray-700">
+                <li> No Fixed Salary:  We  do not offer a fixed monthly salary . Compensation is solely based on enrollment joining fees and commission/incentives as per company offers.</li>
+                <li> Payment Schedule:  Earnings are typically disbursed on the 1st of the month or on a weekly basis, as decided by management. The final decision rests with the management.</li>
+                <li> Termination:  The management reserves the absolute right to  terminate an employee's contract  at any time without prior notice or explanation.</li>
+            </ul>
+        </section>
+        
+        <section class="policy-card">
+            <h2>8. Management Rights, Liability, and Final Authority</h2>
+            <p class="font-bold">Sri Veda Talent Competition reserves the absolute and non-negotiable right to govern all aspects of the service, content, and organization.</p>
+            
+            <h3 class="text-lg font-semibold text-sv-orange mt-4 mb-2">8.1 Absolute Authority and Modification Rights</h3>
+            <ul class="list-disc pl-5 mt-3 space-y-2 text-sm text-gray-700">
+                <li> Policy Changes:  We hold the full right to  update, modify, cancel, or revise  any part of this Policy, pricing, or the service itself without prior notification.</li>
+                <li> Service Interruption:  The company holds the right to temporarily block the server or place the system  under maintenance  at any time.</li>
+                <li> Company Discontinuation:  The company may choose to  cease operations  at any time. In such an event, no financial compensation or liability will be borne by the company to subscribers or employees.</li>
+            </ul>
+            
+            <h3 class="text-lg font-semibold text-sv-orange mt-4 mb-2">8.2 Limitation of Liability</h3>
+            <p>The company is  not liable  for any harm, loss, or consequences arising from:</p>
+            <ul class="list-disc pl-5 mt-3 space-y-2 text-sm text-gray-700">
+                <li>Technical errors, internet failure, or device malfunction.</li>
+                <li>Student's personal login errors or data leaks due to sharing credentials.</li>
+                <li>Any actions taken by a third-party referral agent that violates this policy.</li>
+            </ul>
+            <p class="mt-2 text-red-700 font-bold">The final decision on all matters, disputes, and policy interpretations rests solely with the Company Management.</p>
+        </section>
+
+        <!-- Final Contact Information Section -->
+        <section class="policy-card bg-sv-blue/5 border-sv-blue">
+            <h2>9. Contact Us for Clarification</h2>
+            <p>We urge you to contact us for any doubts *before* making a subscription. We are here to clarify any point in this policy.</p>
+            <div class="mt-4 p-4 bg-white rounded-lg shadow-inner">
+                <p class="font-bold text-lg text-sv-blue">Sri Veda Talent Competition</p>
+                <p class="text-sm mt-3">Email: <a href="mailto:Contact.sriveda@gmail.com" class="text-sv-orange hover:underline">Contact.sriveda@gmail.com</a></p>
+                <p class="text-sm">Phone: <a href="tel:8985170500" class="text-sv-orange hover:underline">8985170500</a></p>
+                <p class="text-sm">Address: Chagamarri, Nandyala, AP - 518553.</p>
+            </div>
+        </section>
+        
+        <p class="text-center text-xs text-gray-500 mt-8">© Sri Veda Talent Competition – All Rights Reserved. | Designed for clarity and transparency.</p>
+
+    </main>
 
 </body>
 </html>
