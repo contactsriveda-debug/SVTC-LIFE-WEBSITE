@@ -1,241 +1,561 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Careers | SRI VEDA TALENT COMPETITIONS</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Updated fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <style>
-    html, body {
-      scroll-behavior: smooth;
-      height: 100%;
-      overflow-y: scroll;
-      /* Updated background */
-      background-color: #f4f7f6; 
-    }
-    body { font-family: 'Roboto Slab', serif; }
-    .title-font { font-family: 'Roboto Slab', serif; font-weight: 700; letter-spacing: 1px; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sri Veda Talent Competition</title>
     
-    /* Updated scrollbar */
-    ::-webkit-scrollbar {
-      width: 10px;
-    }
-    ::-webkit-scrollbar-thumb {
-      /* Gradient to match new theme */
-      background: linear-gradient(180deg, #1e3a8a, #c62828); 
-      border-radius: 10px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #f1f1f1;
-    }
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    /* Style for the new header logo */
-    .header-logo {
-        width: 60px;
-        height: 60px;
-        object-fit: contain;
-        background-color: white;
-        padding: 5px;
-        border-radius: 50%;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        flex-shrink: 0; /* Prevent shrinking */
-    }
+    <link rel="icon" type="image/jpeg" href="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg">
 
-    /* Navigation Button Styling */
-    .nav-button {
-        display: flex;
-        align-items: center;
-        padding: 0.4rem 0.6rem; 
-        color: #1e3a8a; /* Dark Blue text */
-        background-color: white; /* White background box */
-        border: 2px solid #F59E0B; /* Orange border */
-        border-radius: 9999px; 
-        font-size: 0.75rem; 
-        font-weight: 700;
-        text-transform: uppercase;
-        text-decoration: none;
-        transition: all 0.2s ease-in-out;
-        margin: 4px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        flex-shrink: 0;
-    }
-    .nav-button:hover {
-        color: white; 
-        background-color: #F59E0B; /* Orange background on hover */
-        border-color: #1e3a8a; /* Blue border on hover */
-        transform: scale(1.03);
-    }
-    @media (max-width: 640px) {
-        .nav-button {
-            flex-grow: 1; 
-            justify-content: center;
-            font-size: 0.7rem; 
-            padding: 0.35rem 0.5rem; 
+    <style>
+        :root {
+            --sv-blue: #00008B;
+            --sv-orange: #FF8C00;
+            --sv-yellow: #FFD700;
+            --sv-maroon: #800000;
         }
-    }
-  </style>
+        
+        body {
+            font-family: 'Roboto Slab', serif;
+        }
+        
+        .bg-sv-blue { background-color: var(--sv-blue); }
+        .text-sv-blue { color: var(--sv-blue); }
+        .bg-sv-orange { background-color: var(--sv-orange); }
+        .text-sv-orange { color: var(--sv-orange); }
+        .bg-sv-yellow { color: var(--sv-yellow); }
+        .text-sv-yellow { color: var(--sv-yellow); }
+        
+        .hover\:shadow-sv-yellow\/50:hover {
+            box-shadow: 0 10px 15px -3px var(--sv-yellow), 0 4px 6px -4px var(--sv-yellow);
+        }
+
+        .scrolling-text-container {
+            width: 100%;
+            overflow: hidden;
+            padding: 6px 0;
+        }
+        .scrolling-text {
+            display: inline-block;
+            white-space: nowrap;
+            padding-left: 100%;
+            animation: scroll-left 40s linear infinite;
+        }
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(0%);
+            }
+            100% {
+                transform: translateX(-200%);
+            }
+        }
+
+        .course-button {
+            display: inline-block;
+            padding: 0.4rem 0.8rem;
+            margin: 0.2rem;
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #333;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .course-button:hover {
+            background-color: var(--sv-orange);
+            color: white;
+            border-color: var(--sv-orange);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--sv-orange);
+            color: white;
+            padding: 0.6rem 1.8rem;
+            border-radius: 9999px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-align: center;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(255, 140, 0, 0.4);
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            background-color: #e67e00;
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(255, 140, 0, 0.6);
+        }
+        
+        .cta-button-secondary {
+            display: inline-block;
+            background-color: var(--sv-blue);
+            color: white;
+            padding: 0.6rem 1.8rem;
+            border-radius: 9999px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-align: center;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 139, 0.3);
+            transition: all 0.3s ease;
+        }
+        .cta-button-secondary:hover {
+            background-color: #0000cd;
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 139, 0.5);
+        }
+        
+        .cta-button-large {
+            display: inline-block;
+            background-color: var(--sv-blue);
+            color: white;
+            padding: 0.7rem 2rem;
+            border-radius: 9999px;
+            font-size: 1.1rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            text-align: center;
+            text-decoration: none;
+            box-shadow: 0 8px 15px rgba(0, 0, 139, 0.5);
+            transition: all 0.3s ease;
+        }
+        .cta-button-large:hover {
+            background-color: #0000cd;
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 139, 0.8);
+        }
+
+        .nav-button {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            color: var(--sv-blue);
+            background-color: white;
+            border: 2px solid var(--sv-orange);
+            border-radius: 9999px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin: 3px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .nav-button:hover {
+            color: white;
+            background-color: var(--sv-orange);
+            border-color: var(--sv-blue);
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(255, 140, 0, 0.6);
+        }
+        
+        /* New custom style for the Menu button to ensure orange background and white text visibility */
+        .menu-button-primary {
+            /* Force orange background and white text */
+            background-color: var(--sv-orange) !important;
+            color: white !important;
+            border-color: var(--sv-yellow) !important; 
+        }
+        .menu-button-primary:hover {
+            /* Hover state remains the same (white background, orange text) */
+            background-color: white !important;
+            color: var(--sv-orange) !important;
+            border-color: var(--sv-orange) !important; 
+        }
+
+        @media (max-width: 640px) {
+            .nav-button {
+                flex-grow: 1;
+                justify-content: center;
+                margin: 4px 2px;
+                font-size: 0.8rem;
+                padding: 0.4rem 0.8rem;
+            }
+        }
+        
+        /* Custom Header Corner Design (from user's provided style) */
+        .header-bg {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Left Corner PNG Image Design */
+        .header-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 120px;
+            height: 120px;
+            background-image: url('https://contactsriveda-debug.github.io/images/header%20coner.png');
+            background-size: 100% 100%; 
+            opacity: 1; 
+            background-repeat: no-repeat;
+            transform: translate(-30%, -30%); 
+            z-index: 1;
+        }
+        
+        /* Right Corner PNG Image Design (Mirrored for Symmetry) */
+        .header-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 120px;
+            height: 120px;
+            background-image: url('https://contactsriveda-debug.github.io/images/header%20coner.png');
+            background-size: 100% 100%; 
+            opacity: 1; 
+            background-repeat: no-repeat;
+            transform: translate(30%, -30%) scaleX(-1); 
+            z-index: 1;
+        }
+        
+        /* Ensure content is above the corner designs */
+        .header-content {
+            position: relative;
+            z-index: 10;
+        }
+    </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body class="bg-gray-50">
 
-  <!-- NEW HEADER -->
-  <header class="bg-gradient-to-r from-blue-900 via-red-800 to-red-900 text-white py-6 shadow-xl w-full z-20">
-    <div class="max-w-5xl mx-auto px-6 flex items-center space-x-5">
-      <!-- Logo -->
-      <img src="https://i.postimg.cc/C1Xnmwg9/veda-logo.jpg" alt="Veda Logo" class="header-logo">
-      <!-- Title -->
-      <div>
-        <h1 class="text-2xl md:text-3xl title-font uppercase drop-shadow-lg tracking-wide">
-          Sri Veda Talent Competiton
-        </h1>
-        <p class="text-lg text-gray-200 drop-shadow-md">
-          Careers and Employee corner
-        </p>
-      </div>
-    </div>
-  </header>
+    <!-- USER'S PROVIDED HEADER START -->
+    <header class="bg-sv-blue shadow-lg header-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 header-content">
+            <div class="flex flex-col md:flex-row items-center justify-between py-3 md:py-2 space-y-3 md:space-y-0 md:h-24">
+                
+                <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4">
+                    
+                    <img src="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg" 
+                            onerror="this.onerror=null; this.src='https://placehold.co/64x64/1e3a8a/ffffff?text=VEDA';" 
+                            alt="Veda Logo" 
+                            class="w-16 h-16 object-contain shadow-md rounded-full bg-white p-1 flex-shrink-0">
+                    
+                    <div class="text-center sm:text-left flex flex-col justify-center">
+                        <h1 class="text-xl sm:text-2xl font-extrabold tracking-wider text-white">
+                            SRI VEDA TALENT COMPETITION
+                        </h1>
+                        
+                        <div class="w-2/3 max-w-xs h-0.5 bg-sv-yellow my-0.5 mx-auto sm:mx-0"></div>
 
-  <!-- NEW: PRIMARY NAVIGATION BAR (4 Buttons only) -->
-  <nav class="bg-blue-900 py-2 shadow-inner">
-      <div class="max-w-5xl mx-auto px-4 sm:px-6">
-          <div class="flex flex-wrap justify-center sm:justify-around -m-1">
-              <!-- 1. Home -->
-              <a href="https://www.svtc.life/index.html" class="nav-button">
-                  <i class="fas fa-home mr-1"></i> HOME
-              </a>
-              <!-- 2. Dashboard -->
-              <a href="https://www.svtc.life/Dashboard.html" class="nav-button">
-                  <i class="fas fa-tachometer-alt mr-1"></i> DASHBOARD
-              </a>
-              <!-- 3. Contact -->
-              <a href="https://www.svtc.life/Contact.html" class="nav-button">
-                  <i class="fas fa-envelope mr-1"></i> CONTACT
-              </a>
-              <!-- 4. Connect -->
-              <a href="https://www.svtc.life/connect.html" class="nav-button">
-                  <i class="fas fa-headset mr-1"></i> CONNECT
-              </a>
-          </div>
-      </div>
-  </nav>
-  <!-- END PRIMARY NAVIGATION BAR -->
+                        <p class="text-sm sm:text-base font-semibold text-sv-yellow mt-0.5">
+                            "BRIGHT CHILD LIFE"
+                        </p>
+                    </div>
+                </div>
 
-  <!-- NEW EMPLOYEE LOGIN SECTION (Now directly follows the navigation bar) -->
-  <!-- INCREASED PADDING/MARGIN FOR MORE GAP (mt-8 mb-8) -->
-  <section class="py-8 mt-8 mb-8 bg-gradient-to-r from-gray-800 to-gray-900 shadow-xl border-b-4 border-red-500">
-    <div class="max-w-5xl mx-auto px-6 text-center">
-        <h2 class="text-2xl md:text-3xl font-bold text-white mb-3">Employee Login Corner</h2>
-        <p class="text-md text-gray-300 mb-6 max-w-2xl mx-auto">
-          Track employee time, sales, and work targets efficiently.
-        </p>
-        <!-- Added id="loginBtn" to this link -->
-        <a href="#" id="loginBtn" class="bg-gradient-to-r from-blue-600 to-red-600 text-white font-bold py-2.5 px-8 rounded-full shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-105 text-base uppercase tracking-wider">
-          Click Here to Login
-        </a>
-    </div>
-  </section>
-  <!-- END NEW EMPLOYEE LOGIN SECTION -->
-
-  <main class="pt-12 pb-28">
-    <!-- Student Relationship Manager Box (Theme Updated) -->
-    <div class="max-w-4xl mx-auto mt-12 relative">
-      <div class="absolute -top-4 left-6 bg-white border-2 border-blue-700 px-4 py-2 rounded shadow-lg z-10">
-        <h2 class="text-xl font-bold text-blue-800">1) Student Relationship Manager (SRM)</h2>
-      </div>
-
-      <section class="bg-white rounded-2xl shadow-lg pt-12 px-10 pb-8 border-4 border-blue-700">
-        <div class="text-left">
-          <p class="text-gray-700 text-base leading-relaxed mb-4">
-            We are seeking passionate individuals to join as <strong>Student Relationship Managers (SRM)</strong>. The role involves guiding students and helping them achieve their academic goals.
-          </p>
-          <ul class="list-disc list-inside text-gray-700 mb-5 text-base">
-            <li>Maintain relationships with students effectively.</li>
-            <li>Promote programs and enhance engagement.</li>
-            <li>Assist with marketing and outreach tasks.</li>
-            <li>Ensure regular motivation and updates.</li>
-          </ul>
-
-          <div class="flex justify-center mt-6">
-            <!-- This button will now open the maintenance modal -->
-            <button id="readApplyBtn" class="bg-blue-700 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-blue-800 transition duration-300 transform hover:scale-105 text-base">Read & Apply</button>
-          </div>
+                <div class="flex items-center space-x-3 sm:space-x-6 lg:space-x-8">
+                    <i class="fas fa-book text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Our Courses"></i>
+                    <i class="fas fa-pencil-ruler text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Practice Tests"></i>
+                    <i class="fas fa-graduation-cap text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Study Material"></i>
+                    <i class="fas fa-lightbulb text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Insights & Guidance"></i>
+                </div>
+            </div>
         </div>
-      </section>
+    </header>
+
+    <nav class="bg-sv-blue shadow-lg border-t-2 border-sv-yellow">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-wrap justify-center sm:justify-between py-1 space-x-1 sm:space-x-3">
+                
+                <!-- MENU Button: Toggles Dynamic Menu -->
+                <button id="menuToggle" class="nav-button menu-button-primary">
+                    <i class="fas fa-bars mr-2"></i> MENU
+                </button>
+                
+                <!-- DASHBOARD Link (Primary Nav) -->
+                <a href="https://www.svtc.life/Dashboard.html" class="nav-button" target="_blank">
+                    <i class="fas fa-tachometer-alt mr-2"></i> DASHBOARD
+                </a>
+                
+                <!-- JOIN NOW Link (Primary Nav) -->
+                <a href="https://www.svtc.life/Join%20now.html" class="nav-button" target="_blank">
+                    <i class="fas fa-user-plus mr-2"></i> JOIN NOW
+                </a>
+                
+                <!-- PRICING Link (Primary Nav) -->
+                <a href="https://www.svtc.life/Pricing.html" class="nav-button" target="_blank">
+                    <i class="fas fa-tags mr-2"></i> PRICING
+                </a>
+                
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Dynamic Horizontal Menu Section (Initially hidden) -->
+    <div id="dynamicMenu" class="hidden bg-sv-blue/95 border-b-4 border-sv-yellow transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+            <div class="flex flex-wrap justify-center gap-2">
+                
+                <!-- 1. Home Link -->
+                <a href="https://www.svtc.life" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                    <i class="fas fa-home mr-1"></i> Home
+                </a>
+
+                <!-- 2. DASHBOARD Link -->
+                <a href="https://www.svtc.life/Dashboard.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                    <i class="fas fa-tachometer-alt mr-1"></i> DASHBOARD
+                </a>
+                
+                <!-- 3. Join Now Link -->
+                <a href="https://www.svtc.life/Join%20now.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                    <i class="fas fa-user-plus mr-1"></i> Join Now
+                </a>
+                
+                <!-- 4. Pricing Link -->
+                <a href="https://www.svtc.life/Pricing.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                    <i class="fas fa-tags mr-1"></i> Pricing
+                </a>
+                
+                <!-- 5. Contact Link -->
+                <a href="https://www.svtc.life/Contact.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                    <i class="fas fa-envelope mr-1"></i> Contact
+                </a>
+                
+                <!-- 6. Connect Link -->
+                <a href="https://www.svtc.life/connect.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                    <i class="fas fa-headset mr-1"></i> Connect
+                </a>
+
+                <!-- 7. About Us Link -->
+                <a href="https://www.svtc.life/About%20Us.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                    <i class="fas fa-info-circle mr-1"></i> About Us
+                </a>
+                
+                <!-- 8. Terms & Privacy Link -->
+                <a href="https://www.svtc.life/Privacy%20policy.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                    <i class="fas fa-file-contract mr-1"></i> Terms & Privacy
+                </a>
+            </div>
+        </div>
     </div>
+    <!-- USER'S PROVIDED HEADER END -->
 
-    <!-- Apply Section (This is now hidden, as the button to open it is disabled) -->
-    <section id="applySection" class="hidden max-w-4xl mx-auto mt-8 bg-white border-4 border-blue-700 rounded-2xl shadow-lg p-10 min-h-[600px]">
-      <h3 class="text-2xl font-bold text-blue-800 mb-4">Comprehensive Role Description</h3>
-      <ul class="list-disc list-inside text-gray-700 space-y-2 mb-6 text-base">
-        <li>Freelance-based student relationship management role.</li>
-        <li>Monthly follow-up with enrolled students.</li>
-        <li>Earn through engagement-based incentives.</li>
-        <li>Flexible working hours with self-discipline.</li>
-        <li>Maintain professional communication with students.</li>
-        <li>Report updates regularly on official platforms.</li>
-      </ul>
 
-      <form id="applyForm" class="space-y-4 text-base">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <input type="text" placeholder="Full Name" class="border border-gray-300 rounded-lg p-3 w-full focus:ring-2 focus:ring-blue-500 focus:border-transparent" required>
-          <input type="text" placeholder="Number" class="border border-gray-300 rounded-lg p-3 w-full focus:ring-2 focus:ring-blue-500 focus:border-transparent" required>
-          <input type="email" placeholder="Email" class="border border-gray-300 rounded-lg p-3 w-full focus:ring-2 focus:ring-blue-500 focus:border-transparent" required>
-          <input type="text" placeholder="Education" class="border border-gray-300 rounded-lg p-3 w-full focus:ring-2 focus:ring-blue-500 focus:border-transparent" required>
-          <input type="text" placeholder="Experience" class="border border-gray-300 rounded-lg p-3 w-full focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-          <input type="text" placeholder="Village" class="border border-gray-300 rounded-lg p-3 w-full focus:ring-2 focus:ring-blue-500 focus:border-transparent" required>
-          <input type="text" placeholder="District" class="border border-gray-300 rounded-lg p-3 w-full focus:ring-2 focus:ring-blue-500 focus:border-transparent" required>
-          <input type="text" placeholder="Pincode" class="border border-gray-300 rounded-lg p-3 w-full focus:ring-2 focus:ring-blue-500 focus:border-transparent" required>
+    <!-- RETAINED: EMPLOYEE LOGIN CORNER SECTION (Styling updated for new theme) -->
+    <section class="py-8 mt-8 mb-8 bg-green-300/80 shadow-xl border-b-4 border-sv-orange">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <h2 class="text-2xl md:text-3xl font-bold text-green-900 mb-3">Employee Login Corner</h2>
+            <p class="text-md text-green-700 mb-6 max-w-2xl mx-auto">
+              Track employee time, sales, and work targets efficiently.
+            </p>
+            <!-- Login Button: Now uses theme colors and triggers the modal via JS -->
+            <a href="#" id="loginBtn" class="bg-sv-orange text-white font-bold py-2.5 px-8 rounded-full shadow-lg hover:bg-sv-yellow hover:text-sv-blue transition duration-300 transform hover:scale-105 text-base uppercase tracking-wider">
+              Click Here to Login
+            </a>
         </div>
-        <div class="flex items-center space-x-2">
-          <input type="checkbox" id="terms" class="focus:ring-blue-500" required>
-          <label for="terms" class="text-base text-gray-700">Accept Terms and Conditions</label>
-        </div>
-        <button type="submit" class="bg-blue-700 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-blue-800 transition duration-300 transform hover:scale-105 text-base">Submit</button>
-      </form>
     </section>
-  </main>
+    <!-- END RETAINED EMPLOYEE LOGIN SECTION -->
 
-  <!-- NEW: Maintenance Modal (Pop-up) -->
-  <div id="maintenanceModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50 hidden">
-    <div class="bg-white rounded-lg shadow-2xl p-8 max-w-md w-full text-center">
-      <h3 class="text-2xl font-bold text-blue-800 mb-4">Under Maintenance</h3>
-      <p class="text-gray-700 text-lg mb-6">This Page Under Maintenance. We are working hard to improve it!</p>
-      <button id="closeModalBtn" class="bg-blue-700 text-white font-semibold py-2 px-6 rounded-full hover:bg-blue-800 transition duration-300">Close</button>
+    <!-- RETAINED: MAIN CONTENT (SRM BOX) -->
+    <main class="pt-12 pb-28">
+        <!-- Student Relationship Manager Box (Theme Updated) -->
+        <div class="max-w-4xl mx-auto mt-12 relative">
+          <div class="absolute -top-4 left-6 bg-white border-2 border-sv-blue px-4 py-2 rounded shadow-lg z-10">
+            <h2 class="text-xl font-bold text-sv-blue">1) Student Relationship Manager (SRM)</h2>
+          </div>
+    
+          <section class="bg-white rounded-2xl shadow-lg pt-12 px-10 pb-8 border-4 border-sv-blue">
+            <div class="text-left">
+              <p class="text-gray-700 text-base leading-relaxed mb-4">
+                We are seeking passionate individuals to join as <strong>Student Relationship Managers (SRM)</strong>. The role involves guiding students and helping them achieve their academic goals.
+              </p>
+              <ul class="list-disc list-inside text-gray-700 mb-5 text-base">
+                <li>Maintain relationships with students effectively.</li>
+                <li>Promote programs and enhance engagement.</li>
+                <li>Assist with marketing and outreach tasks.</li>
+                <li>Ensure regular motivation and updates.</li>
+              </ul>
+    
+              <div class="flex justify-center mt-6">
+                <!-- Button to open the maintenance modal -->
+                <button id="readApplyBtn" class="bg-sv-blue text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-sv-orange transition duration-300 transform hover:scale-105 text-base">Read & Apply</button>
+              </div>
+            </div>
+          </section>
+        </div>
+    
+        <!-- Apply Section (Hidden content for context) -->
+        <section id="applySection" class="hidden max-w-4xl mx-auto mt-8 bg-white border-4 border-sv-blue rounded-2xl shadow-lg p-10 min-h-[600px]">
+          <h3 class="text-2xl font-bold text-sv-blue mb-4">Comprehensive Role Description</h3>
+          <ul class="list-disc list-inside text-gray-700 space-y-2 mb-6 text-base">
+            <li>Freelance-based student relationship management role.</li>
+            <li>Monthly follow-up with enrolled students.</li>
+            <li>Earn through engagement-based incentives.</li>
+            <li>Flexible working hours with self-discipline.</li>
+            <li>Maintain professional communication with students.</li>
+            <li>Report updates regularly on official platforms.</li>
+          </ul>
+    
+          <form id="applyForm" class="space-y-4 text-base">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <input type="text" placeholder="Full Name" class="border border-gray-300 rounded-lg p-3 w-full focus:ring-2 focus:ring-sv-blue focus:border-transparent" required>
+              <input type="text" placeholder="Number" class="border border-gray-300 rounded-lg p-3 w-full focus:ring-2 focus:ring-sv-blue focus:border-transparent" required>
+              <input type="email" placeholder="Email" class="border border-gray-300 rounded-lg p-3 w-full focus:ring-2 focus:ring-sv-blue focus:border-transparent" required>
+              <input type="text" placeholder="Education" class="border border-gray-300 rounded-lg p-3 w-full focus:ring-2 focus:ring-sv-blue focus:border-transparent" required>
+              <input type="text" placeholder="Experience" class="border border-gray-300 rounded-lg p-3 w-full focus:ring-2 focus:ring-sv-blue focus:border-transparent">
+              <input type="text" placeholder="Village" class="border border-gray-300 rounded-lg p-3 w-full focus:ring-2 focus:ring-sv-blue focus:border-transparent" required>
+              <input type="text" placeholder="District" class="border border-gray-300 rounded-lg p-3 w-full focus:ring-2 focus:ring-sv-blue focus:border-transparent" required>
+              <input type="text" placeholder="Pincode" class="border border-gray-300 rounded-lg p-3 w-full focus:ring-2 focus:ring-sv-blue focus:border-transparent" required>
+            </div>
+            <div class="flex items-center space-x-2">
+              <input type="checkbox" id="terms" class="focus:ring-sv-blue" required>
+              <label for="terms" class="text-base text-gray-700">Accept Terms and Conditions</label>
+            </div>
+            <button type="submit" class="bg-sv-blue text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-sv-orange transition duration-300 transform hover:scale-105 text-base">Submit</button>
+          </form>
+        </section>
+    </main>
+    <!-- END RETAINED MAIN CONTENT -->
+
+    <!-- RETAINED: Maintenance Modal (Pop-up, styling updated) -->
+    <div id="maintenanceModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50 hidden">
+        <div class="bg-white rounded-lg shadow-2xl p-8 max-w-md w-full text-center">
+            <h3 class="text-2xl font-bold text-sv-blue mb-4">Under Maintenance</h3>
+            <p class="text-gray-700 text-lg mb-6">This Page Under Maintenance. We are working hard to improve it!</p>
+            <button id="closeModalBtn" class="bg-sv-blue text-white font-semibold py-2 px-6 rounded-full hover:bg-sv-orange transition duration-300">Close</button>
+        </div>
     </div>
-  </div>
+    <!-- END RETAINED MAINTENANCE MODAL -->
 
-  <script>
-    // Get Modal Elements
-    const modal = document.getElementById('maintenanceModal');
-    const closeModalBtn = document.getElementById('closeModalBtn');
-    const readApplyBtn = document.getElementById('readApplyBtn');
-    const loginBtn = document.getElementById('loginBtn');
 
-    function openModal() {
-        modal.classList.remove('hidden');
-    }
+    <!-- USER'S PROVIDED FOOTER START -->
+    <footer class="bg-sv-blue text-white py-5 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                
+                <div>
+                    <img class="h-12 w-auto mb-2 object-contain shadow-md rounded-full bg-white p-1" 
+                            src="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg" 
+                            alt="Sri Veda Logo"
+                            onerror="this.onerror=null; this.src='https://placehold.co/48x48/1e3a8a/ffffff?text=VEDA';">
+                    <p class="text-gray-300 text-xs">
+                        Sri Veda Talent Competition<br>
+                        Empowering students with knowledge and skills for a bright future.
+                    </p>
+                </div>
 
-    function closeModal() {
-        modal.classList.add('hidden');
-    }
+                <div>
+                    <h5 class="text-base font-bold text-sv-yellow mb-2">Quick Links</h5>
+                    <ul class="space-y-1 text-sm">
+                        <!-- Footer Quick Links -->
+                        <li><a href="https://www.svtc.life/index.html" class="text-gray-300 hover:text-white transition" target="_blank">Home</a></li>
+                        <li><a href="https://www.svtc.life/Join%20now.html" class="text-gray-300 hover:text-white transition" target="_blank">Join Now</a></li>
+                        <li><a href="https://www.svtc.life/Pricing.html" class="text-gray-300 hover:text-white transition" target="_blank">Pricing</a></li>
+                        <li><a href="https://www.svtc.life/connect.html" class="text-gray-300 hover:text-white transition" target="_blank">Connect</a></li>
+                    </ul>
+                </div>
 
-    // --- Modal listeners ---
-    readApplyBtn.addEventListener('click', (e) => {
-      e.preventDefault(); // Prevent default button behavior
-      openModal();
-    });
+                <div>
+                    <h5 class="text-base font-bold text-sv-yellow mb-2">Company</h5>
+                    <ul class="space-y-1 text-sm">
+                        <!-- Footer Company Links -->
+                        <li><a href="https://www.svtc.life/About%20Us.html" class="text-gray-300 hover:text-white transition" target="_blank">About Us</a></li>
+                        <li><a href="https://www.svtc.life/Contact.html" class="text-gray-300 hover:text-white transition" target="_blank">Contact</a></li>
+                        <li><a href="https://www.svtc.life/Privacy%20policy.html" class="text-gray-300 hover:text-white transition" target="_blank">Terms & Privacy</a></li>
+                    </ul>
+                </div>
 
-    loginBtn.addEventListener('click', (e) => {
-        e.preventDefault(); // Stop the link from navigating
-        openModal();
-    });
+                <div>
+                    <h5 class="text-base font-bold text-sv-yellow mb-2">Get In Touch</h5>
+                    <ul class="space-y-1 text-sm">
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-sv-yellow text-xs"></i>
+                            <a href="tel:+918985170500" class="text-gray-300 hover:text-white transition" target="_blank">+91 8985170500</a>
+                        </li>
+                    </ul>
+                    <h5 class="text-base font-bold text-sv-yellow mt-3 mb-2">Connect With Us</h5>
+                    <div class="flex space-x-3">
+                        <a href="https://www.facebook.com/share/1ZXXCLRGwh" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-sv-yellow transition text-lg">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=zreta93" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-sv-yellow transition text-lg">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="httpst.me/srivedatc" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-sv-yellow transition text-lg">
+                            <i class="fab fa-telegram-plane"></i>
+                        </a>
+                        <a href="http://wa.me/918985170500" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-sv-yellow transition text-lg">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-4 pt-4 text-center">
+                <p class="text-gray-400 text-xs">
+                    &copy; 2025 Sri Veda Talent Competition. All Rights Reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- USER'S PROVIDED FOOTER END -->
 
-    closeModalBtn.addEventListener('click', () => {
-        closeModal();
-    });
-  </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Get Menu Elements (from user's previous code)
+            const menuToggle = document.getElementById('menuToggle');
+            const dynamicMenu = document.getElementById('dynamicMenu');
 
+            // Get Modal Elements (from retained content)
+            const modal = document.getElementById('maintenanceModal');
+            const closeModalBtn = document.getElementById('closeModalBtn');
+            const readApplyBtn = document.getElementById('readApplyBtn');
+            const loginBtn = document.getElementById('loginBtn'); // Used for the Employee Login button
+
+            function openModal() {
+                modal.classList.remove('hidden');
+            }
+
+            function closeModal() {
+                modal.classList.add('hidden');
+            }
+
+            // --- Menu Toggle Logic ---
+            if (menuToggle && dynamicMenu) {
+                menuToggle.addEventListener('click', () => {
+                    dynamicMenu.classList.toggle('hidden');
+                });
+            }
+            
+            // --- Modal Logic (Retained) ---
+            if (readApplyBtn) {
+                readApplyBtn.addEventListener('click', (e) => {
+                    e.preventDefault(); 
+                    openModal();
+                });
+            }
+            
+            if (loginBtn) {
+                loginBtn.addEventListener('click', (e) => {
+                    e.preventDefault(); 
+                    openModal();
+                });
+            }
+            
+            if (closeModalBtn) {
+                closeModalBtn.addEventListener('click', () => {
+                    closeModal();
+                });
+            }
+        });
+    </script>
 </body>
 </html>
