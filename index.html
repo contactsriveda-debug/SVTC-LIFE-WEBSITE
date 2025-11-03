@@ -31,7 +31,7 @@
         .text-sv-blue { color: var(--sv-blue); }
         .bg-sv-orange { background-color: var(--sv-orange); }
         .text-sv-orange { color: var(--sv-orange); }
-        .bg-sv-yellow { background-color: var(--sv-yellow); }
+        .bg-sv-yellow { color: var(--sv-yellow); }
         .text-sv-yellow { color: var(--sv-yellow); }
         
         .hover\:shadow-sv-yellow\/50:hover {
@@ -164,6 +164,21 @@
             transform: scale(1.05);
             box-shadow: 0 6px 15px rgba(255, 140, 0, 0.6);
         }
+        
+        /* New custom style for the Menu button to ensure orange background and white text visibility */
+        .menu-button-primary {
+            /* Force orange background and white text */
+            background-color: var(--sv-orange) !important;
+            color: white !important;
+            border-color: var(--sv-yellow) !important; 
+        }
+        .menu-button-primary:hover {
+            /* Hover state remains the same (white background, orange text) */
+            background-color: white !important;
+            color: var(--sv-orange) !important;
+            border-color: var(--sv-orange) !important; 
+        }
+
         @media (max-width: 640px) {
             .nav-button {
                 flex-grow: 1;
@@ -180,33 +195,39 @@
             overflow: hidden;
         }
         
-        /* Left Corner Flower Design */
+        /* Left Corner PNG Image Design */
         .header-bg::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
-            width: 100px;
-            height: 100px;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><path id="leaf" d="M50 0 L60 20 L50 30 L40 20 Z" fill="%23FFD700" transform="rotate(-45 50 50)"/></defs><use href="%23leaf" transform="rotate(0 50 50)"/><use href="%23leaf" transform="rotate(90 50 50)"/><use href="%23leaf" transform="rotate(180 50 50)"/><use href="%23leaf" transform="rotate(270 50 50)"/><circle cx="50" cy="50" r="10" fill="%23FF8C00"/><path d="M10 10 L50 50 L10 90" stroke="%23FFD700" stroke-width="2" fill="none"/></svg>');
-            background-size: contain;
-            opacity: 0.4;
-            transform: translate(-30%, -30%) rotate(90deg);
+            width: 120px;
+            height: 120px;
+            /* Updated to use the user's PNG URL */
+            background-image: url('https://contactsriveda-debug.github.io/images/header%20coner.png');
+            background-size: 100% 100%; /* Cover the entire 120x120 area */
+            opacity: 1; /* Keep opacity at 1 for clean PNG display */
+            background-repeat: no-repeat;
+            /* Adjust position to show the corner piece clearly, assuming the PNG is designed for a corner. */
+            transform: translate(-30%, -30%); 
             z-index: 1;
         }
         
-        /* Right Corner Flower Design */
+        /* Right Corner PNG Image Design (Mirrored for Symmetry) */
         .header-bg::after {
             content: '';
             position: absolute;
             top: 0;
             right: 0;
-            width: 100px;
-            height: 100px;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><path id="leaf" d="M50 0 L60 20 L50 30 L40 20 Z" fill="%23FFD700" transform="rotate(-45 50 50)"/></defs><use href="%23leaf" transform="rotate(0 50 50)"/><use href="%23leaf" transform="rotate(90 50 50)"/><use href="%23leaf" transform="rotate(180 50 50)"/><use href="%23leaf" transform="rotate(270 50 50)"/><circle cx="50" cy="50" r="10" fill="%23FF8C00"/><path d="M90 10 L50 50 L90 90" stroke="%23FFD700" stroke-width="2" fill="none"/></svg>');
-            background-size: contain;
-            opacity: 0.4;
-            transform: translate(30%, -30%) rotate(180deg);
+            width: 120px;
+            height: 120px;
+            /* Updated to use the user's PNG URL */
+            background-image: url('https://contactsriveda-debug.github.io/images/header%20coner.png');
+            background-size: 100% 100%; 
+            opacity: 1; 
+            background-repeat: no-repeat;
+            /* Translate positive X (right), negative Y (up), and flip horizontally (scaleX(-1)) to mirror the image */
+            transform: translate(30%, -30%) scaleX(-1); 
             z-index: 1;
         }
         
@@ -256,21 +277,78 @@
     <nav class="bg-sv-blue shadow-lg border-t-2 border-sv-yellow">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-wrap justify-center sm:justify-between py-1 space-x-1 sm:space-x-3">
+                
+                <!-- MENU Button: Toggles Dynamic Menu -->
+                <button id="menuToggle" class="nav-button menu-button-primary">
+                    <i class="fas fa-bars mr-2"></i> MENU
+                </button>
+                
+                <!-- DASHBOARD Link (Primary Nav) -->
                 <a href="https://www.svtc.life/Dashboard.html" class="nav-button" target="_blank">
                     <i class="fas fa-tachometer-alt mr-2"></i> DASHBOARD
                 </a>
+                
+                <!-- JOIN NOW Link (Primary Nav) -->
                 <a href="https://www.svtc.life/Join%20now.html" class="nav-button" target="_blank">
                     <i class="fas fa-user-plus mr-2"></i> JOIN NOW
                 </a>
+                
+                <!-- PRICING Link (Primary Nav) -->
                 <a href="https://www.svtc.life/Pricing.html" class="nav-button" target="_blank">
                     <i class="fas fa-tags mr-2"></i> PRICING
                 </a>
-                <a href="https://www.svtc.life/connect.html" class="nav-button" target="_blank">
-                    <i class="fas fa-headset mr-2"></i> CONNECT
-                </a>
+                
             </div>
         </div>
     </nav>
+    
+    <!-- Dynamic Horizontal Menu Section (Initially hidden) -->
+    <div id="dynamicMenu" class="hidden bg-sv-blue/95 border-b-4 border-sv-yellow transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+            <div class="flex flex-wrap justify-center gap-2">
+                
+                <!-- 1. Home Link -->
+                <a href="https://www.svtc.life" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                    <i class="fas fa-home mr-1"></i> Home
+                </a>
+
+                <!-- 2. DASHBOARD Link -->
+                <a href="https://www.svtc.life/Dashboard.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                    <i class="fas fa-tachometer-alt mr-1"></i> DASHBOARD
+                </a>
+                
+                <!-- 3. Join Now Link -->
+                <a href="https://www.svtc.life/Join%20now.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                    <i class="fas fa-user-plus mr-1"></i> Join Now
+                </a>
+                
+                <!-- 4. Pricing Link -->
+                <a href="https://www.svtc.life/Pricing.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                    <i class="fas fa-tags mr-1"></i> Pricing
+                </a>
+                
+                <!-- 5. Contact Link -->
+                <a href="https://www.svtc.life/Contact.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                    <i class="fas fa-envelope mr-1"></i> Contact
+                </a>
+                
+                <!-- 6. Connect Link -->
+                <a href="https://www.svtc.life/connect.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                    <i class="fas fa-headset mr-1"></i> Connect
+                </a>
+
+                <!-- 7. About Us Link -->
+                <a href="https://www.svtc.life/About%20Us.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                    <i class="fas fa-info-circle mr-1"></i> About Us
+                </a>
+                
+                <!-- 8. Terms & Privacy Link -->
+                <a href="https://www.svtc.life/Privacy%20policy.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                    <i class="fas fa-file-contract mr-1"></i> Terms & Privacy
+                </a>
+            </div>
+        </div>
+    </div>
     
     <div class="scrolling-text-container bg-yellow-200 shadow-inner py-1">
         <div class="scrolling-text text-sv-blue font-bold text-base">
@@ -464,14 +542,15 @@
         <h3 class="text-lg font-bold text-sv-blue mb-2 border-b pb-1">Competitive Exams Before 10th Grade</h3>
         <p class="text-xs text-gray-500 italic mb-3">For all these entrance tests, we have BASIC and PRO level preparation tests.</p>
         <div class="flex flex-wrap justify-center gap-2">
-            <a href="#" class="course-button" target="_blank">NTSE</a>
-            <a href="#" class="course-button" target="_blank">Olympiads (NSO, IMO, IEO)</a>
-            <a href="#" class="course-button" target="_blank">KVPY (SA Stream)</a>
-            <a href="#" class="course-button" target="_blank">Homi Bhabha Balvaidnyanik</a>
-            <a href="#" class="course-button" target="_blank">NSTSE</a>
-            <a href="#" class="course-button" target="_blank">SilverZone Olympiads</a>
-            <a href="#" class="course-button" target="_blank">UIEO (Unified International English Olympiad)</a>
-            <a href="#" class="course-button" target="_blank">UCO (Unified Cyber Olympiad)</a>
+            <!-- These are set to no action: href="javascript:void(0)" -->
+            <a href="javascript:void(0)" class="course-button">NTSE</a>
+            <a href="javascript:void(0)" class="course-button">Olympiads (NSO, IMO, IEO)</a>
+            <a href="javascript:void(0)" class="course-button">KVPY (SA Stream)</a>
+            <a href="javascript:void(0)" class="course-button">Homi Bhabha Balvaidnyanik</a>
+            <a href="javascript:void(0)" class="course-button">NSTSE</a>
+            <a href="javascript:void(0)" class="course-button">SilverZone Olympiads</a>
+            <a href="javascript:void(0)" class="course-button">UIEO (Unified International English Olympiad)</a>
+            <a href="javascript:void(0)" class="course-button">UCO (Unified Cyber Olympiad)</a>
         </div>
         
         <div class="text-center py-4 mb-3 mt-4">
@@ -489,29 +568,30 @@
         <h3 class="text-lg font-bold text-sv-blue mb-2 mt-4 border-b pb-1">Career Paths After 10th Grade</h3>
         <p class="text-xs text-gray-500 italic mb-3">For all these entrance tests, we have BASIC and PRO level preparation tests.</p>
         <div class="flex flex-wrap justify-center gap-2">
-            <a href="#" class="course-button" target="_blank">JEE (Main & Advanced)</a>
-            <a href="#" class="course-button" target="_blank">NEET (UG)</a>
-            <a href="#" class="course-button" target="_blank">BITSAT</a>
-            <a href="#" class="course-button" target="_blank">VITEEE</a>
-            <a href="#" class="course-button" target="_blank">SRMJEEE</a>
-            <a href="#" class="course-button" target="_blank">NDA</a>
-            <a href="#" class="course-button" target="_blank">CLAT</a>
-            <a href="#" class="course-button" target="_blank">AILET</a>
-            <a href="#" class="course-button" target="_blank">CA Foundation</a>
-            <a href="#" class="course-button" target="_blank">CS Foundation</a>
-            <a href="#" class="course-button" target="_blank">CMA Foundation</a>
-            <a href="#" class="course-button" target="_blank">NID DAT</a>
-            <a href="#" class="course-button" target="_blank">UCEED</a>
-            <a href="#" class="course-button" target="_blank">NIFT Entrance Exam</a>
-            <a href="#" class="course-button" target="_blank">NCHM JEE (Hotel Management)</a>
-            <a href="#" class="course-button" target="_blank">STATE CETs (EAMCET, MHTCET, etc.)</a>
-            <a href="#" class="course-button" target="_blank">POLYTECHNIC CET</a>
-            <a href="#" class="course-button" target="_blank">ITI ENTRANCE</a>
-            <a href="#" class="course-button" target="_blank">RAILWAY (RRB) ALP/TECHNICIAN</a>
-            <a href="#" class="course-button" target="_blank">SSC CHSL (10+2)</a>
-            <a href="#" class="course-button" target="_blank">INDIAN ARMY (Soldier GD/Technical)</a>
-            <a href="#" class="course-button" target="_blank">INDIAN NAVY (Sailor - AA/SSR)</a>
-            <a href="#" class="course-button" target="_blank">INDIAN AIR FORCE (Airman Group X & Y)</a>
+            <!-- These are set to no action: href="javascript:void(0)" -->
+            <a href="javascript:void(0)" class="course-button">JEE (Main & Advanced)</a>
+            <a href="javascript:void(0)" class="course-button">NEET (UG)</a>
+            <a href="javascript:void(0)" class="course-button">BITSAT</a>
+            <a href="javascript:void(0)" class="course-button">VITEEE</a>
+            <a href="javascript:void(0)" class="course-button">SRMJEEE</a>
+            <a href="javascript:void(0)" class="course-button">NDA</a>
+            <a href="javascript:void(0)" class="course-button">CLAT</a>
+            <a href="javascript:void(0)" class="course-button">AILET</a>
+            <a href="javascript:void(0)" class="course-button">CA Foundation</a>
+            <a href="javascript:void(0)" class="course-button">CS Foundation</a>
+            <a href="javascript:void(0)" class="course-button">CMA Foundation</a>
+            <a href="javascript:void(0)" class="course-button">NID DAT</a>
+            <a href="javascript:void(0)" class="course-button">UCEED</a>
+            <a href="javascript:void(0)" class="course-button">NIFT Entrance Exam</a>
+            <a href="javascript:void(0)" class="course-button">NCHM JEE (Hotel Management)</a>
+            <a href="javascript:void(0)" class="course-button">STATE CETs (EAMCET, MHTCET, etc.)</a>
+            <a href="javascript:void(0)" class="course-button">POLYTECHNIC CET</a>
+            <a href="javascript:void(0)" class="course-button">ITI ENTRANCE</a>
+            <a href="javascript:void(0)" class="course-button">RAILWAY (RRB) ALP/TECHNICIAN</a>
+            <a href="javascript:void(0)" class="course-button">SSC CHSL (10+2)</a>
+            <a href="javascript:void(0)" class="course-button">INDIAN ARMY (Soldier GD/Technical)</a>
+            <a href="javascript:void(0)" class="course-button">INDIAN NAVY (Sailor - AA/SSR)</a>
+            <a href="javascript:void(0)" class="course-button">INDIAN AIR FORCE (Airman Group X & Y)</a>
         </div>
     </section>
     
@@ -547,6 +627,7 @@
                 <div>
                     <h5 class="text-base font-bold text-sv-yellow mb-2">Quick Links</h5>
                     <ul class="space-y-1 text-sm">
+                        <!-- Footer Quick Links -->
                         <li><a href="https://www.svtc.life/index.html" class="text-gray-300 hover:text-white transition" target="_blank">Home</a></li>
                         <li><a href="https://www.svtc.life/Join%20now.html" class="text-gray-300 hover:text-white transition" target="_blank">Join Now</a></li>
                         <li><a href="https://www.svtc.life/Pricing.html" class="text-gray-300 hover:text-white transition" target="_blank">Pricing</a></li>
@@ -557,6 +638,7 @@
                 <div>
                     <h5 class="text-base font-bold text-sv-yellow mb-2">Company</h5>
                     <ul class="space-y-1 text-sm">
+                        <!-- Footer Company Links -->
                         <li><a href="https://www.svtc.life/About%20Us.html" class="text-gray-300 hover:text-white transition" target="_blank">About Us</a></li>
                         <li><a href="https://www.svtc.life/Contact.html" class="text-gray-300 hover:text-white transition" target="_blank">Contact</a></li>
                         <li><a href="https://www.svtc.life/Privacy%20policy.html" class="text-gray-300 hover:text-white transition" target="_blank">Terms & Privacy</a></li>
@@ -597,5 +679,19 @@
         </div>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.getElementById('menuToggle');
+            const dynamicMenu = document.getElementById('dynamicMenu');
+
+            if (menuToggle && dynamicMenu) {
+                // Event listener to toggle the visibility of the dynamic menu
+                menuToggle.addEventListener('click', () => {
+                    // Toggles the 'hidden' class to show/hide the menu
+                    dynamicMenu.classList.toggle('hidden');
+                });
+            }
+        });
+    </script>
 </body>
 </html>
