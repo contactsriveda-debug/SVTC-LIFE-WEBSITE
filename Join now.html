@@ -1,647 +1,771 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Student Registration Form</title>
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
-
-    body {
-      /* Use Sitka Small, fallback to Poppins */
-      font-family: "Sitka Small", "Sitka", "Poppins", sans-serif;
-      font-weight: 600; /* Semibold */
-      
-      background: #f4f7f6; /* A light, clean background */
-      min-height: 100vh;
-      padding-bottom: 2rem;
-    }
-    
-    .form-container {
-      animation: fadeInUp 0.8s ease both;
-      transition: opacity 0.3s ease, transform 0.3s ease, padding 0.3s ease;
-      margin: 0 auto;
-      padding: 0 0.5rem 2rem;
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
-    /* Custom input styling for focus and look */
-    .styled-input {
-      transition: all 0.3s ease;
-      background-color: #f9fafb;
-      border: 2px solid #e5e7eb;
-      padding: 0.5rem 0.75rem;
-      font-size: 0.90rem;
-    }
-    .styled-input:focus {
-      border-color: #2563eb; /* Blue 600 */
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);  
-      background-color: white;
-    }
-    
-    /* Custom button styling */
-    .btn-submit {
-      transition: all 0.3s ease;
-      transform: translateY(0);
-    }
-    .btn-submit:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(37, 99, 235, 0.4);
-    }
-    
-    .checkbox-group {
-        padding-top: 0.4rem;  
-    }
-    .checkbox-group label {
-        margin-top: 0;  
-    }
-    textarea.styled-input {
-        min-height: 5rem;  
-        resize: vertical;
-    }
-
-    /* Styling for the Preview area (HD stacked format) */
-    .preview-detail {
-        display: flex;
-        flex-direction: column; /* Stack label and value */
-        padding: 0.75rem 0;
-        border-bottom: 1px dashed #e5e7eb;
-    }
-    .preview-detail:last-child {
-        border-bottom: none;
-    }
-    .preview-label {
-        font-semibold: 600;
-        color: #6b7280; /* text-gray-500 */
-        font-size: 0.9rem;
-        margin-bottom: 0.25rem;
-    }
-    .preview-value {
-        font-weight: 500;
-        color: #1f2937; /* text-gray-800 */
-        font-size: 1.1rem;
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Registration Form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" type="image/jpeg" href="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg">
+    <style>
+        :root {
+            --sv-blue: #00008B;
+            --sv-orange: #FF8C00;
+            --sv-yellow: #FFD700;
+            --sv-maroon: #800000;
+        }
+        body {
+            font-family: "Sitka Small", "Sitka", 'Poppins', 'Roboto Slab', serif;
+            font-weight: 600;
+            background: #f4f7f6;
+            min-height: 100vh;
+            padding-bottom: 2rem;
+        }
+        .bg-sv-blue { background-color: var(--sv-blue); }
+        .text-sv-blue { color: var(--sv-blue); }
+        .bg-sv-orange { background-color: var(--sv-orange); }
+        .text-sv-orange { color: var(--sv-orange); }
+        .bg-sv-yellow { color: var(--sv-yellow); }
+        .text-sv-yellow { color: var(--sv-yellow); }
+        .nav-button {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            color: var(--sv-blue);
+            background-color: white;
+            border: 2px solid var(--sv-orange);
+            border-radius: 9999px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin: 3px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .nav-button:hover {
+            color: white;
+            background-color: var(--sv-orange);
+            border-color: var(--sv-blue);
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(255, 140, 0, 0.6);
+        }
+        .menu-button-primary {
+            background-color: var(--sv-orange) !important;
+            color: white !important;
+            border-color: var(--sv-yellow) !important; 
+        }
+        .menu-button-primary:hover {
+            background-color: white !important;
+            color: var(--sv-orange) !important;
+            border-color: var(--sv-orange) !important; 
+        }
+        .header-bg {
+            position: relative;
+            overflow: hidden;
+        }
+        .header-bg::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 120px; height: 120px;
+            background-image: url('https://contactsriveda-debug.github.io/images/header%20coner.png');
+            background-size: 100% 100%; opacity: 1; background-repeat: no-repeat;
+            transform: translate(-30%, -30%); z-index: 1;
+        }
+        .header-bg::after {
+            content: '';
+            position: absolute;
+            top: 0; right: 0;
+            width: 120px; height: 120px;
+            background-image: url('https://contactsriveda-debug.github.io/images/header%20coner.png');
+            background-size: 100% 100%; opacity: 1; background-repeat: no-repeat;
+            transform: translate(30%, -30%) scaleX(-1); z-index: 1;
+        }
+        .header-content {
+            position: relative;
+            z-index: 10;
+        }
+        .form-container {
+            animation: fadeInUp 0.8s ease both;
+            transition: opacity 0.3s ease, transform 0.3s ease, padding 0.3s ease;
+            margin: 0 auto;
+            padding: 0 0.5rem 2rem;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .styled-input {
+            transition: all 0.3s ease;
+            background-color: #f9fafb;
+            border: 2px solid #e5e7eb;
+            padding: 0.5rem 0.75rem;
+            font-size: 0.90rem;
+        }
+        .styled-input:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2); 
+            background-color: white;
+        }
+        .btn-submit {
+            transition: all 0.3s ease;
+            transform: translateY(0);
+        }
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.4);
+        }
+        .checkbox-group {
+            padding-top: 0.4rem; 
+        }
+        .preview-detail {
+            display: flex;
+            flex-direction: column; 
+            padding: 0.75rem 0;
+            border-bottom: 1px dashed #e5e7eb;
+        }
+        .preview-detail:last-child {
+            border-bottom: none;
+        }
+        .preview-label {
+            font-weight: 600;
+            color: #6b7280; 
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
+        }
+        .preview-value {
+            font-weight: 500;
+            color: #1f2937; 
+            font-size: 1.1rem;
+        }
+        .course-button {
+            display: inline-block;
+            padding: 0.4rem 0.8rem;
+            margin: 0.2rem;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .course-button:hover {
+            background-color: var(--sv-orange);
+            color: white;
+            border-color: var(--sv-orange);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+    </style>
 </head>
 <body class="antialiased">
 
-  <!-- Header: Removed mb-6 to attach navigation -->
-  <header id="formHeader" class="w-full p-4 shadow-lg border-b-4 border-blue-500 bg-gradient-to-r from-[#e0f2fe] via-[#dcfce7] to-[#f3e8ff]">
-    <div class="max-w-4xl mx-auto flex items-center space-x-4">
-      <!-- Circular Logo -->
-      <img  
-        src="https://i.postimg.cc/GLhP3pS3/veda-logo.jpg"  
-        alt="Veda Logo"  
-        class="h-14 w-14 rounded-full object-cover border-2 border-blue-200 shadow-md"
-        onerror="this.style.display='none'"
-      >
-      <!-- Titles -->
-      <div>
-        <h2 class="text-lg md:text-2xl font-extrabold text-gray-800 tracking-tight">Sri Veda Talent Competition</h2>
-        <h3 class="text-base md:text-lg font-semibold text-blue-700">Student Registration</h3>
-      </div>
-    </div>
-  </header>
-
-  <!-- NEW NAVIGATION BAR (Attached to header, unique colors) -->
-  <nav id="mainNav" class="w-full bg-white shadow-xl sticky top-0 z-40 mb-4 border-t border-gray-100">
-    <div class="max-w-4xl mx-auto flex flex-wrap justify-between md:justify-around items-center p-2 md:p-3 space-y-1 md:space-y-0">
-        <!-- Button 1: Home (Blue) -->
-        <a href="https://www.svtc.life" target="_blank" class="w-full md:w-auto text-center px-4 py-2 text-sm font-bold rounded-full transition duration-150 shadow-sm
-            bg-blue-50 text-blue-700 hover:bg-blue-100 hover:text-blue-800">
-            Home
-        </a>
-        <!-- Button 2: Join Now (Green) -->
-        <a href="https://www.svtc.life/Join%20now.html" target="_blank" class="w-full md:w-auto text-center px-4 py-2 text-sm font-bold rounded-full transition duration-150 shadow-sm
-            bg-green-50 text-green-700 hover:bg-green-100 hover:text-green-800">
-            Join Now
-        </a>
-        <!-- Button 3: Dashboard (Purple) -->
-        <a href="https://www.svtc.life/Dashboard.html" target="_blank" class="w-full md:w-auto text-center px-4 py-2 text-sm font-bold rounded-full transition duration-150 shadow-sm
-            bg-purple-50 text-purple-700 hover:bg-purple-100 hover:text-purple-800">
-            Dashboard
-        </a>
-        <!-- Button 4: Connect (Indigo) -->
-        <a href="https://www.svtc.life/connect.html" target="_blank" class="w-full md:w-auto text-center px-4 py-2 text-sm font-bold rounded-full transition duration-150 shadow-sm
-            bg-indigo-50 text-indigo-700 hover:bg-indigo-100 hover:text-indigo-800">
-            Connect
-        </a>
-    </div>
-  </nav>
-
-  <!-- Main Container -->
-  <div class="form-container w-full max-w-4xl">
-    
-    <!-- New Instructions Box (Visible only with the form) -->
-    <div id="instructionBox" class="bg-yellow-50 border-l-4 border-yellow-500 text-yellow-800 p-4 rounded-lg shadow-md mb-6 max-w-4xl mx-auto px-4">
-      <p class="font-bold text-lg mb-2 flex items-center">
-        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
-        Important Instructions for Registration
-      </p>
-      <ul class="list-disc list-inside text-sm space-y-1 ml-4">
-        <li><span class="font-semibold">Please fill the registration form carefully.</span> Check all the details once before you submit.</li>
-        <li><span class="font-semibold">Double-check your parent’s mobile number</span> — make sure it is correct.</li>
-        <li>After you complete registration, you will receive your login details through a message.</li>
-        <li>If you want to get your username and password immediately, please send us a message on WhatsApp through the Contact page.</li>        
-        <li>Once you get the message, go to the <span class="font-semibold">Dashboard page and login</span> using your details.</li>
-        <li>If you have any doubts or need help, you can contact us or send a message on WhatsApp anytime.</li>
-      </ul>
-    </div>
-    
-    <!-- 1. The main form content (Visible initially) -->
-    <main id="formContent" class="px-4 max-w-4xl mx-auto">
-      <form id="registrationForm" class="space-y-6" novalidate>
-        
-        <!-- Student Details -->
-        <fieldset class="bg-white p-6 md:p-8 rounded-xl shadow-2xl border-t-4 border-indigo-400">
-          <legend class="text-lg font-semibold text-indigo-700 px-4 py-2 rounded-lg border bg-indigo-50 border-indigo-300 mb-6 flex items-center">Student Details</legend>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            
-            <div>
-              <label for="full_name" class="block text-sm font-medium text-gray-700 font-bold">Full Name</label>
-              <input type="text" id="full_name" name="full_name" required class="styled-input mt-1 block w-full rounded-lg shadow-sm">
-            </div>
-            <div>
-              <label for="present_class" class="block text-sm font-medium text-gray-700 font-bold">Present Class</label>
-              <select id="present_class" name="present_class" required class="styled-input mt-1 block w-full rounded-lg shadow-sm">
-                <option value="">-- Select Class --</option>
-                <option value="3rd Class">3rd Class</option>
-                <option value="4th Class">4th Class</option>
-                <option value="5th Class">5th Class</option>
-                <option value="6th Class">6th Class</option>
-                <option value="7th Class">7th Class</option>
-                <option value="8th Class">8th Class</option>
-                <option value="9th Class">9th Class</option>
-                <option value="10th Class">10th Class</option>
-                <option value="Intermediate">Intermediate</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
-
-            <div>
-              <label for="gender" class="block text-sm font-medium text-gray-700 font-bold">Gender</label>
-              <select id="gender" name="gender" class="styled-input mt-1 block w-full rounded-lg shadow-sm">
-                <option value="">-- Select Gender --</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-              </select>
-            </div>
-            <div>
-              <label for="dob" class="block text-sm font-medium text-gray-700 font-bold">Date of Birth</label>
-              <input type="text" id="dob" name="dob" placeholder="DD/MM/YYYY" class="styled-input mt-1 block w-full rounded-lg shadow-sm">
-            </div>
-
-          </div>
-        </fieldset>
-        
-        <!-- Contact Details -->
-        <fieldset class="bg-white p-6 md:p-8 rounded-xl shadow-2xl border-t-4 border-green-400">
-          <legend class="text-lg font-semibold text-green-700 px-4 py-2 rounded-lg border bg-green-50 border-green-300 mb-6 flex items-center">Parent & Contact Information</legend>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            
-            <div>
-              <label for="parent_name" class="block text-sm font-medium text-gray-700 font-bold">Father / Mother Name</label>
-              <input type="text" id="parent_name" name="parent_name" required class="styled-input mt-1 block w-full rounded-lg shadow-sm">
-            </div>
-            <div>
-              <label for="parent_number" class="block text-sm font-medium text-gray-700 font-bold">Parent’s Number</label>
-              <input type="text" id="parent_number" name="parent_number" required class="styled-input mt-1 block w-full rounded-lg shadow-sm">
-            </div>
-
-
-
-            <div class="md:col-span-2">
-              <label for="email_id" class="block text-sm font-medium text-gray-700 font-bold">Email ID </label>
-              <input type="text" id="email_id" name="email_id" class="styled-input mt-1 block w-full rounded-lg shadow-sm">
-            </div>
-
-        </fieldset>
-
-        <!-- Academic Details -->
-        <fieldset class="bg-white p-6 md:p-8 rounded-xl shadow-2xl border-t-4 border-purple-400">
-          <legend class="text-lg font-semibold text-purple-700 px-4 py-2 rounded-lg border bg-purple-50 border-purple-300 mb-6 flex items-center">Academic Details</legend>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-            <div class="md:col-span-2">
-              <label for="school_name" class="block text-sm font-medium text-gray-700 font-bold">School Name</label>
-              <input type="text" id="school_name" name="school_name" class="styled-input mt-1 block w-full rounded-lg shadow-sm">
-            </div>
-
-            <div>
-              <label for="medium" class="block text-sm font-medium text-gray-700 font-bold">Medium</label>
-              <select id="medium" name="medium" class="styled-input mt-1 block w-full rounded-lg shadow-sm">
-                <option value="">-- Select Medium --</option>
-                <option value="Telugu">Telugu</option>
-                <option value="English">English</option>
-                <option value="Hindi">Hindi</option>
-              </select>
-            </div>
-            <div>
-              <label for="school_type" class="block text-sm font-medium text-gray-700 font-bold">Current School Type</label>
-              <select id="school_type" name="school_type" class="styled-input mt-1 block w-full rounded-lg shadow-sm">
-                <option value="">-- Select Type --</option>
-                <option value="Government">Government</option>
-                <option value="Private">Private</option>
-                <option value="Others">Others</option>
-              </select>
-            </div>
-
-            <!-- OPTIONAL: Know to Read & Write Telugu -->
-            <div>
-              <label class="block text-sm font-medium text-gray-700 font-bold">Know to Read & Write Telugu</label>
-              <div class="mt-2 checkbox-group flex space-x-4 text-sm">
-                <label class="inline-flex items-center text-gray-700">
-                  <input type="radio" name="read_write_telugu" value="Yes" class="text-indigo-600 focus:ring-indigo-500 w-4 h-4" />  
-                  <span class="ml-2">Yes</span>
-                </label>
-                <label class="inline-flex items-center text-gray-700">
-                  <input type="radio" name="read_write_telugu" value="No" class="text-indigo-600 focus:ring-indigo-500 w-4 h-4" />  
-                  <span class="ml-2">No</span>
-                </label>
-                <label class="inline-flex items-center text-gray-700">
-                  <input type="radio" name="read_write_telugu" value="Medium" class="text-indigo-600 focus:ring-indigo-500 w-4 h-4" />  
-                  <span class="ml-2">Medium</span>
-                </label>
-              </div>
-            </div>
-            
-            <!-- OPTIONAL: Know to Read & Write English -->
-            <div>
-              <label class="block text-sm font-medium text-gray-700 font-bold">Know to Read & Write English</label>
-              <div class="mt-2 checkbox-group flex space-x-4 text-sm">
-                <label class="inline-flex items-center text-gray-700">
-                  <input type="radio" name="read_write_english" value="Yes" class="text-indigo-600 focus:ring-indigo-500 w-4 h-4" />  
-                  <span class="ml-2">Yes</span>
-                </label>
-                <label class="inline-flex items-center text-gray-700">
-                  <input type="radio" name="read_write_english" value="No" class="text-indigo-600 focus:ring-indigo-500 w-4 h-4" />  
-                  <span class="ml-2">No</span>
-                </label>
-                <label class="inline-flex items-center text-gray-700">
-                  <input type="radio" name="read_write_english" value="Medium" class="text-indigo-600 focus:ring-indigo-500 w-4 h-4" />  
-                  <span class="ml-2">Medium</span>
-                </label>
-              </div>
-            </div>
-
-            <!-- OPTIONAL: Know to Read & Write Hindi -->
-            <div>
-              <label class="block text-sm font-medium text-gray-700 font-bold">Know to Read & Write Hindi</label>
-              <div class="mt-2 checkbox-group flex space-x-4 text-sm">
-                <label class="inline-flex items-center text-gray-700">
-                  <input type="radio" name="read_write_hindi" value="Yes" class="text-indigo-600 focus:ring-indigo-500 w-4 h-4" />  
-                  <span class="ml-2">Yes</span>
-                </label>
-                <label class="inline-flex items-center text-gray-700">
-                  <input type="radio" name="read_write_hindi" value="No" class="text-indigo-600 focus:ring-indigo-500 w-4 h-4" />  
-                  <span class="ml-2">No</span>
-                </label>
-                <label class="inline-flex items-center text-gray-700">
-                  <input type="radio" name="read_write_hindi" value="Medium" class="text-indigo-600 focus:ring-indigo-500 w-4 h-4" />  
-                  <span class="ml-2">Medium</span>
-                </label>
-              </div>
-            </div>
-            
-            <div>
-              <label for="favorite_subject" class="block text-sm font-medium text-gray-700 font-bold">Favorite Subject</label>
-              <input type="text" id="favorite_subject" name="favorite_subject" class="styled-input mt-1 block w-full rounded-lg shadow-sm">
-            </div>
-
-          </div>
-        </fieldset>
-
-        <!-- Location & Aspirations -->
-        <fieldset class="bg-white p-6 md:p-8 rounded-xl shadow-2xl border-t-4 border-teal-400">
-          <legend class="text-lg font-semibold text-teal-700 px-4 py-2 rounded-lg border bg-teal-50 border-teal-300 mb-6 flex items-center">Location & Aspirations</legend>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-            <div class="md:col-span-2">
-              <label for="address" class="block text-sm font-medium text-gray-700 font-bold">House No/Viallage Name</label>
-              <textarea id="address" name="address" rows="2" class="styled-input mt-1 block w-full rounded-lg shadow-sm"></textarea>
-            </div>
-
-            <div>
-              <label for="city" class="block text-sm font-medium text-gray-700 font-bold">Mandal</label>
-              <input type="text" id="city" name="city" class="styled-input mt-1 block w-full rounded-lg shadow-sm">
-            </div>
-            <div>
-              <label for="district" class="block text-sm font-medium text-gray-700 font-bold">District</label>
-              <input type="text" id="district" name="district" class="styled-input mt-1 block w-full rounded-lg shadow-sm">
-            </div>
-
-            <div>
-              <label for="state" class="block text-sm font-medium text-gray-700 font-bold">State</label>
-              <input type="text" id="state" name="state" class="styled-input mt-1 block w-full rounded-lg shadow-sm">
-            </div>
-            <div>
-              <label for="dream_goal" class="block text-sm font-medium text-gray-700 font-bold">What is Your Dream?</label>
-              <input type="text" id="dream_goal" name="dream_goal" placeholder="E.g. Doctor / Engineer / Police / etc." class="styled-input mt-1 block w-full rounded-lg shadow-sm">
-            </div>
-          </div>
-        </fieldset>
-
-        <!-- Submission and Terms (First Step) -->
-        <!-- Terms & Conditions -->
-        <div class="mb-4 bg-white p-6 rounded-xl shadow-lg">
-          <label class="inline-flex items-center">
-            <input  
-              type="checkbox"  
-              name="agree"  
-              id="agree"  
-              required  
-              class="form-checkbox h-5 w-5 text-blue-600 rounded"
-            >
-            <span class="ml-3 text-gray-700">
-              I agree to the  
-              <a  
-                href="https://www.svtc.life/terms-privacy"  
-                target="_blank"  
-                class="text-blue-600 hover:underline"
-              >
-                Terms & Conditions
-              </a>
-            </span>
-          </label>
-        </div>
-
-
-        <div class="text-center pb-8">
-          <!-- This button will now trigger the preview step -->
-          <button type="submit" id="previewButton" class="btn-submit w-full md:w-auto px-10 py-3 bg-blue-600 text-white font-bold text-lg rounded-full shadow-lg hover:bg-blue-700">
-            Review and Confirm
-          </button>
-        </div>
-      </form>
-    </main>
-
-    <!-- 2. The data preview container (Hidden initially) -->
-    <div id="previewContainer" class="bg-white p-6 md:p-10 rounded-xl shadow-2xl border-t-8 border-yellow-500 hidden" style="max-width: 600px; margin: 0 auto;">
-      <h3 class="text-2xl font-bold text-yellow-700 mb-6 text-center">
-        Review Your Registration Data
-      </h3>
-      <div id="previewDetails" class="space-y-2 text-gray-700">
-        <!-- Preview details will be inserted here by JavaScript -->
-      </div>
-
-      <div id="previewErrorMsg" class="p-4 mt-6 bg-red-50 border border-red-600 text-red-800 font-semibold rounded-lg shadow-md hidden">
-        <p>❌ Submission failed. Please try again or go back to edit.</p>
-      </div>
-
-      <div class="flex justify-between mt-8 space-x-4">
-        <button id="editButton" class="w-1/2 px-4 py-3 bg-gray-400 text-white font-bold rounded-full shadow-md hover:bg-gray-500 transition duration-150">
-          Edit Details
-        </button>
-        <button id="confirmButton" class="w-1/2 px-4 py-3 bg-green-600 text-white font-bold rounded-full shadow-lg hover:bg-green-700 transition duration-150">
-          Confirm and Submit
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- 3. Final Success Message (Simplified and Centered) -->
-  <div id="finalSuccessMsg" class="bg-white p-8 md:p-12 rounded-xl shadow-2xl border-t-8 border-green-500 text-center hidden mx-auto mt-10" style="max-width: 600px;">
-      <h2 class="text-3xl font-bold text-gray-800 mb-4">Registration Successful!</h2>
-      <p class="text-lg text-gray-600 mb-6 font-semibold">
-          Thank you for registering. We will call you shortly to confirm your details. 
-          Please be ready to attempt our call.
-      </p>
-      <ul class="list-none space-y-3 text-gray-700 text-base mb-8 mx-auto text-center max-w-sm">
-          <li class="flex items-start justify-center">
-              <span class="text-green-500 mr-3 mt-1 font-extrabold">✓</span>
-              <span>Your login details will be sent via SMS after confirmation.</span>
-          </li>
-          <li class="flex items-start justify-center">
-              <span class="text-blue-500 mr-3 mt-1 font-extrabold">→</span>
-              <span>You can login to your dashboard using the button below.</span>
-          </li>
-      </ul>
-
-      <div class="flex flex-col space-y-4">
-          <!-- Button 1: Login to Dashboard -->
-          <a href="https://www.svtc.life/Dashboard.html" target="_blank" class="w-full px-8 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition duration-150">
-              Login to Dashboard
-          </a>
-          <!-- Button 2: Go Back Home -->
-          <a href="https://www.svtc.life" target="_blank" class="w-full px-8 py-3 bg-gray-200 text-gray-700 font-semibold rounded-lg shadow-md hover:bg-gray-300 transition duration-150">
-              Go Back Home
-          </a>
-      </div>
-  </div>
-
-
-  <script>
-    const url ='https://script.google.com/macros/s/AKfycbw6GayIqaCD3y_OgHOmaS_08YcsAwg-Oy02AeK8q8eIBIOV-H2Od-8_WngVyl89Rjc/exec';
-    
-    // Global references for containers and data
-    const form = document.getElementById('registrationForm');
-    const formContent = document.getElementById('formContent');
-    const formHeader = document.getElementById('formHeader');
-    const instructionBox = document.getElementById('instructionBox');
-    const previewContainer = document.getElementById('previewContainer');
-    const previewDetails = document.getElementById('previewDetails');
-    const previewErrorMsg = document.getElementById('previewErrorMsg');
-    const confirmButton = document.getElementById('confirmButton');
-    const formContainer = formContent.parentElement; // Get the main .form-container
-    
-    // NEW SIMPLE SUCCESS MESSAGE REFERENCE
-    const finalSuccessMsg = document.getElementById('finalSuccessMsg');
-
-    let currentFormData = null; // To hold form data between preview and submission
-
-    // --- State Management Functions ---
-
-    function showForm() {
-        // Restore document scrolling
-        document.body.style.overflow = '';
-        
-        // Restore padding to the form-container
-        if (formContainer) {
-            formContainer.style.padding = '0 0.5rem 2rem'; // Restore original padding
-        }
-
-        instructionBox.classList.remove('hidden');
-        formContent.classList.remove('hidden');
-        previewContainer.classList.add('hidden');
-        previewErrorMsg.classList.add('hidden');
-        formHeader.classList.remove('hidden'); // Ensure header is visible
-        document.getElementById('mainNav').classList.remove('hidden'); // Ensure Nav is visible
-        finalSuccessMsg.classList.add('hidden'); // Hide the simple success message
-        window.scrollTo(0, 0); // Scroll to top
-    }
-
-    function showPreview(e) {
-        e.preventDefault();
-        
-        // 1. Collect data
-        const data = new FormData(form);
-        currentFormData = data; // Save data for confirmation step
-        
-        // 2. Build preview HTML
-        let html = '';
-        const fields = Array.from(form.elements);
-        
-        // Get the value of a radio group (returns empty string if nothing is checked)
-        const getRadioValue = (name) => {
-            const checked = fields.find(el => el.name === name && el.checked);
-            return checked ? checked.value : '';  
-        };
-
-        // Custom mapping of field names to display labels
-        const fieldMap = {
-            'full_name': 'Full Name',
-            'present_class': 'Present Class',
-            'gender': 'Gender',
-            'dob': 'Date of Birth',
-            'parent_name': 'Father / Mother Name',
-            'parent_number': 'Parent’s Number',
-            'email_id': 'Email ID',
-            'school_name': 'School Name',
-            'medium': 'Medium',
-            'school_type': 'Current School Type',
-            'read_write_telugu': 'Read/Write Telugu',
-            'read_write_english': 'Read/Write English',
-            'read_write_hindi': 'Read/Write Hindi',
-            'favorite_subject': 'Favorite Subject',
-            'address': 'House No/Viallage Name',
-            'city': 'Mandal',
-            'district': 'District',
-            'state': 'State',
-            'dream_goal': 'Dream / Goal',
-        };
-        
-        // Helper to get text for input/select/radio fields
-        const getDisplayValue = (name, value) => {
-            // Treat checkbox 'on' value and truly empty string as empty
-            if (value === 'on' || value === '') return '';  
-            
-            // For select elements, check if the default placeholder option is selected
-            if (form.elements[name] && form.elements[name].tagName === 'SELECT') {
-                const selectedOption = form.elements[name].options[form.elements[name].selectedIndex];
-                const isPlaceholder = selectedOption.textContent.startsWith('-- Select');
-                return isPlaceholder ? '' : selectedOption.value;  
-            }
-            
-            // Default value for text/radio
-            return value;
-        };
-
-        // Iterate through fields and build preview
-        for (const [name, label] of Object.entries(fieldMap)) {
-            let value;
-            if (name.startsWith('read_write_')) {
-                // Radio value check is handled by getRadioValue
-                value = getRadioValue(name);
-            } else if (data.has(name)) {
-                value = data.get(name);
-            } else {
-                value = '';
-            }
-
-            const displayValue = getDisplayValue(name, value);
-
-            // Only add to preview if displayValue is not empty
-            if (displayValue.trim() !== '') {
-                html += `
-                    <div class="preview-detail">
-                        <span class="preview-label">${label}:</span>
-                        <span class="preview-value">${displayValue}</span>
+    <header class="bg-sv-blue shadow-lg header-bg" id="formHeader">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 header-content">
+            <div class="flex flex-col md:flex-row items-center justify-between py-3 md:py-2 space-y-3 md:space-y-0 md:h-24">
+                <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4">
+                    <img src="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg" 
+                            onerror="this.onerror=null; this.src='https://placehold.co/64x64/1e3a8a/ffffff?text=VEDA';" 
+                            alt="Veda Logo" 
+                            class="w-16 h-16 object-contain shadow-md rounded-full bg-white p-1 flex-shrink-0">
+                    <div class="text-center sm:text-left flex flex-col justify-center">
+                        <h1 class="text-xl sm:text-2xl font-extrabold tracking-wider text-white">
+                            SRI VEDA TALENT COMPETITION
+                        </h1>
+                        <div class="w-2/3 max-w-xs h-0.5 bg-sv-yellow my-0.5 mx-auto sm:mx-0"></div>
+                        <p class="text-sm sm:text-base font-semibold text-sv-yellow mt-0.5">
+                            "BRIGHT CHILD LIFE"
+                        </p>
                     </div>
-                `;
+                </div>
+                <div class="flex items-center space-x-3 sm:space-x-6 lg:space-x-8">
+                    <i class="fas fa-book text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Our Courses"></i>
+                    <i class="fas fa-pencil-ruler text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Practice Tests"></i>
+                    <i class="fas fa-graduation-cap text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Study Material"></i>
+                    <i class="fas fa-lightbulb text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Insights & Guidance"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="bg-sv-blue shadow-lg border-t-2 border-sv-yellow" id="mainNav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-wrap justify-center sm:justify-between py-1 space-x-1 sm:space-x-3">
+                <button id="menuToggle" class="nav-button menu-button-primary">
+                    <i class="fas fa-bars mr-2"></i> MENU
+                </button>
+                <a href="https://www.svtc.life/Dashboard.html" class="nav-button" target="_blank">
+                    <i class="fas fa-tachometer-alt mr-2"></i> DASHBOARD
+                </a>
+                <a href="https://www.svtc.life/Join%20now.html" class="nav-button" target="_blank">
+                    <i class="fas fa-user-plus mr-2"></i> JOIN NOW
+                </a>
+                <a href="https://www.svtc.life/Pricing.html" class="nav-button" target="_blank">
+                    <i class="fas fa-tags mr-2"></i> PRICING
+                </a>
+            </div>
+        </div>
+    </nav>
+    
+    <div id="dynamicMenu" class="hidden bg-sv-blue/95 border-b-4 border-sv-yellow transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+            <div class="flex flex-wrap justify-center gap-2">
+                <a href="https://www.svtc.life" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                    <i class="fas fa-home mr-1"></i> Home
+                </a>
+                <a href="https://www.svtc.life/Dashboard.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                    <i class="fas fa-tachometer-alt mr-1"></i> DASHBOARD
+                </a>
+                <a href="https://www.svtc.life/Join%20now.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                    <i class="fas fa-user-plus mr-1"></i> Join Now
+                </a>
+                <a href="https://www.svtc.life/Pricing.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                    <i class="fas fa-tags mr-1"></i> Pricing
+                </a>
+                <a href="https://www.svtc.life/Contact.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                    <i class="fas fa-envelope mr-1"></i> Contact
+                </a>
+                <a href="https://www.svtc.life/connect.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                    <i class="fas fa-headset mr-1"></i> Connect
+                </a>
+                <a href="https://www.svtc.life/About%20Us.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                    <i class="fas fa-info-circle mr-1"></i> About Us
+                </a>
+                <a href="https://www.svtc.life/Privacy%20policy.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                    <i class="fas fa-file-contract mr-1"></i> Terms & Privacy
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="form-container w-full max-w-7xl mx-auto">
+        
+        <div id="instructionBox" class="bg-yellow-50 border-l-4 border-yellow-500 text-yellow-800 p-4 rounded-lg shadow-md mb-6 mt-6 px-4">
+            <p class="font-bold text-lg mb-2 flex items-center">
+                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
+                Important Instructions for Registration
+            </p>
+            <ul class="list-disc list-inside text-sm space-y-1 ml-4">
+                <li><span class="font-semibold">Please fill the registration form carefully.</span> Check all the details once before you submit.</li>
+                <li><span class="font-semibold">Double-check your parent’s mobile number</span> — make sure it is correct.</li>
+                <li>After you complete registration, you will receive your login details through a message.</li>
+                <li>If you want to get your username and password immediately, please send us a message on WhatsApp through the Contact page.</li>          
+                <li>Once you get the message, go to the <span class="font-semibold">Dashboard page and login</span> using your details.</li>
+                <li>If you have any doubts or need help, you can contact us or send a message on WhatsApp anytime.</li>
+            </ul>
+        </div>
+        
+        <main id="formContent" class="px-4">
+            <form id="registrationForm" class="space-y-6" novalidate>
+                
+                <fieldset class="bg-white p-4 md:p-5 rounded-xl shadow-2xl border-t-4 border-indigo-400">
+                    <legend class="text-lg font-semibold text-indigo-700 px-4 py-2 rounded-lg border bg-indigo-50 border-indigo-300 mb-6 flex items-center">Student Details</legend>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        
+                        <div>
+                            <label for="full_name" class="block text-sm font-medium text-gray-700 font-bold">Full Name</label>
+                            <input type="text" id="full_name" name="full_name" required class="styled-input mt-1 block w-full rounded-lg shadow-sm">
+                        </div>
+                        <div>
+                            <label for="present_class" class="block text-sm font-medium text-gray-700 font-bold">Present Class</label>
+                            <select id="present_class" name="present_class" required class="styled-input mt-1 block w-full rounded-lg shadow-sm">
+                                <option value="">-- Select Class --</option>
+                                <option value="3rd Class">3rd Class</option>
+                                <option value="4th Class">4th Class</option>
+                                <option value="5th Class">5th Class</option>
+                                <option value="6th Class">6th Class</option>
+                                <option value="7th Class">7th Class</option>
+                                <option value="8th Class">8th Class</option>
+                                <option value="9th Class">9th Class</option>
+                                <option value="10th Class">10th Class</option>
+                                <option value="Intermediate">Intermediate</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="gender" class="block text-sm font-medium text-gray-700 font-bold">Gender</label>
+                            <select id="gender" name="gender" required class="styled-input mt-1 block w-full rounded-lg shadow-sm">
+                                <option value="">-- Select Gender --</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="dob" class="block text-sm font-medium text-gray-700 font-bold">Date of Birth</label>
+                            <input type="text" id="dob" name="dob" placeholder="DD/MM/YYYY" required class="styled-input mt-1 block w-full rounded-lg shadow-sm">
+                        </div>
+
+                    </div>
+                </fieldset>
+                
+                <fieldset class="bg-white p-4 md:p-5 rounded-xl shadow-2xl border-t-4 border-green-400">
+                    <legend class="text-lg font-semibold text-green-700 px-4 py-2 rounded-lg border bg-green-50 border-green-300 mb-6 flex items-center">Parent & Contact Information</legend>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        
+                        <div>
+                            <label for="parent_name" class="block text-sm font-medium text-gray-700 font-bold">Father / Mother Name</label>
+                            <input type="text" id="parent_name" name="parent_name" required class="styled-input mt-1 block w-full rounded-lg shadow-sm">
+                        </div>
+                        <div>
+                            <label for="parent_number" class="block text-sm font-medium text-gray-700 font-bold">Parent’s Number</label>
+                            <input type="text" id="parent_number" name="parent_number" required class="styled-input mt-1 block w-full rounded-lg shadow-sm">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label for="email_id" class="block text-sm font-medium text-gray-700 font-bold">Email ID </label>
+                            <input type="text" id="email_id" name="email_id" class="styled-input mt-1 block w-full rounded-lg shadow-sm">
+                        </div>
+
+                    </div>
+                </fieldset>
+
+                <fieldset class="bg-white p-4 md:p-5 rounded-xl shadow-2xl border-t-4 border-purple-400">
+                    <legend class="text-lg font-semibold text-purple-700 px-4 py-2 rounded-lg border bg-purple-50 border-purple-300 mb-6 flex items-center">Academic Details</legend>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                        <div class="md:col-span-2">
+                            <label for="school_name" class="block text-sm font-medium text-gray-700 font-bold">School Name</label>
+                            <input type="text" id="school_name" name="school_name" class="styled-input mt-1 block w-full rounded-lg shadow-sm">
+                        </div>
+
+                        <div>
+                            <label for="medium" class="block text-sm font-medium text-gray-700 font-bold">Medium</label>
+                            <select id="medium" name="medium" class="styled-input mt-1 block w-full rounded-lg shadow-sm">
+                                <option value="">-- Select Medium --</option>
+                                <option value="Telugu">Telugu</option>
+                                <option value="English">English</option>
+                                <option value="Hindi">Hindi</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="school_type" class="block text-sm font-medium text-gray-700 font-bold">Current School Type</label>
+                            <select id="school_type" name="school_type" class="styled-input mt-1 block w-full rounded-lg shadow-sm">
+                                <option value="">-- Select Type --</option>
+                                <option value="Government">Government</option>
+                                <option value="Private">Private</option>
+                                <option value="Others">Others</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 font-bold">Know to Read & Write Telugu</label>
+                            <div class="mt-2 checkbox-group flex space-x-4 text-sm">
+                                <label class="inline-flex items-center text-gray-700">
+                                    <input type="radio" name="read_write_telugu" value="Yes" class="text-indigo-600 focus:ring-indigo-500 w-4 h-4" /> 
+                                    <span class="ml-2">Yes</span>
+                                </label>
+                                <label class="inline-flex items-center text-gray-700">
+                                    <input type="radio" name="read_write_telugu" value="No" class="text-indigo-600 focus:ring-indigo-500 w-4 h-4" /> 
+                                    <span class="ml-2">No</span>
+                                </label>
+                                <label class="inline-flex items-center text-gray-700">
+                                    <input type="radio" name="read_write_telugu" value="Medium" class="text-indigo-600 focus:ring-indigo-500 w-4 h-4" /> 
+                                    <span class="ml-2">Medium</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 font-bold">Know to Read & Write English</label>
+                            <div class="mt-2 checkbox-group flex space-x-4 text-sm">
+                                <label class="inline-flex items-center text-gray-700">
+                                    <input type="radio" name="read_write_english" value="Yes" class="text-indigo-600 focus:ring-indigo-500 w-4 h-4" /> 
+                                    <span class="ml-2">Yes</span>
+                                </label>
+                                <label class="inline-flex items-center text-gray-700">
+                                    <input type="radio" name="read_write_english" value="No" class="text-indigo-600 focus:ring-indigo-500 w-4 h-4" /> 
+                                    <span class="ml-2">No</span>
+                                </label>
+                                <label class="inline-flex items-center text-gray-700">
+                                    <input type="radio" name="read_write_english" value="Medium" class="text-indigo-600 focus:ring-indigo-500 w-4 h-4" /> 
+                                    <span class="ml-2">Medium</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 font-bold">Know to Read & Write Hindi</label>
+                            <div class="mt-2 checkbox-group flex space-x-4 text-sm">
+                                <label class="inline-flex items-center text-gray-700">
+                                    <input type="radio" name="read_write_hindi" value="Yes" class="text-indigo-600 focus:ring-indigo-500 w-4 h-4" /> 
+                                    <span class="ml-2">Yes</span>
+                                </label>
+                                <label class="inline-flex items-center text-gray-700">
+                                    <input type="radio" name="read_write_hindi" value="No" class="text-indigo-600 focus:ring-indigo-500 w-4 h-4" /> 
+                                    <span class="ml-2">No</span>
+                                </label>
+                                <label class="inline-flex items-center text-gray-700">
+                                    <input type="radio" name="read_write_hindi" value="Medium" class="text-indigo-600 focus:ring-indigo-500 w-4 h-4" /> 
+                                    <span class="ml-2">Medium</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="favorite_subject" class="block text-sm font-medium text-gray-700 font-bold">Favorite Subject</label>
+                            <input type="text" id="favorite_subject" name="favorite_subject" class="styled-input mt-1 block w-full rounded-lg shadow-sm">
+                        </div>
+
+                    </div>
+                </fieldset>
+
+                <fieldset class="bg-white p-4 md:p-5 rounded-xl shadow-2xl border-t-4 border-teal-400">
+                    <legend class="text-lg font-semibold text-teal-700 px-4 py-2 rounded-lg border bg-teal-50 border-teal-300 mb-6 flex items-center">Location & Aspirations</legend>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                        <div class="md:col-span-2">
+                            <label for="address" class="block text-sm font-medium text-gray-700 font-bold">House No/Viallage Name</label>
+                            <textarea id="address" name="address" rows="2" required class="styled-input mt-1 block w-full rounded-lg shadow-sm"></textarea>
+                        </div>
+
+                        <div>
+                            <label for="city" class="block text-sm font-medium text-gray-700 font-bold">Mandal</label>
+                            <input type="text" id="city" name="city" required class="styled-input mt-1 block w-full rounded-lg shadow-sm">
+                        </div>
+                        <div>
+                            <label for="district" class="block text-sm font-medium text-gray-700 font-bold">District</label>
+                            <input type="text" id="district" name="district" required class="styled-input mt-1 block w-full rounded-lg shadow-sm">
+                        </div>
+
+                        <div>
+                            <label for="state" class="block text-sm font-medium text-gray-700 font-bold">State</label>
+                            <input type="text" id="state" name="state" required class="styled-input mt-1 block w-full rounded-lg shadow-sm">
+                        </div>
+                        <div>
+                            <label for="dream_goal" class="block text-sm font-medium text-gray-700 font-bold">What is Your Dream?</label>
+                            <input type="text" id="dream_goal" name="dream_goal" placeholder="E.g. Doctor / Engineer / Police / etc." class="styled-input mt-1 block w-full rounded-lg shadow-sm">
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="mb-4 bg-white p-6 rounded-xl shadow-lg">
+                    <label class="inline-flex items-center">
+                        <input  
+                            type="checkbox"  
+                            name="agree"  
+                            id="agree"  
+                            required  
+                            class="form-checkbox h-5 w-5 text-blue-600 rounded"
+                        >
+                        <span class="ml-3 text-gray-700">
+                            I agree to the 
+                            <a  
+                                href="https://www.svtc.life/terms-privacy"  
+                                target="_blank"  
+                                class="text-blue-600 hover:underline"
+                            >
+                                Terms & Conditions
+                            </a>
+                        </span>
+                    </label>
+                </div>
+
+                <div class="text-center pb-8">
+                    <button type="submit" id="previewButton" class="btn-submit w-full md:w-auto px-10 py-3 bg-blue-600 text-white font-bold text-lg rounded-full shadow-lg hover:bg-blue-700">
+                        Review and Confirm
+                    </button>
+                </div>
+            </form>
+        </main>
+
+        <div id="previewContainer" class="bg-white p-6 md:p-10 rounded-xl shadow-2xl border-t-8 border-yellow-500 hidden" style="max-width: 600px; margin: 0 auto;">
+            <h3 class="text-2xl font-bold text-yellow-700 mb-6 text-center">
+                Review Your Registration Data
+            </h3>
+            <div id="previewDetails" class="space-y-2 text-gray-700">
+            </div>
+
+            <div id="previewErrorMsg" class="p-4 mt-6 bg-red-50 border border-red-600 text-red-800 font-semibold rounded-lg shadow-md hidden">
+                <p>❌ Submission failed. Please try again or go back to edit.</p>
+            </div>
+
+            <div class="flex justify-between mt-8 space-x-4">
+                <button id="editButton" class="w-1/2 px-4 py-3 bg-gray-400 text-white font-bold rounded-full shadow-md hover:bg-gray-500 transition duration-150">
+                    Edit Details
+                </button>
+                <button id="confirmButton" class="w-1/2 px-4 py-3 bg-green-600 text-white font-bold rounded-full shadow-lg hover:bg-green-700 transition duration-150">
+                    Confirm and Submit
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="finalSuccessMsg" class="bg-white p-6 md:p-8 rounded-xl shadow-2xl border-t-8 border-green-500 text-center hidden mx-auto mt-10" style="max-width: 600px;">
+        <h2 class="text-3xl font-bold text-gray-800 mb-4">Registration Successful!</h2>
+        <p class="text-lg text-gray-600 mb-6 font-semibold">
+            Thank you for registering. We will call you shortly to confirm your details. 
+            Please be ready to attempt our call.
+        </p>
+        <ul class="list-none space-y-3 text-gray-700 text-base mb-8 mx-auto text-center max-w-sm">
+            <li class="flex items-start justify-center">
+                <span class="text-green-500 mr-3 mt-1 font-extrabold">✓</span>
+                <span>Your login details will be sent via SMS after confirmation.</span>
+            </li>
+            <li class="flex items-start justify-center">
+                <span class="text-blue-500 mr-3 mt-1 font-extrabold">→</span>
+                <span>You can login to your dashboard using the button below.</span>
+            </li>
+        </ul>
+
+        <div class="flex flex-col space-y-4">
+            <a href="https://www.svtc.life/Dashboard.html" target="_blank" class="w-full px-8 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition duration-150">
+                Login to Dashboard
+            </a>
+            <a href="https://www.svtc.life" target="_blank" class="w-full px-8 py-3 bg-gray-200 text-gray-700 font-semibold rounded-lg shadow-md hover:bg-gray-300 transition duration-150">
+                Go Back Home
+            </a>
+        </div>
+    </div>
+
+    <footer class="bg-sv-blue text-white py-5 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                
+                <div>
+                    <img class="h-12 w-auto mb-2 object-contain shadow-md rounded-full bg-white p-1" 
+                            src="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg" 
+                            alt="Sri Veda Logo"
+                            onerror="this.onerror=null; this.src='https://placehold.co/48x48/1e3a8a/ffffff?text=VEDA';">
+                    <p class="text-gray-300 text-xs">
+                        Sri Veda Talent Competition<br>
+                        Empowering students with knowledge and skills for a bright future.
+                    </p>
+                </div>
+
+                <div>
+                    <h5 class="text-base font-bold text-sv-yellow mb-2">Quick Links</h5>
+                    <ul class="space-y-1 text-sm">
+                        <li><a href="https://www.svtc.life/index.html" class="text-gray-300 hover:text-white transition" target="_blank">Home</a></li>
+                        <li><a href="https://www.svtc.life/Join%20now.html" class="text-gray-300 hover:text-white transition" target="_blank">Join Now</a></li>
+                        <li><a href="https://www.svtc.life/Pricing.html" class="text-gray-300 hover:text-white transition" target="_blank">Pricing</a></li>
+                        <li><a href="https://www.svtc.life/connect.html" class="text-gray-300 hover:text-white transition" target="_blank">Connect</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="text-base font-bold text-sv-yellow mb-2">Company</h5>
+                    <ul class="space-y-1 text-sm">
+                        <li><a href="https://www.svtc.life/About%20Us.html" class="text-gray-300 hover:text-white transition" target="_blank">About Us</a></li>
+                        <li><a href="https://www.svtc.life/Contact.html" class="text-gray-300 hover:text-white transition" target="_blank">Contact</a></li>
+                        <li><a href="https://www.svtc.life/Privacy%20policy.html" class="text-gray-300 hover:text-white transition" target="_blank">Terms & Privacy</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="text-base font-bold text-sv-yellow mb-2">Get In Touch</h5>
+                    <ul class="space-y-1 text-sm">
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-sv-yellow text-xs"></i>
+                            <a href="tel:+918985170500" class="text-gray-300 hover:text-white transition" target="_blank">+91 8985170500</a>
+                        </li>
+                    </ul>
+                    <h5 class="text-base font-bold text-sv-yellow mt-3 mb-2">Connect With Us</h5>
+                    <div class="flex space-x-3">
+                        <a href="https://www.facebook.com/share/1ZXXCLRGwh" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-sv-yellow transition text-lg">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=zreta93" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-sv-yellow transition text-lg">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="httpst.me/srivedatc" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-sv-yellow transition text-lg">
+                            <i class="fab fa-telegram-plane"></i>
+                        </a>
+                        <a href="http://wa.me/918985170500" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-sv-yellow transition text-lg">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-4 pt-4 text-center">
+                <p class="text-gray-400 text-xs">
+                    &copy; 2025 Sri Veda Talent Competition. All Rights Reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const url ='https://script.google.com/macros/s/AKfycbw6GayIqaCD3y_OgHOmaS_08YcsAwg-Oy02AeK8q8eIBIOV-H2Od-8_WngVyl89Rjc/exec';
+        
+        const form = document.getElementById('registrationForm');
+        const formContent = document.getElementById('formContent');
+        const instructionBox = document.getElementById('instructionBox');
+        const previewContainer = document.getElementById('previewContainer');
+        const previewDetails = document.getElementById('previewDetails');
+        const previewErrorMsg = document.getElementById('previewErrorMsg');
+        const confirmButton = document.getElementById('confirmButton');
+        const formContainer = formContent.parentElement; 
+        const finalSuccessMsg = document.getElementById('finalSuccessMsg');
+        const menuToggle = document.getElementById('menuToggle');
+        const dynamicMenu = document.getElementById('dynamicMenu');
+
+        let currentFormData = null;
+
+        function showForm() {
+            document.body.style.overflow = '';
+            if (formContainer) {
+                formContainer.style.padding = '0 0.5rem 2rem'; 
+            }
+
+            instructionBox.classList.remove('hidden');
+            formContent.classList.remove('hidden');
+            previewContainer.classList.add('hidden');
+            previewErrorMsg.classList.add('hidden');
+            finalSuccessMsg.classList.add('hidden');
+            window.scrollTo(0, 0); 
+        }
+
+        function showPreview(e) {
+            e.preventDefault();
+            
+            const data = new FormData(form);
+            currentFormData = data;
+            
+            let html = '';
+            const fields = Array.from(form.elements);
+            
+            const getRadioValue = (name) => {
+                const checked = fields.find(el => el.name === name && el.checked);
+                return checked ? checked.value : '';  
+            };
+
+            const fieldMap = {
+                'full_name': 'Full Name',
+                'present_class': 'Present Class',
+                'gender': 'Gender',
+                'dob': 'Date of Birth',
+                'parent_name': 'Father / Mother Name',
+                'parent_number': 'Parent’s Number',
+                'email_id': 'Email ID',
+                'school_name': 'School Name',
+                'medium': 'Medium',
+                'school_type': 'Current School Type',
+                'read_write_telugu': 'Read/Write Telugu',
+                'read_write_english': 'Read/Write English',
+                'read_write_hindi': 'Read/Write Hindi',
+                'favorite_subject': 'Favorite Subject',
+                'address': 'House No/Viallage Name',
+                'city': 'Mandal',
+                'district': 'District',
+                'state': 'State',
+                'dream_goal': 'Dream / Goal',
+            };
+            
+            const getDisplayValue = (name, value) => {
+                if (value === 'on' || value === '') return '';  
+                
+                if (form.elements[name] && form.elements[name].tagName === 'SELECT') {
+                    const selectedOption = form.elements[name].options[form.elements[name].selectedIndex];
+                    const isPlaceholder = selectedOption.textContent.startsWith('-- Select');
+                    return isPlaceholder ? '' : selectedOption.value;  
+                }
+                
+                return value;
+            };
+
+            for (const [name, label] of Object.entries(fieldMap)) {
+                let value;
+                if (name.startsWith('read_write_')) {
+                    value = getRadioValue(name);
+                } else if (data.has(name)) {
+                    value = data.get(name);
+                } else {
+                    value = '';
+                }
+
+                const displayValue = getDisplayValue(name, value);
+
+                if (displayValue.trim() !== '') {
+                    html += `
+                        <div class="preview-detail">
+                            <span class="preview-label">${label}:</span>
+                            <span class="preview-value">${displayValue}</span>
+                        </div>
+                    `;
+                }
+            }
+
+            const termsAgreed = data.get('agree') ? 'Agreed' : 'Not Agreed';
+            html += `
+                <div class="preview-detail border-t mt-4 pt-4 border-gray-300">
+                    <span class="preview-label">Terms Agreed:</span>
+                    <span class="preview-value text-${termsAgreed === 'Agreed' ? 'green' : 'red'}-600 font-bold">${termsAgreed}</span>
+                </div>
+            `;
+
+
+            instructionBox.classList.add('hidden');
+            
+            previewDetails.innerHTML = html;
+            formContent.classList.add('hidden');
+            previewContainer.classList.remove('hidden');
+            window.scrollTo(0, 0); 
+        }
+
+        function handleSubmissionSuccess() {
+            formContent.classList.add('hidden');
+            previewContainer.classList.add('hidden');
+            instructionBox.classList.add('hidden'); 
+
+            finalSuccessMsg.classList.remove('hidden');
+            
+            document.body.style.overflow = ''; 
+
+            window.scrollTo(0, 0); 
+        }
+        
+        async function handleConfirmation() {
+            if (!currentFormData) {
+                console.error("No form data found for submission.");
+                previewErrorMsg.classList.remove('hidden');
+                return;
+            }
+
+            confirmButton.textContent = 'Submitting...';
+            confirmButton.disabled = true;
+            previewErrorMsg.classList.add('hidden');
+
+            try {
+                fetch(url, {
+                    method: 'POST',
+                    body: currentFormData,
+                    mode: 'no-cors' 
+                });
+                
+                setTimeout(() => {
+                    handleSubmissionSuccess();
+                }, 500); 
+
+            } catch (err) {
+                console.error('Submission Network Error:', err);
+                previewErrorMsg.classList.remove('hidden');
+                confirmButton.textContent = 'Confirm and Submit';
+                confirmButton.disabled = false;
             }
         }
 
-        // Add Terms & Conditions status (This field is required and should always show)
-        const termsAgreed = data.get('agree') ? 'Agreed' : 'Not Agreed';
-        html += `
-            <div class="preview-detail border-t mt-4 pt-4 border-gray-300">
-                <span class="preview-label">Terms Agreed:</span>
-                <span class="preview-value text-${termsAgreed === 'Agreed' ? 'green' : 'red'}-600 font-bold">${termsAgreed}</span>
-            </div>
-        `;
-
-
-        // 3. Update preview container and show
+        form.addEventListener('submit', showPreview);
+        confirmButton.addEventListener('click', handleConfirmation);
+        document.getElementById('editButton').addEventListener('click', showForm);
         
-        instructionBox.classList.add('hidden');
-        
-        previewDetails.innerHTML = html;
-        formContent.classList.add('hidden');
-        previewContainer.classList.remove('hidden');
-        window.scrollTo(0, 0); // Scroll to top
-    }
-
-    function handleSubmissionSuccess() {
-        // 1. Hide all main content
-        formContent.classList.add('hidden');
-        previewContainer.classList.add('hidden');
-        formHeader.classList.add('hidden'); 
-        document.getElementById('mainNav').classList.add('hidden'); 
-        instructionBox.classList.add('hidden'); 
-
-        // 2. Show the simple success message
-        finalSuccessMsg.classList.remove('hidden');
-        
-        // 3. Keep body scrolling enabled
-        document.body.style.overflow = ''; 
-
-        window.scrollTo(0, 0); 
-    }
-    
-    // --- Submission Logic ---
-
-    async function handleConfirmation() {
-        if (!currentFormData) {
-            console.error("No form data found for submission.");
-            previewErrorMsg.classList.remove('hidden');
-            return;
-        }
-
-        confirmButton.textContent = 'Submitting...';
-        confirmButton.disabled = true;
-        previewErrorMsg.classList.add('hidden');
-
-        try {
-            // "Fire and forget" submission using no-cors mode
-            fetch(url, {
-                method: 'POST',
-                body: currentFormData,
-                mode: 'no-cors' 
+        if (menuToggle && dynamicMenu) {
+            menuToggle.addEventListener('click', () => {
+                dynamicMenu.classList.toggle('hidden');
             });
-            
-            // Assume success and show the final message immediately.
-            setTimeout(() => {
-                handleSubmissionSuccess();
-            }, 500); 
-
-        } catch (err) {
-            // Only catches network errors
-            console.error('Submission Network Error:', err);
-            previewErrorMsg.classList.remove('hidden');
-            // Re-enable button on failure
-            confirmButton.textContent = 'Confirm and Submit';
-            confirmButton.disabled = false;
         }
-    }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            showForm(); 
+        });
 
-    // --- Event Listeners ---
-    form.addEventListener('submit', showPreview);
-    confirmButton.addEventListener('click', handleConfirmation);
-    document.getElementById('editButton').addEventListener('click', showForm);
-    
-    // Initial State Setup
-    document.addEventListener('DOMContentLoaded', () => {
-        showForm(); // Ensure only the form is visible on load and state is correct
-    });
-
-  </script>
+    </script>
 
 </body>
 </html>
