@@ -5,32 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sri Veda Talent Competition</title>
     
-    <!-- Tailwind CSS --><script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts - Roboto Slab --><link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700;900&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome Icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <!-- Favicon: Added the Veda logo for the browser tab -->
     <link rel="icon" type="image/jpeg" href="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg">
 
     <style>
-        /* Custom Styles */
         :root {
-            --sv-blue: #00008B; /* Dark Blue */
-            --sv-orange: #FF8C00; /* Dark Orange */
-            --sv-yellow: #FFD700; /* Gold/Yellow */
-            --sv-maroon: #800000; /* Maroon */
+            --sv-blue: #00008B;
+            --sv-orange: #FF8C00;
+            --sv-yellow: #FFD700;
+            --sv-maroon: #800000;
         }
         
-        /* Apply Roboto Slab universally to the entire page */
         body {
             font-family: 'Roboto Slab', serif;
         }
         
-        /* Utility Classes */
         .bg-sv-blue { background-color: var(--sv-blue); }
         .text-sv-blue { color: var(--sv-blue); }
         .bg-sv-orange { background-color: var(--sv-orange); }
@@ -42,11 +38,10 @@
             box-shadow: 0 10px 15px -3px var(--sv-yellow), 0 4px 6px -4px var(--sv-yellow);
         }
 
-        /* Scrolling Text Animation */
         .scrolling-text-container {
             width: 100%;
             overflow: hidden;
-            padding: 8px 0;
+            padding: 6px 0; /* Reduced padding */
         }
         .scrolling-text {
             display: inline-block;
@@ -63,15 +58,14 @@
             }
         }
 
-        /* Custom Button Style for Exams/Courses */
         .course-button {
             display: inline-block;
-            padding: 0.5rem 1rem;
-            margin: 0.25rem;
+            padding: 0.4rem 0.8rem; /* Reduced padding */
+            margin: 0.2rem; /* Reduced margin */
             background-color: #f0f0f0;
             border: 1px solid #ddd;
             border-radius: 9999px;
-            font-size: 0.875rem;
+            font-size: 0.8rem; /* Reduced font size */
             font-weight: 500;
             color: #333;
             text-align: center;
@@ -87,14 +81,13 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
         
-        /* Standard CTA Button */
         .cta-button {
             display: inline-block;
             background-color: var(--sv-orange);
             color: white;
-            padding: 0.75rem 2rem;
+            padding: 0.6rem 1.8rem; /* Reduced padding */
             border-radius: 9999px;
-            font-size: 1.125rem;
+            font-size: 1rem; /* Reduced font size */
             font-weight: 700;
             text-transform: uppercase;
             text-align: center;
@@ -108,14 +101,13 @@
             box-shadow: 0 6px 15px rgba(255, 140, 0, 0.6);
         }
         
-        /* Secondary CTA Button */
         .cta-button-secondary {
             display: inline-block;
             background-color: var(--sv-blue);
             color: white;
-            padding: 0.75rem 2rem;
+            padding: 0.6rem 1.8rem; /* Reduced padding */
             border-radius: 9999px;
-            font-size: 1.125rem;
+            font-size: 1rem; /* Reduced font size */
             font-weight: 700;
             text-transform: uppercase;
             text-align: center;
@@ -129,14 +121,13 @@
             box-shadow: 0 6px 15px rgba(0, 0, 139, 0.5);
         }
         
-        /* Final Large CTA Button */
         .cta-button-large {
             display: inline-block;
             background-color: var(--sv-blue);
             color: white;
-            padding: 0.8rem 2.5rem;
+            padding: 0.7rem 2rem; /* Reduced padding */
             border-radius: 9999px;
-            font-size: 1.25rem;
+            font-size: 1.1rem; /* Reduced font size */
             font-weight: 900;
             text-transform: uppercase;
             text-align: center;
@@ -150,92 +141,79 @@
             box-shadow: 0 10px 20px rgba(0, 0, 139, 0.8);
         }
 
-        /* NEW: Navigation Button Style for the main navbar - Modified for persistent background box */
         .nav-button {
             display: flex;
             align-items: center;
-            padding: 0.6rem 1.2rem;
-            color: var(--sv-blue); /* Dark blue text on white background */
-            background-color: white; /* White background box added */
-            border: 2px solid var(--sv-orange); /* Orange border for definition */
-            border-radius: 9999px; /* Fully rounded like other CTAs */
-            font-size: 1rem;
+            padding: 0.5rem 1rem; /* Reduced padding */
+            color: var(--sv-blue);
+            background-color: white;
+            border: 2px solid var(--sv-orange);
+            border-radius: 9999px;
+            font-size: 0.9rem; /* Reduced font size */
             font-weight: 700;
             text-transform: uppercase;
             text-decoration: none;
             transition: all 0.3s ease;
-            margin: 4px 0; /* Vertical margin for wrap on mobile */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for lift */
+            margin: 3px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         .nav-button:hover {
-            color: white; /* White text on hover */
-            background-color: var(--sv-orange); /* Orange background on hover */
-            border-color: var(--sv-blue); /* Blue border on hover */
+            color: white;
+            background-color: var(--sv-orange);
+            border-color: var(--sv-blue);
             transform: scale(1.05);
             box-shadow: 0 6px 15px rgba(255, 140, 0, 0.6);
         }
-        /* Ensure the button links are responsive for smaller screens */
         @media (max-width: 640px) {
             .nav-button {
-                flex-grow: 1; /* Makes buttons grow to fill space */
+                flex-grow: 1;
                 justify-content: center;
                 margin: 4px 2px;
                 font-size: 0.8rem;
                 padding: 0.4rem 0.8rem;
             }
         }
-
     </style>
 </head>
 <body class="bg-gray-50">
 
-    <!-- Header Section (Non-sticky) -->
     <header class="bg-sv-blue shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row items-center justify-between py-4 md:py-3 md:h-28 space-y-4 md:space-y-0">
+            <div class="flex flex-col md:flex-row items-center justify-between py-3 md:py-2 space-y-3 md:space-y-0 md:h-24">
                 
-                <!-- Logo and Title Container -->
-                <div class="flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-6">
+                <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4">
                     
-                    <!-- Logo (UPDATED SRC) -->
                     <img src="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg" 
-                            onerror="this.onerror=null; this.src='https://placehold.co/80x80/1e3a8a/ffffff?text=VEDA';" 
+                            onerror="this.onerror=null; this.src='https://placehold.co/64x64/1e3a8a/ffffff?text=VEDA';" 
                             alt="Veda Logo" 
-                            class="w-20 h-20 object-contain shadow-md rounded-full bg-white p-1 flex-shrink-0">
+                            class="w-16 h-16 object-contain shadow-md rounded-full bg-white p-1 flex-shrink-0">
                     
                     <div class="text-center sm:text-left flex flex-col justify-center">
-                        <!-- Title -->
-                        <h1 class="text-2xl sm:text-3xl font-extrabold tracking-wider text-white">
+                        <h1 class="text-xl sm:text-2xl font-extrabold tracking-wider text-white">
                             SRI VEDA TALENT COMPETITION
                         </h1>
                         
-                        <!-- Yellow Separator Line under Title -->
-                        <div class="w-3/4 max-w-xs h-0.5 bg-sv-yellow my-1 mx-auto sm:mx-0"></div>
+                        <div class="w-2/3 max-w-xs h-0.5 bg-sv-yellow my-0.5 mx-auto sm:mx-0"></div>
 
-                        <!-- Subtitle (Yellow with Quotes) -->
-                        <p class="text-base sm:text-lg font-semibold text-sv-yellow mt-1">
+                        <p class="text-sm sm:text-base font-semibold text-sv-yellow mt-0.5">
                             "BRIGHT CHILD LIFE"
                         </p>
                     </div>
                 </div>
 
-                <!-- Right Side Icons -->
-                <div class="flex items-center space-x-4 sm:space-x-8 lg:space-x-10">
-                    <i class="fas fa-book text-2xl sm:text-3xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Our Courses"></i>
-                    <i class="fas fa-pencil-ruler text-2xl sm:text-3xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Practice Tests"></i>
-                    <i class="fas fa-graduation-cap text-2xl sm:text-3xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Study Material"></i>
-                    <i class="fas fa-lightbulb text-2xl sm:text-3xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Insights & Guidance"></i>
+                <div class="flex items-center space-x-3 sm:space-x-6 lg:space-x-8">
+                    <i class="fas fa-book text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Our Courses"></i>
+                    <i class="fas fa-pencil-ruler text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Practice Tests"></i>
+                    <i class="fas fa-graduation-cap text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Study Material"></i>
+                    <i class="fas fa-lightbulb text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Insights & Guidance"></i>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- NEW: Navigation Menu with boxed buttons -->
     <nav class="bg-sv-blue shadow-lg border-t-2 border-sv-yellow">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Ensure flex-wrap for mobile responsiveness -->
-            <div class="flex flex-wrap justify-center sm:justify-between py-2 space-x-2 sm:space-x-4">
-                <!-- Buttons now have a white background box -->
+            <div class="flex flex-wrap justify-center sm:justify-between py-1 space-x-1 sm:space-x-3">
                 <a href="https://www.svtc.life/Dashboard.html" class="nav-button">
                     <i class="fas fa-tachometer-alt mr-2"></i> DASHBOARD
                 </a>
@@ -251,31 +229,26 @@
             </div>
         </div>
     </nav>
-    <!-- End New Navigation Menu -->
     
-    <!-- Scrolling Announcement Bar (Slow Scroll Speed) -->
     <div class="scrolling-text-container bg-yellow-200 shadow-inner py-1">
-        <div class="scrolling-text text-sv-blue font-bold text-lg">
+        <div class="scrolling-text text-sv-blue font-bold text-base">
             Announcement : New tests and general awareness quizzes are waiting for you — go take them now and boost your knowledge! 🚀
         </div>
     </div>
     
-    <!-- Top Mission Statement Block (Compact, Plain Text) -->
-    <section class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 text-center bg-gray-50">
-        <p class="text-base text-gray-700 font-medium leading-relaxed">
+    <section class="max-w-7xl mx-auto py-2 px-4 sm:px-6 lg:px-8 text-center bg-gray-50">
+        <p class="text-sm text-gray-700 font-medium leading-relaxed">
             At Sri Veda Talent Competition (SVTC), we are committed to forging the next generation of successful leaders. We provide 24/7 dedicated support to our students, ensuring they excel not only in academics but also gain crucial General Awareness and master Advanced Mathematics. Our mission is to prepare them for competitive entrance exams while broadening their knowledge of the world. Every Subject Test, General Awareness Quiz, and Advanced Maths Module is meticulously crafted to ensure comprehensive learning and high performance.
         </p>
     </section>
 
-    <!-- Registration Call-to-Action Section -->
-    <section class="w-full py-6 md:py-8 bg-white shadow-inner">
+    <section class="w-full py-4 md:py-6 bg-white shadow-inner">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
-                <!-- Register Now Block (Closer Spacing) -->
-                <div class="bg-white p-5 rounded-xl shadow-xl border-t-4 border-sv-orange hover:shadow-2xl transition duration-300">
-                    <h2 class="text-2xl font-bold text-sv-blue mb-3">New User? Join Today!</h2>
-                    <p class="text-base text-gray-700 mb-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-3">
+                <div class="bg-white p-4 rounded-xl shadow-xl border-t-4 border-sv-orange hover:shadow-2xl transition duration-300">
+                    <h2 class="text-xl font-bold text-sv-blue mb-2">New User? Join Today!</h2>
+                    <p class="text-sm text-gray-700 mb-3">
                         Unlock your full potential with specialized awareness and maths skill tests.
                     </p>
                     <a href="https://www.svtc.life/Join%20now.html" class="cta-button">
@@ -283,13 +256,11 @@
                     </a>
                 </div>
                 
-                <!-- Login Block (Closer Spacing) -->
-                <div class="bg-white p-5 rounded-xl shadow-xl border-t-4 border-sv-blue hover:shadow-2xl transition duration-300">
-                    <h2 class="text-2xl font-bold text-sv-blue mb-3">Already a Subscriber?</h2>
-                    <p class="text-base text-gray-700 mb-4">
+                <div class="bg-white p-4 rounded-xl shadow-xl border-t-4 border-sv-blue hover:shadow-2xl transition duration-300">
+                    <h2 class="text-xl font-bold text-sv-blue mb-2">Already a Subscriber?</h2>
+                    <p class="text-sm text-gray-700 mb-3">
                         Access your personalized profile and continue your test preparation journey.
                     </p>
-                    <!-- MODIFIED: Updated href link -->
                     <a href="https://www.svtc.life/Dashboard.html" class="cta-button-secondary">
                         LOGIN TO PROFILE
                     </a>
@@ -299,37 +270,33 @@
         </div>
     </section>
 
-    <!-- Monthly Achiever Showcase Section -->
-    <section class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-        <div class="bg-white shadow-2xl rounded-2xl overflow-hidden border border-gray-200">
-            <!-- Achiever Details Card (Closer Spacing) -->
-            <div class="p-4 md:p-6">
-                <h2 class="text-center text-3xl font-extrabold text-sv-orange mb-4 border-b-2 pb-2">
+    <section class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
+        <div class="bg-white shadow-2xl rounded-xl overflow-hidden border border-gray-200">
+            <div class="p-4">
+                <h2 class="text-center text-2xl font-extrabold text-sv-orange mb-3 border-b-2 pb-2">
                     SVTC MONTHLY ACHIEVER
                 </h2>
                 
-                <div class="flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-8">
-                    <!-- Achiever Photo (UPDATED SRC) -->
+                <div class="flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-6">
                     <div class="text-center md:text-left md:w-1/3 flex-shrink-0">
-                        <div class="relative w-40 h-40 md:w-48 md:h-48 mx-auto mb-4">
+                        <div class="relative w-36 h-36 md:w-40 md:h-40 mx-auto mb-3">
                             <img class="w-full h-full rounded-full object-cover border-4 border-sv-orange shadow-lg" 
                                     src="https://contactsriveda-debug.github.io/images/stu-oct-achiver.png" 
                                     alt="M S Meghana"
-                                    onerror="this.onerror=null; this.src='https://placehold.co/192x192/00008B/FFFFFF?text=M+S+M';">
-                            <span class="absolute bottom-1 right-1 bg-sv-yellow text-sv-blue text-xs font-bold px-2 py-1 rounded-full shadow-md">
+                                    onerror="this.onerror=null; this.src='https://placehold.co/160x160/00008B/FFFFFF?text=M+S+M';">
+                            <span class="absolute bottom-0 right-0 bg-sv-yellow text-sv-blue text-xs font-bold px-2 py-1 rounded-full shadow-md">
                                 ACHIEVER
                             </span>
                         </div>
-                        <h3 class="text-xl font-bold text-sv-blue">M S Meghana</h3>
-                        <p class="text-base font-medium text-gray-700">6th Class</p>
-                        <p class="text-base font-semibold text-sv-orange mt-1">Excellent Performance</p>
+                        <h3 class="text-lg font-bold text-sv-blue">M S Meghana</h3>
+                        <p class="text-sm font-medium text-gray-700">6th Class</p>
+                        <p class="text-sm font-semibold text-sv-orange mt-0.5">Excellent Performance</p>
                     </div>
 
-                    <!-- Testimonial/Quote (More Impressive Text) -->
-                    <div class="md:w-2/3 mt-6 md:mt-0 flex items-center h-full">
-                        <div class="p-4 bg-sv-orange/10 rounded-lg border-l-4 border-sv-orange w-full">
-                            <h3 class="text-lg font-semibold text-sv-orange mb-2">Achiever's Insight</h3>
-                            <p class="text-gray-700 italic">
+                    <div class="md:w-2/3 mt-4 md:mt-0 flex items-center h-full">
+                        <div class="p-3 bg-sv-orange/10 rounded-lg border-l-4 border-sv-orange w-full">
+                            <h3 class="text-base font-semibold text-sv-orange mb-1">Achiever's Insight</h3>
+                            <p class="text-gray-700 italic text-sm">
                                 "The SVTC tests were transformative for my preparation. The focused General Awareness and Advanced Maths modules didn't just drill concepts; they gave me a deep, conceptual understanding that is essential for top scores. This platform truly ignited my confidence to tackle complex problems and secure a competitive edge against other students, pushing me towards excellence in my academic journey. I highly recommend SVTC for serious learners aiming for success."
                             </p>
                         </div>
@@ -339,130 +306,121 @@
         </div>
     </section>
 
-    <!-- Why SVTC is Unique Section (Moved after Achiever) -->
-    <section class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-        <div class="bg-sv-blue/5 shadow-2xl rounded-2xl border border-gray-200">
-            <div class="p-4 md:p-6 text-center">
-                <h2 class="text-3xl font-extrabold text-sv-blue mb-4">
+    <section class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
+        <div class="bg-sv-blue/5 shadow-xl rounded-xl border border-gray-200">
+            <div class="p-4 text-center">
+                <h2 class="text-2xl font-extrabold text-sv-blue mb-3">
                     WHY SRI VEDA IS UNIQUE
                 </h2>
 
-                <!-- Core Value Proposition -->
-                <div class="p-4 bg-white rounded-lg border-l-4 border-sv-blue mx-auto mb-4 max-w-4xl">
-                    <h3 class="text-lg font-semibold text-sv-blue mb-2">Our Focus: Building a Bright Child Life</h3>
-                    <p class="text-gray-700 text-base">
+                <div class="p-3 bg-white rounded-lg border-l-4 border-sv-blue mx-auto mb-3 max-w-4xl">
+                    <h3 class="text-base font-semibold text-sv-blue mb-1">Our Focus: Building a Bright Child Life</h3>
+                    <p class="text-gray-700 text-sm">
                         At Sri Veda Talent Competition (SVTC), we focus completely on enhancing students' General Awareness and improving their performance in subject tests. We provide specialized practice tests and preparation materials essential for building a strong foundation in General Maths, enabling them to face entrance tests and other exams with confidence. Our goal is to prepare students for all upcoming challenges.
                     </p>
                 </div>
                 
-                <!-- Features Grid (Closer Spacing) -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
                     <div class="bg-white p-3 rounded-xl shadow-lg text-center border-b-4 border-sv-orange hover:shadow-sv-yellow/50 transition duration-300">
-                        <h3 class="text-xl font-bold text-sv-blue mb-2">TEST YOUR KNOWLEDGE</h3>
-                        <p class="text-gray-600 text-sm">Our unique tests are designed to test students' General Awareness and boost their knowledge in all subjects, especially Maths.</p>
+                        <h3 class="text-lg font-bold text-sv-blue mb-1">TEST YOUR KNOWLEDGE</h3>
+                        <p class="text-gray-600 text-xs">Our unique tests are designed to test students' General Awareness and boost their knowledge in all subjects, especially Maths.</p>
                     </div>
                     <div class="bg-white p-3 rounded-xl shadow-lg text-center border-b-4 border-sv-orange hover:shadow-sv-yellow/50 transition duration-300">
-                        <h3 class="text-xl font-bold text-sv-blue mb-2">GET SVTC SCORE</h3>
-                        <p class="text-gray-600 text-sm">Get detailed analysis and scores after every test. This helps you understand your strengths and weaknesses and continuously improve.</p>
+                        <h3 class="text-lg font-bold text-sv-blue mb-1">GET SVTC SCORE</h3>
+                        <p class="text-gray-600 text-xs">Get detailed analysis and scores after every test. This helps you understand your strengths and weaknesses and continuously improve.</p>
                     </div>
                     <div class="bg-white p-3 rounded-xl shadow-lg text-center border-b-4 border-sv-orange hover:shadow-sv-yellow/50 transition duration-300">
-                        <h3 class="text-xl font-bold text-sv-blue mb-2">24/7 MENTOR SUPPORT</h3>
-                        <p class="text-gray-600 text-sm">Top performers receive advanced preparation materials and special guidance from our dedicated 24/7 team.</p>
+                        <h3 class="text-lg font-bold text-sv-blue mb-1">24/7 MENTOR SUPPORT</h3>
+                        <p class="text-gray-600 text-xs">Top performers receive advanced preparation materials and special guidance from our dedicated 24/7 team.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SVTC Commitment Section -->
-    <section class="bg-sv-orange py-6 md:py-8 px-4 sm:px-6 lg:px-8">
+    <section class="bg-sv-orange py-4 md:py-6 px-4 sm:px-6 lg:px-8">
         <div class="max-w-7xl mx-auto text-center">
-            <h2 class="text-4xl font-extrabold text-white mb-4">
+            <h2 class="text-3xl font-extrabold text-white mb-3">
                 SVTC: THE FUTURE-READY ADVANTAGE
             </h2>
-            <p class="text-xl text-white font-medium mb-6">
+            <p class="text-lg text-white font-medium mb-4">
                 We don't just teach subjects; we cultivate talent for life's toughest challenges.
             </p>
-            <div class="bg-white p-6 rounded-xl shadow-2xl max-w-5xl mx-auto border-b-8 border-sv-blue">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sv-blue">
+            <div class="bg-white p-4 rounded-xl shadow-2xl max-w-5xl mx-auto border-b-6 border-sv-blue">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-sv-blue">
                     <div class="p-2 border-r md:border-r-2 border-gray-200">
-                        <i class="fas fa-brain text-3xl mb-2"></i>
-                        <h3 class="font-bold text-lg">Holistic Knowledge</h3>
-                        <p class="text-sm">Beyond textbooks, preparing students for real-world scenarios and comprehensive General Awareness.</p>
+                        <i class="fas fa-brain text-2xl mb-1"></i>
+                        <h3 class="font-bold text-base">Holistic Knowledge</h3>
+                        <p class="text-xs">Beyond textbooks, preparing students for real-world scenarios and comprehensive General Awareness.</p>
                     </div>
                     <div class="p-2 border-r md:border-r-2 border-gray-200">
-                        <i class="fas fa-rocket text-3xl mb-2"></i>
-                        <h3 class="font-bold text-lg">Competitive Edge</h3>
-                        <p class="text-sm">Specialized Advanced Maths modules to ensure success in all major Entrance Exams.</p>
+                        <i class="fas fa-rocket text-2xl mb-1"></i>
+                        <h3 class="font-bold text-base">Competitive Edge</h3>
+                        <p class="text-xs">Specialized Advanced Maths modules to ensure success in all major Entrance Exams.</p>
                     </div>
                     <div class="p-2">
-                        <i class="fas fa-headset text-3xl mb-2"></i>
-                        <h3 class="font-bold text-lg">Unwavering Support</h3>
-                        <p class="text-sm">24/7 expert mentorship ensures personalized guidance is always available.</p>
+                        <i class="fas fa-headset text-2xl mb-1"></i>
+                        <h3 class="font-bold text-base">Unwavering Support</h3>
+                        <p class="text-xs">24/7 expert mentorship ensures personalized guidance is always available.</p>
                     </div>
                 </div>
             </div>
-            <a href="https://www.svtc.life/Join%20now.html" class="mt-6 inline-block bg-sv-blue text-white py-3 px-8 rounded-full text-lg font-bold shadow-lg hover:bg-sv-blue/80 transition duration-300 transform hover:scale-105">
+            <a href="https://www.svtc.life/Join%20now.html" class="mt-4 inline-block bg-sv-blue text-white py-2 px-6 rounded-full text-base font-bold shadow-lg hover:bg-sv-blue/80 transition duration-300 transform hover:scale-105">
                 Start Your Preparation Today
             </a>
         </div>
     </section>
 
-    <!-- Test Types Section -->
-    <section class="bg-sv-yellow/30 py-6 px-4 sm:px-6 lg:px-8">
+    <section class="bg-sv-yellow/30 py-4 px-4 sm:px-6 lg:px-8">
         <div class="max-w-7xl mx-auto text-center">
-            <h2 class="text-3xl font-extrabold text-sv-blue mb-3">
+            <h2 class="text-2xl font-extrabold text-sv-blue mb-3">
                 BOOST YOUR GENERAL AWARENESS - START YOUR CAREER GROWTH
             </h2>
-            <p class="text-lg text-gray-700 mb-4">
+            <p class="text-base text-gray-700 mb-4">
                 The comprehensive practice tests and preparation offered by Sri Veda are the first step to a successful future.
             </p>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6">
-                <!-- Test Blocks -->
-                <a href="https://www.svtc.life/join-now" class="bg-sv-orange p-3 rounded-xl text-center shadow-lg hover:scale-[1.03] transition duration-300 course-button block">
-                    <h3 class="text-xl font-bold text-black">FREE TESTS</h3>
-                    <p class="text-gray-700 text-sm">Start your General Awareness journey immediately!</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-2 mb-4">
+                <a href="https://www.svtc.life/join-now" class="bg-sv-orange p-2 rounded-xl text-center shadow-lg hover:scale-[1.03] transition duration-300 course-button block">
+                    <h3 class="text-lg font-bold text-black">FREE TESTS</h3>
+                    <p class="text-gray-700 text-xs">Start your General Awareness journey immediately!</p>
                 </a>
-                <a href="https://www.svtc.life/join-now" class="bg-sv-orange p-3 rounded-xl text-center shadow-lg hover:scale-[1.03] transition duration-300 course-button block">
-                    <h3 class="text-xl font-bold text-black">GENERAL AWARENESS</h3>
-                    <p class="text-gray-700 text-sm">Improve your knowledge through consistent practice.</p>
+                <a href="https://www.svtc.life/join-now" class="bg-sv-orange p-2 rounded-xl text-center shadow-lg hover:scale-[1.03] transition duration-300 course-button block">
+                    <h3 class="text-lg font-bold text-black">GENERAL AWARENESS</h3>
+                    <p class="text-gray-700 text-xs">Improve your knowledge through consistent practice.</p>
                 </a>
-                <a href="https://www.svtc.life/join-now" class="bg-sv-orange p-3 rounded-xl text-center shadow-lg hover:scale-[1.03] transition duration-300 course-button block">
-                    <h3 class="text-xl font-bold text-black">ADVANCED MATHS</h3>
-                    <p class="text-gray-700 text-sm">A comprehensive evaluation to track your progress.</p>
+                <a href="https://www.svtc.life/join-now" class="bg-sv-orange p-2 rounded-xl text-center shadow-lg hover:scale-[1.03] transition duration-300 course-button block">
+                    <h3 class="text-lg font-bold text-black">ADVANCED MATHS</h3>
+                    <p class="text-gray-700 text-xs">A comprehensive evaluation to track your progress.</p>
                 </a>
             </div>
         </div>
     </section>
     
-    <!-- Skill Analysis Section (Decreased Size/Padding) -->
-    <section class="bg-sv-blue py-6 md:py-8 px-4 sm:px-6 lg:px-8">
+    <section class="bg-sv-blue py-4 md:py-6 px-4 sm:px-6 lg:px-8">
         <div class="max-w-7xl mx-auto text-center">
-            <h2 class="text-3xl font-extrabold text-sv-yellow mb-4">
+            <h2 class="text-2xl font-extrabold text-sv-yellow mb-3">
                 SKILL-BASED GUIDANCE: YOUR NEXT CAREER MOVE
             </h2>
-            <p class="text-xl text-white font-medium mb-6">
+            <p class="text-lg text-white font-medium mb-4">
                 We believe in your potential, not just performance.
             </p>
-            <div class="bg-white p-5 rounded-xl shadow-2xl max-w-4xl mx-auto border-b-8 border-sv-orange">
-                <p class="text-base text-gray-700 leading-relaxed italic">
+            <div class="bg-white p-4 rounded-xl shadow-2xl max-w-4xl mx-auto border-b-6 border-sv-orange">
+                <p class="text-sm text-gray-700 leading-relaxed italic">
                     "Based on your performance in SVTC tests, we analyze your skills (especially in General Maths and General Awareness). We don't just recommend exams; we create a personalized preparation plan that aligns with your future goals. Your unique skills are the foundation for your brilliant career."
                 </p>
             </div>
-            <a href="https://www.svtc.life/Join%20now.html" class="mt-6 inline-block bg-sv-orange text-white py-3 px-8 rounded-full text-lg font-bold shadow-lg hover:bg-orange-600 transition duration-300 transform hover:scale-105">
+            <a href="https://www.svtc.life/Join%20now.html" class="mt-4 inline-block bg-sv-orange text-white py-2 px-6 rounded-full text-base font-bold shadow-lg hover:bg-orange-600 transition duration-300 transform hover:scale-105">
                 Get My Personalized Skill Analysis
             </a>
         </div>
     </section>
     
-    <!-- Recommended Courses Section -->
-    <section class="max-w-7xl mx-auto py-6 md:py-8 px-4 sm:px-6 lg:px-8">
-        <h2 class="text-center text-3xl font-extrabold text-sv-orange mb-4">Recommended Courses & Exams</h2>
+    <section class="max-w-7xl mx-auto py-4 md:py-6 px-4 sm:px-6 lg:px-8">
+        <h2 class="text-center text-2xl font-extrabold text-sv-orange mb-3">Recommended Courses & Exams</h2>
 
-        <!-- Competitive Exams Before 10th Grade -->
-        <h3 class="text-xl font-bold text-sv-blue mb-3 border-b pb-2">Competitive Exams Before 10th Grade</h3>
-        <p class="text-sm text-gray-500 italic mb-4">For all these entrance tests, we have BASIC and PRO level preparation tests.</p>
+        <h3 class="text-lg font-bold text-sv-blue mb-2 border-b pb-1">Competitive Exams Before 10th Grade</h3>
+        <p class="text-xs text-gray-500 italic mb-3">For all these entrance tests, we have BASIC and PRO level preparation tests.</p>
         <div class="flex flex-wrap justify-center gap-2">
             <a href="#" class="course-button">NTSE</a>
             <a href="#" class="course-button">Olympiads (NSO, IMO, IEO)</a>
@@ -474,12 +432,11 @@
             <a href="#" class="course-button">UCO (Unified Cyber Olympiad)</a>
         </div>
         
-        <!-- Importance of Entrance Exams Section (Plain Text) -->
-        <div class="text-center py-6 mb-4 mt-6">
-            <h3 class="text-2xl font-extrabold text-sv-blue mb-4">
+        <div class="text-center py-4 mb-3 mt-4">
+            <h3 class="text-xl font-extrabold text-sv-blue mb-3">
                 DON'T MISS THE BIG PICTURE: Why Every Entrance Test Counts
             </h3>
-            <p class="text-lg text-gray-700 leading-relaxed mb-6 italic font-medium max-w-5xl mx-auto">
+            <p class="text-base text-gray-700 leading-relaxed mb-4 italic font-medium max-w-5xl mx-auto">
                 Do you know why these competitive exams are crucial, even at an early age? Writing a minor entrance test today is the only way to gauge your future potential and secure the best educational opportunities, including highly competitive Free Seats offered by both State and Central Government institutions. The small scores you achieve now are not just marks—are the decisive steps that shape your career trajectory. Gain the essential knowledge to take control of your academic future.
             </p>
             <a href="https://www.svtc.life/Join%20now.html" class="cta-button-secondary">
@@ -487,11 +444,9 @@
             </a>
         </div>
         
-        <!-- Career Paths After 10th Grade -->
-        <h3 class="text-xl font-bold text-sv-blue mb-3 mt-4 border-b pb-2">Career Paths After 10th Grade</h3>
-        <p class="text-sm text-gray-500 italic mb-4">For all these entrance tests, we have BASIC and PRO level preparation tests.</p>
+        <h3 class="text-lg font-bold text-sv-blue mb-2 mt-4 border-b pb-1">Career Paths After 10th Grade</h3>
+        <p class="text-xs text-gray-500 italic mb-3">For all these entrance tests, we have BASIC and PRO level preparation tests.</p>
         <div class="flex flex-wrap justify-center gap-2">
-            <!-- Course Buttons -->
             <a href="#" class="course-button">JEE (Main & Advanced)</a>
             <a href="#" class="course-button">NEET (UG)</a>
             <a href="#" class="course-button">BITSAT</a>
@@ -518,13 +473,12 @@
         </div>
     </section>
     
-    <!-- Final CTA - Register Now Section (Before Footer, Reduced Size & Style Changed) -->
-    <section class="bg-sv-orange py-6 md:py-8 px-4 sm:px-6 lg:px-8 border-t-8 border-sv-blue">
+    <section class="bg-sv-orange py-4 md:py-6 px-4 sm:px-6 lg:px-8 border-t-6 border-sv-blue">
         <div class="max-w-6xl mx-auto text-center">
-            <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-3">
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-3">
                 YOUR NEXT STEP IS CRITICAL
             </h2>
-            <p class="text-lg sm:text-xl text-white font-medium mb-6 max-w-4xl mx-auto leading-snug">
+            <p class="text-lg sm:text-xl text-white font-medium mb-4 max-w-4xl mx-auto leading-snug">
                 The most important decision you can make now is to Register. Once registered, we will personally contact you to clearly explain your next steps, assess your goals, and guide you through a proven preparation strategy. Don't delay your success—your future starts with this click.
             </p>
             <a href="https://www.svtc.life/Join%20now.html" class="cta-button-large">
@@ -533,27 +487,24 @@
         </div>
     </section>
 
-    <!-- Footer Section (Separate) -->
-    <footer class="bg-sv-blue text-white py-6 px-4 sm:px-6 lg:px-8">
+    <footer class="bg-sv-blue text-white py-5 px-4 sm:px-6 lg:px-8">
         <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
                 
-                <!-- Footer Logo (UPDATED SRC) -->
                 <div>
-                    <img class="h-14 w-auto mb-3 object-contain shadow-md rounded-full bg-white p-1" 
+                    <img class="h-12 w-auto mb-2 object-contain shadow-md rounded-full bg-white p-1" 
                             src="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg" 
                             alt="Sri Veda Logo"
-                            onerror="this.onerror=null; this.src='https://placehold.co/56x56/1e3a8a/ffffff?text=VEDA';">
-                    <p class="text-gray-300 text-sm">
+                            onerror="this.onerror=null; this.src='https://placehold.co/48x48/1e3a8a/ffffff?text=VEDA';">
+                    <p class="text-gray-300 text-xs">
                         Sri Veda Talent Competition<br>
                         Empowering students with knowledge and skills for a bright future.
                     </p>
                 </div>
 
-                <!-- Quick Links -->
                 <div>
-                    <h5 class="text-lg font-bold text-sv-yellow mb-3">Quick Links</h5>
-                    <ul class="space-y-2 text-sm">
+                    <h5 class="text-base font-bold text-sv-yellow mb-2">Quick Links</h5>
+                    <ul class="space-y-1 text-sm">
                         <li><a href="https://www.svtc.life/index.html" class="text-gray-300 hover:text-white transition">Home</a></li>
                         <li><a href="https://www.svtc.life/Join%20now.html" class="text-gray-300 hover:text-white transition">Join Now</a></li>
                         <li><a href="https://www.svtc.life/Pricing.html" class="text-gray-300 hover:text-white transition">Pricing</a></li>
@@ -561,45 +512,42 @@
                     </ul>
                 </div>
 
-                <!-- Company Links -->
                 <div>
-                    <h5 class="text-lg font-bold text-sv-yellow mb-3">Company</h5>
-                    <ul class="space-y-2 text-sm">
+                    <h5 class="text-base font-bold text-sv-yellow mb-2">Company</h5>
+                    <ul class="space-y-1 text-sm">
                         <li><a href="https://www.svtc.life/About%20Us.html" class="text-gray-300 hover:text-white transition">About Us</a></li>
                         <li><a href="file:///C:/Users/helpc/Documents/CONTACT.html" class="text-gray-300 hover:text-white transition">Contact</a></li>
                         <li><a href="https://www.svtc.life/Privacy%20policy.html" class="text-gray-300 hover:text-white transition">Terms & Privacy</a></li>
                     </ul>
                 </div>
 
-                <!-- Contact & Socials -->
                 <div>
-                    <h5 class="text-lg font-bold text-sv-yellow mb-3">Get In Touch</h5>
-                    <ul class="space-y-2 text-sm">
+                    <h5 class="text-base font-bold text-sv-yellow mb-2">Get In Touch</h5>
+                    <ul class="space-y-1 text-sm">
                         <li class="flex items-center">
-                            <i class="fas fa-phone-alt mr-3 text-sv-yellow"></i>
+                            <i class="fas fa-phone-alt mr-3 text-sv-yellow text-xs"></i>
                             <a href="tel:+918985170500" class="text-gray-300 hover:text-white transition">+91 8985170500</a>
                         </li>
                     </ul>
-                    <h5 class="text-lg font-bold text-sv-yellow mt-4 mb-3">Connect With Us</h5>
-                    <div class="flex space-x-4">
-                        <a href="https://www.facebook.com/share/1ZXXCLRGwh" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-sv-yellow transition text-xl">
+                    <h5 class="text-base font-bold text-sv-yellow mt-3 mb-2">Connect With Us</h5>
+                    <div class="flex space-x-3">
+                        <a href="https://www.facebook.com/share/1ZXXCLRGwh" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-sv-yellow transition text-lg">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=zreta93" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-sv-yellow transition text-xl">
+                        <a href="https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=zreta93" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-sv-yellow transition text-lg">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="httpst.me/srivedatc" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-sv-yellow transition text-xl">
+                        <a href="httpst.me/srivedatc" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-sv-yellow transition text-lg">
                             <i class="fab fa-telegram-plane"></i>
                         </a>
-                        <a href="http://wa.me/918985170500" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-sv-yellow transition text-xl">
+                        <a href="http://wa.me/918985170500" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-sv-yellow transition text-lg">
                             <i class="fab fa-whatsapp"></i>
                         </a>
                     </div>
                 </div>
             </div>
             
-            <!-- Copyright -->
-            <div class="border-t border-gray-700 mt-5 pt-5 text-center">
+            <div class="border-t border-gray-700 mt-4 pt-4 text-center">
                 <p class="text-gray-400 text-xs">
                     &copy; 2025 Sri Veda Talent Competition. All Rights Reserved.
                 </p>
