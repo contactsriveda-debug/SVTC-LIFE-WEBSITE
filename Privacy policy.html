@@ -40,42 +40,7 @@
         .bg-sv-yellow { color: var(--sv-yellow); }
         .text-sv-yellow { color: var(--sv-yellow); }
         
-        /* New Nav Button Styles (from user's template) */
-        .nav-button {
-            display: flex;
-            align-items: center;
-            padding: 0.5rem 1rem;
-            color: var(--sv-blue);
-            background-color: white;
-            border: 2px solid var(--sv-orange);
-            border-radius: 9999px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            margin: 3px 0;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .nav-button:hover {
-            color: white;
-            background-color: var(--sv-orange);
-            border-color: var(--sv-blue);
-            transform: scale(1.05);
-            box-shadow: 0 6px 15px rgba(255, 140, 0, 0.6);
-        }
-        
-        /* Dynamic Menu Button Primary Style */
-        .menu-button-primary {
-            background-color: var(--sv-orange) !important;
-            color: white !important;
-            border-color: var(--sv-yellow) !important; 
-        }
-        .menu-button-primary:hover {
-            background-color: white !important;
-            color: var(--sv-orange) !important;
-            border-color: var(--sv-orange) !important; 
-        }
+        /* --- REMOVED unused .nav-button and .menu-button-primary styles --- */
 
         /* Course Button Styles (used in dynamic menu) */
         .course-button {
@@ -155,6 +120,29 @@
             position: relative;
             z-index: 10;
         }
+
+        /* Custom style for the prominent menu button in the header - RE-DEFINED to match latest user image */
+        .header-menu-button {
+            /* White background, Orange text, Orange border */
+            background-color: white !important; 
+            color: var(--sv-orange) !important;
+            font-weight: 900;
+            
+            padding: 0.6rem 1.25rem; 
+            font-size: 1rem; /* base size */
+            
+            border-width: 4px;
+            border-color: var(--sv-orange) !important;
+            box-shadow: 0 6px 12px rgba(255, 140, 0, 0.7);
+            
+            /* Bent corners */
+            border-radius: 1.5rem; /* Rounded-xl equivalent */
+        }
+        .header-menu-button:hover {
+            /* Hover state */
+            background-color: var(--sv-yellow) !important; 
+            color: var(--sv-blue) !important; 
+        }
         
         /* --- STYLES FOR PRIVACY POLICY CONTENT (KEPT FROM OLD FILE) --- */
         .policy-card {
@@ -203,11 +191,12 @@
 </head>
 <body class="bg-gray-50">
 
-    <!-- NEW HEADER SECTION (from user's template) -->
+    <!-- UPDATED HEADER SECTION -->
     <header class="bg-sv-blue shadow-lg header-bg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 header-content">
             <div class="flex flex-col md:flex-row items-center justify-between py-3 md:py-2 space-y-3 md:space-y-0 md:h-24">
                 
+                <!-- Left Group: Logo and Title/Slogan -->
                 <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4">
                     
                     <img src="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg" 
@@ -223,49 +212,29 @@
                         <div class="w-2/3 max-w-xs h-0.5 bg-sv-yellow my-0.5 mx-auto sm:mx-0"></div>
 
                         <p class="text-sm sm:text-base font-semibold text-sv-yellow mt-0.5">
-                            "BRIGHT CHILD LIFE"
+                            "Privacy Policy Corner"
                         </p>
                     </div>
                 </div>
 
+                <!-- Right Group: Icons + MENU Button -->
                 <div class="flex items-center space-x-3 sm:space-x-6 lg:space-x-8">
+                    <!-- Icons -->
                     <i class="fas fa-book text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Our Courses"></i>
                     <i class="fas fa-pencil-ruler text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Practice Tests"></i>
                     <i class="fas fa-graduation-cap text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Study Material"></i>
                     <i class="fas fa-lightbulb text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Insights & Guidance"></i>
+                    
+                    <!-- MENU Button: Now placed inside the header, after the icons -->
+                    <button id="menuToggle" class="header-menu-button flex items-center justify-center flex-shrink-0">
+                        MENU <i class="fas fa-bars ml-1"></i>
+                    </button>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- NEW NAVIGATION BAR (from user's template) -->
-    <nav class="bg-sv-blue shadow-lg border-t-2 border-sv-yellow">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-wrap justify-center sm:justify-between py-1 space-x-1 sm:space-x-3">
-                
-                <!-- MENU Button: Toggles Dynamic Menu -->
-                <button id="menuToggle" class="nav-button menu-button-primary">
-                    <i class="fas fa-bars mr-2"></i> MENU
-                </button>
-                
-                <!-- DASHBOARD Link (Primary Nav) -->
-                <a href="https://www.svtc.life/Dashboard.html" class="nav-button" target="_blank">
-                    <i class="fas fa-tachometer-alt mr-2"></i> DASHBOARD
-                </a>
-                
-                <!-- JOIN NOW Link (Primary Nav) -->
-                <a href="https://www.svtc.life/Join%20now.html" class="nav-button" target="_blank">
-                    <i class="fas fa-user-plus mr-2"></i> JOIN NOW
-                </a>
-                
-                <!-- PRICING Link (Primary Nav) -->
-                <a href="https://www.svtc.life/Pricing.html" class="nav-button" target="_blank">
-                    <i class="fas fa-tags mr-2"></i> PRICING
-                </a>
-                
-            </div>
-        </div>
-    </nav>
+    <!-- REMOVED: THE ENTIRE <nav> SECTION IS REMOVED AS REQUESTED -->
     
     <!-- Dynamic Horizontal Menu Section (Initially hidden) -->
     <div id="dynamicMenu" class="hidden bg-sv-blue/95 border-b-4 border-sv-yellow transition-all duration-300">
@@ -277,17 +246,17 @@
                     <i class="fas fa-home mr-1"></i> Home
                 </a>
 
-                <!-- 2. DASHBOARD Link -->
+                <!-- 2. DASHBOARD Link (Retained in Dynamic Menu) -->
                 <a href="https://www.svtc.life/Dashboard.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
                     <i class="fas fa-tachometer-alt mr-1"></i> DASHBOARD
                 </a>
                 
-                <!-- 3. Join Now Link -->
+                <!-- 3. Join Now Link (Retained in Dynamic Menu) -->
                 <a href="https://www.svtc.life/Join%20now.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
                     <i class="fas fa-user-plus mr-1"></i> Join Now
                 </a>
                 
-                <!-- 4. Pricing Link -->
+                <!-- 4. Pricing Link (Retained in Dynamic Menu) -->
                 <a href="https://www.svtc.life/Pricing.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
                     <i class="fas fa-tags mr-1"></i> Pricing
                 </a>
@@ -562,7 +531,7 @@
             
             <div class="border-t border-gray-700 mt-4 pt-4 text-center">
                 <p class="text-gray-400 text-xs">
-                    &copy; 2025 Sri Veda Talent Competition. All Rights Reserved.
+                    &copy; 2025 Sri Veda Talent Competition. All Rights Reserved. | Designed for clarity and transparency.
                 </p>
             </div>
         </div>
