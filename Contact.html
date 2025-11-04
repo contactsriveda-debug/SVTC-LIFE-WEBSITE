@@ -38,6 +38,7 @@
         .bg-sv-yellow { color: var(--sv-yellow); }
         .text-sv-yellow { color: var(--sv-yellow); }
         
+        /* The lower navigation button styles are no longer strictly needed but kept for the expanded menu */
         .nav-button {
             display: flex;
             align-items: center;
@@ -61,16 +62,37 @@
             transform: scale(1.05);
             box-shadow: 0 6px 15px rgba(255, 140, 0, 0.6);
         }
-        .menu-button-primary {
-            background-color: var(--sv-orange) !important;
-            color: white !important;
-            border-color: var(--sv-yellow) !important; 
-        }
-        .menu-button-primary:hover {
-            background-color: white !important;
+        /* Custom style for the primary menu button in the header */
+        .header-menu-button {
+            /* White background, Orange text, Orange border - as requested */
+            background-color: white !important; 
             color: var(--sv-orange) !important;
-            border-color: var(--sv-orange) !important; 
+            font-weight: 900;
+            
+            padding: 0.6rem 1.25rem; 
+            font-size: 1rem;
+            
+            border-width: 4px;
+            border-color: var(--sv-orange) !important;
+            box-shadow: 0 6px 12px rgba(255, 140, 0, 0.7);
+            
+            /* Bent corners */
+            border-radius: 1.5rem; /* Rounded-xl equivalent */
+            
+            /* Flex properties for alignment */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
         }
+        .header-menu-button:hover {
+            /* Hover state */
+            background-color: var(--sv-yellow) !important; 
+            color: var(--sv-blue) !important; 
+            transform: scale(1.05);
+        }
+
         .header-bg {
             position: relative;
             overflow: hidden;
@@ -182,64 +204,54 @@
                         </h1>
                         <div class="w-2/3 max-w-xs h-0.5 bg-sv-yellow my-0.5 mx-auto sm:mx-0"></div>
                         <p class="text-sm sm:text-base font-semibold text-sv-yellow mt-0.5">
-                            "BRIGHT CHILD LIFE"
+                            "Student Support Corner"
                         </p>
                     </div>
                 </div>
+                <!-- Right Group: Icons + MENU Button -->
                 <div class="flex items-center space-x-3 sm:space-x-6 lg:space-x-8">
+                    <!-- Icons -->
                     <i class="fas fa-book text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Our Courses"></i>
                     <i class="fas fa-pencil-ruler text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Practice Tests"></i>
                     <i class="fas fa-graduation-cap text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Study Material"></i>
                     <i class="fas fa-lightbulb text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Insights & Guidance"></i>
+
+                    <!-- MENU Button moved from the lower nav bar -->
+                    <button id="menuToggle" class="header-menu-button">
+                        MENU <i class="fas fa-bars ml-1"></i>
+                    </button>
                 </div>
             </div>
         </div>
     </header>
 
-    <nav class="bg-sv-blue shadow-lg border-t-2 border-sv-yellow">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-wrap justify-center sm:justify-between py-1 space-x-1 sm:space-x-3">
-                <button id="menuToggle" class="nav-button menu-button-primary">
-                    <i class="fas fa-bars mr-2"></i> MENU
-                </button>
-                <a href="https://www.svtc.life/Dashboard.html" class="nav-button" target="_blank">
-                    <i class="fas fa-tachometer-alt mr-2"></i> DASHBOARD
-                </a>
-                <a href="https://www.svtc.life/Join%20now.html" class="nav-button" target="_blank">
-                    <i class="fas fa-user-plus mr-2"></i> JOIN NOW
-                </a>
-                <a href="https://www.svtc.life/Pricing.html" class="nav-button" target="_blank">
-                    <i class="fas fa-tags mr-2"></i> PRICING
-                </a>
-            </div>
-        </div>
-    </nav>
+    <!-- REMOVED THE <nav> SECTION HERE -->
     
     <div id="dynamicMenu" class="hidden bg-sv-blue/95 border-b-4 border-sv-yellow transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
             <div class="flex flex-wrap justify-center gap-4">
-                <a href="https://www.svtc.life" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                <a href="https://www.svtc.life" class="nav-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
                     <i class="fas fa-home mr-1"></i> Home
                 </a>
-                <a href="https://www.svtc.life/Dashboard.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                <a href="https://www.svtc.life/Dashboard.html" class="nav-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
                     <i class="fas fa-tachometer-alt mr-1"></i> DASHBOARD
                 </a>
-                <a href="https://www.svtc.life/Join%20now.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                <a href="https://www.svtc.life/Join%20now.html" class="nav-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
                     <i class="fas fa-user-plus mr-1"></i> Join Now
                 </a>
-                <a href="https://www.svtc.life/Pricing.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                <a href="https://www.svtc.life/Pricing.html" class="nav-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
                     <i class="fas fa-tags mr-1"></i> Pricing
                 </a>
-                <a href="https://www.svtc.life/Contact.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                <a href="https://www.svtc.life/Contact.html" class="nav-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
                     <i class="fas fa-envelope mr-1"></i> Contact
                 </a>
-                <a href="https://www.svtc.life/connect.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                <a href="https://www.svtc.life/connect.html" class="nav-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
                     <i class="fas fa-headset mr-1"></i> Connect
                 </a>
-                <a href="https://www.svtc.life/About%20Us.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                <a href="https://www.svtc.life/About%20Us.html" class="nav-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
                     <i class="fas fa-info-circle mr-1"></i> About Us
                 </a>
-                <a href="https://www.svtc.life/Privacy%20policy.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                <a href="https://www.svtc.life/Privacy%20policy.html" class="nav-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
                     <i class="fas fa-file-contract mr-1"></i> Terms & Privacy
                 </a>
             </div>
