@@ -264,45 +264,45 @@
                     </div>
                 </div>
 
-                <div class="flex items-center space-x-3 sm:space-x-6 lg:space-x-8">
-                    <i class="fas fa-book text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Our Courses"></i>
-                    <i class="fas fa-pencil-ruler text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Practice Tests"></i>
-                    <i class="fas fa-graduation-cap text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Study Material"></i>
-                    <i class="fas fa-lightbulb text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Insights & Guidance"></i>
+                <!-- RIGHT CORNER: RESTORED 4 ICONS + UPDATED MENU BUTTON -->
+                <div class="flex items-center space-x-4">
+                    
+                    <!-- 4 Icon Buttons (Restored) - Hidden on mobile (md:hidden) for cleaner look, shown on larger screens -->
+                    <div class="hidden md:flex items-center space-x-4 text-white text-sm">
+                        <!-- Our Courses -->
+                        <a href="javascript:void(0)" class="flex flex-col items-center hover:text-sv-yellow transition duration-150">
+                            <i class="fas fa-book-reader text-xl mb-0.5"></i>
+                            <span class="text-xs font-medium">Courses</span>
+                        </a>
+                        <!-- Practice Tests -->
+                        <a href="javascript:void(0)" class="flex flex-col items-center hover:text-sv-yellow transition duration-150">
+                            <i class="fas fa-clipboard-list text-xl mb-0.5"></i>
+                            <span class="text-xs font-medium">Tests</span>
+                        </a>
+                        <!-- Study Material -->
+                        <a href="javascript:void(0)" class="flex flex-col items-center hover:text-sv-yellow transition duration-150">
+                            <i class="fas fa-lightbulb text-xl mb-0.5"></i>
+                            <span class="text-xs font-medium">Material</span>
+                        </a>
+                        <!-- Insights -->
+                        <a href="javascript:void(0)" class="flex flex-col items-center hover:text-sv-yellow transition duration-150">
+                            <i class="fas fa-chart-line text-xl mb-0.5"></i>
+                            <span class="text-xs font-medium">Insights</span>
+                        </a>
+                    </div>
+                    
+                    <!-- MENU Button (Updated: Text then Icon) -->
+                    <button id="menuToggle" class="nav-button menu-button-primary">
+                        MENU <i class="fas fa-bars ml-2"></i>
+                    </button>
                 </div>
             </div>
         </div>
     </header>
 
-    <nav class="bg-sv-blue shadow-lg border-t-2 border-sv-yellow">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-wrap justify-center sm:justify-between py-1 space-x-1 sm:space-x-3">
-                
-                <!-- MENU Button: Toggles Dynamic Menu -->
-                <button id="menuToggle" class="nav-button menu-button-primary">
-                    <i class="fas fa-bars mr-2"></i> MENU
-                </button>
-                
-                <!-- DASHBOARD Link (Primary Nav) -->
-                <a href="https://www.svtc.life/Dashboard.html" class="nav-button" target="_blank">
-                    <i class="fas fa-tachometer-alt mr-2"></i> DASHBOARD
-                </a>
-                
-                <!-- JOIN NOW Link (Primary Nav) -->
-                <a href="https://www.svtc.life/Join%20now.html" class="nav-button" target="_blank">
-                    <i class="fas fa-user-plus mr-2"></i> JOIN NOW
-                </a>
-                
-                <!-- PRICING Link (Primary Nav) -->
-                <a href="https://www.svtc.life/Pricing.html" class="nav-button" target="_blank">
-                    <i class="fas fa-tags mr-2"></i> PRICING
-                </a>
-                
-            </div>
-        </div>
-    </nav>
+    <!-- REMOVED THE <nav> SECTION HERE, WHICH CONTAINED DASHBOARD, JOIN NOW, AND PRICING BUTTONS. -->
     
-    <!-- Dynamic Horizontal Menu Section (Initially hidden) -->
+    <!-- Dynamic Horizontal Menu Section (Functionality remains the same) -->
     <div id="dynamicMenu" class="hidden bg-sv-blue/95 border-b-4 border-sv-yellow transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
             <div class="flex flex-wrap justify-center gap-2">
@@ -352,7 +352,7 @@
     
     <div class="scrolling-text-container bg-yellow-200 shadow-inner py-1">
         <div class="scrolling-text text-sv-blue font-bold text-base">
-            Announcement : New tests and general awareness quizzes are waiting for you — go take them now and boost your knowledge! ??
+            Announcement : New tests and general awareness quizzes are waiting for you — go take them now and boost your knowledge!
         </div>
     </div>
     
