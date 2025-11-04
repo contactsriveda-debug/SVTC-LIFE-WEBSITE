@@ -16,17 +16,20 @@
     <link rel="icon" type="image/jpeg" href="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg">
 
     <style>
+        /* Custom Colors */
         :root {
-            --sv-blue: #00008B;
-            --sv-orange: #FF8C00;
-            --sv-yellow: #FFD700;
-            --sv-maroon: #800000;
+            --sv-blue: #00008B; /* Dark Blue */
+            --sv-orange: #FF8C00; /* Dark Orange */
+            --sv-yellow: #FFD700; /* Gold Yellow */
+            --sv-maroon: #800000; /* Maroon */
+            --sv-gray-light: #f0f0f0; /* Light Gray for buttons */
         }
         
         body {
             font-family: 'Roboto Slab', serif;
         }
         
+        /* Tailwind Custom Classes */
         .bg-sv-blue { background-color: var(--sv-blue); }
         .text-sv-blue { color: var(--sv-blue); }
         .bg-sv-orange { background-color: var(--sv-orange); }
@@ -58,11 +61,12 @@
             }
         }
 
+        /* Standard Course Button Style */
         .course-button {
             display: inline-block;
             padding: 0.4rem 0.8rem;
             margin: 0.2rem;
-            background-color: #f0f0f0;
+            background-color: var(--sv-gray-light);
             border: 1px solid #ddd;
             border-radius: 9999px;
             font-size: 0.8rem;
@@ -81,6 +85,7 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
         
+        /* Main CTA Button Styles */
         .cta-button {
             display: inline-block;
             background-color: var(--sv-orange);
@@ -141,7 +146,77 @@
             box-shadow: 0 10px 20px rgba(0, 0, 139, 0.8);
         }
 
+        /* --- STYLES FOR THE HEADER (Corner Design) --- */
+        .header-bg {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Left Corner PNG Image Design */
+        .header-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 120px;
+            height: 120px;
+            background-image: url('https://contactsriveda-debug.github.io/images/header%20coner.png');
+            background-size: 100% 100%; /* Cover the entire 120x120 area */
+            opacity: 1; /* Keep opacity at 1 for clean PNG display */
+            background-repeat: no-repeat;
+            transform: translate(-30%, -30%); 
+            z-index: 1;
+        }
+        
+        /* Right Corner PNG Image Design (Mirrored for Symmetry) */
+        .header-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 120px;
+            height: 120px;
+            background-image: url('https://contactsriveda-debug.github.io/images/header%20coner.png');
+            background-size: 100% 100%; 
+            opacity: 1; 
+            background-repeat: no-repeat;
+            /* Translate positive X (right), negative Y (up), and flip horizontally (scaleX(-1)) to mirror the image */
+            transform: translate(30%, -30%) scaleX(-1); 
+            z-index: 1;
+        }
+        
+        /* Ensure content is above the corner designs */
+        .header-content {
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* --- STYLES FOR THE MENU BUTTON (White/Orange Style) --- */
+        .header-menu-button {
+            background-color: white !important; /* White background */
+            color: var(--sv-orange) !important; /* Orange text */
+            font-weight: 900;
+            padding: 0.6rem 1.25rem; 
+            font-size: 1rem;
+            border-width: 4px;
+            border-color: var(--sv-orange) !important;
+            box-shadow: 0 6px 12px rgba(255, 140, 0, 0.7);
+            border-radius: 1.5rem; /* Bent corners */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+        .header-menu-button:hover {
+            background-color: var(--sv-yellow) !important; /* Yellow background on hover */
+            color: var(--sv-blue) !important; /* Blue text on hover */
+            transform: scale(1.05);
+        }
+
+        /* General Navigation Button Styles (used in the dynamic menu) */
         .nav-button {
+            /* Kept for consistency, though currently used only in the dynamic menu */
             display: flex;
             align-items: center;
             padding: 0.5rem 1rem;
@@ -165,20 +240,6 @@
             box-shadow: 0 6px 15px rgba(255, 140, 0, 0.6);
         }
         
-        /* New custom style for the Menu button to ensure orange background and white text visibility */
-        .menu-button-primary {
-            /* Force orange background and white text */
-            background-color: var(--sv-orange) !important;
-            color: white !important;
-            border-color: var(--sv-yellow) !important; 
-        }
-        .menu-button-primary:hover {
-            /* Hover state remains the same (white background, orange text) */
-            background-color: white !important;
-            color: var(--sv-orange) !important;
-            border-color: var(--sv-orange) !important; 
-        }
-
         @media (max-width: 640px) {
             .nav-button {
                 flex-grow: 1;
@@ -189,57 +250,11 @@
             }
         }
         
-        /* Custom Header Corner Design */
-        .header-bg {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        /* Left Corner PNG Image Design */
-        .header-bg::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 120px;
-            height: 120px;
-            /* Updated to use the user's PNG URL */
-            background-image: url('https://contactsriveda-debug.github.io/images/header%20coner.png');
-            background-size: 100% 100%; /* Cover the entire 120x120 area */
-            opacity: 1; /* Keep opacity at 1 for clean PNG display */
-            background-repeat: no-repeat;
-            /* Adjust position to show the corner piece clearly, assuming the PNG is designed for a corner. */
-            transform: translate(-30%, -30%); 
-            z-index: 1;
-        }
-        
-        /* Right Corner PNG Image Design (Mirrored for Symmetry) */
-        .header-bg::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 120px;
-            height: 120px;
-            /* Updated to use the user's PNG URL */
-            background-image: url('https://contactsriveda-debug.github.io/images/header%20coner.png');
-            background-size: 100% 100%; 
-            opacity: 1; 
-            background-repeat: no-repeat;
-            /* Translate positive X (right), negative Y (up), and flip horizontally (scaleX(-1)) to mirror the image */
-            transform: translate(30%, -30%) scaleX(-1); 
-            z-index: 1;
-        }
-        
-        /* Ensure content is above the corner designs */
-        .header-content {
-            position: relative;
-            z-index: 10;
-        }
     </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-gray-50 antialiased">
 
+    <!-- HEADER SECTION - Re-inserted as requested -->
     <header class="bg-sv-blue shadow-lg header-bg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 header-content">
             <div class="flex flex-col md:flex-row items-center justify-between py-3 md:py-2 space-y-3 md:space-y-0 md:h-24">
@@ -264,45 +279,24 @@
                     </div>
                 </div>
 
-                <!-- RIGHT CORNER: ICONS AND MENU BUTTON -->
-                <div class="flex items-center space-x-4">
+                <!-- Right Group: Icons + MENU Button -->
+                <div class="flex items-center space-x-3 sm:space-x-6 lg:space-x-8">
+                    <!-- Icon navigation in Header -->
+                    <i class="fas fa-book text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Our Courses"></i>
+                    <i class="fas fa-pencil-ruler text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Practice Tests"></i>
+                    <i class="fas fa-graduation-cap text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Study Material"></i>
+                    <i class="fas fa-lightbulb text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Insights & Guidance"></i>
                     
-                    <!-- 4 Icon Buttons - The classes are updated to ensure they are ALWAYS visible (flex) on all screen sizes, and the spacing is reduced on mobile for better fit (space-x-2). -->
-                    <div class="flex items-center space-x-2 text-white text-sm">
-                        <!-- Our Courses -->
-                        <a href="javascript:void(0)" class="flex flex-col items-center hover:text-sv-yellow transition duration-150">
-                            <i class="fas fa-book-reader text-xl mb-0.5"></i>
-                            <span class="text-xs font-medium">Courses</span>
-                        </a>
-                        <!-- Practice Tests -->
-                        <a href="javascript:void(0)" class="flex flex-col items-center hover:text-sv-yellow transition duration-150">
-                            <i class="fas fa-clipboard-list text-xl mb-0.5"></i>
-                            <span class="text-xs font-medium">Tests</span>
-                        </a>
-                        <!-- Study Material -->
-                        <a href="javascript:void(0)" class="flex flex-col items-center hover:text-sv-yellow transition duration-150">
-                            <i class="fas fa-lightbulb text-xl mb-0.5"></i>
-                            <span class="text-xs font-medium">Material</span>
-                        </a>
-                        <!-- Insights -->
-                        <a href="javascript:void(0)" class="flex flex-col items-center hover:text-sv-yellow transition duration-150">
-                            <i class="fas fa-chart-line text-xl mb-0.5"></i>
-                            <span class="text-xs font-medium">Insights</span>
-                        </a>
-                    </div>
-                    
-                    <!-- MENU Button (Updated: Text then Icon) -->
-                    <button id="menuToggle" class="nav-button menu-button-primary">
-                        MENU <i class="fas fa-bars ml-2"></i>
+                    <!-- MENU Button is now here -->
+                    <button id="menuToggle" class="header-menu-button">
+                        MENU <i class="fas fa-bars ml-1"></i>
                     </button>
                 </div>
             </div>
         </div>
     </header>
-
-    <!-- REMOVED THE <nav> SECTION HERE, WHICH CONTAINED DASHBOARD, JOIN NOW, AND PRICING BUTTONS. -->
     
-    <!-- Dynamic Horizontal Menu Section (Functionality remains the same) -->
+    <!-- Dynamic Horizontal Menu Section (This menu is toggled by the menuToggle button in the header) -->
     <div id="dynamicMenu" class="hidden bg-sv-blue/95 border-b-4 border-sv-yellow transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
             <div class="flex flex-wrap justify-center gap-2">
