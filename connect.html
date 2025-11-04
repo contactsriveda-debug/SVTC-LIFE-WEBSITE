@@ -16,17 +16,20 @@
     <link rel="icon" type="image/jpeg" href="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg">
 
     <style>
+        /* New Custom Colors from user's template */
         :root {
-            --sv-blue: #00008B;
-            --sv-orange: #FF8C00;
-            --sv-yellow: #FFD700;
-            --sv-maroon: #800000;
+            --sv-blue: #00008B; /* Dark Blue */
+            --sv-orange: #FF8C00; /* Dark Orange */
+            --sv-yellow: #FFD700; /* Gold Yellow */
+            --sv-maroon: #800000; /* Maroon */
+            --sv-gray-light: #f0f0f0; /* Light Gray for buttons */
         }
         
         body {
             font-family: 'Roboto Slab', serif;
         }
         
+        /* New Tailwind Custom Classes */
         .bg-sv-blue { background-color: var(--sv-blue); }
         .text-sv-blue { color: var(--sv-blue); }
         .bg-sv-orange { background-color: var(--sv-orange); }
@@ -38,8 +41,7 @@
             box-shadow: 0 10px 15px -3px var(--sv-yellow), 0 4px 6px -4px var(--sv-yellow);
         }
 
-        /* REMOVED SCROLLING TEXT CONTAINER STYLES */
-
+        /* Course Button Style */
         .course-button {
             display: inline-block;
             padding: 0.4rem 0.8rem;
@@ -63,6 +65,7 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
         
+        /* CTA Button Styles */
         .cta-button {
             display: inline-block;
             background-color: var(--sv-orange);
@@ -123,7 +126,7 @@
             box-shadow: 0 10px 20px rgba(0, 0, 139, 0.8);
         }
 
-        /* Nav button style is kept but the old primary nav is removed */
+        /* Nav button style is kept but only used in the dynamic menu */
         .nav-button {
             display: flex;
             align-items: center;
@@ -157,8 +160,8 @@
                 padding: 0.4rem 0.8rem;
             }
         }
-        
-        /* Custom Header Corner Design (from user's provided style) */
+
+        /* Custom Header Corner Design */
         .header-bg {
             position: relative;
             overflow: hidden;
@@ -173,8 +176,8 @@
             width: 120px;
             height: 120px;
             background-image: url('https://contactsriveda-debug.github.io/images/header%20coner.png');
-            background-size: 100% 100%; 
-            opacity: 1; 
+            background-size: 100% 100%;
+            opacity: 1;
             background-repeat: no-repeat;
             transform: translate(-30%, -30%); 
             z-index: 1;
@@ -201,76 +204,39 @@
             position: relative;
             z-index: 10;
         }
-        
-        /* Custom style for the prominent menu button in the header - UPDATED TO MATCH NEW IMAGE STYLE */
+
+        /* --- STYLES FOR THE MENU BUTTON (White/Orange Style) --- */
         .header-menu-button {
-            /* NEW STYLE: White background, Orange text, Orange border */
-            background-color: white !important; /* Changed from orange */
-            color: var(--sv-orange) !important; /* Changed from blue */
+            background-color: white !important; 
+            color: var(--sv-orange) !important;
             font-weight: 900;
-            
             padding: 0.6rem 1.25rem; 
-            font-size: 1rem; /* base size */
-            
+            font-size: 1rem;
             border-width: 4px;
-            border-color: var(--sv-orange) !important; /* Changed from yellow */
+            border-color: var(--sv-orange) !important;
             box-shadow: 0 6px 12px rgba(255, 140, 0, 0.7);
-            
-            /* Bent corners */
-            border-radius: 1.5rem; /* Rounded-xl equivalent */
+            border-radius: 1.5rem; /* Bent corners */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
         }
         .header-menu-button:hover {
-            /* Hover state remains consistent with the new style */
             background-color: var(--sv-yellow) !important; 
             color: var(--sv-blue) !important; 
-        }
-        
-        /* Specific styling for the icon labels to match the new image */
-        .icon-label {
-            font-size: 0.9rem; /* Slightly larger text for labels */
-            font-weight: 500; /* Medium weight */
-            margin-top: 0.25rem;
-            line-height: 1.2;
-        }
-
-        /* Adjust icon size and container space for mobile devices */
-        @media (max-width: 768px) {
-             .icon-group a {
-                padding-left: 0.25rem;
-                padding-right: 0.25rem;
-            }
-            /* DECREASED ICON SIZE HERE */
-            .icon-group .text-2xl {
-                font-size: 1.5rem; /* from 1.75rem to 1.5rem on small screens */
-            }
-            .icon-group .sm\:text-3xl {
-                 font-size: 2rem; /* from 3xl to 2xl/32px on larger screens */
-            }
-            .header-menu-button {
-                padding: 0.5rem 1rem;
-                font-size: 0.9rem;
-            }
-            .header-content > div {
-                min-height: 80px; /* Adjust header height slightly */
-            }
-        }
-        
-        /* Add desktop icon size override (since we removed utility classes directly from HTML) */
-        .icon-group a i {
-            font-size: 2rem; /* Default size for large screens */
+            transform: scale(1.05);
         }
         
     </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-gray-50 antialiased">
 
-    <!-- UPDATED HEADER START -->
+    <!-- HEADER SECTION - Re-inserted as requested -->
     <header class="bg-sv-blue shadow-lg header-bg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 header-content">
-            <!-- Main Flex Container: Logo/Title (Left) vs. Icons/Menu (Right) -->
-            <div class="flex flex-col md:flex-row items-center justify-between py-3 md:py-2 space-y-3 md:space-y-0 min-h-[90px]">
+            <div class="flex flex-col md:flex-row items-center justify-between py-3 md:py-2 space-y-3 md:space-y-0 md:h-24">
                 
-                <!-- Left Group: Logo and Title/Slogan -->
                 <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4">
                     
                     <img src="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg" 
@@ -279,52 +245,29 @@
                             class="w-16 h-16 object-contain shadow-md rounded-full bg-white p-1 flex-shrink-0">
                     
                     <div class="text-center sm:text-left flex flex-col justify-center">
-                        <!-- Title: Made larger and bolder to match image -->
-                        <h1 class="text-2xl sm:text-3xl font-extrabold tracking-wider text-white">
+                        <h1 class="text-xl sm:text-2xl font-extrabold tracking-wider text-white">
                             SRI VEDA TALENT COMPETITION
                         </h1>
                         
                         <div class="w-2/3 max-w-xs h-0.5 bg-sv-yellow my-0.5 mx-auto sm:mx-0"></div>
 
-                        <!-- Slogan: Made slightly larger/bolder -->
-                        <p class="text-base sm:text-lg font-extrabold text-sv-yellow mt-0.5">
-                            "Employee - Career Corner"
+                        <p class="text-sm sm:text-base font-semibold text-sv-yellow mt-0.5">
+                            "BRIGHT CHILD LIFE"
                         </p>
                     </div>
                 </div>
 
                 <!-- Right Group: Icons + MENU Button -->
-                <div class="flex items-center space-x-3 sm:space-x-6"> 
+                <div class="flex items-center space-x-3 sm:space-x-6 lg:space-x-8">
+                    <!-- Icon navigation in Header -->
+                    <i class="fas fa-book text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Our Courses"></i>
+                    <i class="fas fa-pencil-ruler text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Practice Tests"></i>
+                    <i class="fas fa-graduation-cap text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Study Material"></i>
+                    <i class="fas fa-lightbulb text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Insights & Guidance"></i>
                     
-                    <!-- Icon Links Group (Updated: Closer spacing, larger labels) -->
-                    <div class="flex items-start sm:items-center space-x-3 text-white text-sm icon-group">
-                        
-                        <!-- Courses Icon -->
-                        <a href="javascript:void(0)" class="flex flex-col items-center hover:text-sv-yellow transition duration-150" title="Courses">
-                            <!-- Removed text-2xl and sm:text-3xl classes to use the new CSS block for sizing -->
-                            <i class="fas fa-book-reader"></i>
-                            <span class="icon-label">Courses</span>
-                        </a>
-                        <!-- Tests Icon -->
-                        <a href="javascript:void(0)" class="flex flex-col items-center hover:text-sv-yellow transition duration-150" title="Tests">
-                            <i class="fas fa-clipboard-list"></i>
-                            <span class="icon-label">Tests</span>
-                        </a>
-                        <!-- Material Icon -->
-                        <a href="javascript:void(0)" class="flex flex-col items-center hover:text-sv-yellow transition duration-150" title="Material">
-                            <i class="fas fa-lightbulb"></i>
-                            <span class="icon-label">Material</span>
-                        </a>
-                        <!-- Insights Icon -->
-                        <a href="javascript:void(0)" class="flex flex-col items-center hover:text-sv-yellow transition duration-150" title="Insights">
-                            <i class="fas fa-chart-line"></i>
-                            <span class="icon-label">Insights</span>
-                        </a>
-                    </div>
-                    
-                    <!-- MENU Button (Large, prominent, style defined in <style> block) -->
-                    <button id="menuToggle" class="header-menu-button flex items-center justify-center">
-                        MENU <i class="fas fa-bars ml-1 md:ml-2"></i>
+                    <!-- MENU Button is now here -->
+                    <button id="menuToggle" class="header-menu-button">
+                        MENU <i class="fas fa-bars ml-1"></i>
                     </button>
                 </div>
             </div>
@@ -378,7 +321,7 @@
             </div>
         </div>
     </div>
-    <!-- UPDATED HEADER END -->
+    <!-- END Dynamic Horizontal Menu Section -->
 
     <!-- RETAINED: EMPLOYEE LOGIN CORNER SECTION (Styling updated for new theme) -->
     <section class="py-8 mt-8 mb-8 bg-green-300/80 shadow-xl border-b-4 border-sv-orange">
@@ -541,7 +484,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Get Menu Elements (from user's previous code)
+            // Get Menu Elements 
             const menuToggle = document.getElementById('menuToggle');
             const dynamicMenu = document.getElementById('dynamicMenu');
 
@@ -559,7 +502,7 @@
                 modal.classList.add('hidden');
             }
 
-            // --- Menu Toggle Logic ---
+            // --- Menu Toggle Logic (Now working again as menuToggle button is restored) ---
             if (menuToggle && dynamicMenu) {
                 menuToggle.addEventListener('click', () => {
                     dynamicMenu.classList.toggle('hidden');
