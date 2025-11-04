@@ -325,12 +325,134 @@
     }
     .welcome { font-size:clamp(14px,2vw,20px) }
     .welcome .student-name { color:#b33030;font-weight:700 }
-    .stars-btn { display:flex;gap:6px }
-    .stars-btn .star { width:clamp(14px,2vw,22px);height:clamp(14px,2vw,22px);clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%) }
-    .stars-btn .star:first-child { background:linear-gradient(135deg,var(--gold),#ffb84d);box-shadow:0 4px 10px rgba(255,184,0,0.22) }
-    .stars-btn .star:nth-child(2) { background:#e5e4e2 }
-    .stars-btn .star:nth-child(3) { background:linear-gradient(135deg,#e5e4e2,#b9f2ff) }
     
+    /* NEW STYLES FOR SUBSCRIPTION BADGE */
+    .subscription-badge {
+        padding: 5px 12px;
+        border-radius: 9999px;
+        font-size: 0.9rem;
+        font-weight: 900;
+        text-transform: uppercase;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        transition: all 0.3s;
+        cursor: help;
+        display: inline-flex;
+        align-items: center;
+        letter-spacing: 0.5px;
+    }
+    .badge-free { 
+        background-color: #e0e0e0; 
+        color: #555; 
+        border: 1px solid #ccc; 
+    }
+    .badge-silver { 
+        background-color: #c0c0c0; 
+        color: #333; 
+        border: 1px solid #a0a0a0; 
+        background: linear-gradient(135deg, #f0f0f0, #c0c0c0);
+    }
+    .badge-gold { 
+        background-color: #FFD700; 
+        color: #800000; 
+        border: 1px solid #ccac00; 
+        background: linear-gradient(135deg, #ffeb8d, #FFD700);
+    }
+    .badge-platinum { 
+        background-color: #e5e4e2; 
+        color: #00008B; 
+        border: 1px solid #b8b8b8; 
+        background: linear-gradient(45deg, #e0e0e0, #ffffff); 
+    }
+    /* END NEW STYLES FOR SUBSCRIPTION BADGE */
+
+    /* MODIFIED: NEW STYLISTIC SRM CONTACT SECTION */
+    .srm-contact-section {
+        max-width: var(--page-max-width);
+        margin: 20px auto;
+        padding: 20px 25px;
+        background: linear-gradient(135deg, #f0f8ff, #e6f7ff); /* Light blue/white gradient */
+        border-radius: 16px;
+        box-shadow: 0 8px 25px rgba(0, 0, 139, 0.15); /* Shadow with a hint of Veda Blue */
+        border: 3px solid var(--sv-blue); /* Prominent blue border */
+        /* text-align: center; */
+    }
+    .srm-contact-section h2 {
+        font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+        color: var(--sv-blue); /* Veda Blue text */
+        text-transform: uppercase;
+        font-weight: 900;
+        margin-bottom: 15px;
+        text-align: center; /* Keep heading centered */
+    }
+    .srm-info-card {
+        background: #fff;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        display: flex; 
+        flex-direction: column; /* Default stack on mobile */
+        gap: 15px;
+    }
+    @media (min-width: 768px) {
+        .srm-info-card {
+            flex-direction: row; /* Two columns on desktop */
+            align-items: center;
+        }
+    }
+    .srm-left-explanation {
+        flex: 1 1 50%;
+        padding-right: 15px;
+        font-size: 0.95rem;
+        color: #333;
+        line-height: 1.5;
+        border-bottom: 1px solid #ddd; /* Separator on mobile */
+        padding-bottom: 10px;
+    }
+    @media (min-width: 768px) {
+        .srm-left-explanation {
+            border-bottom: none;
+            border-right: 1px solid #ddd; /* Vertical separator on desktop */
+            padding-bottom: 0;
+            padding-right: 25px;
+        }
+    }
+    .srm-detail-group {
+        flex: 1 1 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding-left: 10px;
+    }
+
+    .srm-detail {
+        margin: 5px 0;
+        text-align: left;
+    }
+    .srm-label {
+        font-size: 0.9rem;
+        color: #555;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: 2px;
+        display: block;
+    }
+    .srm-value {
+        font-size: 1.2rem;
+        color: var(--maroon-2);
+        font-weight: 800;
+    }
+    .srm-value a {
+        color: var(--sv-orange);
+        text-decoration: none;
+        transition: color 0.2s;
+    }
+    .srm-value a:hover {
+        color: var(--old-maroon);
+    }
+    /* END NEW STYLISTIC SRM CONTACT SECTION */
+
+
     /* MODIFIED: NEW STYLISH TC SCORE PANEL (Minimal height, English) */
     .tc-panel-wrap { 
       max-width:var(--page-max-width);
@@ -730,8 +852,8 @@
         </div>
     </div>
 </header>
-<!-- MODIFIED: Navigation bar for wide spacing and enhanced button style (as per user's old code) -->
-<nav class="bg-sv-blue shadow-lg border-t-2 border-sv-yellow">
+<!-- MODIFIED: Added ID "mainNav" to control visibility after login -->
+<nav id="mainNav" class="bg-sv-blue shadow-lg border-t-2 border-sv-yellow">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Flex container with margins on the individual buttons to create requested gap -->
         <div class="flex flex-wrap justify-center sm:justify-between items-center py-2 sm:py-3 space-x-0">
@@ -817,11 +939,8 @@
 <div id="dashboardContent" class="hidden">
   <div class="welcome-stars">
     <div class="welcome">Welcome <span id="studentNameDisplay" class="student-name"></span>, <strong id="studentClassDisplay" style="color: var(--maroon-2);"></strong>...</div>
-    <div class="stars-btn" aria-hidden="true">
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-    </div>
+    <!-- REPLACED STARS WITH SUBSCRIPTION BADGE -->
+    <div id="subscriptionBadge" class="subscription-badge"></div>
   </div>
   
   <!-- MODIFIED: NEW STYLISH TC SCORE PANEL -->
@@ -916,6 +1035,33 @@
       </div>
     </div>
   </section>
+  <!-- START DEDICATED SRM CONTACT SECTION (MOVED UP) -->
+  <section class="srm-contact-section">
+    <h2>Dedicated Student Relations Manager (SRM)</h2>
+    <div class="srm-info-card">
+        <!-- LEFT SIDE: Explanation Text -->
+        <div class="srm-left-explanation">
+            <p class="font-bold text-sv-blue mb-2">Your Personal Success Guide:</p>
+            <p>We are committed to your success! Your Student Relations Manager (SRM) is your dedicated point of contact for all support, academic guidance, subscription queries, and any coordination needed to maximize your learning experience with Sri Veda TC. Reach out directly for personalized assistance.</p>
+        </div>
+        
+        <!-- RIGHT SIDE: Manager Details -->
+        <div class="srm-detail-group md:flex-row md:flex-wrap md:justify-end md:items-center flex-1">
+            <div class="srm-detail">
+                <span class="srm-label">Manager Name</span>
+                <span class="srm-value">Sri Veda Teja</span>
+            </div>
+            <div class="srm-detail">
+                <span class="srm-label">Direct Contact</span>
+                <span class="srm-value">
+                    <!-- Making the number clickable for mobile users -->
+                    <a href="tel:+918985170500">8985170500</a>
+                </span>
+            </div>
+        </div>
+    </div>
+  </section>
+  <!-- END DEDICATED SRM CONTACT SECTION -->
   <section class="subject-tests">
     <h2>Student General Test Corner</h2>
     <div class="test-list-container gap-3">
@@ -1188,7 +1334,7 @@
     const loadingSpinner = document.getElementById('loadingSpinner');
     const loggedOutIcons = document.getElementById('loggedOutIcons');
     const loggedInControls = document.getElementById('loggedInControls');
-    const primaryNavLinks = document.getElementById('primaryNavLinks');
+    const mainNav = document.getElementById('mainNav'); // Added reference for main nav
     const menuToggle = document.getElementById('menuToggle');
     const liveTime = document.getElementById('liveTime');
     const sessionTimer = document.getElementById('sessionTimer');
@@ -1209,6 +1355,7 @@
     const subStartDate = document.getElementById('subStartDate');
     const subExpDate = document.getElementById('subExpDate');
     const subDaysLeft = document.getElementById('subDaysLeft');
+    const subscriptionBadge = document.getElementById('subscriptionBadge'); // Added reference for the new badge
     let studentClass = 0;
     const urlMap = {
         'general_free_test': {
@@ -1501,6 +1648,7 @@
         loggedInControls.classList.add('hidden');
         /* primaryNavLinks is removed from HTML structure, no need to hide it */
         /* menuToggle is always visible in the new structure */
+        if (mainNav) mainNav.classList.remove('hidden'); // SHOW NAV ON LOGOUT
         liveTime.classList.add('hidden');
         sessionTimer.classList.add('hidden');
         logoutBtn.classList.add('hidden'); 
@@ -1549,6 +1697,7 @@
         loggedInControls.classList.remove('hidden');
         /* primaryNavLinks is removed from HTML structure, no need to hide it */
         /* menuToggle is always visible in the new structure */
+        if (mainNav) mainNav.classList.add('hidden'); // HIDE NAV ON LOGIN
         liveTime.classList.remove('hidden');
         sessionTimer.classList.remove('hidden');
         logoutBtn.classList.remove('hidden'); 
@@ -1583,6 +1732,34 @@
         if(statGeneralTests) statGeneralTests.textContent = generalTests; 
         if(statSubjectTests) statSubjectTests.textContent = subjectTests; 
         if(statSubscription) statSubscription.textContent = subscription; 
+        
+        // Logic to update the new Subscription Badge
+        let badgeClass = 'badge-free';
+        let displayText = subscription || 'Free Student';
+
+        if (subscription && typeof subscription === 'string') {
+            const plan = subscription.toLowerCase().trim();
+            if (plan.includes('silver')) {
+                badgeClass = 'badge-silver';
+                displayText = 'Silver Student';
+            } else if (plan.includes('gold')) {
+                badgeClass = 'badge-gold';
+                displayText = 'Gold Student';
+            } else if (plan.includes('platin')) {
+                badgeClass = 'badge-platinum';
+                displayText = 'Platinum Student';
+            } else {
+                displayText = 'Free Student';
+            }
+        } else {
+             displayText = 'Free Student';
+        }
+        
+        // Remove existing classes, add new ones, and set text
+        subscriptionBadge.className = 'subscription-badge'; 
+        subscriptionBadge.classList.add(badgeClass);
+        subscriptionBadge.textContent = displayText;
+
         setupSubjectButtons();
         animateTCRing();
         loginScreen.classList.add('hidden');
