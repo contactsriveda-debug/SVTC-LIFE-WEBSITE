@@ -1,93 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Updated title to reflect the content and the new overall template title -->
     <title>Sri Veda Talent Competition - Privacy Policy</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Roboto Slab Font (from user's template) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700;900&display=swap" rel="stylesheet">
     
-    <!-- FAVICON UPDATE: Using the new circle logo -->
+    <!-- Font Awesome Icons (from user's template) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Favicon -->
     <link rel="icon" type="image/jpeg" href="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg">
 
     <style>
-        body { font-family: 'Roboto Slab', serif; }
-        h1,h2,h3,h4,h5,h6 { font-family: 'Roboto Slab', serif; }
-
-        /* NEW: Header logo style */
-        .header-logo {
-            width: 60px;
-            height: 60px;
-            object-fit: contain;
-            background-color: white;
-            padding: 5px;
-            border-radius: 50%;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Custom Colors */
+        /* Custom Colors from user's template */
         :root {
-            --sv-blue: #111a4e; /* Deep Dark Blue for Nav */
-            --sv-orange: #FF8C00; /* Dark Orange */
-            --sv-pink: #D946EF; /* Pinkish-Purple for header gradient */
-            --sv-red: #DC2626; /* Red for header gradient */
-            --sv-indigo: #4F46E5; /* Indigo for header gradient */
-        }
-
-        /* Header specific styles to match image (Gradient) */
-        .header-bg {
-             background: linear-gradient(120deg, var(--sv-indigo) 0%, var(--sv-pink) 50%, var(--sv-red) 100%);
-             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            --sv-blue: #00008B; /* New Dark Blue */
+            --sv-orange: #FF8C00; /* Orange */
+            --sv-yellow: #FFD700; /* Gold Yellow */
+            --sv-maroon: #800000; /* Maroon */
         }
         
-        /* Styles for the Navigation Bar based on the user's image */
-        .top-nav-bar {
-            background-color: var(--sv-blue); /* Dark Blue background */
-            padding: 0.8rem 0; 
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+        body, h1, h2, h3, h4, h5, h6 {
+            font-family: 'Roboto Slab', serif;
         }
-
-        /* Navigation Button Styling - Matches the requested boxed look (Smallest size) */
+        
+        /* Utility Classes (from user's template) */
+        .bg-sv-blue { background-color: var(--sv-blue); }
+        .text-sv-blue { color: var(--sv-blue); }
+        .bg-sv-orange { background-color: var(--sv-orange); }
+        .text-sv-orange { color: var(--sv-orange); }
+        .bg-sv-yellow { color: var(--sv-yellow); }
+        .text-sv-yellow { color: var(--sv-yellow); }
+        
+        /* New Nav Button Styles (from user's template) */
         .nav-button {
             display: flex;
             align-items: center;
-            padding: 0.3rem 1rem; /* Smallest size padding */
-            color: var(--sv-blue); /* Dark Blue text */
-            background-color: white; /* White background box */
-            border: 2px solid var(--sv-orange); /* Orange border */
-            border-radius: 9999px; 
-            font-size: 0.75rem; /* Smallest font size */
+            padding: 0.5rem 1rem;
+            color: var(--sv-blue);
+            background-color: white;
+            border: 2px solid var(--sv-orange);
+            border-radius: 9999px;
+            font-size: 0.9rem;
             font-weight: 700;
             text-transform: uppercase;
             text-decoration: none;
-            transition: all 0.2s ease-in-out;
-            margin: 4px;
-            /* Match the box-shadow style from the previous version for the "boxed" look */
-            box-shadow: 0 0 0 2px var(--sv-orange), 0 0 0 5px white, 0 0 0 7px var(--sv-orange); 
-            flex-shrink: 0;
+            transition: all 0.3s ease;
+            margin: 3px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-
         .nav-button:hover {
-            color: var(--sv-blue); /* Keep text dark */
-            background-color: #f0f0f0; /* Slight off-white on hover */
+            color: white;
+            background-color: var(--sv-orange);
+            border-color: var(--sv-blue);
             transform: scale(1.05);
-            /* Keep the box-shadow structure but change the inner color for visual feedback */
-            box-shadow: 0 0 0 2px var(--sv-orange), 0 0 0 5px #f0f0f0, 0 0 0 7px var(--sv-orange);
+            box-shadow: 0 6px 15px rgba(255, 140, 0, 0.6);
         }
         
-        /* Mobile adjustment for navigation buttons */
+        /* Dynamic Menu Button Primary Style */
+        .menu-button-primary {
+            background-color: var(--sv-orange) !important;
+            color: white !important;
+            border-color: var(--sv-yellow) !important; 
+        }
+        .menu-button-primary:hover {
+            background-color: white !important;
+            color: var(--sv-orange) !important;
+            border-color: var(--sv-orange) !important; 
+        }
+
+        /* Course Button Styles (used in dynamic menu) */
+        .course-button {
+            display: inline-block;
+            padding: 0.4rem 0.8rem;
+            margin: 0.2rem;
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #333;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .course-button:hover {
+            background-color: var(--sv-orange);
+            color: white;
+            border-color: var(--sv-orange);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        /* Responsive Nav Button Adjustments */
         @media (max-width: 640px) {
             .nav-button {
-                flex-grow: 1; 
+                flex-grow: 1;
                 justify-content: center;
-                font-size: 0.7rem; 
-                padding: 0.3rem 0.6rem; 
+                margin: 4px 2px;
+                font-size: 0.8rem;
+                padding: 0.4rem 0.8rem;
             }
         }
         
-        /* --- STYLES FOR PRIVACY POLICY CONTENT --- */
+        /* Custom Header Corner Design (from user's template) */
+        .header-bg {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Left Corner PNG Image Design */
+        .header-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 120px;
+            height: 120px;
+            background-image: url('https://contactsriveda-debug.github.io/images/header%20coner.png');
+            background-size: 100% 100%;
+            opacity: 1;
+            background-repeat: no-repeat;
+            transform: translate(-30%, -30%); 
+            z-index: 1;
+        }
+        
+        /* Right Corner PNG Image Design (Mirrored for Symmetry) */
+        .header-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 120px;
+            height: 120px;
+            background-image: url('https://contactsriveda-debug.github.io/images/header%20coner.png');
+            background-size: 100% 100%; 
+            opacity: 1; 
+            background-repeat: no-repeat;
+            transform: translate(30%, -30%) scaleX(-1); 
+            z-index: 1;
+        }
+        
+        /* Ensure content is above the corner designs */
+        .header-content {
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* --- STYLES FOR PRIVACY POLICY CONTENT (KEPT FROM OLD FILE) --- */
         .policy-card {
             background-color: white;
             border-radius: 12px;
@@ -129,55 +198,124 @@
             margin-bottom: 1rem;
             line-height: 1.6;
         }
+        /* End of Policy Styles */
     </style>
 </head>
-<body class="bg-gray-100">
+<body class="bg-gray-50">
 
-    <!-- HEADER (Student Subscription Corner) -->
-    <header class="header-bg shadow-lg">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 md:py-6 flex items-center space-x-4">
-            
-            <!-- Logo -->
-            <img src="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg" alt="Sri Veda Logo" class="header-logo flex-shrink-0"
-                 onerror="this.onerror=null; this.src='https://i.postimg.cc/C1Xnmwg9/veda-logo.jpg';">
-            
-            <!-- Titles -->
-            <div>
-                <h1 class="text-2xl sm:text-3xl font-bold text-white tracking-wide">Sri Veda Talent Competition</h1>
-                <p class="text-base sm:text-lg text-gray-200 mt-1 font-medium">
-                    Student Subscription Corner
-                </p>
+    <!-- NEW HEADER SECTION (from user's template) -->
+    <header class="bg-sv-blue shadow-lg header-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 header-content">
+            <div class="flex flex-col md:flex-row items-center justify-between py-3 md:py-2 space-y-3 md:space-y-0 md:h-24">
+                
+                <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4">
+                    
+                    <img src="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg" 
+                            onerror="this.onerror=null; this.src='https://placehold.co/64x64/1e3a8a/ffffff?text=VEDA';" 
+                            alt="Veda Logo" 
+                            class="w-16 h-16 object-contain shadow-md rounded-full bg-white p-1 flex-shrink-0">
+                    
+                    <div class="text-center sm:text-left flex flex-col justify-center">
+                        <h1 class="text-xl sm:text-2xl font-extrabold tracking-wider text-white">
+                            SRI VEDA TALENT COMPETITION
+                        </h1>
+                        
+                        <div class="w-2/3 max-w-xs h-0.5 bg-sv-yellow my-0.5 mx-auto sm:mx-0"></div>
+
+                        <p class="text-sm sm:text-base font-semibold text-sv-yellow mt-0.5">
+                            "BRIGHT CHILD LIFE"
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-3 sm:space-x-6 lg:space-x-8">
+                    <i class="fas fa-book text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Our Courses"></i>
+                    <i class="fas fa-pencil-ruler text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Practice Tests"></i>
+                    <i class="fas fa-graduation-cap text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Study Material"></i>
+                    <i class="fas fa-lightbulb text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Insights & Guidance"></i>
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- PRIMARY NAVIGATION BAR (HOME, DASHBOARD, JOIN NOW, CONNECT) -->
-    <nav class="top-nav-bar shadow-xl">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6">
-            <!-- Centered buttons on desktop, wrapping on mobile -->
-            <div class="flex flex-wrap justify-center sm:justify-around -m-1">
-                <!-- 1. Home -->
-                <a href="https://www.svtc.life" class="nav-button">
-                    <i class="fas fa-home mr-1"></i> HOME
+    <!-- NEW NAVIGATION BAR (from user's template) -->
+    <nav class="bg-sv-blue shadow-lg border-t-2 border-sv-yellow">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-wrap justify-center sm:justify-between py-1 space-x-1 sm:space-x-3">
+                
+                <!-- MENU Button: Toggles Dynamic Menu -->
+                <button id="menuToggle" class="nav-button menu-button-primary">
+                    <i class="fas fa-bars mr-2"></i> MENU
+                </button>
+                
+                <!-- DASHBOARD Link (Primary Nav) -->
+                <a href="https://www.svtc.life/Dashboard.html" class="nav-button" target="_blank">
+                    <i class="fas fa-tachometer-alt mr-2"></i> DASHBOARD
                 </a>
-                <!-- 2. Dashboard -->
-                <a href="https://www.svtc.life/Dashboard.html" class="nav-button">
-                    <i class="fas fa-tachometer-alt mr-1"></i> DASHBOARD
+                
+                <!-- JOIN NOW Link (Primary Nav) -->
+                <a href="https://www.svtc.life/Join%20now.html" class="nav-button" target="_blank">
+                    <i class="fas fa-user-plus mr-2"></i> JOIN NOW
                 </a>
-                <!-- 3. Join Now -->
-                <a href="https://www.svtc.life/Join%20now.html" class="nav-button">
-                    <i class="fas fa-user-plus mr-1"></i> JOIN NOW
+                
+                <!-- PRICING Link (Primary Nav) -->
+                <a href="https://www.svtc.life/Pricing.html" class="nav-button" target="_blank">
+                    <i class="fas fa-tags mr-2"></i> PRICING
                 </a>
-                <!-- 4. Connect -->
-                <a href="https://www.svtc.life/connect.html" class="nav-button">
-                    <i class="fas fa-headset mr-1"></i> CONNECT
-                </a>
+                
             </div>
         </div>
     </nav>
-    <!-- END PRIMARY NAVIGATION BAR -->
+    
+    <!-- Dynamic Horizontal Menu Section (Initially hidden) -->
+    <div id="dynamicMenu" class="hidden bg-sv-blue/95 border-b-4 border-sv-yellow transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+            <div class="flex flex-wrap justify-center gap-2">
+                
+                <!-- 1. Home Link -->
+                <a href="https://www.svtc.life" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                    <i class="fas fa-home mr-1"></i> Home
+                </a>
 
-    <!-- PRIVACY POLICY CONTENT SECTION -->
+                <!-- 2. DASHBOARD Link -->
+                <a href="https://www.svtc.life/Dashboard.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                    <i class="fas fa-tachometer-alt mr-1"></i> DASHBOARD
+                </a>
+                
+                <!-- 3. Join Now Link -->
+                <a href="https://www.svtc.life/Join%20now.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                    <i class="fas fa-user-plus mr-1"></i> Join Now
+                </a>
+                
+                <!-- 4. Pricing Link -->
+                <a href="https://www.svtc.life/Pricing.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                    <i class="fas fa-tags mr-1"></i> Pricing
+                </a>
+                
+                <!-- 5. Contact Link -->
+                <a href="https://www.svtc.life/Contact.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                    <i class="fas fa-envelope mr-1"></i> Contact
+                </a>
+                
+                <!-- 6. Connect Link -->
+                <a href="https://www.svtc.life/connect.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                    <i class="fas fa-headset mr-1"></i> Connect
+                </a>
+
+                <!-- 7. About Us Link -->
+                <a href="https://www.svtc.life/About%20Us.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                    <i class="fas fa-info-circle mr-1"></i> About Us
+                </a>
+                
+                <!-- 8. Terms & Privacy Link -->
+                <a href="https://www.svtc.life/Privacy%20policy.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                    <i class="fas fa-file-contract mr-1"></i> Terms & Privacy
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- START OF PRESERVED MAIN CONTENT AREA (Privacy Policy) -->
     <main class="max-w-4xl mx-auto py-12 px-4 sm:px-6">
 
         <!-- Main Title Block -->
@@ -320,7 +458,7 @@
                 <li> Termination:  The management reserves the absolute right to  terminate an employee's contract  at any time without prior notice or explanation.</li>
             </ul>
         </section>
-        
+
         <section class="policy-card">
             <h2>8. Management Rights, Liability, and Final Authority</h2>
             <p class="font-bold">Sri Veda Talent Competition reserves the absolute and non-negotiable right to govern all aspects of the service, content, and organization.</p>
@@ -357,6 +495,93 @@
         <p class="text-center text-xs text-gray-500 mt-8">© Sri Veda Talent Competition – All Rights Reserved. | Designed for clarity and transparency.</p>
 
     </main>
+    <!-- END OF PRESERVED MAIN CONTENT AREA -->
 
+    <!-- NEW FOOTER SECTION (from user's template) -->
+    <footer class="bg-sv-blue text-white py-5 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                
+                <div>
+                    <img class="h-12 w-auto mb-2 object-contain shadow-md rounded-full bg-white p-1" 
+                            src="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg" 
+                            alt="Sri Veda Logo"
+                            onerror="this.onerror=null; this.src='https://placehold.co/48x48/1e3a8a/ffffff?text=VEDA';">
+                    <p class="text-gray-300 text-xs">
+                        Sri Veda Talent Competition<br>
+                        Empowering students with knowledge and skills for a bright future.
+                    </p>
+                </div>
+
+                <div>
+                    <h5 class="text-base font-bold text-sv-yellow mb-2">Quick Links</h5>
+                    <ul class="space-y-1 text-sm">
+                        <!-- Footer Quick Links -->
+                        <li><a href="https://www.svtc.life/index.html" class="text-gray-300 hover:text-white transition" target="_blank">Home</a></li>
+                        <li><a href="https://www.svtc.life/Join%20now.html" class="text-gray-300 hover:text-white transition" target="_blank">Join Now</a></li>
+                        <li><a href="https://www.svtc.life/Pricing.html" class="text-gray-300 hover:text-white transition" target="_blank">Pricing</a></li>
+                        <li><a href="https://www.svtc.life/connect.html" class="text-gray-300 hover:text-white transition" target="_blank">Connect</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="text-base font-bold text-sv-yellow mb-2">Company</h5>
+                    <ul class="space-y-1 text-sm">
+                        <!-- Footer Company Links -->
+                        <li><a href="https://www.svtc.life/About%20Us.html" class="text-gray-300 hover:text-white transition" target="_blank">About Us</a></li>
+                        <li><a href="https://www.svtc.life/Contact.html" class="text-gray-300 hover:text-white transition" target="_blank">Contact</a></li>
+                        <li><a href="https://www.svtc.life/Privacy%20policy.html" class="text-gray-300 hover:text-white transition" target="_blank">Terms & Privacy</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="text-base font-bold text-sv-yellow mb-2">Get In Touch</h5>
+                    <ul class="space-y-1 text-sm">
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-sv-yellow text-xs"></i>
+                            <a href="tel:+918985170500" class="text-gray-300 hover:text-white transition" target="_blank">+91 8985170500</a>
+                        </li>
+                    </ul>
+                    <h5 class="text-base font-bold text-sv-yellow mt-3 mb-2">Connect With Us</h5>
+                    <div class="flex space-x-3">
+                        <a href="https://www.facebook.com/share/1ZXXCLRGwh" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-sv-yellow transition text-lg">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=zreta93" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-sv-yellow transition text-lg">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="httpst.me/srivedatc" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-sv-yellow transition text-lg">
+                            <i class="fab fa-telegram-plane"></i>
+                        </a>
+                        <a href="http://wa.me/918985170500" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-sv-yellow transition text-lg">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-4 pt-4 text-center">
+                <p class="text-gray-400 text-xs">
+                    &copy; 2025 Sri Veda Talent Competition. All Rights Reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Javascript for Dynamic Menu Toggle -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.getElementById('menuToggle');
+            const dynamicMenu = document.getElementById('dynamicMenu');
+
+            if (menuToggle && dynamicMenu) {
+                // Event listener to toggle the visibility of the dynamic menu
+                menuToggle.addEventListener('click', () => {
+                    // Toggles the 'hidden' class to show/hide the menu
+                    dynamicMenu.classList.toggle('hidden');
+                });
+            }
+        });
+    </script>
 </body>
 </html>
