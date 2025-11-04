@@ -38,25 +38,7 @@
             box-shadow: 0 10px 15px -3px var(--sv-yellow), 0 4px 6px -4px var(--sv-yellow);
         }
 
-        .scrolling-text-container {
-            width: 100%;
-            overflow: hidden;
-            padding: 6px 0;
-        }
-        .scrolling-text {
-            display: inline-block;
-            white-space: nowrap;
-            padding-left: 100%;
-            animation: scroll-left 40s linear infinite;
-        }
-        @keyframes scroll-left {
-            0% {
-                transform: translateX(0%);
-            }
-            100% {
-                transform: translateX(-200%);
-            }
-        }
+        /* REMOVED SCROLLING TEXT CONTAINER STYLES */
 
         .course-button {
             display: inline-block;
@@ -141,6 +123,7 @@
             box-shadow: 0 10px 20px rgba(0, 0, 139, 0.8);
         }
 
+        /* Nav button style is kept but the old primary nav is removed */
         .nav-button {
             display: flex;
             align-items: center;
@@ -165,20 +148,6 @@
             box-shadow: 0 6px 15px rgba(255, 140, 0, 0.6);
         }
         
-        /* New custom style for the Menu button to ensure orange background and white text visibility */
-        .menu-button-primary {
-            /* Force orange background and white text */
-            background-color: var(--sv-orange) !important;
-            color: white !important;
-            border-color: var(--sv-yellow) !important; 
-        }
-        .menu-button-primary:hover {
-            /* Hover state remains the same (white background, orange text) */
-            background-color: white !important;
-            color: var(--sv-orange) !important;
-            border-color: var(--sv-orange) !important; 
-        }
-
         @media (max-width: 640px) {
             .nav-button {
                 flex-grow: 1;
@@ -232,15 +201,76 @@
             position: relative;
             z-index: 10;
         }
+        
+        /* Custom style for the prominent menu button in the header - UPDATED TO MATCH NEW IMAGE STYLE */
+        .header-menu-button {
+            /* NEW STYLE: White background, Orange text, Orange border */
+            background-color: white !important; /* Changed from orange */
+            color: var(--sv-orange) !important; /* Changed from blue */
+            font-weight: 900;
+            
+            padding: 0.6rem 1.25rem; 
+            font-size: 1rem; /* base size */
+            
+            border-width: 4px;
+            border-color: var(--sv-orange) !important; /* Changed from yellow */
+            box-shadow: 0 6px 12px rgba(255, 140, 0, 0.7);
+            
+            /* Bent corners */
+            border-radius: 1.5rem; /* Rounded-xl equivalent */
+        }
+        .header-menu-button:hover {
+            /* Hover state remains consistent with the new style */
+            background-color: var(--sv-yellow) !important; 
+            color: var(--sv-blue) !important; 
+        }
+        
+        /* Specific styling for the icon labels to match the new image */
+        .icon-label {
+            font-size: 0.9rem; /* Slightly larger text for labels */
+            font-weight: 500; /* Medium weight */
+            margin-top: 0.25rem;
+            line-height: 1.2;
+        }
+
+        /* Adjust icon size and container space for mobile devices */
+        @media (max-width: 768px) {
+             .icon-group a {
+                padding-left: 0.25rem;
+                padding-right: 0.25rem;
+            }
+            /* DECREASED ICON SIZE HERE */
+            .icon-group .text-2xl {
+                font-size: 1.5rem; /* from 1.75rem to 1.5rem on small screens */
+            }
+            .icon-group .sm\:text-3xl {
+                 font-size: 2rem; /* from 3xl to 2xl/32px on larger screens */
+            }
+            .header-menu-button {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+            .header-content > div {
+                min-height: 80px; /* Adjust header height slightly */
+            }
+        }
+        
+        /* Add desktop icon size override (since we removed utility classes directly from HTML) */
+        .icon-group a i {
+            font-size: 2rem; /* Default size for large screens */
+        }
+        
     </style>
 </head>
 <body class="bg-gray-50">
 
-    <!-- USER'S PROVIDED HEADER START -->
+    <!-- UPDATED HEADER START -->
     <header class="bg-sv-blue shadow-lg header-bg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 header-content">
-            <div class="flex flex-col md:flex-row items-center justify-between py-3 md:py-2 space-y-3 md:space-y-0 md:h-24">
+            <!-- Main Flex Container: Logo/Title (Left) vs. Icons/Menu (Right) -->
+            <div class="flex flex-col md:flex-row items-center justify-between py-3 md:py-2 space-y-3 md:space-y-0 min-h-[90px]">
                 
+                <!-- Left Group: Logo and Title/Slogan -->
                 <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4">
                     
                     <img src="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg" 
@@ -249,55 +279,57 @@
                             class="w-16 h-16 object-contain shadow-md rounded-full bg-white p-1 flex-shrink-0">
                     
                     <div class="text-center sm:text-left flex flex-col justify-center">
-                        <h1 class="text-xl sm:text-2xl font-extrabold tracking-wider text-white">
+                        <!-- Title: Made larger and bolder to match image -->
+                        <h1 class="text-2xl sm:text-3xl font-extrabold tracking-wider text-white">
                             SRI VEDA TALENT COMPETITION
                         </h1>
                         
                         <div class="w-2/3 max-w-xs h-0.5 bg-sv-yellow my-0.5 mx-auto sm:mx-0"></div>
 
-                        <p class="text-sm sm:text-base font-semibold text-sv-yellow mt-0.5">
-                            "BRIGHT CHILD LIFE"
+                        <!-- Slogan: Made slightly larger/bolder -->
+                        <p class="text-base sm:text-lg font-extrabold text-sv-yellow mt-0.5">
+                            "Employee - Career Corner"
                         </p>
                     </div>
                 </div>
 
-                <div class="flex items-center space-x-3 sm:space-x-6 lg:space-x-8">
-                    <i class="fas fa-book text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Our Courses"></i>
-                    <i class="fas fa-pencil-ruler text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Practice Tests"></i>
-                    <i class="fas fa-graduation-cap text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Study Material"></i>
-                    <i class="fas fa-lightbulb text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Insights & Guidance"></i>
+                <!-- Right Group: Icons + MENU Button -->
+                <div class="flex items-center space-x-3 sm:space-x-6"> 
+                    
+                    <!-- Icon Links Group (Updated: Closer spacing, larger labels) -->
+                    <div class="flex items-start sm:items-center space-x-3 text-white text-sm icon-group">
+                        
+                        <!-- Courses Icon -->
+                        <a href="javascript:void(0)" class="flex flex-col items-center hover:text-sv-yellow transition duration-150" title="Courses">
+                            <!-- Removed text-2xl and sm:text-3xl classes to use the new CSS block for sizing -->
+                            <i class="fas fa-book-reader"></i>
+                            <span class="icon-label">Courses</span>
+                        </a>
+                        <!-- Tests Icon -->
+                        <a href="javascript:void(0)" class="flex flex-col items-center hover:text-sv-yellow transition duration-150" title="Tests">
+                            <i class="fas fa-clipboard-list"></i>
+                            <span class="icon-label">Tests</span>
+                        </a>
+                        <!-- Material Icon -->
+                        <a href="javascript:void(0)" class="flex flex-col items-center hover:text-sv-yellow transition duration-150" title="Material">
+                            <i class="fas fa-lightbulb"></i>
+                            <span class="icon-label">Material</span>
+                        </a>
+                        <!-- Insights Icon -->
+                        <a href="javascript:void(0)" class="flex flex-col items-center hover:text-sv-yellow transition duration-150" title="Insights">
+                            <i class="fas fa-chart-line"></i>
+                            <span class="icon-label">Insights</span>
+                        </a>
+                    </div>
+                    
+                    <!-- MENU Button (Large, prominent, style defined in <style> block) -->
+                    <button id="menuToggle" class="header-menu-button flex items-center justify-center">
+                        MENU <i class="fas fa-bars ml-1 md:ml-2"></i>
+                    </button>
                 </div>
             </div>
         </div>
     </header>
-
-    <nav class="bg-sv-blue shadow-lg border-t-2 border-sv-yellow">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-wrap justify-center sm:justify-between py-1 space-x-1 sm:space-x-3">
-                
-                <!-- MENU Button: Toggles Dynamic Menu -->
-                <button id="menuToggle" class="nav-button menu-button-primary">
-                    <i class="fas fa-bars mr-2"></i> MENU
-                </button>
-                
-                <!-- DASHBOARD Link (Primary Nav) -->
-                <a href="https://www.svtc.life/Dashboard.html" class="nav-button" target="_blank">
-                    <i class="fas fa-tachometer-alt mr-2"></i> DASHBOARD
-                </a>
-                
-                <!-- JOIN NOW Link (Primary Nav) -->
-                <a href="https://www.svtc.life/Join%20now.html" class="nav-button" target="_blank">
-                    <i class="fas fa-user-plus mr-2"></i> JOIN NOW
-                </a>
-                
-                <!-- PRICING Link (Primary Nav) -->
-                <a href="https://www.svtc.life/Pricing.html" class="nav-button" target="_blank">
-                    <i class="fas fa-tags mr-2"></i> PRICING
-                </a>
-                
-            </div>
-        </div>
-    </nav>
     
     <!-- Dynamic Horizontal Menu Section (Initially hidden) -->
     <div id="dynamicMenu" class="hidden bg-sv-blue/95 border-b-4 border-sv-yellow transition-all duration-300">
@@ -346,8 +378,7 @@
             </div>
         </div>
     </div>
-    <!-- USER'S PROVIDED HEADER END -->
-
+    <!-- UPDATED HEADER END -->
 
     <!-- RETAINED: EMPLOYEE LOGIN CORNER SECTION (Styling updated for new theme) -->
     <section class="py-8 mt-8 mb-8 bg-green-300/80 shadow-xl border-b-4 border-sv-orange">
@@ -436,7 +467,7 @@
     <!-- END RETAINED MAINTENANCE MODAL -->
 
 
-    <!-- USER'S PROVIDED FOOTER START -->
+    <!-- RETAINED FOOTER START -->
     <footer class="bg-sv-blue text-white py-5 px-4 sm:px-6 lg:px-8">
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
@@ -506,7 +537,7 @@
             </div>
         </div>
     </footer>
-    <!-- USER'S PROVIDED FOOTER END -->
+    <!-- RETAINED FOOTER END -->
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
