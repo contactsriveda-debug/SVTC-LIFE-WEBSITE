@@ -45,7 +45,7 @@
             box-shadow: 0 10px 15px -3px var(--sv-yellow), 0 4px 6px -4px var(--sv-yellow);
         }
 
-        /* Scrolling Text Marquee */
+        /* Scrolling Text Marquee (Preserved but not used in current layout) */
         .scrolling-text-container {
             width: 100%;
             overflow: hidden;
@@ -62,7 +62,7 @@
             100% { transform: translateX(-200%); }
         }
 
-        /* Course Button Styles */
+        /* Course Button Styles (Used for the expanded dynamic menu) */
         .course-button {
             display: inline-block;
             padding: 0.4rem 0.8rem;
@@ -84,54 +84,6 @@
             border-color: var(--sv-orange);
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-
-        /* Navigation Button Styles */
-        .nav-button {
-            display: flex;
-            align-items: center;
-            padding: 0.5rem 1rem;
-            color: var(--sv-blue);
-            background-color: white;
-            border: 2px solid var(--sv-orange);
-            border-radius: 9999px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            margin: 3px 0;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .nav-button:hover {
-            color: white;
-            background-color: var(--sv-orange);
-            border-color: var(--sv-blue);
-            transform: scale(1.05);
-            box-shadow: 0 6px 15px rgba(255, 140, 0, 0.6);
-        }
-        
-        /* Menu Button Primary Style */
-        .menu-button-primary {
-            background-color: var(--sv-orange) !important;
-            color: white !important;
-            border-color: var(--sv-yellow) !important; 
-        }
-        .menu-button-primary:hover {
-            background-color: white !important;
-            color: var(--sv-orange) !important;
-            border-color: var(--sv-orange) !important; 
-        }
-
-        /* Responsive Nav Button Adjustments */
-        @media (max-width: 640px) {
-            .nav-button {
-                flex-grow: 1;
-                justify-content: center;
-                margin: 4px 2px;
-                font-size: 0.8rem;
-                padding: 0.4rem 0.8rem;
-            }
         }
         
         /* Custom Header Corner Design */
@@ -178,8 +130,30 @@
             z-index: 10;
         }
 
+        /* --- STYLES FOR THE MOVED MENU BUTTON (White/Orange Style) --- */
+        .header-menu-button {
+            background-color: white !important; 
+            color: var(--sv-orange) !important;
+            font-weight: 900;
+            padding: 0.6rem 1.25rem; 
+            font-size: 1rem;
+            border-width: 4px;
+            border-color: var(--sv-orange) !important;
+            box-shadow: 0 6px 12px rgba(255, 140, 0, 0.7);
+            border-radius: 1.5rem; /* Bent corners */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+        .header-menu-button:hover {
+            background-color: var(--sv-yellow) !important; 
+            color: var(--sv-blue) !important; 
+            transform: scale(1.05);
+        }
+
         /* --- STYLES NEEDED FOR THE MAIN CONTENT (Body Section) --- */
-        /* Preserving the feature card hover effect */
         .feature-card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
@@ -187,10 +161,8 @@
             transform: translateY(-8px);
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
         }
-
-        /* Mapping old colors to new colors for main content consistency */
-        .text-body-blue { color: var(--sv-blue); } /* Formerly text-primary */
-        .text-body-maroon { color: var(--sv-maroon); } /* For secondary/accent colors in body */
+        .text-body-blue { color: var(--sv-blue); } 
+        .text-body-maroon { color: var(--sv-maroon); }
         .border-body-maroon { border-color: var(--sv-maroon); }
         .border-body-orange { border-color: var(--sv-orange); }
         .border-body-blue { border-color: var(--sv-blue); }
@@ -199,7 +171,7 @@
 </head>
 <body class="bg-gray-50 antialiased">
 
-    <!-- NEW HEADER SECTION -->
+    <!-- NEW HEADER SECTION (Includes Logo, Title, Icons, and MENU Button) -->
     <header class="bg-sv-blue shadow-lg header-bg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 header-content">
             <div class="flex flex-col md:flex-row items-center justify-between py-3 md:py-2 space-y-3 md:space-y-0 md:h-24">
@@ -219,92 +191,58 @@
                         <div class="w-2/3 max-w-xs h-0.5 bg-sv-yellow my-0.5 mx-auto sm:mx-0"></div>
 
                         <p class="text-sm sm:text-base font-semibold text-sv-yellow mt-0.5">
-                            "BRIGHT CHILD LIFE"
+                            "Know more About us"
                         </p>
                     </div>
                 </div>
 
+                <!-- Right Group: Icons + MENU Button -->
                 <div class="flex items-center space-x-3 sm:space-x-6 lg:space-x-8">
-                    <!-- Icon navigation in Header, now using Font Awesome -->
+                    <!-- Icon navigation in Header -->
                     <i class="fas fa-book text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Our Courses"></i>
                     <i class="fas fa-pencil-ruler text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Practice Tests"></i>
                     <i class="fas fa-graduation-cap text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Study Material"></i>
                     <i class="fas fa-lightbulb text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Insights & Guidance"></i>
+                    
+                    <!-- MENU Button is now here -->
+                    <button id="menuToggle" class="header-menu-button">
+                        MENU <i class="fas fa-bars ml-1"></i>
+                    </button>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- NEW NAVIGATION BAR -->
-    <nav class="bg-sv-blue shadow-lg border-t-2 border-sv-yellow">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-wrap justify-center sm:justify-between py-1 space-x-1 sm:space-x-3">
-                
-                <!-- MENU Button: Toggles Dynamic Menu -->
-                <button id="menuToggle" class="nav-button menu-button-primary">
-                    <i class="fas fa-bars mr-2"></i> MENU
-                </button>
-                
-                <!-- DASHBOARD Link (Primary Nav) -->
-                <a href="https://www.svtc.life/Dashboard.html" class="nav-button" target="_blank">
-                    <i class="fas fa-tachometer-alt mr-2"></i> DASHBOARD
-                </a>
-                
-                <!-- JOIN NOW Link (Primary Nav) -->
-                <a href="https://www.svtc.life/Join%20now.html" class="nav-button" target="_blank">
-                    <i class="fas fa-user-plus mr-2"></i> JOIN NOW
-                </a>
-                
-                <!-- PRICING Link (Primary Nav) -->
-                <a href="https://www.svtc.life/Pricing.html" class="nav-button" target="_blank">
-                    <i class="fas fa-tags mr-2"></i> PRICING
-                </a>
-                
-            </div>
-        </div>
-    </nav>
+    <!-- REMOVED THE <nav> SECTION (DASHBOARD, JOIN NOW, PRICING buttons) that was here -->
     
     <!-- Dynamic Horizontal Menu Section (Initially hidden) -->
+    <!-- This section contains all the secondary navigation links -->
     <div id="dynamicMenu" class="hidden bg-sv-blue/95 border-b-4 border-sv-yellow transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
             <div class="flex flex-wrap justify-center gap-2">
                 
-                <!-- 1. Home Link -->
+                <!-- Secondary Nav Links (using course-button style) -->
                 <a href="https://www.svtc.life" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
                     <i class="fas fa-home mr-1"></i> Home
                 </a>
-
-                <!-- 2. DASHBOARD Link -->
                 <a href="https://www.svtc.life/Dashboard.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
                     <i class="fas fa-tachometer-alt mr-1"></i> DASHBOARD
                 </a>
-                
-                <!-- 3. Join Now Link -->
                 <a href="https://www.svtc.life/Join%20now.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
                     <i class="fas fa-user-plus mr-1"></i> Join Now
                 </a>
-                
-                <!-- 4. Pricing Link -->
                 <a href="https://www.svtc.life/Pricing.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
                     <i class="fas fa-tags mr-1"></i> Pricing
                 </a>
-                
-                <!-- 5. Contact Link -->
                 <a href="https://www.svtc.life/Contact.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
                     <i class="fas fa-envelope mr-1"></i> Contact
                 </a>
-                
-                <!-- 6. Connect Link -->
                 <a href="https://www.svtc.life/connect.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
                     <i class="fas fa-headset mr-1"></i> Connect
                 </a>
-
-                <!-- 7. About Us Link -->
                 <a href="https://www.svtc.life/About%20Us.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
                     <i class="fas fa-info-circle mr-1"></i> About Us
                 </a>
-                
-                <!-- 8. Terms & Privacy Link -->
                 <a href="https://www.svtc.life/Privacy%20policy.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
                     <i class="fas fa-file-contract mr-1"></i> Terms & Privacy
                 </a>
@@ -325,32 +263,25 @@
 
         <!-- Core Philosophy Section -->
         <section class="mt-8">
-          <!-- Updated color class for header: text-primary -> text-sv-blue -->
           <h3 class="text-3xl font-bold text-center text-body-blue mb-10">Our Core Philosophy</h3> 
           <div class="grid md:grid-cols-3 gap-8">
             
             <!-- Card 1: 3rd to 10th Grade -->
-            <!-- Updated colors: text-secondary -> text-body-maroon, border-secondary -> border-body-maroon -->
             <div class="feature-card bg-white rounded-lg p-6 shadow-lg text-center border-t-4 border-body-maroon">
-              <!-- Replaced data-lucide="users-2" with Font Awesome -->
               <i class="fas fa-users w-12 h-12 text-body-maroon mx-auto"></i> 
               <h4 class="text-xl font-bold mt-4 mb-2">For Every Student (3rd-10th)</h4>
               <p class="text-gray-600">We provide tailored tests and content that match each student's specific class, age, and aptitude.</p>
             </div>
             
             <!-- Card 2: Personalized Learning -->
-            <!-- Updated colors: text-accent -> text-sv-orange, border-accent -> border-body-orange -->
             <div class="feature-card bg-white rounded-lg p-6 shadow-lg text-center border-t-4 border-body-orange">
-              <!-- Replaced data-lucide="brain-cog" with Font Awesome -->
               <i class="fas fa-brain w-12 h-12 text-body-orange mx-auto"></i> 
               <h4 class="text-xl font-bold mt-4 mb-2">Targeted Mind Development</h4>
               <p class="text-gray-600">Our questions aren't one-size-fits-all. They are designed to challenge and grow each student's individual mind.</p>
             </div>
             
             <!-- Card 3: 24/7 Online Platform -->
-            <!-- Updated colors: text-primary -> text-sv-blue, border-primary -> border-body-blue -->
             <div class="feature-card bg-white rounded-lg p-6 shadow-lg text-center border-t-4 border-body-blue">
-              <!-- Replaced data-lucide="clock" with Font Awesome -->
               <i class="fas fa-clock w-12 h-12 text-body-blue mx-auto"></i> 
               <h4 class="text-xl font-bold mt-4 mb-2">24/7 Online Access</h4>
               <p class="text-gray-600">Our platform is 100% online. Students can log in and take exams anytime, anywhere, during their free time.</p>
@@ -361,7 +292,6 @@
 
         <!-- Our Learning Model Section -->
         <section class="mt-8">
-          <!-- Updated color class for header: text-primary -> text-sv-blue -->
           <h3 class="text-3xl font-bold text-center text-body-blue mb-10">Our Unique Learning Model</h3> 
           <div class="bg-white rounded-lg shadow-xl overflow-hidden">
             <div class="grid md:grid-cols-2">
@@ -375,7 +305,6 @@
               <div class="p-8 md:p-12 space-y-8">
                 
                 <div>
-                  <!-- Replaced data-lucide="globe-2" with Font Awesome. Updated color: text-secondary -> text-body-maroon -->
                   <i class="fas fa-globe-americas w-10 h-10 text-body-maroon mb-2"></i> 
                   <h4 class="text-2xl font-bold text-body-maroon">General Awareness (G.A.)</h4>
                   <p class="text-gray-600 mt-2">
@@ -386,7 +315,6 @@
                 <hr>
 
                 <div>
-                  <!-- Replaced data-lucide="calculator" with Font Awesome. Updated color: text-accent -> text-sv-orange -->
                   <i class="fas fa-calculator w-10 h-10 text-sv-orange mb-2"></i> 
                   <h4 class="text-2xl font-bold text-sv-orange">The Mathematics Edge</h4>
                   <p class="text-gray-600 mt-2 mb-4">
@@ -401,7 +329,6 @@
                 <hr>
 
                 <div>
-                  <!-- Replaced data-lucide="book-marked" with Font Awesome. Updated color: text-primary -> text-sv-blue -->
                   <i class="fas fa-book-bookmark w-10 h-10 text-sv-blue mb-2"></i> 
                   <h4 class="text-2xl font-bold text-sv-blue">State Syllabus Mastery (AP)</h4>
                   <p class="text-gray-600 mt-2">
@@ -416,14 +343,11 @@
 
         <!-- How It Works Section -->
         <section class="mt-8">
-          <!-- Updated color class for header: text-primary -> text-sv-blue -->
           <h3 class="text-3xl font-bold text-center text-body-blue mb-10">The Path to Mastery</h3> 
           <div class="grid lg:grid-cols-3 gap-8 text-center">
 
             <!-- Step 1: Mastery Progression -->
-            <!-- Updated colors: text-accent -> text-sv-orange -->
             <div class="bg-white rounded-lg p-8 shadow-lg">
-              <!-- Replaced data-lucide="trending-up" with Font Awesome -->
               <i class="fas fa-chart-line w-16 h-16 text-sv-orange mx-auto mb-4"></i>
               <h4 class="text-xl font-bold mb-2">1. Mastery Progression</h4>
               <p class="text-gray-600">To unlock the next test, a student must score <strong>95% or more</strong> on the current one. This ensures slow, steady, and confirmed learning, not just rushing through.
@@ -432,7 +356,6 @@
 
             <!-- Step 2: The "TC Score" -->
             <div class="bg-white rounded-lg p-8 shadow-lg">
-              <!-- Icon kept yellow as per original design -->
               <i class="fas fa-star w-16 h-16 text-yellow-500 mx-auto mb-4"></i>
               <h4 class="text-xl font-bold mb-2">2. The "TC Score"</h4>
               <p class="text-gray-600">We provide a "TC Score" (Talent Competition Score) that updates with quiz performance. This score allows parents and students to easily track talent and progress daily.
@@ -440,9 +363,7 @@
             </div>
 
             <!-- Step 3: 24/7 Support -->
-            <!-- Updated colors: text-secondary -> text-body-maroon -->
             <div class="bg-white rounded-lg p-8 shadow-lg">
-              <!-- Replaced data-lucide="headset" with Font Awesome -->
               <i class="fas fa-headset w-16 h-16 text-body-maroon mx-auto mb-4"></i>
               <h4 class="text-xl font-bold mb-2">3. 24/7 Full Support</h4>
               <p class="text-gray-600">
@@ -455,7 +376,7 @@
     </main>
     <!-- END OF PRESERVED MAIN CONTENT AREA -->
 
-    <!-- NEW FOOTER SECTION -->
+    <!-- FOOTER SECTION -->
     <footer class="bg-sv-blue text-white py-5 px-4 sm:px-6 lg:px-8">
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
@@ -539,8 +460,6 @@
                     dynamicMenu.classList.toggle('hidden');
                 });
             }
-            // Remove the old Lucide icon rendering line if it was present
-            // lucide.createIcons();
         });
     </script>
 </body>
