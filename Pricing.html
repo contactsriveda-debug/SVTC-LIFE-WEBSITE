@@ -31,39 +31,6 @@
         .bg-sv-yellow { color: var(--sv-yellow); }
         .text-sv-yellow { color: var(--sv-yellow); }
         
-        .nav-button {
-            display: flex;
-            align-items: center;
-            padding: 0.5rem 1rem;
-            color: var(--sv-blue);
-            background-color: white;
-            border: 2px solid var(--sv-orange);
-            border-radius: 9999px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            margin: 3px 0;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .nav-button:hover {
-            color: white;
-            background-color: var(--sv-orange);
-            border-color: var(--sv-blue);
-            transform: scale(1.05);
-            box-shadow: 0 6px 15px rgba(255, 140, 0, 0.6);
-        }
-        .menu-button-primary {
-            background-color: var(--sv-orange) !important;
-            color: white !important;
-            border-color: var(--sv-yellow) !important; 
-        }
-        .menu-button-primary:hover {
-            background-color: white !important;
-            color: var(--sv-orange) !important;
-            border-color: var(--sv-orange) !important; 
-        }
         .header-bg {
             position: relative;
             overflow: hidden;
@@ -101,6 +68,36 @@
             border-radius: 50%;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
+        
+        /* Custom style for the prominent menu button in the header */
+        .header-menu-button {
+            /* White background, Orange text, Orange border - as requested */
+            background-color: white !important; 
+            color: var(--sv-orange) !important;
+            font-weight: 900;
+            
+            padding: 0.6rem 1.25rem; 
+            font-size: 1rem;
+            
+            border-width: 4px;
+            border-color: var(--sv-orange) !important;
+            box-shadow: 0 6px 12px rgba(255, 140, 0, 0.7);
+            
+            /* Bent corners */
+            border-radius: 1.5rem; /* Rounded-xl equivalent */
+            
+            /* Flex properties for alignment */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .header-menu-button:hover {
+            /* Hover state */
+            background-color: var(--sv-yellow) !important; 
+            color: var(--sv-blue) !important; 
+        }
+
         .iron-gradient {
             background: linear-gradient(145deg,#4b5563,#374151,#1f2937);
             color: #d1d5db;
@@ -140,6 +137,16 @@
                 padding: 0.35rem 0.5rem;
             }
         }
+
+        /* Razorpay Button Styling Fixes */
+        /* Target the Razorpay button specifically to ensure it fits the design */
+        #razorpay-button-container-silver form,
+        #razorpay-button-container-platina form,
+        #razorpay-button-container-gold form,
+        #razorpay-button-renew form,
+        #razorpay-button-upgrade form {
+            width: 100%; /* Ensure the form container takes full width */
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -162,60 +169,49 @@
                         </p>
                     </div>
                 </div>
+                <!-- Right Group: Icons + MENU Button -->
                 <div class="flex items-center space-x-3 sm:space-x-6 lg:space-x-8">
+                    <!-- Icons -->
                     <i class="fas fa-book text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Our Courses"></i>
                     <i class="fas fa-pencil-ruler text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Practice Tests"></i>
                     <i class="fas fa-graduation-cap text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Study Material"></i>
                     <i class="fas fa-lightbulb text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Insights & Guidance"></i>
+                    
+                    <!-- MENU Button -->
+                    <button id="menuToggle" class="header-menu-button">
+                        MENU <i class="fas fa-bars ml-1"></i>
+                    </button>
                 </div>
             </div>
         </div>
     </header>
 
-    <nav class="bg-sv-blue shadow-lg border-t-2 border-sv-yellow" id="mainNav">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-wrap justify-center sm:justify-between py-1 space-x-1 sm:space-x-3">
-                <button id="menuToggle" class="nav-button menu-button-primary">
-                    <i class="fas fa-bars mr-2"></i> MENU
-                </button>
-                <a href="https://www.svtc.life/Dashboard.html" class="nav-button" target="_blank">
-                    <i class="fas fa-tachometer-alt mr-2"></i> DASHBOARD
-                </a>
-                <a href="https://www.svtc.life/Join%20now.html" class="nav-button" target="_blank">
-                    <i class="fas fa-user-plus mr-2"></i> JOIN NOW
-                </a>
-                <a href="https://www.svtc.life/Pricing.html" class="nav-button" target="_blank">
-                    <i class="fas fa-tags mr-2"></i> PRICING
-                </a>
-            </div>
-        </div>
-    </nav>
-    
+    <!-- Dynamic Horizontal Menu Section -->
     <div id="dynamicMenu" class="hidden bg-sv-blue/95 border-b-4 border-sv-yellow transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
             <div class="flex flex-wrap justify-center gap-4">
-                <a href="https://www.svtc.life" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                <a href="https://www.svtc.life" class="nav-button-sub bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
                     <i class="fas fa-home mr-1"></i> Home
                 </a>
-                <a href="https://www.svtc.life/Dashboard.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                <a href="https://www.svtc.life/Dashboard.html" class="nav-button-sub bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
                     <i class="fas fa-tachometer-alt mr-1"></i> DASHBOARD
                 </a>
-                <a href="https://www.svtc.life/Join%20now.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                <a href="https://www.svtc.life/Join%20now.html" class="nav-button-sub bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
                     <i class="fas fa-user-plus mr-1"></i> Join Now
                 </a>
-                <a href="https://www.svtc.life/Pricing.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                <a href="https://www.svtc.life/Pricing.html" class="nav-button-sub bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
                     <i class="fas fa-tags mr-1"></i> Pricing
                 </a>
-                <a href="https://www.svtc.life/Contact.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                <a href="https://www.svtc.life/Contact.html" class="nav-button-sub bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
                     <i class="fas fa-envelope mr-1"></i> Contact
                 </a>
-                <a href="https://www.svtc.life/connect.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                <a href="https://www.svtc.life/connect.html" class="nav-button-sub bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
                     <i class="fas fa-headset mr-1"></i> Connect
                 </a>
-                <a href="https://www.svtc.life/About%20Us.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                <a href="https://www.svtc.life/About%20Us.html" class="nav-button-sub bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
                     <i class="fas fa-info-circle mr-1"></i> About Us
                 </a>
-                <a href="https://www.svtc.life/Privacy%20policy.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                <a href="https://www.svtc.life/Privacy%20policy.html" class="nav-button-sub bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
                     <i class="fas fa-file-contract mr-1"></i> Terms & Privacy
                 </a>
             </div>
@@ -244,6 +240,7 @@
     </section>
 
     <main class="max-w-6xl mx-auto py-12 px-4 sm:px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Silver Plan -->
         <div class="relative rounded-2xl shadow-lg p-8 text-center border-2 border-gray-400 hover:shadow-2xl transition transform hover:-translate-y-1 iron-gradient">
             <div class="absolute top-4 right-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full">50% OFF</div>
             <h2 class="text-2xl font-semibold mb-4">Silver Plan</h2>
@@ -254,9 +251,13 @@
                 <li><i class="fas fa-check text-green-400 mr-2"></i> Weekly practice exams</li>
                 <li><i class="fas fa-check text-green-400 mr-2"></i> Track daily TC score</li>
             </ul>
-            <button onclick="window.openForm('new')" class="bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 text-white font-semibold py-2 px-6 rounded-lg w-full">Choose Silver</button>
+            <!-- Razorpay Button for Silver Plan -->
+            <div id="razorpay-button-container-silver" class="w-full">
+                <form class="w-full"><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_RbjG7DC1uKb4p3" async> </script> </form>
+            </div>
         </div>
 
+        <!-- Platina Plan -->
         <div class="relative flex flex-col items-center">
             <div class="absolute top-0 transform -translate-y-1/2 bg-yellow-400 text-gray-800 text-xs font-extrabold tracking-wider px-4 py-1 rounded-full blink shadow-xl z-20 border-2 border-yellow-500">✨ MOST POPULAR ✨</div>
             <div class="bg-white rounded-2xl shadow-lg p-8 text-center border-2 border-blue-400 transform md:scale-105 hover:shadow-2xl transition hover:-translate-y-1 z-10 w-full pt-8">
@@ -269,10 +270,14 @@
                     <li><i class="fas fa-check text-green-500 mr-2"></i> Monthly tests and special sessions</li>
                     <li><i class="fas fa-check text-green-500 mr-2"></i> Live mentor support</li>
                 </ul>
-                <button onclick="window.openForm('new')" class="bg-gradient-to-r from-indigo-500 via-purple-600 to-pink-600 text-white font-semibold py-2 px-6 rounded-lg w-full">Choose Platina</button>
+                <!-- Razorpay Button for Platina Plan -->
+                <div id="razorpay-button-container-platina" class="w-full">
+                    <form class="w-full"><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_RbjKtrvhmijUMc" async> </script> </form>
+                </div>
             </div>
         </div>
 
+        <!-- Gold Plan -->
         <div class="relative rounded-2xl shadow-lg p-8 text-center border-2 border-yellow-500 hover:shadow-2xl transition transform hover:-translate-y-1 light-gold-gradient">
             <div class="absolute top-4 right-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full">58% OFF</div>
             <h2 class="text-2xl font-semibold mb-4">Gold Plan</h2>
@@ -283,7 +288,10 @@
                 <li><i class="fas fa-check text-green-600 mr-2"></i> Live calls & exclusive study materials</li>
                 <li><i class="fas fa-check text-green-600 mr-2"></i> Advanced exam preparation</li>
             </ul>
-            <button onclick="window.openForm('new')" class="bg-gradient-to-r from-yellow-500 via-orange-600 to-red-600 text-white font-semibold py-2 px-6 rounded-lg w-full">Choose Gold</button>
+            <!-- Razorpay Button for Gold Plan -->
+            <div id="razorpay-button-container-gold" class="w-full">
+                <form class="w-full"><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_RbjLmnAnXQdn61" async> </script> </form>
+            </div>
         </div>
     </main>
 
@@ -291,9 +299,10 @@
         <div class="bg-white rounded-2xl shadow-lg p-6 border-2 border-indigo-300 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6">
             <h3 class="text-xl font-semibold text-gray-800">Existing Subscribers?</h3>
             <p class="text-gray-700">Please click here to renew your plan.</p>
-            <button onclick="window.openForm('renew')" class="bg-gradient-to-r from-green-500 to-green-700 text-white font-bold py-2 px-6 rounded-lg shadow-md hover:shadow-lg transition transform hover:scale-105 flex-shrink-0">
-                Renew Here
-            </button>
+            <!-- Razorpay Button for Renew -->
+            <div id="razorpay-button-renew" class="w-auto">
+                <form class="w-full"><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_RbjWZXZCaNTFQJ" async> </script> </form>
+            </div>
         </div>
     </section>
 
@@ -301,81 +310,13 @@
         <div class="bg-white rounded-2xl shadow-lg p-6 border-2 border-purple-300 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6">
             <h3 class="text-xl font-semibold text-gray-800">Upgrade Subscribers?</h3>
             <p class="text-gray-700">Please click here to Upgrade your plan.</p>
-            <button onclick="window.openForm('upgrade')" class="bg-gradient-to-r from-purple-500 to-indigo-700 text-white font-bold py-2 px-6 rounded-lg shadow-md hover:shadow-lg transition transform hover:scale-105 flex-shrink-0">
-                Upgrade Here
-            </button>
-        </div>
-    </section>
-
-    <section id="planForm" class="hidden max-w-5xl mx-auto bg-white border border-gray-200 rounded-2xl shadow-xl mt-10 p-8 text-center transition-all px-4 sm:px-8">
-        <h2 id="formTitle" class="text-2xl font-semibold text-indigo-700 mb-4">Complete Your Registration & Payment</h2>
-        <p class="text-gray-600 mb-6">Fill in your details and scan the QR code to proceed with your selected plan.</p>
-
-        <div id="message-box" class="hidden p-4 rounded-lg mb-6 text-left transition-all duration-300"></div>
-
-        <div class="flex flex-col md:flex-row gap-8 justify-center">
-            <div class="flex-shrink-0 flex flex-col items-center p-4 bg-gray-50 rounded-lg border border-gray-200 shadow-inner">
-                <p class="text-lg font-semibold text-gray-800 mb-4">Scan to Pay</p>
-                <img src="https://i.postimg.cc/htq2t5zf/Whats-App-Image-2025-10-09-at-10-26-12-PM.jpg" alt="Payment QR Code" class="w-48 h-48 sm:w-64 sm:h-64 object-contain rounded-lg shadow-md mb-4 border border-gray-300">
-                <a id="upiPayButton" href="#" class="inline-block text-center bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-6 rounded-lg w-full">Pay Now</a>
+            <!-- Razorpay Button for Upgrade -->
+            <div id="razorpay-button-upgrade" class="w-auto">
+                <form class="w-full"><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_RbjWZXZCaNTFQJ" async> </script> </form>
             </div>
-
-            <form id="registrationForm" class="grid md:grid-cols-2 gap-4 text-left flex-grow">
-                <input type="text" id="fullName" name="fullName" placeholder="Full Name *" class="border border-gray-300 rounded-lg p-3 w-full" required>
-                <input type="email" id="emailId" name="emailId" placeholder="Email ID" class="border border-gray-300 rounded-lg p-3 w-full">
-                <input type="tel" id="mobileNumber" name="mobileNumber" placeholder="Mobile Number *" class="border border-gray-300 rounded-lg p-3 w-full" required>
-
-                <select id="classSelect" name="class" class="border border-gray-300 rounded-lg p-3 w-full" required>
-                    <option value="" disabled selected>Select Your Class *</option>
-                    <option value="Class 3">Class 3</option>
-                    <option value="Class 4">Class 4</option>
-                    <option value="Class 5">Class 5</option>
-                    <option value="Class 6">Class 6</option>
-                    <option value="Class 7">Class 7</option>
-                    <option value="Class 8">Class 8</option>
-                    <option value="Class 9">Class 9</option>
-                    <option value="Class 10">Class 10</option>
-                </select>
-
-                <select id="selectedPlan" name="plan" class="border border-gray-300 rounded-lg p-3 w-full" required onchange="window.updateUpiLink()">
-                    <option value="" disabled selected>Selected Plan *</option>
-                    <option value="Silver Plan">Silver Plan</option>
-                    <option value="Platina Plan">Platina Plan</option>
-                    <option value="Gold Plan">Gold Plan</option>
-                </select>
-
-                <input type="text" id="paymentAmount" name="amount" placeholder="Paid Amount *" class="border border-gray-300 rounded-lg p-3 w-full" required>
-
-                <select id="paidFromSelect" name="paidFrom" class="border border-gray-300 rounded-lg p-3 w-full md:col-span-2" required>
-                    <option value="" disabled selected>Paid From *</option>
-                    <option value="PhonePe">PhonePe</option>
-                    <option value="Google Pay">Google Pay</option>
-                    <option value="Paytm">Paytm</option>
-                    <option value="BHIM">BHIM</option>
-                    <option value="Other">Other</option>
-                </select>
-
-                <input type="text" id="paidNumber" name="paidNumber" placeholder="Paid Mobile number (or) UTR" class="border border-gray-300 rounded-lg p-3 md:col-span-2 w-full">
-                <textarea id="address" name="address" placeholder="Address (Optional)" rows="3" class="border border-gray-300 rounded-lg p-3 md:col-span-2 w-full"></textarea>
-
-                <div class="md:col-span-2 flex items-center space-x-2">
-                    <input type="checkbox" id="termsCheck" name="terms" class="h-4 w-4 text-indigo-600 border-gray-300 rounded">
-                    <label for="termsCheck" class="text-sm text-gray-700">
-                        I agree to the <a href="#" class="text-indigo-600 hover:underline">Terms & Conditions</a>
-                    </label>
-                </div>
-
-                <button type="submit" id="payButton" class="md:col-span-2 bg-gradient-to-r from-indigo-500 via-purple-600 to-pink-600 text-white font-semibold py-3 px-8 rounded-lg w-full disabled:opacity-50 disabled:cursor-not-allowed" disabled>
-                    <span id="buttonText">Submit Details</span>
-                    <svg id="loadingSpinner" class="hidden animate-spin h-5 w-5 mx-auto text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                    </svg>
-                </button>
-            </form>
         </div>
     </section>
-
+    
     <section class="text-center mt-12 bg-blue-50 py-10 px-6 rounded-lg shadow-inner max-w-5xl mx-auto">
         <h2 class="text-2xl font-semibold text-blue-700 mb-4">🎓 Learn, Practice & Achieve More!</h2>
         <p class="text-gray-700 leading-relaxed max-w-3xl mx-auto mb-4">We provide <strong>tests for each lesson</strong>, conduct <strong>General and Subject exams</strong> and track your <strong>daily TC score</strong>. Get special sessions, live calls & mentorship for Classes 3-10.</p>
@@ -446,44 +387,34 @@
     </footer>
 
     <script>
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxVVEHtaDBsAZDEcANSr2r1F_XL6qGMHFbrG1dJQm72n82AV-sJcpM9jE05AN49skQ/exec';
-        const registrationForm = document.getElementById('registrationForm');
-        const submitButton = document.getElementById('payButton');
-        const buttonText = document.getElementById('buttonText');
-        const loadingSpinner = document.getElementById('loadingSpinner');
-        const messageBox = document.getElementById('message-box');
-        const selectedPlanEl = document.getElementById('selectedPlan');
-        const paymentAmountEl = document.getElementById('paymentAmount');
-        const upiPayButton = document.getElementById('upiPayButton');
-        const countdownEl = document.getElementById('countdown-timer');
-        const offerMessageEl = document.getElementById('offer-message');
-        const timerElements = {
-            hours: document.getElementById('hours'),
-            minutes: document.getElementById('minutes'),
-            seconds: document.getElementById('seconds')
-        };
-
+        
         function formatTime(time) { return time < 10 ? '0' + time : time; }
 
         function startCountdown() {
+            // Timer logic for a rotating 24hr ON / 12hr OFF offer cycle
             const SEED_DATE_ISO = '2025-10-20T00:00:00+05:30';
             const seedTime = new Date(SEED_DATE_ISO).getTime();
-            const PHASE_1_MS = 24 * 60 * 60 * 1000;
-            const PHASE_2_MS = 12 * 60 * 60 * 1000;
-            const TOTAL_CYCLE_MS = PHASE_1_MS + PHASE_2_MS;
+            const PHASE_1_MS = 24 * 60 * 60 * 1000; // 24 hours ON
+            const PHASE_2_MS = 12 * 60 * 60 * 1000; // 12 hours OFF (Not used here, simplified to always count down)
+            const TOTAL_CYCLE_MS = PHASE_1_MS; // Simplified to 24-hour cycle for countdown display
+            
+            const timerElements = {
+                hours: document.getElementById('hours'),
+                minutes: document.getElementById('minutes'),
+                seconds: document.getElementById('seconds')
+            };
+            const countdownEl = document.getElementById('countdown-timer');
+            const offerMessageEl = document.getElementById('offer-message');
+
 
             function updateTimer() {
                 const now = new Date().getTime();
                 const totalElapsedMs = now - seedTime;
+                
+                // Calculate remaining time in the current 24-hour cycle
                 const msIntoCurrentCycle = totalElapsedMs % TOTAL_CYCLE_MS;
-                let remainingMs;
+                const remainingMs = TOTAL_CYCLE_MS - msIntoCurrentCycle;
 
-                if (msIntoCurrentCycle < PHASE_1_MS) {
-                    remainingMs = PHASE_1_MS - msIntoCurrentCycle;
-                } else {
-                    const msIntoPhase2 = msIntoCurrentCycle - PHASE_1_MS;
-                    remainingMs = PHASE_2_MS - msIntoPhase2;
-                }
 
                 const hours = Math.floor((remainingMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 const minutes = Math.floor((remainingMs % (1000 * 60 * 60)) / (1000 * 60));
@@ -500,142 +431,6 @@
             updateTimer(); 
             setInterval(updateTimer, 1000);
         }
-
-        function showMessage(type, message) {
-            messageBox.classList.remove('hidden', 'bg-green-100', 'text-green-800', 'bg-red-100', 'text-red-800', 'border-green-300', 'border-red-300');
-            if (type === 'success') {
-                messageBox.classList.add('bg-green-100', 'text-green-800', 'border', 'border-green-300');
-            } else {
-                messageBox.classList.add('bg-red-100', 'text-red-800', 'border', 'border-red-300');
-            }
-            messageBox.innerHTML = `<p class="font-semibold">${type === 'success' ? 'Success!' : 'Submission Failed!'}</p><p class="text-sm">${message}</p>`;
-            messageBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-
-        async function fetchWithRetry(url, options, maxRetries = 5) {
-            for (let i = 0; i < maxRetries; i++) {
-                try {
-                    const response = await fetch(url, options);
-                    if (!response.ok) throw new Error(`HTTP status: ${response.status}`);
-                    return response;
-                } catch (error) {
-                    if (i < maxRetries - 1) {
-                        const delay = Math.pow(2, i) * 1000 + Math.random() * 500;
-                        await new Promise(resolve => setTimeout(resolve, delay));
-                    } else {
-                        throw error;
-                    }
-                }
-            }
-        }
-
-        async function handleSubmit(event) {
-            event.preventDefault();
-            submitButton.disabled = true;
-            loadingSpinner.classList.remove('hidden');
-            buttonText.textContent = 'Submitting...';
-            messageBox.classList.add('hidden');
-
-            const formData = new FormData(registrationForm);
-            const params = new URLSearchParams();
-
-            for (let [key, value] of formData.entries()) {
-                if (key === 'terms') {
-                    params.append(key, value === 'on' ? 'Agreed' : 'Not Agreed');
-                } else if (key === 'amount') { 
-                    const cleanedValue = value.replace(/[^0-9.]/g, '');
-                    params.append(key, cleanedValue);
-                } else {
-                    params.append(key, value);
-                }
-            }
-
-            try {
-                const response = await fetchWithRetry(SCRIPT_URL, {
-                    method: 'POST',
-                    mode: 'cors',
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                    body: params.toString(),
-                });
-
-                const result = await response.json();
-
-                if (result.ok) {
-                    showMessage('success', 'We will contact you as soon as possible. Thank you for joining with us.');
-                    registrationForm.reset();
-                    upiPayButton.href = '#';
-                } else {
-                    showMessage('error', `Server script error: ${result.error || 'Unknown error'}. Please check your script deployment.`);
-                }
-            } catch (error) {
-                console.error('Submission Error:', error);
-                showMessage('error', `A network error occurred while submitting: ${error.message}. Please check your internet connection.`);
-            } finally {
-                submitButton.disabled = false;
-                loadingSpinner.classList.add('hidden');
-                buttonText.textContent = 'Submit Details';
-            }
-        }
-
-        window.updateUpiLink = function() {
-            const plan = selectedPlanEl.value || '';
-            let raw = paymentAmountEl.value || '';
-            const normalized = raw.replace(/[^0-9.]/g, '').trim();
-            const amountNum = parseFloat(normalized);
-
-            if (!isNaN(amountNum) && amountNum > 0) {
-                const upiId = '8142811989@ybl';
-                const payeeName = 'Sri Veda Talent Competition';
-                const note = `SVTC SUBSCRIPTION ${plan}`.trim();
-                const url = `upi://pay?pa=${encodeURIComponent(upiId)}&pn=${encodeURIComponent(payeeName)}&am=${encodeURIComponent(amountNum)}&tn=${encodeURIComponent(note)}`;
-                upiPayButton.href = url;
-            } else {
-                upiPayButton.href = '#';
-            }
-        }
-
-        document.getElementById('termsCheck').addEventListener('change', function() {
-            const payButton = document.getElementById('payButton');
-            payButton.disabled = !this.checked;
-        });
-
-        paymentAmountEl.addEventListener('input', window.updateUpiLink);
-        selectedPlanEl.addEventListener('change', window.updateUpiLink);
-
-        registrationForm.addEventListener('submit', handleSubmit);
-
-        window.openForm = function(type = 'new') {
-            const planForm = document.getElementById('planForm');
-            const formTitle = document.getElementById('formTitle'); 
-
-            if (type === 'renew') {
-                formTitle.textContent = 'Renew Your Subscription';
-            } else if (type === 'upgrade') {
-                formTitle.textContent = 'Upgrade Your Subscription';
-            } else {
-                formTitle.textContent = 'Complete Your Registration & Payment';
-            }
-            
-            document.getElementById('classSelect').selectedIndex = 0;
-            selectedPlanEl.selectedIndex = 0; 
-            paymentAmountEl.value = ''; 
-            window.updateUpiLink();
-
-            document.getElementById('fullName').value = '';
-            document.getElementById('emailId').value = '';
-            document.getElementById('mobileNumber').value = '';
-            document.getElementById('paidFromSelect').selectedIndex = 0; 
-            document.getElementById('paidNumber').value = '';
-            document.getElementById('address').value = '';
-            
-            const termsCheck = document.getElementById('termsCheck');
-            termsCheck.checked = false;
-            document.getElementById('payButton').disabled = true;
-
-            planForm.classList.remove('hidden');
-
-            planForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
         
         document.addEventListener('DOMContentLoaded', () => {
             const menuToggle = document.getElementById('menuToggle');
@@ -650,7 +445,6 @@
 
         window.onload = () => {
             startCountdown();
-            upiPayButton.href = '#';
         };
     </script>
 
