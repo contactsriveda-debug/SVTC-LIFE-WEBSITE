@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Student Registration Form</title>
+    <title>Complete Student Data Form</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="icon" type="image/jpeg" href="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg">
+
     <style>
         :root {
             --sv-blue: #00008B;
@@ -18,24 +21,41 @@
             --sv-yellow: #FFD700;
             --sv-maroon: #800000;
         }
+
         body {
-            font-family: "Sitka Small", "Sitka", 'Poppins', 'Roboto Slab', serif;
-            font-weight: 600;
-            background: #f4f7f6;
+            font-family: 'Inter', "Sitka Small", "Sitka", 'Poppins', 'Roboto Slab', serif;
+            background-color: #f0f4f8;
             min-height: 100vh;
             padding-bottom: 2rem;
         }
-        .bg-sv-blue { background-color: var(--sv-blue); }
-        .text-sv-blue { color: var(--sv-blue); }
-        .bg-sv-orange { background-color: var(--sv-orange); }
-        .text-sv-orange { color: var(--sv-orange); }
-        .bg-sv-yellow { color: var(--sv-yellow); }
-        .text-sv-yellow { color: var(--sv-yellow); }
-        /* Removed .nav-button and .menu-button-primary styles as the nav bar is removed */
+        
+         .bg-sv-blue { background-color: var(--sv-blue); }
+         .text-sv-blue { color: var(--sv-blue); }
+         .bg-sv-orange { background-color: var(--sv-orange); }
+         .text-sv-orange { color: var(--sv-orange); }
+         .bg-sv-yellow { color: var(--sv-yellow); }
+         .text-sv-yellow { color: var(--sv-yellow); }
+
         .header-bg {
             position: relative;
             overflow: hidden;
         }
+        
+        #formHeader {
+            /* Removed sticky positioning */
+        }
+        
+        #dynamicMenu {
+            /* Removed sticky positioning */
+        }
+
+        @media (max-width: 767px) {
+            #dynamicMenu {
+                /* Removed sticky top adjustment */
+            }
+        }
+
+
         .header-bg::before {
             content: '';
             position: absolute;
@@ -58,59 +78,7 @@
             position: relative;
             z-index: 10;
         }
-        .form-container {
-            animation: fadeInUp 0.8s ease both;
-            transition: opacity 0.3s ease, transform 0.3s ease, padding 0.3s ease;
-            margin: 0 auto;
-            padding: 0 0.5rem 2rem;
-        }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .styled-input {
-            transition: all 0.3s ease;
-            background-color: #f9fafb;
-            border: 2px solid #e5e7eb;
-            padding: 0.5rem 0.75rem;
-            font-size: 0.90rem;
-        }
-        .styled-input:focus {
-            border-color: #2563eb;
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2); 
-            background-color: white;
-        }
-        .btn-submit {
-            transition: all 0.3s ease;
-            transform: translateY(0);
-        }
-        .btn-submit:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.4);
-        }
-        .checkbox-group {
-            padding-top: 0.4rem; 
-        }
-        .preview-detail {
-            display: flex;
-            flex-direction: column; 
-            padding: 0.75rem 0;
-            border-bottom: 1px dashed #e5e7eb;
-        }
-        .preview-detail:last-child {
-            border-bottom: none;
-        }
-        .preview-label {
-            font-weight: 600;
-            color: #6b7280; 
-            font-size: 0.9rem;
-            margin-bottom: 0.25rem;
-        }
-        .preview-value {
-            font-weight: 500;
-            color: #1f2937; 
-            font-size: 1.1rem;
-        }
+
         .course-button {
             display: inline-block;
             padding: 0.4rem 0.8rem;
@@ -130,24 +98,16 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
-        /* Custom style for the primary menu button in the header */
         .header-menu-button {
-            /* White background, Orange text, Orange border - as requested */
-            background-color: white !important; 
+            background-color: white !important;  
             color: var(--sv-orange) !important;
             font-weight: 900;
-            
-            padding: 0.6rem 1.25rem; 
+            padding: 0.6rem 1.25rem;  
             font-size: 1rem;
-            
             border-width: 4px;
             border-color: var(--sv-orange) !important;
             box-shadow: 0 6px 12px rgba(255, 140, 0, 0.7);
-            
-            /* Bent corners */
-            border-radius: 1.5rem; /* Rounded-xl equivalent */
-            
-            /* Flex properties for alignment */
+            border-radius: 1.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -155,23 +115,72 @@
             transition: all 0.3s ease;
         }
         .header-menu-button:hover {
-            /* Hover state */
-            background-color: var(--sv-yellow) !important; 
-            color: var(--sv-blue) !important; 
+            background-color: var(--sv-yellow) !important;  
+            color: var(--sv-blue) !important;  
             transform: scale(1.05);
         }
+
+        .form-input {
+            padding-top: 0.25rem;
+            padding-bottom: 0.25rem;
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* Added shadow-sm */
+        }
+        .form-input:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        .spinner {
+            border-color: #f3f3f3;
+            border-top-color: #3b82f6;
+            animation: spin 1s linear infinite;
+        }
+
+        .copy-btn {
+            padding: 0.6rem 0.8rem;
+            font-size: 0.875rem;
+            background-color: #4B5563;
+            color: white;
+            border-radius: 0 0.375rem 0.375rem 0;
+            transition: background-color 0.2s ease;
+        }
+        .copy-btn:hover {
+            background-color: #374151;
+        }
+        .copy-btn:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+        }
+        
+        .credential-field {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: #1D4ED8;
+            background-color: white;
+            padding: 0.6rem;
+            border-radius: 0.375rem 0 0 0.375rem;
+            border: 1px solid #D1D5DB;
+        }
+
     </style>
 </head>
+
 <body class="antialiased">
 
     <header class="bg-sv-blue shadow-lg header-bg" id="formHeader">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 header-content">
             <div class="flex flex-col md:flex-row items-center justify-between py-3 md:py-2 space-y-3 md:space-y-0 md:h-24">
                 <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4">
-                    <img src="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg" 
-                            onerror="this.onerror=null; this.src='https://placehold.co/64x64/1e3a8a/ffffff?text=VEDA';" 
-                            alt="Veda Logo" 
-                            class="w-16 h-16 object-contain shadow-md rounded-full bg-white p-1 flex-shrink-0">
+                    <img src="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg"
+                        onerror="this.onerror=null; this.src='https://placehold.co/64x64/1e3a8a/ffffff?text=VEDA';"
+                        alt="Veda Logo"
+                        class="w-16 h-16 object-contain shadow-md rounded-full bg-white p-1 flex-shrink-0">
                     <div class="text-center sm:text-left flex flex-col justify-center">
                         <h1 class="text-xl sm:text-2xl font-extrabold tracking-wider text-white">
                             SRI VEDA TALENT COMPETITION
@@ -182,15 +191,11 @@
                         </p>
                     </div>
                 </div>
-                <!-- Right Group: Icons + MENU Button -->
                 <div class="flex items-center space-x-3 sm:space-x-6 lg:space-x-8">
-                    <!-- Icons -->
                     <i class="fas fa-book text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Our Courses"></i>
                     <i class="fas fa-pencil-ruler text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Practice Tests"></i>
                     <i class="fas fa-graduation-cap text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Study Material"></i>
                     <i class="fas fa-lightbulb text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Insights & Guidance"></i>
-                    
-                    <!-- MENU Button is moved here from the lower navigation bar -->
                     <button id="menuToggle" class="header-menu-button">
                         MENU <i class="fas fa-bars ml-1"></i>
                     </button>
@@ -199,8 +204,6 @@
         </div>
     </header>
 
-    <!-- Removed the lower navigation bar section with DASHBOARD, JOIN NOW, PRICING buttons (id="mainNav") -->
-    
     <div id="dynamicMenu" class="hidden bg-sv-blue/95 border-b-4 border-sv-yellow transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
             <div class="flex flex-wrap justify-center gap-2">
@@ -231,287 +234,278 @@
             </div>
         </div>
     </div>
+
+
+    <main class="max-w-4xl mx-auto p-4 md:p-8">
+        <form id="registrationForm" class="space-y-6">
+
+            <fieldset class="bg-blue-50 border-t-4 border-blue-400 p-3 md:p-4 rounded-lg shadow-lg">
+                <legend class="text-lg font-bold text-blue-800 px-3 py-1 bg-white rounded-md shadow-sm border border-blue-200">Personal Details</legend>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                    
+                    <div class="bg-white p-2 rounded-md shadow-sm border border-gray-200">
+                        <input type="text" id="fullName" name="fullName" placeholder="Full Name" required
+                            class="form-input w-full border-gray-300 rounded-md placeholder-gray-500">
+                    </div>
+
+                    <div class="bg-white p-2 rounded-md shadow-sm border border-gray-200">
+                        <input type="text" id="fatherName" name="fatherName" placeholder="Father's Name" required
+                            class="form-input w-full border-gray-300 rounded-md placeholder-gray-500">
+                    </div>
+
+                    <div class="bg-white p-2 rounded-md shadow-sm border border-gray-200">
+                        <select id="gender" name="gender"
+                            class="form-input w-full border-gray-300 rounded-md text-gray-500">
+                            <option value="">Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+
+                    <div class="bg-white p-2 rounded-md shadow-sm border border-gray-200">
+                        <label class="block text-xs font-medium text-gray-500 mb-1">Date of Birth (DOB)</label>
+                        <div class="grid grid-cols-3 gap-2">
+                            <select id="dob-day" name="dob-day" class="form-input w-full border-gray-300 rounded-md text-gray-500" required>
+                                <option value="">Day</option>
+                            </select>
+                            <select id="dob-month" name="dob-month" class="form-input w-full border-gray-300 rounded-md text-gray-500" required>
+                                <option value="">Month</option>
+                            </select>
+                            <select id="dob-year" name="dob-year" class="form-input w-full border-gray-300 rounded-md text-gray-500" required>
+                                <option value="">Year</option>
+                            </select>
+                        </div>
+                        <input type="hidden" id="dob" name="dob">
+                    </div>
+
+
+                    <div class="bg-white p-2 rounded-md shadow-sm border border-gray-200">
+                        <input type="tel" id="mobileNumber" name="mobileNumber" placeholder="Mobile Number" required
+                            class="form-input w-full border-gray-300 rounded-md placeholder-gray-500">
+                    </div>
+
+                    <div class="bg-white p-2 rounded-md shadow-sm border border-gray-200">
+                        <input type="email" id="emailId" name="emailId" placeholder="Email ID (Optional)"
+                            class="form-input w-full border-gray-300 rounded-md placeholder-gray-500">
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="bg-green-50 border-t-4 border-green-400 p-3 md:p-4 rounded-lg shadow-lg">
+                <legend class="text-lg font-bold text-green-800 px-3 py-1 bg-white rounded-md shadow-sm border border-green-200">Education Details</legend>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+
+                    <div class="bg-white p-2 rounded-md shadow-sm border border-gray-200">
+                        <select id="className" name="className" required
+                            class="form-input w-full border-gray-300 rounded-md text-gray-500">
+                            <option value="">Select Class</option>
+                            <option value="3rd Class">3rd Class</option>
+                            <option value="4th Class">4th Class</option>
+                            <option value="5th Class">5th Class</option>
+                            <option value="6th Class">6th Class</option>
+                            <option value="7th Class">7th Class</option>
+                            <option value="8th Class">8th Class</option>
+                            <option value="9th Class">9th Class</option>
+                            <option value="10th Class">10th Class</option>
+                            <option value="Others">Others</option>
+                        </select>
+                    </div>
+
+                    <div class="bg-white p-2 rounded-md shadow-sm border border-gray-200">
+                        <input type="text" id="schoolName" name="schoolName" placeholder="School Name"
+                            class="form-input w-full border-gray-300 rounded-md placeholder-gray-500">
+                    </div>
+
+                    <div class="bg-white p-2 rounded-md shadow-sm border border-gray-200">
+                        <select id="medium" name="medium"
+                            class="form-input w-full border-gray-300 rounded-md text-gray-500">
+                            <option value="">Select Medium</option>
+                            <option value="Telugu">Telugu</option>
+                            <option value="English">English</option>
+                        </select>
+                    </div>
+
+                    <div class="bg-white p-2 rounded-md shadow-sm border border-gray-200">
+                        <select id="schoolType" name="schoolType"
+                            class="form-input w-full border-gray-300 rounded-md text-gray-500">
+                            <option value="">Select School Type</option>
+                            <option value="Government">Government</option>
+                            <option value="Private">Private</option>
+                        </select>
+                    </div>
+
+                    <div class="bg-white p-2 rounded-md shadow-sm border border-gray-200 md:col-span-2">
+                        <input type="text" id="favorite" name="favorite" placeholder="Favorite Subject"
+                            class="form-input w-full border-gray-300 rounded-md placeholder-gray-500">
+                    </div>
+
+                    <div class="bg-white p-2 rounded-md shadow-sm border border-gray-200 md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Language Proficiency</label>
+                        <div class="grid grid-cols-3 gap-x-4 gap-y-2">
+                            <div class="font-medium text-gray-600 text-sm">Telugu:</div>
+                            <label class="flex items-center text-sm text-gray-600">
+                                <input type="checkbox" name="telugu_read" value="Read" class="h-4 w-4 text-blue-600 rounded">
+                                <span class="ml-2">Read</span>
+                            </label>
+                            <label class="flex items-center text-sm text-gray-600">
+                                <input type="checkbox" name="telugu_write" value="Write" class="h-4 w-4 text-blue-600 rounded">
+                                <span class="ml-2">Write</span>
+                            </label>
+                            <div class="font-medium text-gray-600 text-sm"></div>
+                            <label class="flex items-center text-sm text-gray-600">
+                                <input type="checkbox" name="telugu_speak" value="Speak" class="h-4 w-4 text-blue-600 rounded">
+                                <span class="ml-2">Speak</span>
+                            </label>
+                            <div class="font-medium text-gray-600 text-sm"></div>
+
+                            <div class="font-medium text-gray-600 text-sm border-t pt-2 mt-1">English:</div>
+                            <label class="flex items-center text-sm text-gray-600 border-t pt-2 mt-1">
+                                <input type="checkbox" name="english_read" value="Read" class="h-4 w-4 text-blue-600 rounded">
+                                <span class="ml-2">Read</span>
+                            </label>
+                            <label class="flex items-center text-sm text-gray-600 border-t pt-2 mt-1">
+                                <input type="checkbox" name="english_write" value="Write" class="h-4 w-4 text-blue-600 rounded">
+                                <span class="ml-2">Write</span>
+                            </label>
+                            <div class="font-medium text-gray-600 text-sm"></div>
+                            <label class="flex items-center text-sm text-gray-600">
+                                <input type="checkbox" name="english_speak" value="Speak" class="h-4 w-4 text-blue-600 rounded">
+                                <span class="ml-2">Speak</span>
+                            </label>
+                             <div class="font-medium text-gray-600 text-sm"></div>
+
+                            <div class="font-medium text-gray-600 text-sm border-t pt-2 mt-1">Hindi:</div>
+                            <label class="flex items-center text-sm text-gray-600 border-t pt-2 mt-1">
+                                <input type="checkbox" name="hindi_read" value="Read" class="h-4 w-4 text-blue-600 rounded">
+                                <span class="ml-2">Read</span>
+                            </label>
+                            <label class="flex items-center text-sm text-gray-600 border-t pt-2 mt-1">
+                                <input type="checkbox" name="hindi_write" value="Write" class="h-4 w-4 text-blue-600 rounded">
+                                <span class="ml-2">Write</span>
+                            </label>
+                            <div class="font-medium text-gray-600 text-sm"></div>
+                            <label class="flex items-center text-sm text-gray-600">
+                                <input type="checkbox" name="hindi_speak" value="Speak" class="h-4 w-4 text-blue-600 rounded">
+                                <span class="ml-2">Speak</span>
+                            </label>
+                             <div class="font-medium text-gray-600 text-sm"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </fieldset>
+
+            <fieldset class="bg-yellow-50 border-t-4 border-yellow-400 p-3 md:p-4 rounded-lg shadow-lg">
+                <legend class="text-lg font-bold text-yellow-800 px-3 py-1 bg-white rounded-md shadow-sm border border-yellow-200">Address & Goal</legend>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                    
+                    <div class="bg-white p-2 rounded-md shadow-sm border border-gray-200">
+                        <input type="text" id="village" name="village" placeholder="Village/Town"
+                            class="form-input w-full border-gray-300 rounded-md placeholder-gray-500">
+                    </div>
+
+                    <div class="bg-white p-2 rounded-md shadow-sm border border-gray-200">
+                        <input type="text" id="mandal" name="mandal" placeholder="Mandal"
+                            class="form-input w-full border-gray-300 rounded-md placeholder-gray-500">
+                    </div>
+
+                    <div class="bg-white p-2 rounded-md shadow-sm border border-gray-200">
+                        <input type="text" id="district" name="district" placeholder="District"
+                            class="form-input w-full border-gray-300 rounded-md placeholder-gray-500">
+                    </div>
+
+                    <div class="bg-white p-2 rounded-md shadow-sm border border-gray-200">
+                        <input type="text" id="state" name="state" placeholder="State"
+                            class="form-input w-full border-gray-300 rounded-md placeholder-gray-500">
+                    </div>
+
+                    <div class="bg-white p-2 rounded-md shadow-sm border border-gray-200 md:col-span-2">
+                        <input type="text" id="dream" name="dream" placeholder="What is your Dream/Goal? (e.g., Doctor, Engineer)"
+                            class="form-input w-full border-gray-300 rounded-md placeholder-gray-500">
+                    </div>
+
+                </div>
+            </fieldset>
+
+            <div class="bg-white p-4 rounded-lg shadow-md">
+                <label class="flex items-center">
+                    <input type="checkbox" id="termsConditions" name="termsConditions" value="Agreed" checked required
+                        class="h-5 w-5 text-blue-600 rounded border-gray-300 focus:ring-blue-500">
+                    <span class="ml-3 text-sm text-gray-700">
+                        I agree to the
+                        <a href="https://www.svtc.life/Privacy%20policy.html" target="_blank"
+                            class="text-blue-600 hover:underline font-medium">Terms and Condition Agreed</a>.
+                    </span>
+                </label>
+            </div>
+
+            <div class="text-center">
+                <button type="submit"
+                    class="w-full md:w-auto bg-blue-600 text-white font-bold text-base px-10 py-2.5 rounded-lg shadow-lg hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 transition duration-300 transform hover:-translate-y-1">
+                    <i class="fas fa-paper-plane mr-2"></i> Review and Submit
+                </button>
+            </div>
+        </form>
+    </main>
     
-    <div class="form-container w-full max-w-7xl mx-auto">
-        
-        <div id="instructionBox" class="bg-yellow-50 border-l-4 border-yellow-500 text-yellow-800 p-4 rounded-lg shadow-md mb-6 mt-6 px-4">
-            <p class="font-bold text-lg mb-2 flex items-center">
-                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
-                Important Instructions for Registration
+    <div id="successMessage" class="hidden max-w-4xl mx-auto p-4 md:p-8 my-10">
+        <div class="bg-white border-t-8 border-green-500 rounded-lg shadow-2xl p-6 md:p-10 text-center">
+            <i class="fas fa-check-circle text-green-500 text-6xl mb-6"></i>
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Thank you for registering!</h2>
+            <p class="text-gray-600 text-base mb-6">
+                Your registration is complete. Your Username and Password have been generated.
+                You can use these details to log in to your dashboard and access your exams.
             </p>
-            <ul class="list-disc list-inside text-sm space-y-1 ml-4">
-                <li><span class="font-semibold">Please fill the registration form carefully.</span> Check all the details once before you submit.</li>
-                <li><span class="font-semibold">Double-check your parent’s mobile number</span> — make sure it is correct.</li>
-                <li>After you complete registration, you will receive your login details through a message.</li>
-                <li>If you want to get your username and password immediately, please send us a message on WhatsApp through the Contact page.</li>          
-                <li>Once you get the message, go to the <span class="font-semibold">Dashboard page and login</span> using your details.</li>
-                <li>If you have any doubts or need help, you can contact us or send a message on WhatsApp anytime.</li>
-            </ul>
-        </div>
-        
-        <main id="formContent" class="px-4">
-            <form id="registrationForm" class="space-y-6" novalidate>
-                
-                <fieldset class="bg-white p-4 md:p-5 rounded-xl shadow-2xl border-t-4 border-indigo-400">
-                    <legend class="text-lg font-semibold text-indigo-700 px-4 py-2 rounded-lg border bg-indigo-50 border-indigo-300 mb-6 flex items-center">Student Details</legend>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        
-                        <div>
-                            <label for="full_name" class="block text-sm font-medium text-gray-700 font-bold">Full Name</label>
-                            <input type="text" id="full_name" name="full_name" required class="styled-input mt-1 block w-full rounded-lg shadow-sm">
-                        </div>
-                        <div>
-                            <label for="present_class" class="block text-sm font-medium text-gray-700 font-bold">Present Class</label>
-                            <select id="present_class" name="present_class" required class="styled-input mt-1 block w-full rounded-lg shadow-sm">
-                                <option value="">-- Select Class --</option>
-                                <option value="3rd Class">3rd Class</option>
-                                <option value="4th Class">4th Class</option>
-                                <option value="5th Class">5th Class</option>
-                                <option value="6th Class">6th Class</option>
-                                <option value="7th Class">7th Class</option>
-                                <option value="8th Class">8th Class</option>
-                                <option value="9th Class">9th Class</option>
-                                <option value="10th Class">10th Class</option>
-                                <option value="Intermediate">Intermediate</option>
-                                <option value="Other">Other</option>
-                            </select>
-                        </div>
-
-                        <div>
-                            <label for="gender" class="block text-sm font-medium text-gray-700 font-bold">Gender</label>
-                            <select id="gender" name="gender" required class="styled-input mt-1 block w-full rounded-lg shadow-sm">
-                                <option value="">-- Select Gender --</option>
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="dob" class="block text-sm font-medium text-gray-700 font-bold">Date of Birth</label>
-                            <input type="text" id="dob" name="dob" placeholder="DD/MM/YYYY" required class="styled-input mt-1 block w-full rounded-lg shadow-sm">
-                        </div>
-
-                    </div>
-                </fieldset>
-                
-                <fieldset class="bg-white p-4 md:p-5 rounded-xl shadow-2xl border-t-4 border-green-400">
-                    <legend class="text-lg font-semibold text-green-700 px-4 py-2 rounded-lg border bg-green-50 border-green-300 mb-6 flex items-center">Parent & Contact Information</legend>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        
-                        <div>
-                            <label for="parent_name" class="block text-sm font-medium text-gray-700 font-bold">Father / Mother Name</label>
-                            <input type="text" id="parent_name" name="parent_name" required class="styled-input mt-1 block w-full rounded-lg shadow-sm">
-                        </div>
-                        <div>
-                            <label for="parent_number" class="block text-sm font-medium text-gray-700 font-bold">Parent’s Number</label>
-                            <input type="text" id="parent_number" name="parent_number" required class="styled-input mt-1 block w-full rounded-lg shadow-sm">
-                        </div>
-                        <div class="md:col-span-2">
-                            <label for="email_id" class="block text-sm font-medium text-gray-700 font-bold">Email ID </label>
-                            <input type="text" id="email_id" name="email_id" class="styled-input mt-1 block w-full rounded-lg shadow-sm">
-                        </div>
-
-                    </div>
-                </fieldset>
-
-                <fieldset class="bg-white p-4 md:p-5 rounded-xl shadow-2xl border-t-4 border-purple-400">
-                    <legend class="text-lg font-semibold text-purple-700 px-4 py-2 rounded-lg border bg-purple-50 border-purple-300 mb-6 flex items-center">Academic Details</legend>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-                        <div class="md:col-span-2">
-                            <label for="school_name" class="block text-sm font-medium text-gray-700 font-bold">School Name</label>
-                            <input type="text" id="school_name" name="school_name" class="styled-input mt-1 block w-full rounded-lg shadow-sm">
-                        </div>
-
-                        <div>
-                            <label for="medium" class="block text-sm font-medium text-gray-700 font-bold">Medium</label>
-                            <select id="medium" name="medium" class="styled-input mt-1 block w-full rounded-lg shadow-sm">
-                                <option value="">-- Select Medium --</option>
-                                <option value="Telugu">Telugu</option>
-                                <option value="English">English</option>
-                                <option value="Hindi">Hindi</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="school_type" class="block text-sm font-medium text-gray-700 font-bold">Current School Type</label>
-                            <select id="school_type" name="school_type" class="styled-input mt-1 block w-full rounded-lg shadow-sm">
-                                <option value="">-- Select Type --</option>
-                                <option value="Government">Government</option>
-                                <option value="Private">Private</option>
-                                <option value="Others">Others</option>
-                            </select>
-                        </div>
-
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 font-bold">Know to Read & Write Telugu</label>
-                            <div class="mt-2 checkbox-group flex space-x-4 text-sm">
-                                <label class="inline-flex items-center text-gray-700">
-                                    <input type="radio" name="read_write_telugu" value="Yes" class="text-indigo-600 focus:ring-indigo-500 w-4 h-4" /> 
-                                    <span class="ml-2">Yes</span>
-                                </label>
-                                <label class="inline-flex items-center text-gray-700">
-                                    <input type="radio" name="read_write_telugu" value="No" class="text-indigo-600 focus:ring-indigo-500 w-4 h-4" /> 
-                                    <span class="ml-2">No</span>
-                                </label>
-                                <label class="inline-flex items-center text-gray-700">
-                                    <input type="radio" name="read_write_telugu" value="Medium" class="text-indigo-600 focus:ring-indigo-500 w-4 h-4" /> 
-                                    <span class="ml-2">Medium</span>
-                                </label>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 font-bold">Know to Read & Write English</label>
-                            <div class="mt-2 checkbox-group flex space-x-4 text-sm">
-                                <label class="inline-flex items-center text-gray-700">
-                                    <input type="radio" name="read_write_english" value="Yes" class="text-indigo-600 focus:ring-indigo-500 w-4 h-4" /> 
-                                    <span class="ml-2">Yes</span>
-                                </label>
-                                <label class="inline-flex items-center text-gray-700">
-                                    <input type="radio" name="read_write_english" value="No" class="text-indigo-600 focus:ring-indigo-500 w-4 h-4" /> 
-                                    <span class="ml-2">No</span>
-                                </label>
-                                <label class="inline-flex items-center text-gray-700">
-                                    <input type="radio" name="read_write_english" value="Medium" class="text-indigo-600 focus:ring-indigo-500 w-4 h-4" /> 
-                                    <span class="ml-2">Medium</span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 font-bold">Know to Read & Write Hindi</label>
-                            <div class="mt-2 checkbox-group flex space-x-4 text-sm">
-                                <label class="inline-flex items-center text-gray-700">
-                                    <input type="radio" name="read_write_hindi" value="Yes" class="text-indigo-600 focus:ring-indigo-500 w-4 h-4" /> 
-                                    <span class="ml-2">Yes</span>
-                                </label>
-                                <label class="inline-flex items-center text-gray-700">
-                                    <input type="radio" name="read_write_hindi" value="No" class="text-indigo-600 focus:ring-indigo-500 w-4 h-4" /> 
-                                    <span class="ml-2">No</span>
-                                </label>
-                                <label class="inline-flex items-center text-gray-700">
-                                    <input type="radio" name="read_write_hindi" value="Medium" class="text-indigo-600 focus:ring-indigo-500 w-4 h-4" /> 
-                                    <span class="ml-2">Medium</span>
-                                </label>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <label for="favorite_subject" class="block text-sm font-medium text-gray-700 font-bold">Favorite Subject</label>
-                            <input type="text" id="favorite_subject" name="favorite_subject" class="styled-input mt-1 block w-full rounded-lg shadow-sm">
-                        </div>
-
-                    </div>
-                </fieldset>
-
-                <fieldset class="bg-white p-4 md:p-5 rounded-xl shadow-2xl border-t-4 border-teal-400">
-                    <legend class="text-lg font-semibold text-teal-700 px-4 py-2 rounded-lg border bg-teal-50 border-teal-300 mb-6 flex items-center">Location & Aspirations</legend>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-                        <div class="md:col-span-2">
-                            <label for="address" class="block text-sm font-medium text-gray-700 font-bold">House No/Viallage Name</label>
-                            <textarea id="address" name="address" rows="2" required class="styled-input mt-1 block w-full rounded-lg shadow-sm"></textarea>
-                        </div>
-
-                        <div>
-                            <label for="city" class="block text-sm font-medium text-gray-700 font-bold">Mandal</label>
-                            <input type="text" id="city" name="city" required class="styled-input mt-1 block w-full rounded-lg shadow-sm">
-                        </div>
-                        <div>
-                            <label for="district" class="block text-sm font-medium text-gray-700 font-bold">District</label>
-                            <input type="text" id="district" name="district" required class="styled-input mt-1 block w-full rounded-lg shadow-sm">
-                        </div>
-
-                        <div>
-                            <label for="state" class="block text-sm font-medium text-gray-700 font-bold">State</label>
-                            <input type="text" id="state" name="state" required class="styled-input mt-1 block w-full rounded-lg shadow-sm">
-                        </div>
-                        <div>
-                            <label for="dream_goal" class="block text-sm font-medium text-gray-700 font-bold">What is Your Dream?</label>
-                            <input type="text" id="dream_goal" name="dream_goal" placeholder="E.g. Doctor / Engineer / Police / etc." class="styled-input mt-1 block w-full rounded-lg shadow-sm">
+            
+            <div class="bg-gradient-to-br from-gray-50 to-gray-200 rounded-lg p-6 my-8 max-w-lg mx-auto border-2 border-gray-300 shadow-inner">
+                <div class="space-y-5">
+                    <div class="text-left">
+                        <label class="block text-sm font-bold text-gray-500 uppercase tracking-wider">Your Username:</label>
+                        <div class="flex items-center mt-1">
+                            <p id="generatedUsername" class="credential-field flex-1"></p>
+                            <button type="button" class="copy-btn" data-target="generatedUsername" title="Copy Username">
+                                <i class="fas fa-copy"></i>
+                            </button>
                         </div>
                     </div>
-                </fieldset>
-
-                <div class="mb-4 bg-white p-6 rounded-xl shadow-lg">
-                    <label class="inline-flex items-center">
-                        <input  
-                            type="checkbox"  
-                            name="agree"  
-                            id="agree"  
-                            required  
-                            class="form-checkbox h-5 w-5 text-blue-600 rounded"
-                        >
-                        <span class="ml-3 text-gray-700">
-                            I agree to the 
-                            <a  
-                                href="https://www.svtc.life/terms-privacy"  
-                                target="_blank"  
-                                class="text-blue-600 hover:underline"
-                            >
-                                Terms & Conditions
-                            </a>
-                        </span>
-                    </label>
+                    <div class="text-left">
+                        <label class="block text-sm font-bold text-gray-500 uppercase tracking-wider">Your Password:</label>
+                        <div class="flex items-center mt-1">
+                            <p id="generatedPassword" class="credential-field flex-1"></p>
+                            <button type="button" class="copy-btn" data-target="generatedPassword" title="Copy Password">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="text-center pb-8">
-                    <button type="submit" id="previewButton" class="btn-submit w-full md:w-auto px-10 py-3 bg-blue-600 text-white font-bold text-lg rounded-full shadow-lg hover:bg-blue-700">
-                        Review and Confirm
-                    </button>
-                </div>
-            </form>
-        </main>
-
-        <div id="previewContainer" class="bg-white p-6 md:p-10 rounded-xl shadow-2xl border-t-8 border-yellow-500 hidden" style="max-width: 600px; margin: 0 auto;">
-            <h3 class="text-2xl font-bold text-yellow-700 mb-6 text-center">
-                Review Your Registration Data
-            </h3>
-            <div id="previewDetails" class="space-y-2 text-gray-700">
             </div>
 
-            <div id="previewErrorMsg" class="p-4 mt-6 bg-red-50 border border-red-600 text-red-800 font-semibold rounded-lg shadow-md hidden">
-                <p>❌ Submission failed. Please try again or go back to edit.</p>
+            <div class="mt-8 p-4 bg-yellow-100 border-l-4 border-yellow-500 rounded-lg shadow-md max-w-lg mx-auto">
+                <div class="flex items-center">
+                    <i class="fas fa-exclamation-triangle text-yellow-600 text-2xl mr-4 flex-shrink-0"></i>
+                    <div class="text-left">
+                        <h4 class="font-bold text-yellow-800">Important: Save Your Credentials!</h4>
+                        <p class="text-sm text-yellow-700 mt-1">
+                            Please save or write down your Username and Password. You will need them to log in. <strong>These credentials are mandatory for access.</strong>
+                        </p>
+                    </div>
+                </div>
             </div>
 
-            <div class="flex justify-between mt-8 space-x-4">
-                <button id="editButton" class="w-1/2 px-4 py-3 bg-gray-400 text-white font-bold rounded-full shadow-md hover:bg-gray-500 transition duration-150">
-                    Edit Details
-                </button>
-                <button id="confirmButton" class="w-1/2 px-4 py-3 bg-green-600 text-white font-bold rounded-full shadow-lg hover:bg-green-700 transition duration-150">
-                    Confirm and Submit
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mt-10">
+                <a href="https://www.svtc.life/Dashboard.html" target="_blank"
+                    class="w-full sm:w-auto px-6 py-2.5 bg-blue-600 text-white font-bold text-base rounded-lg shadow-lg hover:bg-blue-700 transition duration-300">
+                    <i class="fas fa-sign-in-alt mr-2"></i> Login to Dashboard
+                </a>
+                <button id="registerNewButton" type="button"
+                    class="w-full sm:w-auto px-6 py-2.5 bg-gray-200 text-gray-800 font-bold text-base rounded-lg shadow-md hover:bg-gray-300 transition duration-300">
+                    <i class="fas fa-user-plus mr-2"></i> Register New Person
                 </button>
             </div>
         </div>
     </div>
 
-    <div id="finalSuccessMsg" class="bg-white p-6 md:p-8 rounded-xl shadow-2xl border-t-8 border-green-500 text-center hidden mx-auto mt-10" style="max-width: 600px;">
-        <h2 class="text-3xl font-bold text-gray-800 mb-4">Registration Successful!</h2>
-        <p class="text-lg text-gray-600 mb-6 font-semibold">
-            Thank you for registering. We will call you shortly to confirm your details. 
-            Please be ready to attempt our call.
-        </p>
-        <ul class="list-none space-y-3 text-gray-700 text-base mb-8 mx-auto text-center max-w-sm">
-            <li class="flex items-start justify-center">
-                <span class="text-green-500 mr-3 mt-1 font-extrabold">✓</span>
-                <span>Your login details will be sent via SMS after confirmation.</span>
-            </li>
-            <li class="flex items-start justify-center">
-                <span class="text-blue-500 mr-3 mt-1 font-extrabold">→</span>
-                <span>You can login to your dashboard using the button below.</span>
-            </li>
-        </ul>
-
-        <div class="flex flex-col space-y-4">
-            <a href="https://www.svtc.life/Dashboard.html" target="_blank" class="w-full px-8 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition duration-150">
-                Login to Dashboard
-            </a>
-            <a href="https://www.svtc.life" target="_blank" class="w-full px-8 py-3 bg-gray-200 text-gray-700 font-semibold rounded-lg shadow-md hover:bg-gray-300 transition duration-150">
-                Go Back Home
-            </a>
-        </div>
-    </div>
-
-    <footer class="bg-sv-blue text-white py-5 px-4 sm:px-6 lg:px-8">
+    <footer class="bg-sv-blue text-white py-5 px-4 sm:px-6 lg:px-8 mt-12">
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
                 
@@ -573,189 +567,288 @@
             
             <div class="border-t border-gray-700 mt-4 pt-4 text-center">
                 <p class="text-gray-400 text-xs">
-                    &copy; 2025 Sri Veda Talent Competition. All Rights Reserved.
-                </p>
+                    &copy; <span id="footerYear">2024</span> Sri Veda Talent Competition. All Rights Reserved.
+                </form>
             </div>
         </div>
     </footer>
 
+
+    <div id="reviewModal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-75 z-40 flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+            <div class="sticky top-0 bg-gray-100 p-4 border-b border-gray-300 rounded-t-lg">
+                <h3 class="text-xl font-bold text-gray-800 text-center">
+                    <i class="fas fa-user-check text-blue-600 mr-2"></i> Review Your Details
+                </h3>
+                <p class="text-center text-gray-600 text-sm mt-1">Please confirm your details are correct before submitting.</p>
+            </div>
+            
+            <div id="reviewDetails" class="p-6 md:p-8 space-y-3">
+            </div>
+            
+            <div class="sticky bottom-0 bg-gray-100 p-4 border-t border-gray-300 rounded-b-lg flex flex-col sm:flex-row gap-4 justify-between">
+                <button id="editButton" type="button"
+                    class="w-full sm:w-auto px-5 py-2.5 text-sm bg-gray-500 text-white font-bold rounded-lg shadow-md hover:bg-gray-600 transition duration-300">
+                    <i class="fas fa-edit mr-2"></i> Go Back & Edit
+                </button>
+                <button id="confirmSubmitButton" type="button"
+                    class="w-full sm:w-auto px-5 py-2.5 text-sm bg-green-600 text-white font-bold rounded-lg shadow-lg hover:bg-green-700 transition duration-300">
+                    <i class="fas fa-check-circle mr-2"></i> Confirm & Submit
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="loadingModal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-75 z-50 flex flex-col items-center justify-center p-4">
+        <div class="spinner h-16 w-16 rounded-full border-4 border-t-4 border-blue-500 border-t-white animate-spin"></div>
+        <p class="text-white text-lg font-semibold mt-6">Data is being submitted. Please wait...</p>
+    </div>
+
+
     <script>
-        const url ='https://script.google.com/macros/s/AKfycbw6GayIqaCD3y_OgHOmaS_08YcsAwg-Oy02AeK8q8eIBIOV-H2Od-8_WngVyl89Rjc/exec';
-        
+        const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxju-k6Z4qSQvCqvMvs8ZEpg9L9PRlPlIRiqadxIbimflbJXVEhIbOX2pvubAjpsaIa/exec';
+
         const form = document.getElementById('registrationForm');
-        const formContent = document.getElementById('formContent');
-        const instructionBox = document.getElementById('instructionBox');
-        const previewContainer = document.getElementById('previewContainer');
-        const previewDetails = document.getElementById('previewDetails');
-        const previewErrorMsg = document.getElementById('previewErrorMsg');
-        const confirmButton = document.getElementById('confirmButton');
-        const formContainer = formContent.parentElement; 
-        const finalSuccessMsg = document.getElementById('finalSuccessMsg');
+        const mainContent = document.querySelector('main');
+        const header = document.getElementById('formHeader');
+        const footer = document.querySelector('footer');
+        
+        const reviewModal = document.getElementById('reviewModal');
+        const reviewDetails = document.getElementById('reviewDetails');
+        const loadingModal = document.getElementById('loadingModal');
+        const successMessage = document.getElementById('successMessage');
+        
+        const editButton = document.getElementById('editButton');
+        const confirmSubmitButton = document.getElementById('confirmSubmitButton');
+        const registerNewButton = document.getElementById('registerNewButton');
         const menuToggle = document.getElementById('menuToggle');
         const dynamicMenu = document.getElementById('dynamicMenu');
 
-        let currentFormData = null;
+        const dobDay = document.getElementById('dob-day');
+        const dobMonth = document.getElementById('dob-month');
+        const dobYear = document.getElementById('dob-year');
+        const hiddenDob = document.getElementById('dob');
 
-        function showForm() {
-            document.body.style.overflow = '';
-            if (formContainer) {
-                formContainer.style.padding = '0 0.5rem 2rem'; 
+        document.getElementById('footerYear').textContent = new Date().getFullYear();
+
+        function populateDateFields() {
+            for (let i = 1; i <= 31; i++) {
+                const day = String(i).padStart(2, '0');
+                dobDay.options[dobDay.options.length] = new Option(day, day);
             }
+            
+            const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            months.forEach((month, index) => {
+                const monthValue = String(index + 1).padStart(2, '0');
+                dobMonth.options[dobMonth.options.length] = new Option(month, monthValue);
+            });
 
-            instructionBox.classList.remove('hidden');
-            formContent.classList.remove('hidden');
-            previewContainer.classList.add('hidden');
-            previewErrorMsg.classList.add('hidden');
-            finalSuccessMsg.classList.add('hidden');
-            window.scrollTo(0, 0); 
+            const currentYear = new Date().getFullYear();
+            const startYear = 2000;
+            const endYear = currentYear - 4;
+            for (let i = endYear; i >= startYear; i--) {
+                dobYear.options[dobYear.options.length] = new Option(i, i);
+            }
         }
 
-        function showPreview(e) {
-            e.preventDefault();
+        function copyToClipboard(elementId, button) {
+            const textToCopy = document.getElementById(elementId).textContent;
             
-            const data = new FormData(form);
-            currentFormData = data;
-            
-            let html = '';
-            const fields = Array.from(form.elements);
-            
-            const getRadioValue = (name) => {
-                const checked = fields.find(el => el.name === name && el.checked);
-                return checked ? checked.value : '';  
-            };
-
-            const fieldMap = {
-                'full_name': 'Full Name',
-                'present_class': 'Present Class',
-                'gender': 'Gender',
-                'dob': 'Date of Birth',
-                'parent_name': 'Father / Mother Name',
-                'parent_number': 'Parent’s Number',
-                'email_id': 'Email ID',
-                'school_name': 'School Name',
-                'medium': 'Medium',
-                'school_type': 'Current School Type',
-                'read_write_telugu': 'Read/Write Telugu',
-                'read_write_english': 'Read/Write English',
-                'read_write_hindi': 'Read/Write Hindi',
-                'favorite_subject': 'Favorite Subject',
-                'address': 'House No/Viallage Name',
-                'city': 'Mandal',
-                'district': 'District',
-                'state': 'State',
-                'dream_goal': 'Dream / Goal',
-            };
-            
-            const getDisplayValue = (name, value) => {
-                if (value === 'on' || value === '') return '';  
-                
-                if (form.elements[name] && form.elements[name].tagName === 'SELECT') {
-                    const selectedOption = form.elements[name].options[form.elements[name].selectedIndex];
-                    const isPlaceholder = selectedOption.textContent.startsWith('-- Select');
-                    return isPlaceholder ? '' : selectedOption.value;  
-                }
-                
-                return value;
-            };
-
-            for (const [name, label] of Object.entries(fieldMap)) {
-                let value;
-                if (name.startsWith('read_write_')) {
-                    value = getRadioValue(name);
-                } else if (data.has(name)) {
-                    value = data.get(name);
-                } else {
-                    value = '';
-                }
-
-                const displayValue = getDisplayValue(name, value);
-
-                if (displayValue.trim() !== '') {
-                    html += `
-                        <div class="preview-detail">
-                            <span class="preview-label">${label}:</span>
-                            <span class="preview-value">${displayValue}</span>
-                        </div>
-                    `;
-                }
+            const textarea = document.createElement('textarea');
+            textarea.value = textToCopy;
+            textarea.style.position = 'fixed';
+            textarea.style.left = '-9999px';
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                const originalIcon = button.innerHTML;
+                button.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                button.disabled = true;
+                setTimeout(() => {
+                    button.innerHTML = originalIcon;
+                    button.disabled = false;
+                }, 2000);
+            } catch (err) {
+                console.error('Failed to copy text: ', err);
+                alert('Failed to copy. Please copy manually.');
             }
-
-            const termsAgreed = data.get('agree') ? 'Agreed' : 'Not Agreed';
-            html += `
-                <div class="preview-detail border-t mt-4 pt-4 border-gray-300">
-                    <span class="preview-label">Terms Agreed:</span>
-                    <span class="preview-value text-${termsAgreed === 'Agreed' ? 'green' : 'red'}-600 font-bold">${termsAgreed}</span>
-                </div>
-            `;
-
-
-            instructionBox.classList.add('hidden');
-            
-            previewDetails.innerHTML = html;
-            formContent.classList.add('hidden');
-            previewContainer.classList.remove('hidden');
-            window.scrollTo(0, 0); 
-        }
-
-        function handleSubmissionSuccess() {
-            formContent.classList.add('hidden');
-            previewContainer.classList.add('hidden');
-            instructionBox.classList.add('hidden'); 
-
-            finalSuccessMsg.classList.remove('hidden');
-            
-            document.body.style.overflow = ''; 
-
-            window.scrollTo(0, 0); 
+            document.body.removeChild(textarea);
         }
         
-        async function handleConfirmation() {
-            if (!currentFormData) {
-                console.error("No form data found for submission.");
-                previewErrorMsg.classList.remove('hidden');
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const day = dobDay.value;
+            const month = dobMonth.value;
+            const year = dobYear.value;
+            if (day && month && year) {
+                hiddenDob.value = `${day}/${month}/${year}`;
+            } else {
+                hiddenDob.value = '';
+            }
+
+            if (!form.checkValidity()) {
+                form.reportValidity();
                 return;
             }
+            populateReviewDetails();
+            showModal(reviewModal);
+        });
 
-            confirmButton.textContent = 'Submitting...';
-            confirmButton.disabled = true;
-            previewErrorMsg.classList.add('hidden');
+        editButton.addEventListener('click', function () {
+            hideModal(reviewModal);
+        });
 
-            try {
-                fetch(url, {
-                    method: 'POST',
-                    body: currentFormData,
-                    mode: 'no-cors' 
-                });
-                
-                setTimeout(() => {
-                    handleSubmissionSuccess();
-                }, 500); 
+        confirmSubmitButton.addEventListener('click', submitFinalData);
 
-            } catch (err) {
-                console.error('Submission Network Error:', err);
-                previewErrorMsg.classList.remove('hidden');
-                confirmButton.textContent = 'Confirm and Submit';
-                confirmButton.disabled = false;
-            }
-        }
+        registerNewButton.addEventListener('click', function () {
+            successMessage.classList.add('hidden');
+            mainContent.classList.remove('hidden');
+            form.reset();
+            
+            dobDay.value = '';
+            dobMonth.value = '';
+            dobYear.value = '';
+            hiddenDob.value = '';
 
-        form.addEventListener('submit', showPreview);
-        confirmButton.addEventListener('click', handleConfirmation);
-        document.getElementById('editButton').addEventListener('click', showForm);
-        
+            document.getElementById('termsConditions').checked = true;
+            window.scrollTo(0, 0);
+        });
+
         if (menuToggle && dynamicMenu) {
             menuToggle.addEventListener('click', () => {
+                const headerHeight = header.offsetHeight;
+                dynamicMenu.style.top = `${headerHeight}px`;
                 dynamicMenu.classList.toggle('hidden');
             });
         }
         
         document.addEventListener('DOMContentLoaded', () => {
-            showForm(); 
+            populateDateFields();
+
+            document.querySelectorAll('.copy-btn').forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetId = button.dataset.target;
+                    copyToClipboard(targetId, button);
+                });
+            });
         });
+
+        function populateReviewDetails() {
+            const formData = new FormData(form);
+            let html = '';
+
+            const fieldLabels = {
+                fullName: 'Full Name',
+                fatherName: "Father's Name",
+                gender: 'Gender',
+                dob: 'Date of Birth',
+                mobileNumber: 'Mobile Number',
+                emailId: 'Email ID',
+                className: 'Class',
+                schoolName: 'School Name',
+                medium: 'Medium',
+                schoolType: 'School Type',
+                favorite: 'Favorite Subject',
+                village: 'Village/Town',
+                mandal: 'Mandal',
+                district: 'District',
+                state: 'State',
+                dream: 'Dream/Goal'
+            };
+
+            for (let [key, label] of Object.entries(fieldLabels)) {
+                const value = formData.get(key);
+                if (value) {
+                    html += createReviewRow(label, value);
+                }
+            }
+
+            const telugu = [formData.get('telugu_read'), formData.get('telugu_write'), formData.get('telugu_speak')].filter(Boolean).join(', ');
+            if (telugu) {
+                html += createReviewRow('Telugu Proficiency', telugu);
+            }
+            
+            const english = [formData.get('english_read'), formData.get('english_write'), formData.get('english_speak')].filter(Boolean).join(', ');
+            if (english) {
+                html += createReviewRow('English Proficiency', english);
+            }
+            
+            const hindi = [formData.get('hindi_read'), formData.get('hindi_write'), formData.get('hindi_speak')].filter(Boolean).join(', ');
+            if (hindi) {
+                html += createReviewRow('Hindi Proficiency', hindi);
+            }
+            
+            const terms = formData.get('termsConditions') ? 'Agreed' : 'Not Agreed';
+            html += createReviewRow('Terms & Conditions', terms, terms === 'Agreed' ? 'text-green-600' : 'text-red-600');
+
+            reviewDetails.innerHTML = html;
+        }
+
+        function createReviewRow(label, value, valueClass = 'text-gray-900') {
+            const finalValueClass = value === 'N/A' ? 'text-gray-500 italic' : valueClass;
+            return `
+                <div class="grid grid-cols-3 gap-2 border-b border-gray-200 pb-2">
+                    <strong class="text-sm text-gray-600 col-span-1">${label}:</strong>
+                    <span class="text-sm font-medium ${finalValueClass} col-span-2">${value}</span>
+                </div>
+            `;
+        }
+        
+        async function submitFinalData() {
+            hideModal(reviewModal);
+            showModal(loadingModal);
+
+            const formData = new FormData(form);
+
+            try {
+                const response = await fetch(APPS_SCRIPT_URL, {
+                    method: 'POST',
+                    body: formData,
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Network response was not ok. Status: ${response.status}`);
+                }
+                
+                const result = await response.json();
+
+                hideModal(loadingModal);
+
+                if (result.status === 'SUCCESS') {
+                    document.getElementById('generatedUsername').textContent = result.username || 'Error';
+                    document.getElementById('generatedPassword').textContent = result.password || 'Error';
+                    
+                    mainContent.classList.add('hidden');
+                    successMessage.classList.remove('hidden');
+                    
+                    window.scrollTo(0, 0);
+                    
+                } else {
+                    throw new Error(result.message || 'An unknown error occurred in the script.');
+                }
+
+            } catch (error) {
+                console.error('Submission Error:', error);
+                hideModal(loadingModal);
+                alert(`Error: ${error.message}\n\nPlease try submitting again.`);
+                showModal(reviewModal);
+            }
+        }
+
+        function showModal(modal) {
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function hideModal(modal) {
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
 
     </script>
 
 </body>
+
 </html>
-
-
