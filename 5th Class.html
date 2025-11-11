@@ -1,0 +1,2912 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SRI VEDA TALENT COMPETITION — Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{
+      --sv-blue: #00008B;
+      --sv-orange: #FF8C00;
+      --sv-yellow: #FFD700;
+      --sv-maroon: #800000;
+      --old-maroon: #8b3a3a;
+      --maroon-2: #6f2e2e;
+      --gold: #ffd700;
+      --page-max-width: 1600px;
+      --lock-color: #6c757d;
+      --login-primary: #3b82f6; 
+      --tc-live-color: #ff8c00; 
+      --tc-background-color: #fff9f9; 
+    }
+    .bg-sv-blue { background-color: var(--sv-blue); }
+    .text-sv-blue { color: var(--sv-blue); }
+    .bg-sv-orange { background-color: var(--sv-orange); }
+    .text-sv-orange { color: var(--sv-orange); }
+    .bg-sv-yellow { background-color: var(--sv-yellow); }
+    .text-sv-yellow { color: var(--sv-yellow); }
+    .hover\:shadow-sv-yellow\/50:hover {
+        box-shadow: 0 10px 15px -3px var(--sv-yellow), 0 4px 6px -4px var(--sv-yellow);
+    }
+    .course-button {
+        display: inline-block;
+        padding: 0.4rem 0.8rem;
+        margin: 0.2rem;
+        background-color: #f0f0f0;
+        border: 1px solid #ddd;
+        border-radius: 9999px;
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: #333;
+        text-align: center;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .course-button:hover {
+        background-color: var(--sv-orange);
+        color: white;
+        border-color: var(--sv-orange);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .nav-button {
+        display: flex;
+        align-items: center;
+        padding: 0.5rem 1rem;
+        color: var(--sv-blue);
+        background-color: white;
+        border: 2px solid var(--sv-orange);
+        border-radius: 9999px;
+        font-size: 0.9rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        margin: 3px 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .nav-button:hover {
+        color: white;
+        background-color: var(--sv-orange);
+        border-color: var(--sv-blue);
+        transform: scale(1.05);
+        box-shadow: 0 6px 15px rgba(255, 140, 0, 0.6);
+    }
+    .header-menu-button {
+        background-color: white !important; 
+        color: var(--sv-orange) !important;
+        font-weight: 900;
+        
+        padding: 0.6rem 1.25rem; 
+        font-size: 1rem;
+        
+        border-width: 4px;
+        border-color: var(--sv-orange) !important;
+        box-shadow: 0 6px 12px rgba(255, 140, 0, 0.7);
+        
+        border-radius: 1.5rem; 
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        transition: all 0.3s ease;
+    }
+    .header-menu-button:hover {
+        background-color: var(--sv-yellow) !important; 
+        color: var(--sv-blue) !important; 
+        transform: scale(1.05);
+    }
+    .header-bg {
+        position: relative;
+        overflow: hidden;
+    }
+    .header-bg::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 120px;
+        height: 120px;
+        background-image: url('https://contactsriveda-debug.github.io/images/header%20coner.png');
+        background-size: 100% 100%; 
+        opacity: 1; 
+        background-repeat: no-repeat;
+        transform: translate(-30%, -30%); 
+        z-index: 1;
+    }
+    .header-bg::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 120px;
+        height: 120px;
+        background-image: url('https://contactsriveda-debug.github.io/images/header%20coner.png');
+        background-size: 100% 100%; 
+        opacity: 1; 
+        background-repeat: no-repeat;
+        transform: translate(30%, -30%) scaleX(-1); 
+        z-index: 1;
+    }
+    .header-content {
+        position: relative;
+        z-index: 10;
+    }
+    .logout-btn-header {
+        background: #f87171;
+        color: white;
+        font-weight: 700;
+        padding: 6px 12px;
+        border-radius: 9999px;
+        font-size: 0.85rem;
+        transition: all 0.2s;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    .logout-btn-header:hover {
+        background: #ef4444;
+        transform: translateY(-1px);
+    }
+    * { box-sizing:border-box }
+    body {
+      margin:0;
+      font-family: 'Roboto Slab', serif;
+      background: linear-gradient(160deg, #ffffff 50%, #fdf8f8 100%); 
+      color:#222;
+    }
+    a { color:inherit; text-decoration: none; }
+    #loginScreen {
+      position: relative; 
+      width: 100%;
+      height: auto; 
+      min-height: calc(100vh - 200px); 
+      background: linear-gradient(135deg, #6f2e2e, #a47b7b, #8b3a3a, #f7dada, #6f2e2e);
+      background-size: 400% 400%; 
+      animation: gradientShift 12s ease infinite; 
+      display: flex;
+      align-items: center; 
+      padding-top: 3rem; 
+      padding-bottom: 3rem; 
+      justify-content: center;
+      z-index: 1000;
+      overflow-y: auto; 
+    }
+    .login-card {
+      background: #fff;
+      padding: 30px 35px; 
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1), 0 5px 10px rgba(0, 0, 0, 0.05);
+      width: 90%;
+      max-width: 320px;
+      animation: fadeIn .4s ease-out;
+      border: 1px solid #f0f0f0; 
+    }
+    .login-branding {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px; 
+    }
+    .login-logo {
+        width: 80px; 
+        height: 80px;
+        border-radius: 50%;
+        border: 3px solid var(--maroon-2); 
+        margin-bottom: 10px;
+    }
+    .login-brand-title {
+        font-size: 1.2rem; 
+        font-weight: 700;
+        color: var(--old-maroon);
+        text-align: center;
+        text-transform: uppercase;
+        line-height: 1.3;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1, transform: translateY(0); }
+    }
+    @keyframes gradientShift {
+        0% { background-position: 0% 0%; }
+        50% { background-position: 100% 100%; }
+        100% { background-position: 0% 0%; }
+    }
+    .login-card h2 {
+      text-align: center;
+      margin: 0 0 10px;
+      color: var(--old-maroon);
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+    .login-card p {
+      text-align: center;
+      margin: 0 0 25px;
+      color: #555;
+      font-size: 1rem;
+    }
+    .login-input {
+      width: 100%;
+      padding: 14px 16px;
+      margin-bottom: 15px;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: 'Roboto Slab', serif;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .login-input:focus {
+      outline: none;
+      border-color: var(--old-maroon);
+      box-shadow: 0 0 0 3px rgba(139, 58, 58, 0.2);
+    }
+    .login-btn-submit {
+      width: 100%;
+      padding: 12px; 
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--old-maroon), var(--maroon-2));
+      color: #fff;
+      font-size: 1rem; 
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .login-btn-submit:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(139, 58, 58, 0.4);
+    }
+    .login-btn-submit:disabled {
+      background: #c79a9a;
+      cursor: not-allowed;
+    }
+    .status-box {
+      padding: 12px 16px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      border: 1px solid;
+    }
+    .hidden { display: none !important; }
+    .status-error {
+        background: #fff1f2;
+        color: #e11d48;
+    }
+    .status-success {
+        background: #f0fdf4;
+        color: #22c55e;
+    }
+    .register-link-container {
+        text-align: center;
+        margin-top: 20px;
+    }
+    .register-link-btn {
+        display: inline-block;
+        padding: 10px 16px;
+        background: #fdf8f8; 
+        color: var(--maroon-2); 
+        border-radius: 8px;
+        font-weight: 700;
+        text-decoration: none;
+        font-size: 0.95rem;
+        border: 1px solid var(--old-maroon);
+        transition: background 0.2s, box-shadow 0.2s, color 0.2s;
+    }
+    .register-link-btn:hover {
+        background: var(--old-maroon);
+        color: #fff;
+        box-shadow: 0 2px 8px rgba(139, 58, 58, 0.3);
+    }
+    .loading-spinner {
+        animation: spin 1s linear infinite;
+        width: 20px; 
+        height: 20px;
+    }
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .welcome-stars { 
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+      max-width:var(--page-max-width);
+      margin:5px auto; 
+      padding:0 20px;
+      color:#6f2e2e 
+    }
+    .welcome { font-size:clamp(14px,2vw,20px) }
+    .welcome .student-name { color:#b33030;font-weight:700 }
+    
+    .subscription-badge {
+        padding: 5px 12px;
+        border-radius: 9999px;
+        font-size: 0.9rem;
+        font-weight: 900;
+        text-transform: uppercase;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        transition: all 0.3s;
+        cursor: help;
+        display: inline-flex;
+        align-items: center;
+        letter-spacing: 0.5px;
+    }
+    .badge-free { 
+        background-color: #e0e0e0; 
+        color: #555; 
+        border: 1px solid #ccc; 
+    }
+    .badge-silver { 
+        background-color: #c0c0c0; 
+        color: #333; 
+        border: 1px solid #a0a0a0; 
+        background: linear-gradient(135deg, #f0f0f0, #c0c0c0);
+    }
+    .badge-gold { 
+        background-color: #FFD700; 
+        color: #800000; 
+        border: 1px solid #ccac00; 
+        background: linear-gradient(135deg, #ffeb8d, #FFD700);
+    }
+    .badge-platinum { 
+        background-color: #e5e4e2; 
+        color: #00008B; 
+        border: 1px solid #b8b8b8; 
+        background: linear-gradient(45deg, #e0e0e0, #ffffff); 
+    }
+
+    .srm-contact-section {
+        max-width: var(--page-max-width);
+        margin: 20px auto;
+        padding: 20px 25px;
+        background: linear-gradient(135deg, #f0f8ff, #e6f7ff); 
+        border-radius: 16px;
+        box-shadow: 0 8px 25px rgba(0, 0, 139, 0.15); 
+        border: 3px solid var(--sv-blue); 
+    }
+    .srm-contact-section h2 {
+        font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+        color: var(--sv-blue); 
+        text-transform: uppercase;
+        font-weight: 900;
+        margin-bottom: 15px;
+        text-align: center; 
+    }
+    .srm-info-card {
+        background: #fff;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        display: flex; 
+        flex-direction: column; 
+        gap: 15px;
+    }
+    @media (min-width: 768px) {
+        .srm-info-card {
+            flex-direction: row; 
+            align-items: center;
+        }
+    }
+    .srm-left-explanation {
+        flex: 1 1 50%;
+        padding-right: 15px;
+        font-size: 0.95rem;
+        color: #333;
+        line-height: 1.5;
+        border-bottom: 1px solid #ddd; 
+        padding-bottom: 10px;
+    }
+    @media (min-width: 768px) {
+        .srm-left-explanation {
+            border-bottom: none;
+            border-right: 1px solid #ddd; 
+            padding-bottom: 0;
+            padding-right: 25px;
+        }
+    }
+    .srm-detail-group {
+        flex: 1 1 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding-left: 10px;
+    }
+
+    .srm-detail {
+        margin: 5px 0;
+        text-align: left;
+    }
+    .srm-label {
+        font-size: 0.9rem;
+        color: #555;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: 2px;
+        display: block;
+    }
+    .srm-value {
+        font-size: 1.2rem;
+        color: var(--maroon-2);
+        font-weight: 800;
+    }
+    .srm-value a {
+        color: var(--sv-orange);
+        text-decoration: none;
+        transition: color 0.2s;
+    }
+    .srm-value a:hover {
+        color: var(--old-maroon);
+    }
+
+    .tc-panel-wrap { 
+      max-width:var(--page-max-width);
+      margin:15px auto; 
+      padding:0 16px;
+    }
+    .tc-panel-main {
+      padding: 5px 15px; 
+      border-radius: 12px;
+      background: var(--tc-background-color);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border: 1px solid #ffcccc; 
+      height: 60px; 
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .tc-panel-live-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 30%; 
+      background: linear-gradient(90deg, #ffc107, var(--tc-live-color), #ff5722);
+      background-size: 200% 100%;
+      animation: liveScroll 8s linear infinite;
+      z-index: 1;
+      border-radius: 12px 0 0 12px;
+      transition: width 1s ease-out; 
+    }
+    @keyframes liveScroll {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+    }
+
+    .tc-content-overlay {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        color: var(--maroon-2);
+        font-weight: 800;
+        font-size: clamp(1rem, 2vw, 1.2rem);
+    }
+    
+    .tc-score-display {
+        background: white;
+        padding: 4px 10px; 
+        border-radius: 6px; 
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        display: flex;
+        gap: 6px;
+        align-items: center;
+    }
+    .tc-score-display h2 { 
+        font-size: clamp(1.1rem, 2vw, 1.3rem);
+        margin: 0;
+        color: var(--sv-orange);
+    }
+    .tc-score-display small {
+        font-size: 0.75rem; 
+        color: #555;
+        font-weight: 700;
+    }
+
+    .tc-actions-list-container {
+      background-color: var(--tc-background-color); 
+      border-radius: 0 0 12px 12px; 
+      padding: 10px 15px; 
+      border: 1px solid #ffcccc; 
+      border-top: none;
+    }
+
+    .tc-actions-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        justify-content: center;
+    } 
+    .tc-actions-list li { 
+        background: #fff;
+        padding: 6px 10px;
+        border-radius: 8px;
+        flex: 1 1 120px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        font-size: 0.8rem;
+        color: #333;
+        font-weight: 600;
+        transition: transform 0.1s;
+    } 
+    .tc-actions-list li:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+    }
+    .dot.daily { background:#ffb74d }.dot.openpractice { background:#4caf50 }.dot.completecourse { background:#42a5f5 }.dot.weekly { background:#ba68c8 }.dot.monthly { background:#9575cd }
+    .tc-actions-list li .dot {
+        flex-shrink: 0;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        margin-right: 2px;
+    }
+    .tc-actions-list h3 { 
+        font-size: clamp(0.9rem, 2vw, 1rem);
+        color: var(--maroon-2);
+        font-weight: 800;
+        margin: 0 0 5px 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .free-test-promo-section { 
+      max-width:var(--page-max-width);
+      margin:10px auto; 
+      padding:15px 16px; 
+      text-align:center;
+      background: #f0f8ff; 
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      border: 1px solid #cceeff;
+    }
+
+    .free-test-promo-section h3 { font-size:clamp(1.3rem, 2.5vw, 1.6rem);color:var(--maroon-2);margin-bottom:8px;font-weight:800;text-shadow:1px 1px 1px rgba(0,0,0,0.05) }
+    .free-test-promo-section p { max-width:700px;margin:0.5rem auto 1rem auto;font-size:0.95rem;line-height:1.4;color:#333 } 
+    .free-test-promo-section button { 
+        padding:10px 20px;
+        font-size:1rem;
+        border:none;border-radius:10px;
+        background:linear-gradient(135deg, #1e6b34, #4caf50);
+        color:#fff;
+        font-weight:800;
+        cursor:pointer;
+        transition:transform 0.2s, box-shadow 0.2s;
+        box-shadow:0 4px 10px rgba(76, 175, 80, 0.3) 
+    }
+    .free-test-promo-section button:hover { 
+        transform:translateY(-2px);
+        box-shadow:0 6px 15px rgba(76, 175, 80, 0.4) 
+    }
+    .live-tests { width:100%;padding:10px 0;background:transparent } 
+    .tests-inner { max-width:var(--page-max-width);margin:0 auto;padding:0 12px }
+    .test-row { display:flex;justify-content:center;flex-wrap:wrap;gap:12px } 
+    .test-card { 
+        padding:12px;
+        min-height:140px;
+        width:clamp(280px, 100%, 360px);
+        background:#fff;
+        border-radius:12px;
+        box-shadow:none;
+        position:relative;
+        overflow:hidden;
+        transition:transform .18s ease;
+    } 
+    .test-card h3 { margin:8px 0;font-size:1rem; }
+    .test-lead { font-size:.9rem;line-height:1.4;margin-bottom:8px; }
+    .card-actions { gap:8px }
+    .btn-test { 
+        padding:8px 12px;
+        font-size:.85rem;
+        background:linear-gradient(135deg,#009688,#00e0b3);
+        color:#fff;border:none;
+        border-radius:10px;
+        font-weight:800;
+        cursor:pointer;
+        display: flex; align-items: center; justify-content: center; gap: 6px;
+    } 
+    .student-report { 
+      max-width:var(--page-max-width);
+      margin:10px auto; 
+      padding:0 16px 
+    }
+    .sr-box { 
+      background:#fff;
+      border-radius:14px;
+      padding:12px; 
+      overflow:hidden 
+    }
+    .plan-promo-box { 
+      padding:15px; 
+      margin-bottom: 20px; 
+      background: linear-gradient(135deg, #fffcf0, #fff3b2);
+      border: 2px solid var(--gold);
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(255, 215, 0, 0.2)
+    }
+    .plan-promo-box h3 { font-size: clamp(1rem, 1.8vw, 1.3rem);margin-bottom: 10px; }
+    .plan-actions-container { gap: 15px; } 
+    .plan-action-card { 
+        padding: 12px; 
+        flex: 1 1 250px;
+        background: #fff;
+        border: 1px solid #ffeb8d;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        border-radius: 8px;
+        display: flex;flex-direction: column;justify-content: space-between
+    } 
+    .plan-action-card p { font-size: 0.9rem; margin-bottom: 12px }
+    .plan-action-card button { 
+        padding: 8px 15px; 
+        font-size: 0.95rem; 
+        border: none;
+        border-radius: 8px;
+        font-weight: 700;
+        cursor: pointer;
+        width: 100%;
+        transition: transform 0.2s
+    }
+    .plan-action-card .new-plan-btn { background: linear-gradient(135deg, var(--gold), #ff8c00);color: #fff }
+    .plan-action-card .renewal-btn { background: linear-gradient(135deg, #c0392b, #8b3a3a);color: #fff }
+    .plan-action-card .update-plan-btn { background: linear-gradient(135deg, #7a67ff, #4b3eb0);color: #fff }
+    @media (max-width: 660px) {
+      .plan-actions-container { flex-direction: column;gap: 10px }
+      .plan-action-card { justify-content: flex-start;flex: 0 0 auto }
+      .plan-action-card p { margin-bottom: 8px;flex-grow: 0 }
+    }
+    .sr-stats { 
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+      gap:8px;
+      margin-top:0 
+    } 
+    .stat-item { 
+        padding:10px;
+        background:linear-gradient(180deg,#fffdeb,#fff7c9);
+        border-radius:10px;
+        text-align:center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: #fffcf2;
+        border: 1px solid #f0eacb;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        transition: transform 0.2s;
+    } 
+    .stat-item:hover {
+        transform: translateY(-2px);
+    }
+    .stat-icon { 
+      width:32px;
+      height:32px;
+      margin-bottom:4px;
+      font-size: 1.5rem;
+      color: var(--sv-blue);
+    } 
+    .stat-label { 
+      font-size:0.85rem; 
+      color: #555; 
+      margin-top: 4px; 
+      font-weight: 600;
+      margin-bottom: 4px;
+      display: block;
+    }
+    .stat-value { 
+      font-size:0.95rem; 
+      font-weight: 900; 
+      color: var(--sv-maroon);
+    }
+    .subject-tests { 
+      max-width: var(--page-max-width);
+      margin: 20px auto; 
+      padding: 15px; 
+      background: #f5fbf5;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .subject-tests h2 { text-align: center;font-size: clamp(1.4rem, 2.5vw, 1.8rem);color: #1e6b34;text-transform: uppercase;letter-spacing: 1px;margin-bottom: 20px;font-weight: 800;text-decoration: underline;text-underline-offset: 6px;text-decoration-thickness: 2px }
+    
+    .test-list-item { 
+        padding: 12px 16px; 
+        display: flex;flex-wrap: wrap;align-items: center;justify-content: space-between;
+        border-radius: 12px;
+        background: #fff;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        border: 1px solid #d4e9d9;
+        flex-direction: column;
+        align-items: stretch;
+        border: 1px solid #e0e0e0;
+        padding: 16px;
+    } 
+    .test-list-item-content { flex: 1 1 300px }
+    .test-list-item-content h3 { font-size: clamp(1rem, 3.5vw, 1.1rem);margin: 0 0 2px 0;color: #1e6b34; } 
+    .test-list-item-content p { font-size: clamp(0.8rem, 2.5vw, 0.9rem);color: #555;margin: 0;line-height: 1.5 }
+    .test-list-item .btn-test { padding: 8px 16px; font-size: 0.85rem; flex: 0 0 auto; width: auto; }
+    .btn-test.locked { background: #e9ecef;color: var(--lock-color);cursor: not-allowed }
+    .btn-test.locked:hover { transform: none;box-shadow: none }
+    .student-subject-tests { 
+      max-width: var(--page-max-width);
+      margin: 20px auto; 
+      padding: 15px; 
+      background: #f9f8ff;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border: 1px solid #e0d9f5 
+    }
+    .student-subject-tests h2 { text-align: center;font-size: clamp(1.4rem, 2.5vw, 1.8rem);color: #4a148c;text-transform: uppercase;letter-spacing: 1px;margin-bottom: 20px;font-weight: 800;text-decoration: underline;text-underline-offset: 6px;text-decoration-thickness: 2px }
+    .student-subject-tests .test-list-item { border: 1px solid #e0d9f5 }
+    .student-subject-tests .test-list-item-content h3 { color: #673ab7 }
+    .student-subject-tests .test-list-item .btn-test {
+        margin-top: 12px;
+    }
+    .profile-section { 
+      max-width: var(--page-max-width);
+      margin: 20px auto; 
+      padding: 15px; 
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08)
+    }
+    .profile-section h2 { margin-bottom: 20px; font-size: clamp(1.4rem, 2.5vw, 1.8rem); text-align: center;color: var(--maroon-2);text-transform: uppercase;letter-spacing: 1px;font-weight: 800;text-decoration: underline;text-underline-offset: 6px;text-decoration-thickness: 2px }
+    .profile-list { gap: 12px; display: grid;grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));list-style: none;padding: 0;margin: 0 } 
+    .profile-item { 
+        padding: 10px 14px; 
+        background: #fdfdfd;
+        border: 1px solid #eee;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.04)
+    } 
+    .profile-label { font-size: 0.85rem; display: block;color: #777;font-weight: 600;margin-bottom: 4px;text-transform: uppercase }
+    .profile-value { font-size: 1rem; display: block;color: #111;font-weight: 700 }
+    .profile-value.agreed { color: #1e6b34 }
+    .subscription-section { 
+      max-width: var(--page-max-width);
+      margin: 20px auto; 
+      padding: 15px; 
+      background: #f7fcff;
+      border-radius: 16px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      border: 1px solid #e0f0ff 
+    }
+    .subscription-section h2 { margin-bottom: 20px; font-size: clamp(1.4rem, 2.5vw, 1.8rem); text-align: center;color: #0d47a1;text-transform: uppercase;letter-spacing: 1px;font-weight: 800;text-decoration: underline;text-underline-offset: 6px;text-decoration-thickness: 2px }
+    .subscription-list { gap: 12px; display: grid;grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));list-style: none;padding: 0;margin: 0 } 
+    .subscription-item { 
+        padding: 10px 14px; 
+        background: #fff;
+        border: 1px solid #eee;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.04)
+    } 
+    .subscription-label { font-size: 0.85rem; display: block;color: #557;font-weight: 600;margin-bottom: 4px;text-transform: uppercase }
+    .subscription-value { font-size: 1rem; display: block;color: #111;font-weight: 700 }
+    .subscription-plan-value { color: #b8860b;font-weight: 800 }
+    .subscription-days-left { color: #c0392b;font-weight: 800 }
+    @media (max-width: 900px) { 
+        .nav-btn-flex {
+            margin: 4px 5px; 
+            max-width: 48%; 
+            flex: 1 1 45%;
+        }
+    }
+    @media (max-width: 640px){
+      .nav-button {
+          justify-content: center;
+          margin: 4px 2px;
+          font-size: 0.8rem;
+          padding: 0.4rem 0.8rem;
+      }
+      .nav-btn-flex {
+          max-width: 100%; 
+          flex: 1 1 100%;
+          margin: 4px 0;
+      }
+      .test-list-container {
+      }
+      .test-list-item {
+        flex-direction: column; 
+        align-items: flex-start; 
+        padding: 10px 14px; 
+        gap: 6px; 
+      }
+      .test-list-item-content { flex: 1 1 100% }
+      .test-list-item-content p { margin-bottom: 6px }
+      .test-list-item .btn-test { width: 100%;text-align: center }
+    }
+    @media (max-width: 480px) {
+      .login-card {
+        padding: 25px 20px;
+      }
+      .login-brand-title {
+          font-size: 1.1rem;
+      }
+    }
+    
+    .nav-button {
+        display: flex;
+        align-items: center;
+        padding: 0.5rem 1rem; 
+        color: var(--maroon-2); 
+        background-color: white; 
+        border: 2px solid var(--sv-orange); 
+        border-radius: 9999px;
+        font-size: 0.9rem; 
+        font-weight: 800; 
+        text-transform: uppercase;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        justify-content: center; 
+    }
+    .nav-button:hover {
+        color: white;
+        background-color: var(--sv-orange);
+        border-color: var(--sv-blue);
+        transform: scale(1.03); 
+        box-shadow: 0 6px 15px rgba(255, 140, 0, 0.6);
+    }
+    .nav-btn-flex {
+        flex-grow: 0; 
+        flex-shrink: 0;
+        flex-basis: auto; 
+        margin: 4px 20px; 
+        max-width: none; 
+    }
+    .menu-button-primary {
+        background-color: var(--sv-orange) !important;
+        color: white !important;
+        border-color: var(--sv-yellow) !important; 
+        border-width: 2px !important; 
+    }
+    .menu-button-primary:hover {
+        background-color: white !important;
+        color: var(--sv-orange) !important;
+        border-color: var(--sv-orange) !important; 
+    }
+    .btn-promo-plan {
+        padding: 12px 20px;
+        font-size: 1rem;
+        font-weight: 800;
+        color: #000; 
+        background: linear-gradient(135deg, var(--sv-yellow), var(--sv-orange));
+        border: 1px solid #e6a000; 
+        border-bottom: 3px solid #cc8400; 
+        border-radius: 8px; 
+        cursor: pointer;
+        transition: all 0.2s ease-out; 
+        text-decoration: none;
+        display: inline-block;
+        text-shadow: 0 1px 1px rgba(0,0,0,0.1); 
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .btn-promo-plan:hover {
+        background: linear-gradient(135deg, #FFEB8D, #FFA500); 
+        transform: translateY(-2px); 
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+        border-bottom: 3px solid #e68e00;
+    }
+    body {
+        padding-top: 0; /* Changed from 20px */
+    }
+    .class-selector-box {
+        max-width: var(--page-max-width);
+        margin: 15px auto; 
+        padding: 0; 
+        background: transparent; 
+        border-radius: 0; 
+        box-shadow: none; 
+        border: none; 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px; 
+    }
+    .class-selector-box label {
+        display: none; 
+    }
+    .class-selector-controls {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 10px; 
+        width: auto; 
+    }
+    .class-selector-box select {
+        padding: 8px 12px; 
+        font-size: 0.9rem; 
+        border: 1px solid #ddd; 
+        border-radius: 8px; 
+        font-weight: 700;
+        font-family: 'Roboto Slab', serif;
+        flex: 1 1 auto;
+        cursor: pointer;
+    }
+    .class-selector-box button {
+        padding: 8px 20px; 
+        font-size: 0.9rem; 
+        border: none;
+        border-radius: 8px; 
+        background: var(--sv-orange);
+        color: #fff;
+        font-weight: 800;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(255, 140, 0, 0.2); 
+        flex: 1 1 auto;
+    }
+    .class-selector-box button:hover {
+        background: var(--sv-blue);
+        box-shadow: 0 4px 12px rgba(0, 0, 139, 0.2);
+        transform: translateY(-1px);
+    }
+    .srm-contact-section { 
+        max-width: var(--page-max-width);
+        width: calc(100% - 32px); 
+        margin: 20px auto;
+        padding: 20px 25px;
+        background: #ffffff; 
+        border-radius: 16px;
+        box-shadow: 0 8px 25px rgba(0, 0, 139, 0.15); 
+        border: 3px solid var(--sv-blue); 
+    }
+    .sr-stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(120px,1fr));
+        gap: 8px;
+        margin-top: 0;
+    }
+    .stat-item {
+        padding: 10px;
+        background: linear-gradient(180deg,#fffdeb,#fff7c9);
+        border-radius: 10px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: #fffcf2;
+        border: 1px solid #f0eacb;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        transition: transform 0.2s;
+    }
+    .stat-item:hover {
+        transform: translateY(-2px);
+    }
+    .stat-icon {
+        width: 32px;
+        height: 32px;
+        margin-bottom: 4px;
+        font-size: 1.5rem;
+        color: var(--sv-blue);
+    }
+    .stat-label {
+        font-size: 0.85rem;
+        color: #555;
+        margin-top: 4px;
+        font-weight: 600;
+        margin-bottom: 4px;
+        display: block;
+    }
+    .stat-value {
+        font-size: 0.95rem;
+        font-weight: 900;
+        color: var(--sv-maroon);
+    }
+    #quizOverlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(248, 250, 252, 0.98); 
+        z-index: 10000;
+        overflow-y: auto; 
+        padding: 1rem;
+        display: none; 
+    }
+    #quizContentContainer {
+        margin: 2rem auto;
+    }
+    .quiz-option {
+        display: block;
+        background-color: #f8fafc; 
+        border: 1px solid #e2e8f0; 
+        border-radius: 0.5rem; 
+        padding: 0.75rem 1rem; 
+        margin-bottom: 0.75rem; 
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+    }
+    .quiz-option:hover { background-color: #f1f5f9; }
+    .quiz-option input { margin-right: 0.75rem; }
+    .review-correct { border-left: 4px solid #16a34a; }
+    .review-incorrect { border-left: 4px solid #dc2626; }
+    .test-list-item {
+        flex-direction: column;
+        align-items: stretch; 
+        background-color: #ffffff; 
+        border: 1px solid #e0e0e0; 
+        border-radius: 12px; 
+        padding: 16px; 
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        gap: 0; 
+    }
+    .sub-topics-container {
+        width: 100%;
+        margin-top: 0;
+        padding-top: 0; 
+        display: flex;
+        flex-direction: column;
+        gap: 8px; 
+    }
+    .test-list-item:nth-child(1) .sub-topics-container {
+        border-top: 0;
+    }
+    .test-list-item:nth-child(2) .sub-topics-container {
+        border-top: 0;
+    }
+    .test-list-item:nth-child(3) .sub-topics-container {
+        border-top: 0;
+    }
+    .sub-topic-item {
+        display: flex;
+        justify-content: space-between; 
+        align-items: center;
+        background-color: #ffffff; 
+        padding: 10px 12px;
+        border-radius: 8px;
+        border: 1px solid #e0e0e0;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    }
+    .sub-topic-item span {
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: #333;
+    }
+    .sub-topic-item .btn-test {
+        padding: 6px 12px; 
+        font-size: 0.8rem;
+        flex-shrink: 0; 
+    }
+    
+    .passage-intro {
+        font-size: 1.05rem;
+        font-weight: 600;
+        color: #333;
+        line-height: 1.6;
+        padding: 4px 8px;
+        background-color: #fdfdfd;
+        border-radius: 8px;
+        border: 1px solid #e0e0e0;
+        margin-top: 10px;
+        margin-bottom: 12px;
+    }
+    
+    .premium-section-header {
+        text-align: center;
+        margin-bottom: 15px; 
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--sv-maroon);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        display: flex; 
+        align-items: center;
+    }
+    .premium-section-header::before,
+    .premium-section-header::after {
+        content: '';
+        flex-grow: 1;
+        height: 2px;
+        background-color: var(--sv-orange); 
+        margin: 0 15px;
+    }
+    .test-list-container {
+        display: flex;
+        flex-direction: column;
+        gap: 8px; 
+        width: 100%;
+        background: #fdfdfd;
+        border: 1px solid #e0e0e0;
+        border-radius: 12px;
+        padding: 12px;
+    }
+
+    .subject-tests .test-list-item {
+        gap: 0;
+    }
+
+    .subject-tests .test-list-item h3 {
+       display: none;
+    }
+
+    #quizOverlay {
+        position: fixed;
+        inset: 0;
+        background-color: rgba(248, 250, 252, 0.98);
+        z-index: 10000;
+        overflow-y: auto;
+        padding: 1rem;
+        display: none; 
+    }
+    
+    .quiz-container {
+        max-width: 800px;
+        margin: 2rem auto;
+        background: #ffffff;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        border: 1px solid #e2e8f0;
+        overflow: hidden;
+    }
+
+    .quiz-header {
+        padding: 1rem 1.5rem;
+        background-color: #f8fafc;
+        border-bottom: 1px solid #e2e8f0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .quiz-header h2 {
+        font-size: 1.25rem;
+        font-weight: 800;
+        color: var(--sv-blue);
+    }
+
+    .quiz-close-btn {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #94a3b8;
+        background: none;
+        border: none;
+        cursor: pointer;
+        transition: color 0.2s;
+    }
+    .quiz-close-btn:hover { color: #dc2626; }
+
+    .quiz-body { padding: 1.5rem 2rem; }
+    
+    #quizLoading { text-align: center; padding: 4rem; }
+    
+    #quizQuestionContainer {
+        min-height: 250px;
+    }
+
+    .question-text {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #1e293b;
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+    }
+
+    .quiz-options-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+
+    @media (min-width: 640px) {
+        .quiz-options-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    .quiz-option-label {
+        display: block;
+        background-color: #f8fafc;
+        border: 2px solid #e2e8f0;
+        border-radius: 0.5rem;
+        padding: 0.85rem 1rem;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        font-size: 1rem;
+        font-weight: 500;
+        color: #334155;
+    }
+    
+    .quiz-option-label:hover {
+        border-color: var(--sv-orange);
+        background-color: #fffbeb;
+    }
+
+    .quiz-option-label input { display: none; } 
+    
+    .quiz-option-label input:checked + span {
+        font-weight: 700;
+        color: var(--sv-blue);
+    }
+    .quiz-option-label input:checked {
+    }
+    .option-selected {
+        border-color: var(--sv-blue) !important;
+        background-color: #eff6ff !important;
+        box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
+    }
+
+    .quiz-footer {
+        padding: 1rem 1.5rem;
+        background-color: #f8fafc;
+        border-top: 1px solid #e2e8f0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .quiz-nav-btn, .quiz-action-btn {
+        padding: 0.6rem 1.25rem;
+        font-size: 0.9rem;
+        font-weight: 700;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.2s;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    
+    .quiz-nav-btn {
+        background-color: #e2e8f0;
+        color: #334155;
+    }
+    .quiz-nav-btn:hover { background-color: #cbd5e1; }
+    .quiz-nav-btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+    
+    .quiz-action-btn.next {
+        background-color: var(--sv-orange);
+        color: white;
+    }
+    .quiz-action-btn.next:hover { background-color: #f97316; }
+
+    .quiz-action-btn.submit {
+        background-color: #22c55e;
+        color: white;
+    }
+    .quiz-action-btn.submit:hover { background-color: #16a34a; }
+
+    #quizResults { text-align: center; }
+    .results-score {
+        font-size: 3rem;
+        font-weight: 900;
+        color: var(--sv-blue);
+        margin: 1rem 0 0.5rem 0;
+    }
+    .results-feedback {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+    }
+    .feedback-improve { color: #ef4444; }
+    .feedback-good { color: #f59e0b; }
+    .feedback-excellent { color: #22c55e; }
+    
+    .results-summary {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    .summary-item {
+        background: #f8fafc;
+        padding: 0.75rem 1.25rem;
+        border-radius: 8px;
+        border: 1px solid #e2e8f0;
+    }
+    .summary-item span { display: block; }
+    .summary-label { font-size: 0.9rem; color: #64748b; }
+    .summary-value { font-size: 1.25rem; font-weight: 700; }
+    .value-correct { color: #16a34a; }
+    .value-wrong { color: #dc2626; }
+    
+    .results-actions {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+    }
+    
+    #quizReview {
+        padding: 1.5rem 0.5rem;
+    }
+    @media (min-width: 640px) { #quizReview { padding: 1.5rem 2rem; } }
+
+    .review-item {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+    }
+    .review-question {
+        padding: 1rem 1.25rem;
+        border-bottom: 1px dashed #cbd5e1;
+    }
+    .review-question p {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #1e293b;
+    }
+    .review-options {
+        padding: 1rem 1.25rem;
+    }
+    .review-option {
+        font-size: 0.95rem;
+        padding: 0.6rem 0.8rem;
+        border-radius: 6px;
+        margin-bottom: 0.5rem;
+        border: 2px solid transparent;
+    }
+    .review-option.correct {
+        background-color: #f0fdf4;
+        border-color: #86efac;
+        color: #15803d;
+        font-weight: 700;
+    }
+    .review-option.incorrect {
+        background-color: #fef2f2;
+        border-color: #fecaca;
+        color: #b91c1c;
+        font-weight: 700;
+        text-decoration: line-through;
+    }
+    .review-explanation {
+        background: #f1f5f9;
+        padding: 0.8rem 1.25rem;
+        border-top: 1px dashed #cbd5e1;
+        border-radius: 0 0 8px 8px;
+    }
+    .review-explanation strong {
+        color: var(--sv-blue);
+        font-size: 0.9rem;
+        text-transform: uppercase;
+    }
+    .review-explanation p {
+        font-size: 0.95rem;
+        color: #334155;
+        margin-top: 4px;
+        line-height: 1.5;
+    }
+    
+    .sub-section-header {
+        font-size: 1.1rem;
+        font-weight: 800;
+        color: var(--sv-blue);
+        padding: 10px 4px 4px 4px;
+        margin-top: 8px;
+        border-bottom: 2px solid var(--sv-orange);
+    }
+    .sub-section-header:first-of-type {
+        margin-top: 0;
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+<header class="bg-sv-blue shadow-lg header-bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 header-content">
+        <div class="flex flex-col md:flex-row items-center justify-between py-3 md:py-2 space-y-3 md:space-y-0 md:h-24">
+            <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4">
+                <img src="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg" 
+                    onerror="this.onerror=null; this.src='https://placehold.co/64x64/1e3a8a/ffffff?text=VEDA';" 
+                    alt="Veda Logo" 
+                    class="w-16 h-16 object-contain shadow-md rounded-full bg-white p-1 flex-shrink-0">
+                <div class="text-center sm:text-left flex flex-col justify-center">
+                    <h1 class="text-xl sm:text-2xl font-extrabold tracking-wider text-white">
+                        SRI VEDA TALENT COMPETITION
+                    </h1>
+                    <div class="w-2/3 max-w-xs h-0.5 bg-sv-yellow my-0.5 mx-auto sm:mx-0"></div>
+                    <p class="text-sm sm:text-base font-semibold text-sv-yellow mt-0.5">
+                        "Student Profile Tests Corner"
+                    </p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-3 sm:space-x-6 lg:space-x-8">
+                <i class="loggedOutIcon fas fa-book text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Our Courses"></i>
+                <i class="loggedOutIcon fas fa-pencil-ruler text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Practice Tests"></i>
+                <i class="loggedOutIcon fas fa-graduation-cap text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Study Material"></i>
+                <i class="loggedOutIcon fas fa-lightbulb text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Insights & Guidance"></i>
+
+                <div id="loggedInControls" class="hidden flex items-center space-x-4"> 
+                    <div id="liveTime" class="timestamp text-sm text-white font-medium hidden">--/--/----, --:--:--</div>
+                    <div id="sessionTimer" class="session-timer text-sm text-sv-yellow font-bold hidden">Session: 00:00:00</div>
+                    <button id="logoutBtn" class="logout-btn-header hidden" onclick="handleLogout()">
+                        Logout
+                    </button>
+                </div>
+
+                <button id="menuToggle" class="header-menu-button">
+                    MENU <i class="fas fa-bars ml-1"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div id="dynamicMenu" class="hidden bg-sv-blue/95 border-b-4 border-sv-yellow transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+        <div class="flex flex-wrap justify-center gap-4">
+            <a href="https://www.svtc.life" class="nav-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                <i class="fas fa-home mr-1"></i> Home
+            </a>
+            <a href="https://www.svtc.life/Dashboard.html" class="nav-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                <i class="fas fa-tachometer-alt mr-1"></i> DASHBOARD
+            </a>
+            <a href="https://www.svtc.life/Join%20now.html" class="nav-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                <i class="fas fa-user-plus mr-1"></i> Join Now
+            </a>
+            <a href="https://www.svtc.life/Pricing.html" class="nav-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                <i class="fas fa-tags mr-1"></i> Pricing
+            </a>
+            <a href="https://www.svtc.life/Contact.html" class="nav-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                <i class="fas fa-envelope mr-1"></i> Contact
+            </a>
+            <a href="https://www.svtc.life/connect.html" class="nav-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                <i class="fas fa-headset mr-1"></i> Connect
+            </a>
+            <a href="https://www.svtc.life/About%20Us.html" class="nav-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                <i class="fas fa-info-circle mr-1"></i> About Us
+            </a>
+            <a href="https://www.svtc.life/Privacy%20policy.html" class="nav-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                <i class="fas fa-file-contract mr-1"></i> Terms & Privacy
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="loginScreen">
+    <div class="login-card">
+        <div class="login-branding">
+            <img src="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg" alt="SRI VEDA Logo" class="login-logo">
+            <h3 class="login-brand-title">SRI VEDA TALENT COMPETITIONS</h3>
+        </div>
+        <h2 id="loginTitle">STUDENT LOGIN - PROFILE</h2>
+        <p id="loginSubtitle">Please enter your Username and Password with Caps.</p>
+        <form id="loginForm">
+            <div id="statusMessage" class="status-box status-error hidden" role="alert"></div>
+            <input type="text" id="username" name="username" required
+                class="login-input" placeholder="Username">
+            <input type="password" id="password" name="password" required
+                class="login-input" placeholder="Password">
+            <button type="submit" id="loginButton" class="login-btn-submit">
+                <span id="buttonText">Login</span>
+                <svg id="loadingSpinner" class="loading-spinner h-5 w-5 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" stroke="#ffffff"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+            </button>
+        </form>
+        <div class="register-link-container">
+            <a href="https://www.svtc.life/Join%20now.html" target="_blank" class="register-link-btn">
+                New Registers? Click Here
+            </a>
+        </div>
+    </div>
+</div>
+<div id="dashboardContent" class="hidden">
+  <div class="welcome-stars">
+    <div class="welcome">Welcome <span id="studentNameDisplay" class="student-name"></span>, <strong id="studentClassDisplay" style="color: var(--maroon-2);"></strong>...</div>
+    <div id="subscriptionBadge" class="subscription-badge"></div>
+  </div>
+  
+  <div class="tc-panel-wrap">
+    <div class="tc-panel-main">
+        <div id="tcLiveBar" class="tc-panel-live-bar" style="width: 29%;"></div> 
+        <div class="tc-content-overlay">
+            <div class="tc-score-display">
+                <small>YOUR TC SCORE:</small>
+                <h2 id="tcPercent">29%</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="tc-actions-list-container">
+        <ul class="tc-actions-list">
+            <li><span class="dot daily"></span>Daily Login</li>
+            <li><span class="dot openpractice"></span>Open All Practice</li>
+            <li><span class="dot completecourse"></span>Complete Full Course</li>
+            <li><span class="dot weekly"></span>Complete General Awareness Tests</li>
+            <li><span class="dot monthly"></span>Complete Subject Tests</li>
+        </ul>
+    </div>
+  </div>
+  
+  <section class="live-tests">
+    <div class="tests-inner">
+      <div class="test-row">
+      </div>
+    </div>
+  </section>
+  
+  <section class="free-test-promo-section">
+    <h3>Test Your Knowledge for FREE!</h3>
+    <p>Take our free test to assess your skills and get a glimpse of our learning platform. No subscription required.</p>
+    <button onclick="startQuiz()">
+      <i class="fas fa-play-circle mr-2"></i>Start Free Test
+    </button>
+  </section>
+  
+  <section class="student-report">
+    <div class="sr-box">
+      <div class="plan-promo-box">
+        <h3>Unlock Your Full Potential!</h3>
+        <div class="plan-actions-container flex flex-wrap justify-center">
+          <div class="plan-action-card">
+            <p>Get a new subscription plan to access all premium features.</p>
+            <button class="new-plan-btn" onclick="handlePlanClick('take_plan')">Take a New Plan</button>
+          </div>
+          <div class="plan-action-card">
+            <p>Renew your existing plan to continue your learning journey.</p>
+            <button class="renewal-btn" onclick="handlePlanClick('renew_plan')">Renew Plan</button>
+          </div>
+           <div class="plan-action-card">
+            <p>Upgrade your plan for more features and advanced tests.</p>
+            <button class="update-plan-btn" onclick="handlePlanClick('update_plan')">Update Plan</button>
+          </div>
+        </div>
+      </div>
+      <div class="sr-stats">
+        <div class="stat-item">
+          <div class="stat-icon"><i class="fas fa-sign-in-alt"></i></div>
+          <span class="stat-label">Logins</span>
+          <span class="stat-value" id="statLogins">N/A</span>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon"><i class="fas fa-clock"></i></div>
+          <span class="stat-label">Time Spent</span>
+          <span class="stat-value" id="statTimeSpent">N/A</span>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon"><i class="fas fa-globe-americas"></i></div>
+          <span class="stat-label">General Tests</span>
+          <span class="stat-value" id="statGeneralTests">N/A</span>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon"><i class="fas fa-book-open"></i></div>
+          <span class="stat-label">Subject Tests</span>
+          <span class="stat-value" id="statSubjectTests">N/A</span>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon"><i class="fas fa-star"></i></div>
+          <span class="stat-label">Subscription</span>
+          <span class="stat-value" id="statSubscription">N/A</span>
+        </div>
+        <div class="stat-item">
+            <div class="stat-icon"><i class="fas fa-user-shield"></i></div>
+            <span class="stat-label">Social Follow</span>
+            <span class="stat-value" style="color: green;">Yes</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="srm-contact-section">
+    <h2>Dedicated Student Relations Manager (SRM)</h2>
+    <div class="srm-info-card">
+        <div class="srm-left-explanation">
+            <p class="font-bold text-sv-blue mb-2">Your Personal Success Guide:</p>
+            <p>We are committed to your success! Your Student Relations Manager (SRM) is your dedicated point of contact for all support, academic guidance, subscription queries, and any coordination needed to maximize your learning experience with Sri Veda TC. Reach out directly for personalized assistance.</p>
+        </div>
+        
+        <div class="srm-detail-group md:flex-row md:flex-wrap md:justify-end md:items-center flex-1">
+            <div class="srm-detail">
+                <span class="srm-label">Manager Name</span>
+                <span class="srm-value" id="srmManagerName">Sri Veda Tc</span>
+            </div>
+            <div class="srm-detail">
+                <span class="srm-label">Direct Contact</span>
+                <span class="srm-value" id="srmDirectContactValue">
+                    <a href="tel:+918985170500" id="srmDirectContactLink">8985170500</a>
+                </span>
+            </div>
+        </div>
+    </div>
+  </section>
+  
+  <section class="subject-tests" style="max-width: var(--page-max-width); margin-left: auto; margin-right: auto; padding-left: 16px; padding-right: 16px;">
+    <div class="premium-section-header">
+      <span>Premium Section</span>
+    </div>
+    <div class="test-list-container">
+      
+        <h4 class="sub-section-header">Section 1: Mental Ability & Intelligence</h4>
+        <p class="passage-intro">
+            Hello, 5th Grade Thinkers! This section sharpens your mind with puzzles and patterns. Mastering these skills helps you see solutions quickly, a key to success in all competitive exams. Practice these topics to boost your logical thinking and problem-solving abilities. Click 'Take Test' to challenge your brain!
+        </p>
+        <div class="sub-topic-item">
+            <span>1. Odd Man Out (Classification)</span>
+            <button class="btn-test" onclick="handlePremiumTestClick('ga_topic_1')">Take Test</button>
+        </div>
+        <div class="sub-topic-item">
+            <span>2. Figure Matching (Identical Figures)</span>
+            <button class="btn-test" onclick="handlePremiumTestClick('ga_topic_2')">Take Test</button>
+        </div>
+        <div class="sub-topic-item">
+            <span>3. Pattern Completion (Geometrical)</span>
+            <button class="btn-test" onclick="handlePremiumTestClick('ga_topic_3')">Take Test</button>
+        </div>
+        <div class="sub-topic-item">
+            <span>4. Figure Series Completion</span>
+            <button class="btn-test" onclick="handlePremiumTestClick('ga_topic_4')">Take Test</button>
+        </div>
+        <div class="sub-topic-item">
+            <span>5. Analogy (Non-Verbal)</span>
+            <button class="btn-test" onclick="handlePremiumTestClick('ga_topic_5')">Take Test</button>
+        </div>
+        <div class="sub-topic-item">
+            <span>6. Geometrical Figure Completion (Triangle, Square, Circle)</span>
+            <button class="btn-test" onclick="handlePremiumTestClick('ga_topic_6')">Take Test</button>
+        </div>
+        <div class="sub-topic-item">
+            <span>7. Mirror Imaging</span>
+            <button class="btn-test" onclick="handlePremiumTestClick('ga_topic_7')">Take Test</button>
+        </div>
+        <div class="sub-topic-item">
+            <span>8. Punched Hole Pattern (Paper Folding & Unfolding)</span>
+            <button class="btn-test" onclick="handlePremiumTestClick('ga_topic_8')">Take Test</button>
+        </div>
+        <div class="sub-topic-item">
+            <span>9. Space Visualization (Embedded Figures)</span>
+            <button class="btn-test" onclick="handlePremiumTestClick('ga_topic_9')">Take Test</button>
+        </div>
+        <div class="sub-topic-item">
+            <span>10. Coding and Decoding (Simple)</span>
+            <button class="btn-test" onclick="handlePremiumTestClick('ga_topic_10')">Take Test</button>
+        </div>
+      
+        <h4 class="sub-section-header">Section 2: Core Academic Subjects (Mathematics & EVS/GK)</h4>
+        <p class="passage-intro">
+            Hi, 5th Grade Scholars! This section covers the essential topics in Mathematics and EVS/GK that form the foundation of your knowledge. Strong fundamentals in these subjects are crucial for all future studies and exams. Review these concepts, master the basics, and then take the test to see how much you know!
+        </p>
+        <div class="sub-topic-item">
+            <span>1. Number System (HCF, LCM, and Place Value)</span>
+            <button class="btn-test" onclick="handlePremiumTestClick('gm_topic_1')">Take Test</button>
+        </div>
+        <div class="sub-topic-item">
+            <span>2. Fractions and Decimal Numbers</span>
+            <button class="btn-test" onclick="handlePremiumTestClick('gm_topic_2')">Take Test</button>
+        </div>
+        <div class="sub-topic-item">
+            <span>3. Four Fundamental Operations (Addition, Subtraction, Multiplication, Division)</span>
+            <button class="btn-test" onclick="handlePremiumTestClick('gm_topic_3')">Take Test</button>
+        </div>
+        <div class="sub-topic-item">
+            <span>4. Measurement (Length, Mass, Capacity, Time)</span>
+            <button class="btn-test" onclick="handlePremiumTestClick('gm_topic_4')">Take Test</button>
+        </div>
+        <div class="sub-topic-item">
+            <span>5. Area, Perimeter, and Volume</span>
+            <button class="btn-test" onclick="handlePremiumTestClick('gm_topic_5')">Take Test</button>
+        </div>
+        <div class="sub-topic-item">
+            <span>6. Percentage and its Applications (Profit & Loss)</span>
+            <button class="btn-test" onclick="handlePremiumTestClick('gm_topic_6')">Take Test</button>
+        </div>
+        <div class="sub-topic-item">
+            <span>7. Simple Interest</span>
+            <button class="btn-test" onclick="handlePremiumTestClick('gm_topic_7')">Take Test</button>
+        </div>
+        <div class="sub-topic-item">
+            <span>8. Basic Geometry (Angles, Triangles, Circles)</span>
+            <button class="btn-test" onclick="handlePremiumTestClick('gm_topic_8')">Take Test</button>
+        </div>
+        <div class="sub-topic-item">
+            <span>9. Living and Non-Living Things (Our Environment)</span>
+            <button class="btn-test" onclick="handlePremiumTestClick('gm_topic_9')">Take Test</button>
+        </div>
+        <div class="sub-topic-item">
+            <span>10. General Knowledge (Indian States, Capitals, Basic History)</span>
+            <button class="btn-test" onclick="handlePremiumTestClick('gm_topic_10')">Take Test</button>
+        </div>
+
+        <h4 class="sub-section-header">Section 3: Language Proficiency (English)</h4>
+        <p class="passage-intro">
+            Welcome, 5th Grade Readers! This English section is designed to make you a confident communicator. From understanding stories to building a strong vocabulary and mastering grammar, these are the skills you need. Good language skills are vital for every subject. Read the topics, practice your skills, and click 'Take Test' to show your command of English!
+        </p>
+        <div class="sub-topic-item">
+            <span>1. Reading Comprehension (Unseen Passages)</span>
+            <button class="btn-test" onclick="handlePremiumTestClick('am_topic_1')">Take Test</button>
+        </div>
+        <div class="sub-topic-item">
+            <span>2. Vocabulary (Synonyms and Antonyms)</span>
+            <button class="btn-test" onclick="handlePremiumTestClick('am_topic_2')">Take Test</button>
+        </div>
+        <div class="sub-topic-item">
+            <span>3. Grammar (Parts of Speech: Noun, Pronoun, Verb, Adjective)</span>
+            <button class="btn-test" onclick="handlePremiumTestClick('am_topic_3')">Take Test</button>
+        </div>
+        <div class="sub-topic-item">
+            <span>4. Tenses (Simple Present, Past, and Future)</span>
+            <button class="btn-test" onclick="handlePremiumTestClick('am_topic_4')">Take Test</button>
+        </div>
+        <div class="sub-topic-item">
+            <span>5. Sentence Formation (Jumbled Words/Sentences)</span>
+            <button class="btn-test" onclick="handlePremiumTestClick('am_topic_5')">Take Test</button>
+        </div>
+        <div class="sub-topic-item">
+            <span>6. Spelling Correction</span>
+            <button class="btn-test" onclick="handlePremiumTestClick('am_topic_6')">Take Test</button>
+        </div>
+        <div class="sub-topic-item">
+            <span>7. Articles (A, An, The)</span>
+            <button class="btn-test" onclick="handlePremiumTestClick('am_topic_7')">Take Test</button>
+        </div>
+        <div class="sub-topic-item">
+            <span>8. Prepositions</span>
+            <button class="btn-test" onclick="handlePremiumTestClick('am_topic_8')">Take Test</button>
+        </div>
+        <div class="sub-topic-item">
+            <span>9. Punctuation</span>
+            <button class="btn-test" onclick="handlePremiumTestClick('am_topic_9')">Take Test</button>
+        </div>
+        <div class="sub-topic-item">
+            <span>10. One-Word Substitution</span>
+            <button class="btn-test" onclick="handlePremiumTestClick('am_topic_10')">Take Test</button>
+        </div>
+
+    </div>
+  </section>
+  
+  
+
+  <section class="student-subject-tests" id="studentSubjectTestsSection">
+    <h2>Student Subject Tests Corner</h2>
+    <div class="test-list-container">
+      <article class="test-list-item" id="item_telugu">
+        <div class="test-list-item-content">
+          <h3><strong>Telugu Subject Tests</strong></h3>
+          <p>Test your understanding of Telugu grammar and literature.</p>
+        </div>
+        <button id="btn_telugu" class="btn-test" onclick="handleTestClick('telugu')">Take Test</button>
+      </article>
+      <article class="test-list-item" id="item_english">
+        <div class="test-list-item-content">
+          <h3><strong>English Subject Tests</strong></h3>
+          <p>Assess your English comprehension, vocabulary, and grammar skills.</p>
+        </div>
+        <button id="btn_english" class="btn-test" onclick="handleTestClick('english')">Take Test</button>
+      </article>
+      <article class="test-list-item" id="item_evs_sem1">
+        <div class="test-list-item-content">
+          <h3><strong>Evs SEM1 Subject Tests</strong></h3>
+          <p>Explore your knowledge of Environmental Science (Semester 1) concepts.</p>
+        </div>
+        <button id="btn_evs_sem1" class="btn-test" onclick="handleTestClick('evs_sem1')">Take Test</button>
+      </article>
+      <article class="test-list-item" id="item_evs_sem2">
+        <div class="test-list-item-content">
+          <h3><strong>Evs SEM2 Subject Tests</strong></h3>
+          <p>Explore your knowledge of Environmental Science (Semester 2) concepts.</p>
+        </div>
+        <button id="btn_evs_sem2" class="btn-test" onclick="handleTestClick('evs_sem2')">Take Test</button> 
+      </article>
+      <article class="test-list-item" id="item_maths_sem1">
+        <div class="test-list-item-content">
+          <h3><strong>Maths SEM1 Subject Tests</strong></h3>
+          <p>Practice and master all the mathematics (Semester 1) topics.</p>
+        </div>
+        <button id="btn_maths_sem1" class="btn-test" onclick="handleTestClick('maths_sem1')">Take Test</button>
+      </article>
+      <article class="test-list-item" id="item_maths_sem2">
+        <div class="test-list-item-content">
+          <h3><strong>Maths SEM2 Subject Tests</strong></h3>
+          <p>Practice and master all the mathematics (Semester 2) topics.</p>
+        </div>
+        <button id="btn_maths_sem2" class="btn-test" onclick="handleTestClick('maths_sem2')">Take Test</button>
+      </article>
+      <article class="test-list-item" id="item_hindi">
+        <div class="test-list-item-content">
+          <h3><strong>Hindi Subject Tests</strong></h3>
+          <p>Test your knowledge of Hindi grammar and language skills.</p>
+        </div>
+        <button id="btn_hindi" class="btn-test" onclick="handleTestClick('hindi')">Take Test</button>
+      </article>
+      <article class="test-list-item" id="item_general_science">
+        <div class="test-list-item-content">
+          <h3><strong>General Science Subject Tests</strong></h3>
+          <p>Explore general science topics covering basics of Physics, Chemistry, and Biology.</p>
+        </div>
+        <button id="btn_general_science" class="btn-test" onclick="handleTestClick('general_science')">Take Test</button>
+      </article>
+      <article class="test-list-item" id="item_physical_sem1">
+        <div class="test-list-item-content">
+          <h3><strong>Physical Science SEM 1 Tests</strong></h3>
+          <p>Semester 1 assessment for Physics and Chemistry topics.</p>
+        </div>
+        <button id="btn_physical_sem1" class="btn-test" onclick="handleTestClick('physical_sem1')">Take Test</button>
+      </article>
+      <article class="test-list-item" id="item_physical_sem2">
+        <div class="test-list-item-content">
+          <h3><strong>Physical Science SEM 2 Tests</strong></h3>
+          <p>Semester 2 assessment for Physics and Chemistry topics.</p>
+        </div>
+        <button id="btn_physical_sem2" class="btn-test" onclick="handleTestClick('physical_sem2')">Take Test</button>
+      </article>
+      <article class="test-list-item" id="item_biological_sem1">
+        <div class="test-list-item-content">
+          <h3><strong>Biological Science SEM 1 Tests</strong></h3>
+          <p>Semester 1 assessment for Biology and Life Science topics.</p>
+        </div>
+        <button id="btn_biological_sem1" class="btn-test" onclick="handleTestClick('biological_sem1')">Take Test</button>
+      </article>
+      <article class="test-list-item" id="item_biological_sem2">
+        <div class="test-list-item-content">
+          <h3><strong>Biological Science SEM 2 Tests</strong></h3>
+          <p>Semester 2 assessment for Biology and Life Science topics.</p>
+        </div>
+        <button id="btn_biological_sem2" class="btn-test" onclick="handleTestClick('biological_sem2')">Take Test</button>
+      </article>
+      <article class="test-list-item" id="item_social_sem1">
+        <div class="test-list-item-content">
+          <h3><strong>Social Studies SEM 1 Tests</strong></h3>
+          <p>Semester 1 assessment covering History, Civics, and Geography.</p>
+          </div>
+        <button id="btn_social_sem1" class="btn-test" onclick="handleTestClick('social_sem1')">Take Test</button>
+      </article>
+      <article class="test-list-item" id="item_social_sem2">
+        <div class="test-list-item-content">
+          <h3><strong>Social Studies SEM 2 Tests</strong></h3>
+          <p>Semester 2 assessment covering History, Civics, and Geography.</p>
+        </div>
+        <button id="btn_social_sem2" class="btn-test" onclick="handleTestClick('social_sem2')">Take Test</button>
+      </article>
+    </div>
+  </section>
+  <section class="profile-section">
+    <h2>Student Profile</h2>
+    <ul class="profile-list">
+      <li class="profile-item">
+        <span class="profile-label">Username</span>
+        <span class="profile-value" id="profileUsername">N/A</span>
+      </li>
+      <li class="profile-item">
+        <span class="profile-label">Full Name</span>
+        <span class="profile-value" id="profileFullName">N/A</span>
+      </li>
+      <li class="profile-item">
+        <span class="profile-label">Father's Name</span>
+        <span class="profile-value" id="profileFatherName">N/A</span>
+      </li>
+      <li class="profile-item">
+        <span class="profile-label">Mobile Number</span>
+        <span class="profile-value" id="profileMobile">N/A</span>
+      </li>
+      <li class="profile-item">
+        <span class="profile-label">Present Class</span>
+        <span class="profile-value" id="profileClass">N/A</span>
+      </li>
+      <li class="profile-item">
+        <span class="profile-label">School Name</span>
+        <span class="profile-value" id="profileSchool">N/A</span>
+      </li>
+      <li class="profile-item">
+        <span class="profile-label">Terms & Conditions</span>
+        <span class="profile-value" id="profileTerms">N/A</span>
+      </li>
+    </ul>
+  </section>
+  <section class="subscription-section">
+    <h2>Subscription Details</h2>
+    <ul class="subscription-list">
+      <li class="subscription-item">
+        <span class="subscription-label">Full Name</span>
+        <span class="subscription-value" id="subFullName">N/A</span>
+      </li>
+      <li class="subscription-item">
+        <span class="subscription-label">Subscription Plan</span>
+        <span class="subscription-value subscription-plan-value" id="subPlan">N/A</span>
+      </li>
+      <li class="subscription-item">
+        <span class="subscription-label">Login Times</span>
+        <span class="subscription-value" id="subLoginTimes">N/A</span>
+      </li>
+      <li class="subscription-item">
+        <span class="subscription-label">Start Date</span>
+        <span class="subscription-value" id="subStartDate">N/A</span>
+      </li>
+      <li class="subscription-item">
+        <span class="subscription-label">Expiration Date</span>
+        <span class="subscription-value" id="subExpDate">N/A</span>
+      </li>
+      <li class="subscription-item">
+        <span class="subscription-label">Days Left</span>
+        <span class="subscription-value subscription-days-left" id="subDaysLeft">N/A</span>
+      </li>
+    </ul>
+  </section>
+</div>
+
+<div id="quizOverlay">
+    <div class="quiz-container">
+        <div id="quizLoading" class="quiz-body">
+            <svg class="mx-auto animate-spin h-10 w-10 text-sv-orange" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            <p class="mt-4 font-semibold text-lg text-gray-600">Loading Free Test...</p>
+            <p class="text-gray-500">Please wait while we fetch the questions.</p>
+        </div>
+        
+        <div id="quizInterface" class="hidden">
+            <div class="quiz-header">
+                <h2 id="quizHeaderTitle">Free Test: Question 1 of 15</h2>
+                <button class="quiz-close-btn" onclick="closeQuiz(true)">×</button>
+            </div>
+            <div class="quiz-body">
+                <div id="quizQuestionContainer">
+                    <p class="question-text" id="quizQuestionText"></p>
+                    <div class="quiz-options-grid" id="quizOptions">
+                    </div>
+                </div>
+            </div>
+            <div class="quiz-footer">
+                <div class="flex gap-4">
+                    <button class="quiz-nav-btn" id="quizPrevBtn" onclick="navigateQuestion(-1)">Previous</button>
+                    <button class="quiz-nav-btn" id="quizExitBtn" onclick="closeQuiz(true)" style="background-color: #fef2f2; color: #dc2626; border: 1px solid #fecaca; font-weight: 700;">Exit Test</button>
+                </div>
+                <button class="quiz-action-btn next" id="quizNextBtn" onclick="navigateQuestion(1)">Next</button>
+                <button class="quiz-action-btn submit hidden" id="quizSubmitBtn" onclick="submitQuiz()">Submit Test</button>
+            </div>
+        </div>
+
+        <div id="quizResults" class="hidden quiz-body">
+            <h2 class="text-2xl font-bold text-gray-800">Test Completed!</h2>
+            <p class="text-gray-600">Here is your performance summary.</p>
+            
+            <p class="results-score" id="resultsScore">12 / 15</p>
+            <p class="results-feedback" id="resultsFeedback">Excellent</p>
+
+            <div class="results-summary">
+                <div class="summary-item">
+                    <span class="summary-label">Correct</span>
+                    <span class="summary-value value-correct" id="resultsCorrect">12</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Wrong</span>
+                    <span class="summary-value value-wrong" id="resultsWrong">3</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Unanswered</span>
+                    <span class="summary-value" id="resultsUnanswered">0</span>
+                </div>
+            </div>
+            
+            <div class="results-actions">
+                <button class="quiz-nav-btn" onclick="closeQuiz(false)">Close</button>
+                <button class="quiz-action-btn next" onclick="showReview()">Review Test</button>
+            </div>
+        </div>
+        
+        <div id="quizReview" class="hidden">
+             <div class="quiz-header">
+                <h2>Review Your Answers</h2>
+                <button class="quiz-close-btn" onclick="closeQuiz(false)">×</button>
+            </div>
+            <div class="quiz-body" id="quizReviewContainer">
+            </div>
+             <div class="quiz-footer">
+                <button class="quiz-nav-btn" onclick="closeQuiz(false)">Close Review</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<footer class="bg-sv-blue text-white py-5 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div>
+                <img class="h-12 w-auto mb-2 object-contain shadow-md rounded-full bg-white p-1" 
+                        src="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg" 
+                        alt="Sri Veda Logo"
+                        onerror="this.onerror=null; this.src='https://placehold.co/48x48/1e3a8a/ffffff?text=VEDA';">
+                <p class="text-gray-300 text-xs">
+                    Sri Veda Talent Competition<br>
+                    Empowering students with knowledge and skills for a bright future.
+                </p>
+            </div>
+            <div>
+                <h5 class="text-base font-bold text-sv-yellow mb-2">Quick Links</h5>
+                <ul class="space-y-1 text-sm">
+                    <li><a href="https://www.svtc.life/index.html" class="text-gray-300 hover:text-white transition" target="_blank">Home</a></li>
+                    <li><a href="https://www.svtc.life/Dashboard.html" class="text-gray-300 hover:text-white transition" target="_blank">Dashboard</a></li>
+                    <li><a href="https://www.svtc.life/Join%20now.html" class="text-gray-300 hover:text-white transition" target="_blank">Join Now</a></li>
+                    <li><a href="https://www.svtc.life/Pricing.html" class="text-gray-300 hover:text-white transition" target="_blank">Pricing</a></li>
+                    <li><a href="https://www.svtc.life/connect.html" class="text-gray-300 hover:text-white transition" target="_blank">Connect</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="text-base font-bold text-sv-yellow mb-2">Company</h5>
+                <ul class="space-y-1 text-sm">
+                    <li><a href="https://www.svtc.life/About%20Us.html" class="text-gray-300 hover:text-white transition" target="_blank">About Us</a></li>
+                    <li><a href="https://www.svtc.life/Contact.html" class="text-gray-300 hover:text-white transition" target="_blank">Contact</a></li>
+                    <li><a href="https://www.svtc.life/Privacy%20policy.html" class="text-gray-300 hover:text-white transition" target="_blank">Terms & Privacy</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="text-base font-bold text-sv-yellow mt-3 mb-2">Get In Touch</h5>
+                <ul class="space-y-1 text-sm">
+                    <li class="flex items-center">
+                        <i class="fas fa-phone-alt mr-3 text-sv-yellow text-xs"></i>
+                        <a href="tel:+918985170500" class="text-gray-300 hover:text-white transition" target="_blank">+91 8985170500</a>
+                    </li>
+                </ul>
+                <h5 class="text-base font-bold text-sv-yellow mt-3 mb-2">Connect With Us</h5>
+                <div class="flex space-x-3">
+                    <a href="https://www.facebook.com/share/1ZXXCLRGwh" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-sv-yellow transition text-lg">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=zreta93" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-sv-yellow transition text-lg">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="httpst.me/srivedatc" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-sv-yellow transition text-lg">
+                        <i class="fab fa-telegram-plane"></i>
+                    </a>
+                    <a href="http://wa.me/918985170500" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-sv-yellow transition text-lg">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-gray-700 mt-4 pt-4 text-center">
+            <p class="text-gray-400 text-xs">
+                &copy; 2025 Sri Veda Talent Competition. All Rights Reserved.
+            </p>
+        </div>
+    </div>
+</footer>
+    <script>
+    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzJXeya9KkRPQ8k_F1xMr9ITXqUrx2Pe3qkh3eCUWozgmcM8Vctq0gQwGbY_ljXFmU/exec";
+    const LOCK_ICON_SVG = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="inline-block mr-1" viewBox="0 0 16 16" style="margin-bottom: 2px;">
+            <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/>
+        </svg>`;
+    const TAKE_TEST_TEXT = "Take Test";
+    const loginScreen = document.getElementById('loginScreen');
+    const dashboardContent = document.getElementById('dashboardContent');
+    const loginForm = document.getElementById('loginForm');
+    const statusMessage = document.getElementById('statusMessage');
+    const loginButton = document.getElementById('loginButton');
+    const buttonText = document.getElementById('buttonText');
+    const loadingSpinner = document.getElementById('loadingSpinner');
+    const loggedOutIcons = document.querySelectorAll('.loggedOutIcon'); 
+    const loggedInControls = document.getElementById('loggedInControls');
+    const menuToggle = document.getElementById('menuToggle');
+    const liveTime = document.getElementById('liveTime');
+    const sessionTimer = document.getElementById('sessionTimer');
+    const logoutBtn = document.getElementById('logoutBtn');
+    const studentNameDisplay = document.getElementById('studentNameDisplay');
+    const studentClassDisplay = document.getElementById('studentClassDisplay');
+    const profileUsername = document.getElementById('profileUsername');
+    const profileFullName = document.getElementById('profileFullName');
+    const profileClass = document.getElementById('profileClass');
+    const subFullName = document.getElementById('subFullName');
+    const studentSubjectTestsSection = document.getElementById('studentSubjectTestsSection');
+    const profileFatherName = document.getElementById('profileFatherName');
+    const profileMobile = document.getElementById('profileMobile');
+    const profileSchool = document.getElementById('profileSchool');
+    const profileTerms = document.getElementById('profileTerms');
+    const subPlan = document.getElementById('subPlan');
+    const subLoginTimes = document.getElementById('subLoginTimes');
+    const subStartDate = document.getElementById('subStartDate');
+    const subExpDate = document.getElementById('subExpDate');
+    const subDaysLeft = document.getElementById('subDaysLeft');
+    const subscriptionBadge = document.getElementById('subscriptionBadge'); 
+    let studentClass = 0;
+    const urlMap = {
+        'telugu': {
+            3: '',
+            4: '',
+            5: '',
+            6: 'https://www.svtc.life',
+            7: 'https://www.svtc.life',
+            8: 'https://www.svtc.life',
+            9: 'https://www.svtc.life',
+            10: 'https://www.svtc.life',
+        },
+    };
+    function pad(n){return n.toString().padStart(2,'0')}
+    function updateTime(){
+        const now=new Date();
+        if (liveTime && !liveTime.classList.contains('hidden')) liveTime.textContent = `${pad(now.getDate())}/${pad(now.getMonth()+1)}/${now.getFullYear()}, ${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`
+    }
+    updateTime();
+    setInterval(updateTime,1000);
+    let session = parseInt(sessionStorage.getItem('sessionTime') || 0);
+    function formatHMS(s){const h=Math.floor(s/3600), m=Math.floor((s%3600)/60), sec=s%60;return `${pad(h)}:${pad(m)}:${pad(sec)}`}
+    function updateSession(){
+        session++;
+        sessionStorage.setItem('sessionTime', session);
+        if (sessionTimer && !sessionTimer.classList.contains('hidden')) sessionTimer.textContent = 'Session: '+formatHMS(session);
+    }
+    updateSession();
+    setInterval(updateSession,1000);
+    function showStatus(message, isSuccess = false) {
+        statusMessage.textContent = message;
+        statusMessage.classList.remove('hidden', 'status-error', 'status-success');
+        if (isSuccess) {
+            statusMessage.classList.add('status-success');
+        } else {
+            statusMessage.classList.add('status-error');
+        }
+    }
+    function setLoading(isLoading) {
+        loginButton.disabled = isLoading;
+        if (isLoading) {
+            buttonText.textContent = "Loading...";
+            loadingSpinner.classList.remove('hidden');
+        } else {
+            buttonText.textContent = "Login";
+            loadingSpinner.classList.add('hidden');
+        }
+    }
+    function showServerMaintenance(message = 'This function is currently locked or under maintenance.'){
+      const t = document.createElement('div');
+      t.textContent = message;
+      t.style.position = 'fixed';
+      t.style.left = '50%';
+      t.style.top = '22px';
+      t.style.transform = 'translateX(-50%)';
+      t.style.background = 'linear-gradient(90deg, #b33030, #ff7b00)';
+      t.style.color = '#fff';
+      t.style.padding = '12px 20px';
+      t.style.borderRadius = '10px';
+      t.style.zIndex = 14000;
+      t.style.fontWeight = 900;
+      document.body.appendChild(t);
+      setTimeout(()=>{ t.style.transition = 'opacity .4s'; t.style.opacity = '0'; setTimeout(()=>t.remove(),500); }, 2500);
+    }
+    function openPricingPage() {
+        window.open('https://www.svtc.life/Pricing.html', '_blank');
+    }
+    async function handleLogin(event) {
+        event.preventDefault();
+        setLoading(true);
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        
+        // Change: Create a JSON object
+        const bodyData = {
+            username: username,
+            password: password
+        };
+
+        try {
+            const response = await fetch(APPS_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'cors',
+                headers: {
+                    // Change: Send as 'text/plain' to avoid CORS pre-flight
+                    'Content-Type': 'text/plain;charset=utf-8'
+                },
+                // Change: Send the stringified JSON object
+                body: JSON.stringify(bodyData)
+            });
+            const result = await response.json();
+            if (result.success) {
+                if (!result.class || !result.class.trim().startsWith("5")) {
+                    showStatus("Only 5th Class students are allowed. Please contact 8985170500.", false);
+                    setLoading(false); 
+                    return; 
+                }
+
+                showStatus("Login successful!", true);
+                sessionStorage.setItem('isLoggedIn', 'true');
+                sessionStorage.setItem('username', result.username); 
+                sessionStorage.setItem('fullName', result.fullName); 
+                sessionStorage.setItem('fatherName', result.fatherName); 
+                sessionStorage.setItem('mobileNumber', result.mobileNumber); 
+                sessionStorage.setItem('class', result.class); 
+                sessionStorage.setItem('schoolName', result.schoolName); 
+                sessionStorage.setItem('termsConditions', result.termsConditions); 
+                sessionStorage.setItem('subscription', result.plan); 
+                sessionStorage.setItem('isPremium', result.isPremium); 
+                sessionStorage.setItem('loginTimes', result.loginTimes); 
+                sessionStorage.setItem('startDate', result.startDate); 
+                sessionStorage.setItem('endDate', result.endDate); 
+                sessionStorage.setItem('daysLeft', result.daysLeft); 
+                sessionStorage.setItem('timeSpent', result.timeSpent); 
+                sessionStorage.setItem('generalTests', result.generalTests); 
+                sessionStorage.setItem('subjectTests', result.subjectTests); 
+                sessionStorage.setItem('managerName', result.managerName); 
+                sessionStorage.setItem('directContact', result.directContact); 
+                setTimeout(showDashboard, 1000); 
+            } else {
+                showStatus(result.message || "Login Failed Please check USERNAME & PASSWROD.", false);
+            }
+        } catch (error) {
+            console.error("Fetch Error:", error);
+            showStatus("Please retry.", false);
+        } finally {
+            setLoading(false);
+        }
+    }
+    function handleLogout() {
+        sessionStorage.clear();
+        session = 0;
+        updateSession();
+        loggedOutIcons.forEach(icon => icon.classList.remove('hidden')); 
+        loggedInControls.classList.add('hidden');
+        liveTime.classList.add('hidden');
+        sessionTimer.classList.add('hidden');
+        logoutBtn.classList.add('hidden'); 
+        dashboardContent.classList.add('hidden');
+        loginScreen.classList.remove('hidden');
+        loginForm.reset();
+        statusMessage.classList.add('hidden');
+        studentClass = 0; 
+        updatePremiumButtonsVisuals(false);
+    }
+    function checkLoginStatus() {
+        if (sessionStorage.getItem('isLoggedIn') === 'true') {
+            showDashboard();
+        } else {
+            loggedOutIcons.forEach(icon => icon.classList.remove('hidden')); 
+            loggedInControls.classList.add('hidden');
+            dashboardContent.classList.add('hidden');
+            loginScreen.classList.remove('hidden');
+        }
+    }
+    function showDashboard() {
+        window.scrollTo(0, 0);
+        const username = sessionStorage.getItem('username') || 'N/A';
+        const fullName = sessionStorage.getItem('fullName') || 'N/A';
+        const classString = sessionStorage.getItem('class') || 'N/A';
+        const fatherName = sessionStorage.getItem('fatherName') || 'N/A';
+        const mobileNumber = sessionStorage.getItem('mobileNumber') || 'N/A';
+        const schoolName = sessionStorage.getItem('schoolName') || 'N/A';
+        const termsConditions = sessionStorage.getItem('termsConditions') || 'N/A';
+        const subscription = sessionStorage.getItem('subscription') || 'N/A';
+        const loginTimes = sessionStorage.getItem('loginTimes') || 'N/A';
+        const startDate = sessionStorage.getItem('startDate') || 'N/A';
+        const endDate = sessionStorage.getItem('endDate') || 'N/A';
+        const daysLeft = sessionStorage.getItem('daysLeft') || 'N/A';
+        const timeSpent = sessionStorage.getItem('timeSpent') || 'N/A';
+        const generalTests = sessionStorage.getItem('generalTests') || 'N/A';
+        const subjectTests = sessionStorage.getItem('subjectTests') || 'N/A';
+        const managerName = sessionStorage.getItem('managerName') || 'Sri Veda Tc'; 
+        const directContact = sessionStorage.getItem('directContact') || '8985170500'; 
+        const isPremium = sessionStorage.getItem('isPremium') === 'true';
+        const statLogins = document.getElementById('statLogins');
+        const statTimeSpent = document.getElementById('statTimeSpent');
+        const statGeneralTests = document.getElementById('statGeneralTests');
+        const statSubjectTests = document.getElementById('statSubjectTests');
+        const statSubscription = document.getElementById('statSubscription');
+        const srmManagerName = document.getElementById('srmManagerName');
+        const srmDirectContactValue = document.getElementById('srmDirectContactValue');
+        const srmDirectContactLink = document.getElementById('srmDirectContactLink');
+        const classMatch = classString.match(/(\d+)/);
+        studentClass = classMatch ? parseInt(classMatch[1], 10) : 0; 
+        loggedOutIcons.forEach(icon => icon.classList.add('hidden')); 
+        loggedInControls.classList.remove('hidden');
+        liveTime.classList.remove('hidden');
+        sessionTimer.classList.remove('hidden');
+        logoutBtn.classList.remove('hidden'); 
+        studentNameDisplay.textContent = fullName;
+        studentClassDisplay.textContent = classString;
+        profileUsername.textContent = username; 
+        profileFullName.textContent = fullName; 
+        profileFatherName.textContent = fatherName; 
+        let maskedMobile = 'N/A';
+        if (mobileNumber && mobileNumber !== 'N/A' && mobileNumber.length >= 10) {
+            maskedMobile = `${mobileNumber.substring(0, 2)}XXXXXX${mobileNumber.substring(mobileNumber.length - 2)}`;
+        } else if (mobileNumber) {
+            maskedMobile = mobileNumber; 
+        }
+        profileMobile.textContent = maskedMobile;
+        profileClass.textContent = classString; 
+        profileSchool.textContent = schoolName; 
+        profileTerms.textContent = termsConditions; 
+        if (termsConditions.toLowerCase().trim() === 'agreed') {
+            profileTerms.classList.add('agreed');
+        } else {
+            profileTerms.classList.remove('agreed');
+        }
+        subFullName.textContent = fullName; 
+        subPlan.textContent = subscription; 
+        subLoginTimes.textContent = loginTimes; 
+        subStartDate.textContent = startDate; 
+        subExpDate.textContent = endDate; 
+        subDaysLeft.textContent = daysLeft; 
+        if(statLogins) statLogins.textContent = loginTimes; 
+        if(statTimeSpent) statTimeSpent.textContent = timeSpent; 
+        if(statGeneralTests) statGeneralTests.textContent = generalTests; 
+        if(statSubjectTests) statSubjectTests.textContent = subjectTests; 
+        if(statSubscription) statSubscription.textContent = subscription; 
+        
+        if (srmManagerName) {
+            srmManagerName.textContent = managerName;
+        }
+        if (srmDirectContactLink) {
+            srmDirectContactLink.href = 'tel:' + directContact.replace(/\D/g, ''); 
+            srmDirectContactLink.textContent = directContact;
+        } else if (srmDirectContactValue) { 
+            srmDirectContactValue.textContent = directContact;
+        }
+        
+        let badgeClass = 'badge-free';
+        let displayText = subscription || 'Free Student';
+
+        if (subscription && typeof subscription === 'string') {
+            const plan = subscription.toLowerCase().trim();
+            if (plan.includes('silver')) {
+                badgeClass = 'badge-silver';
+                displayText = 'Silver Student';
+            } else if (plan.includes('gold')) {
+                badgeClass = 'badge-gold';
+                displayText = 'Gold Student';
+            } else if (plan.includes('platin')) {
+                badgeClass = 'badge-platinum';
+                displayText = 'Platinum Student';
+            } else {
+                displayText = 'Free Student';
+            }
+        } else {
+             displayText = 'Free Student';
+        }
+        
+        subscriptionBadge.className = 'subscription-badge'; 
+        subscriptionBadge.classList.add(badgeClass);
+        subscriptionBadge.textContent = displayText;
+
+        setupSubjectButtons();
+        updatePremiumButtonsVisuals(isPremium);
+        animateTCRing();
+        loginScreen.classList.add('hidden');
+        dashboardContent.classList.remove('hidden');
+        if (studentSubjectTestsSection && [3, 4, 5].includes(studentClass)) {
+             studentSubjectTestsSection.classList.add('hidden');
+        } else if (studentSubjectTestsSection) {
+             studentSubjectTestsSection.classList.remove('hidden');
+        }
+    }
+    
+    function setupSubjectButtons() {
+    }
+
+    function animateTCRing() {
+        const tcPercentEl = document.getElementById('tcPercent');
+        const tcLiveBarEl = document.getElementById('tcLiveBar');
+        
+        if (tcPercentEl && tcLiveBarEl) {
+            let percentText = tcPercentEl.textContent || '0%';
+            let percent = parseInt(percentText, 10);
+            
+            if (isNaN(percent)) {
+                percent = 0;
+            }
+            
+            percent = Math.max(0, Math.min(100, percent));
+            
+            setTimeout(() => {
+                tcLiveBarEl.style.width = percent + '%';
+            }, 100);
+        } else {
+            console.warn('TC Ring elements not found.');
+        }
+    }
+
+    const externalUrlMap = {
+    };
+    
+    const quizTestConfig = {
+    'ga_topic_1': {
+        url: 'https://script.google.com/macros/s/AKfycbxXgd2I9mBHxYKUMihYgnDaH9yG-ZSkGhQID6WzMW2Q6oc8Gvp2rZV8RHeTpuVbvMY/exec?sheet=GA11',
+        title: 'Numbers (4 and 5-digit)'
+    },
+    'ga_topic_2': {
+        url: 'https://script.google.com/macros/s/AKfycbxXgd2I9mBHxYKUMihYgnDaH9yG-ZSkGhQID6WzMW2Q6oc8Gvp2rZV8RHeTpuVbvMY/exec?sheet=GA12',
+        title: 'Addition and Subtraction'
+    },
+    'ga_topic_3': {
+        url: 'https://script.google.com/macros/s/AKfycbxXgd2I9mBHxYKUMihYgnDaH9yG-ZSkGhQID6WzMW2Q6oc8Gvp2rZV8RHeTpuVbvMY/exec?sheet=GA13',
+        title: 'Multiplication'
+    },
+    'ga_topic_4': {
+        url: 'https://script.google.com/macros/s/AKfycbxXgd2I9mBHxYKUMihYgnDaH9yG-ZSkGhQID6WzMW2Q6oc8Gvp2rZV8RHeTpuVbvMY/exec?sheet=GA14',
+        title: 'Division'
+    },
+    'ga_topic_5': {
+        url: 'https://script.google.com/macros/s/AKfycbxXgd2I9mBHxYKUMihYgnDaH9yG-ZSkGhQID6WzMW2Q6oc8Gvp2rZV8RHeTpuVbvMY/exec?sheet=GA15',
+        title: 'Fractions'
+    },
+    'ga_topic_6': {
+        url: 'https://script.google.com/macros/s/AKfycbxXgd2I9mBHxYKUMihYgnDaH9yG-ZSkGhQID6WzMW2Q6oc8Gvp2rZV8RHeTpuVbvMY/exec?sheet=GA16',
+        title: 'Measurements (Length & Weight)'
+    },
+    'ga_topic_7': {
+        url: 'https://script.google.com/macros/s/AKfycbxXgd2I9mBHxYKUMihYgnDaH9yG-ZSkGhQID6WzMW2Q6oc8Gvp2rZV8RHeTpuVbvMY/exec?sheet=GA17',
+        title: 'Measurements (Capacity)'
+    },
+    'ga_topic_8': {
+        url: 'https://script.google.com/macros/s/AKfycbxXgd2I9mBHxYKUMihYgnDaH9yG-ZSkGhQID6WzMW2Q6oc8Gvp2rZV8RHeTpuVbvMY/exec?sheet=GA18',
+        title: 'Time'
+    },
+    'ga_topic_9': {
+        url: 'https://script.google.com/macros/s/AKfycbxXgd2I9mBHxYKUMihYgnDaH9yG-ZSkGhQID6WzMW2Q6oc8Gvp2rZV8RHeTpuVbvMY/exec?sheet=GA19',
+        title: 'Money'
+    },
+    'ga_topic_10': {
+        url: 'https://script.google.com/macros/s/AKfycbxXgd2I9mBHxYKUMihYgnDaH9yG-ZSkGhQID6WzMW2Q6oc8Gvp2rZV8RHeTpuVbvMY/exec?sheet=GA110',
+        title: 'Geometry (Basic)'
+    },
+    'gm_topic_1': {
+        url: 'https://script.google.com/macros/s/AKfycbxXgd2I9mBHxYKUMihYgnDaH9yG-ZSkGhQID6WzMW2Q6oc8Gvp2rZV8RHeTpuVbvMY/exec?sheet=GMA21',
+        title: 'Our Family and Community'
+    },
+    'gm_topic_2': {
+        url: 'https://script.google.com/macros/s/AKfycbxXgd2I9mBHxYKUMihYgnDaH9yG-ZSkGhQID6WzMW2Q6oc8Gvp2rZV8RHeTpuVbvMY/exec?sheet=GMA22',
+        title: 'Plants Around Us'
+    },
+    'gm_topic_3': {
+        url: 'https://script.google.com/macros/s/AKfycbxXgd2I9mBHxYKUMihYgnDaH9yG-ZSkGhQID6WzMW2Q6oc8Gvp2rZV8RHeTpuVbvMY/exec?sheet=GMA23',
+        title: 'Animals Around Us'
+    },
+    'gm_topic_4': {
+        url: 'https://script.google.com/macros/s/AKfycbxXgd2I9mBHxYKUMihYgnDaH9yG-ZSkGhQID6WzMW2Q6oc8Gvp2rZV8RHeTpuVbvMY/exec?sheet=GMA24',
+        title: 'Food and Health'
+    },
+    'gm_topic_5': {
+        url: 'https://script.google.com/macros/s/AKfycbxXgd2I9mBHxYKUMihYgnDaH9yG-ZSkGhQID6WzMW2Q6oc8Gvp2rZV8RHeTpuVbvMY/exec?sheet=GMA25',
+        title: 'Water'
+    },
+    'gm_topic_6': {
+        url: 'httpss://script.google.com/macros/s/AKfycbxXgd2I9mBHxYKUMihYgnDaH9yG-ZSkGhQID6WzMW2Q6oc8Gvp2rZV8RHeTpuVbvMY/exec?sheet=GMA26',
+        title: 'Our Body'
+    },
+    'gm_topic_7': {
+        url: 'https://script.google.com/macros/s/AKfycbxXgd2I9mBHxYKUMihYgnDaH9yG-ZSkGhQID6WzMW2Q6oc8Gvp2rZV8RHeTpuVbvMY/exec?sheet=GMA27',
+        title: 'Safety Rules'
+    },
+    'gm_topic_8': {
+        url: 'https://script.google.com/macros/s/AKfycbxXgd2I9mBHxYKUMihYgnDaH9yG-ZSkGhQID6WzMW2Q6oc8Gvp2rZV8RHeTpuVbvMY/exec?sheet=GMA28',
+        title: 'Our State and Country'
+    },
+    'gm_topic_9': {
+        url: 'https://script.google.com/macros/s/AKfycbxXgd2I9mBHxYKUMihYgnDaH9yG-ZSkGhQID6WzMW2Q6oc8Gvp2rZV8RHeTpuVbvMY/exec?sheet=GMA29',
+        title: 'Maps and Directions'
+    },
+    'gm_topic_10': {
+        url: 'https://script.google.com/macros/s/AKfycbxXgd2I9mBHxYKUMihYgnDaH9yG-ZSkGhQID6WzMW2Q6oc8Gvp2rZV8RHeTpuVbvMY/exec?sheet=GMA210',
+        title: 'Work and Occupations'
+    },
+    'am_topic_1': {
+        url: 'https://script.google.com/macros/s/AKfycbxXgd2I9mBHxYKUMihYgnDaH9yG-ZSkGhQID6WzMW2Q6oc8Gvp2rZV8RHeTpuVbvMY/exec?sheet=GAMA31',
+        title: 'Nouns (Common/Proper, Singular/Plural)'
+    },
+    'am_topic_2': {
+        url: 'https://script.google.com/macros/s/AKfycbxXgd2I9mBHxYKUMihYgnDaH9yG-ZSkGhQID6WzMW2Q6oc8Gvp2rZV8RHeTpuVbvMY/exec?sheet=GAMA32',
+        title: 'Verbs (Action words, \'is/am/are\')'
+    },
+    'am_topic_3': {
+        url: 'https://script.google.com/macros/s/AKfycbxXgd2I9mBHxYKUMihYgnDaH9yG-ZSkGhQID6WzMW2Q6oc8Gvp2rZV8RHeTpuVbvMY/exec?sheet=GAMA33',
+        title: 'Articles (A, An, The)'
+    },
+    'am_topic_4': {
+        url: 'https://script.google.com/macros/s/AKfycbxXgd2I9mBHxYKUMihYgnDaH9yG-ZSkGhQID6WzMW2Q6oc8Gvp2rZV8RHeTpuVbvMY/exec?sheet=GAMA34',
+        title: 'Opposites (Antonyms)'
+    },
+    'am_topic_5': {
+        url: 'https://script.google.com/macros/s/AKfycbxXgd2I9mBHxYKUMihYgnDaH9yG-ZSkGhQID6WzMW2Q6oc8Gvp2rZV8RHeTpuVbvMY/exec?sheet=GAMA35',
+        title: 'Reading Comprehension (English)'
+    },
+    'am_topic_6': {
+        url: 'https://script.google.com/macros/s/AKfycbxXgd2I9mBHxYKUMihYgnDaH9yG-ZSkGhQID6WzMW2Q6oc8Gvp2rZV8RHeTpuVbvMY/exec?sheet=GAMA36',
+        title: 'పదజాలం / అర్థాలు (Vocabulary / Meanings)'
+    },
+    'am_topic_7': {
+        url: 'https://script.google.com/macros/s/AKfycbxXgd2I9mBHxYKUMihYgnDaH9yG-ZSkGhQID6WzMW2Q6oc8Gvp2rZV8RHeTpuVbvMY/exec?sheet=GAMA37',
+        title: 'వ్యతిరేక పదాలు (Opposite Words)'
+    },
+    'am_topic_8': {
+        url: 'https://script.google.com/macros/s/AKfycbxXgd2I9mBHxYKUMihYgnDaH9yG-ZSkGhQID6WzMW2Q6oc8Gvp2rZV8RHeTpuVbvMY/exec?sheet=GAMA38',
+        title: 'ఏకవచనం - బహువచనం (Singular - Plural)'
+    },
+    'am_topic_9': {
+        url: 'https://script.google.com/macros/s/AKfycbxXgd2I9mBHxYKUMihYgnDaH9yG-ZSkGhQID6WzMW2Q6oc8Gvp2rZV8RHeTpuVbvMY/exec?sheet=GAMA39',
+        title: 'భాషా భాగాలు (Parts of Speech)'
+    },
+    'am_topic_10': {
+        url: 'https://script.google.com/macros/s/AKfycbxXgd2I9mBHxYKUMihYgnDaH9yG-ZSkGhQID6WzMW2Q6oc8Gvp2rZV8RHeTpuVbvMY/exec?sheet=GAMA310',
+        title: 'అవగాహన (Reading Comprehension - Telugu)'
+    }
+};
+
+    function handleTestClick(testId) {
+        const isPremium = sessionStorage.getItem('isPremium') === 'true';
+        if (!isPremium) {
+            showServerMaintenance('This is a premium feature. Please upgrade your plan to access.');
+            return;
+        }
+
+        if (urlMap[testId] && urlMap[testId][studentClass]) {
+            const url = urlMap[testId][studentClass];
+            if (url) {
+                window.open(url, '_blank');
+            } else {
+                showServerMaintenance('This test is not yet available for your class.');
+            }
+        } else if (externalUrlMap[testId]) { 
+             const url = externalUrlMap[testId];
+             window.open(url, '_blank');
+        } else {
+            showServerMaintenance('This test is currently unavailable. Please check back later.');
+            console.warn(`No URL found for testId: ${testId} and class: ${studentClass}`);
+        }
+    }
+
+    function updatePremiumButtonsVisuals(isPremium) {
+        const premiumButtons = document.querySelectorAll('.subject-tests .sub-topic-item .btn-test');
+        
+        premiumButtons.forEach(button => {
+            if (isPremium) {
+                button.classList.remove('locked');
+                button.disabled = false;
+                button.innerHTML = TAKE_TEST_TEXT;
+            } else {
+                button.classList.add('locked');
+                button.disabled = true;
+                button.innerHTML = `${LOCK_ICON_SVG} ${TAKE_TEST_TEXT}`;
+            }
+        });
+    }
+
+    function handlePremiumTestClick(testId) {
+        const isPremium = sessionStorage.getItem('isPremium') === 'true';
+
+        if (!isPremium) {
+            showServerMaintenance('This is a premium feature. Please upgrade your plan to access.');
+            return; 
+        }
+
+        if (quizTestConfig[testId]) {
+            const config = quizTestConfig[testId];
+            startQuiz(config.url, config.title);
+        } else if (externalUrlMap[testId]) {
+            const url = externalUrlMap[testId];
+            console.log(`Navigating to test: ${url}`);
+            window.open(url, '_blank');
+        } else {
+            console.warn(`No URL or Quiz Config found for testId: ${testId}`);
+        }
+    }
+
+    function handlePlanClick(planType) {
+        const urls = {
+            'take_plan': 'https://example.com/plans/subscribe',
+            'renew_plan': 'https://example.com/plans/renew',
+            'update_plan': 'https://example.com/plans/update'
+        };
+        const url = urls[planType] || 'https://example.com/plans';
+        console.log(`Plan action: ${planType}, URL: ${url}`);
+        window.open(url, '_blank');
+    }
+
+
+    let allQuestions = [];
+    let userAnswers = {}; 
+    let currentTestTitle = "Free Test"; 
+    let currentQuestionIndex = 0;
+    
+    const freeQuizApiUrl = "https://script.google.com/macros/s/AKfycbxXgd2I9mBHxYKUMihYgnDaH9yG-ZSkGhQID6WzMW2Q6oc8Gvp2rZV8RHeTpuVbvMY/exec?sheet=FREE";
+    
+    const correctOptionMap = {
+        "ONE": 1,
+        "TWO": 2,
+        "THREE": 3,
+        "FOUR": 4,
+        "1": 1, 
+        "2": 2,
+        "3": 3,
+        "4": 4,
+        "OPTION 1": 1,
+        "OPTION 2": 2,
+        "OPTION 3": 3,
+        "OPTION 4": 4
+    };
+    
+    const quizOverlay = document.getElementById('quizOverlay');
+    const quizLoading = document.getElementById('quizLoading');
+    const quizInterface = document.getElementById('quizInterface');
+    const quizResults = document.getElementById('quizResults');
+    const quizReview = document.getElementById('quizReview');
+
+    const quizHeaderTitle = document.getElementById('quizHeaderTitle');
+    const quizQuestionText = document.getElementById('quizQuestionText');
+    const quizOptions = document.getElementById('quizOptions');
+    
+    const quizPrevBtn = document.getElementById('quizPrevBtn');
+    const quizNextBtn = document.getElementById('quizNextBtn');
+    const quizSubmitBtn = document.getElementById('quizSubmitBtn');
+
+    function startQuiz(apiUrl = freeQuizApiUrl, testTitle = "Free Test") {
+        dashboardContent.style.display = 'none';
+        quizOverlay.style.display = 'block';
+        
+        currentTestTitle = testTitle;
+        
+        quizInterface.classList.add('hidden');
+        quizResults.classList.add('hidden');
+        quizReview.classList.add('hidden');
+        quizLoading.classList.remove('hidden');
+
+        allQuestions = [];
+        userAnswers = {};
+        currentQuestionIndex = 0;
+
+        fetchQuestions(apiUrl); 
+    }
+
+    async function fetchQuestions(apiUrl) {
+        try {
+            const response = await fetch(apiUrl);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const result = await response.json();
+
+            if (result.success && result.data) {
+                let rawData = result.data;
+                
+                const isFreeTest = (apiUrl === freeQuizApiUrl);
+                const questionLimit = isFreeTest ? 15 : 50;
+
+                allQuestions = rawData.filter(q => q.serialNumber && q.question && String(q.serialNumber).toLowerCase() !== 'serialnumber').slice(0, questionLimit);
+                
+                if (allQuestions.length === 0) {
+                    throw new Error("No valid questions found.");
+                }
+
+                quizLoading.classList.add('hidden');
+                quizInterface.classList.remove('hidden');
+                showQuestion(0);
+
+            } else {
+                throw new Error(result.error || "Failed to load data.");
+            }
+        } catch (error) {
+            console.error("Error fetching questions:", error);
+            quizLoading.innerHTML = `<p class="text-red-600 font-semibold">Error: ${error.message}</p><p class="mt-4">Please try again later.</p><button class="quiz-nav-btn mt-6" onclick="closeQuiz(false)">Close</button>`;
+        }
+    }
+
+    function showQuestion(index) {
+        if (index < 0 || index >= allQuestions.length) return;
+
+        currentQuestionIndex = index;
+        const question = allQuestions[index];
+
+        quizHeaderTitle.textContent = `${currentTestTitle}: Question ${index + 1} of ${allQuestions.length}`;
+        quizQuestionText.textContent = question.question;
+
+        quizOptions.innerHTML = ''; 
+        const options = [question.option1, question.option2, question.option3, question.option4];
+        
+        options.forEach((optionText, i) => {
+            const optionIndex = i + 1; 
+            const isChecked = (userAnswers[index] === optionIndex);
+            
+            const optionId = `q${index}_opt${optionIndex}`;
+            quizOptions.innerHTML += `
+                <label for="${optionId}" class="quiz-option-label ${isChecked ? 'option-selected' : ''}" onclick="updateSelectedOption(this)">
+                    <input 
+                        type="radio" 
+                        name="question_${index}" 
+                        id="${optionId}" 
+                        value="${optionIndex}"
+                        ${isChecked ? 'checked' : ''}
+                        onchange="selectAnswer(${optionIndex})">
+                    <span>${optionIndex}. ${optionText}</span>
+                </label>
+            `;
+        });
+
+        quizPrevBtn.disabled = (index === 0);
+        quizNextBtn.classList.toggle('hidden', index === allQuestions.length - 1);
+        quizSubmitBtn.classList.toggle('hidden', index !== allQuestions.length - 1);
+        
+    }
+    
+    function updateSelectedOption(labelElement) {
+        const groupName = labelElement.htmlFor.split('_')[0]; 
+        document.querySelectorAll(`label[for^="${groupName}_"]`).forEach(label => {
+            label.classList.remove('option-selected');
+        });
+        labelElement.classList.add('option-selected');
+    }
+
+    function selectAnswer(optionIndex) {
+        userAnswers[currentQuestionIndex] = optionIndex;
+    }
+
+    function navigateQuestion(direction) {
+        const newIndex = currentQuestionIndex + direction;
+        if (newIndex >= 0 && newIndex < allQuestions.length) {
+            showQuestion(newIndex);
+        }
+    }
+
+    function submitQuiz() {
+        calculateAndShowResults();
+    }
+
+    function calculateAndShowResults() {
+        let correctCount = 0;
+        let wrongCount = 0;
+
+        for (let i = 0; i < allQuestions.length; i++) {
+            const question = allQuestions[i];
+            
+            const correctAnswerText = String(question.correctOption || "").trim();
+            let correctIndex;
+
+            if (correctAnswerText && correctAnswerText === String(question.option1 || "").trim()) {
+                correctIndex = 1;
+            } else if (correctAnswerText && correctAnswerText === String(question.option2 || "").trim()) {
+                correctIndex = 2;
+            } else if (correctAnswerText && correctAnswerText === String(question.option3 || "").trim()) {
+                correctIndex = 3;
+            } else if (correctAnswerText && correctAnswerText === String(question.option4 || "").trim()) {
+                correctIndex = 4;
+            } else {
+                const correctOptionString = String(question.correctOption || "").toUpperCase().trim();
+                correctIndex = correctOptionMap[correctOptionString];
+            }
+
+            const userIndex = userAnswers[i]; 
+
+            if (userIndex) {
+                if (userIndex === correctIndex) {
+                    correctCount++;
+                } else {
+                    wrongCount++;
+                }
+            }
+        }
+        
+        const unansweredCount = allQuestions.length - (correctCount + wrongCount);
+        
+        let feedbackText = "";
+        let feedbackClass = "";
+
+        if (correctCount < 10) {
+            feedbackText = "Needs Improvement";
+            feedbackClass = "feedback-improve";
+        } else if (correctCount >= 10 && correctCount <= 12) { 
+            feedbackText = "Very Good";
+            feedbackClass = "feedback-good";
+        } else { 
+            feedbackText = "Excellent";
+            feedbackClass = "feedback-excellent";
+        }
+
+        document.getElementById('resultsScore').textContent = `${correctCount} / ${allQuestions.length}`;
+        document.getElementById('resultsFeedback').textContent = feedbackText;
+        document.getElementById('resultsFeedback').className = `results-feedback ${feedbackClass}`;
+        document.getElementById('resultsCorrect').textContent = correctCount;
+        document.getElementById('resultsWrong').textContent = wrongCount;
+        document.getElementById('resultsUnanswered').textContent = unansweredCount;
+
+        quizInterface.classList.add('hidden');
+        quizResults.classList.remove('hidden');
+    }
+
+    function showReview() {
+        const reviewContainer = document.getElementById('quizReviewContainer');
+        reviewContainer.innerHTML = ''; 
+
+        allQuestions.forEach((question, i) => {
+            
+            const correctAnswerText = String(question.correctOption || "").trim();
+            let correctIndex;
+
+            if (correctAnswerText && correctAnswerText === String(question.option1 || "").trim()) {
+                correctIndex = 1;
+            } else if (correctAnswerText && correctAnswerText === String(question.option2 || "").trim()) {
+                correctIndex = 2;
+            } else if (correctAnswerText && correctAnswerText === String(question.option3 || "").trim()) {
+                correctIndex = 3;
+            } else if (correctAnswerText && correctAnswerText === String(question.option4 || "").trim()) {
+                correctIndex = 4;
+            } else {
+                const correctOptionString = String(question.correctOption || "").toUpperCase().trim();
+                correctIndex = correctOptionMap[correctOptionString];
+            }
+
+            const userIndex = userAnswers[i]; 
+            const options = [question.option1, question.option2, question.option3, question.option4];
+
+            let optionsHtml = '';
+            options.forEach((optionText, optIdx) => {
+                const optionNum = optIdx + 1;
+                let optionClass = 'review-option';
+                
+                if (optionNum === correctIndex) {
+                    optionClass += ' correct'; 
+                } else if (optionNum === userIndex && userIndex !== correctIndex) {
+                    optionClass += ' incorrect'; 
+                }
+
+                optionsHtml += `<div class="${optionClass}">${optionNum}. ${optionText}</div>`;
+            });
+
+            reviewContainer.innerHTML += `
+                <div class="review-item">
+                    <div class="review-question">
+                        <p>${i + 1}. ${question.question}</p>
+                    </div>
+                    <div class="review-options">
+                        ${optionsHtml}
+                    </div>
+                    ${question.explanation ? `
+                    <div class="review-explanation">
+                        <strong>Explanation:</strong>
+                        <p>${question.explanation}</p>
+                    </div>` : ''}
+                </div>
+            `;
+        });
+
+        quizResults.classList.add('hidden');
+        quizReview.classList.remove('hidden');
+    }
+
+    function closeQuiz(checkInProgress = false) {
+        if (checkInProgress) {
+        }
+        
+        quizOverlay.style.display = 'none';
+        dashboardContent.style.display = 'block';
+
+        quizInterface.classList.add('hidden');
+        quizResults.classList.add('hidden');
+        quizReview.classList.add('hidden');
+        quizLoading.classList.remove('hidden'); 
+    }
+
+    
+    window.handleTestClick = handleTestClick;
+    window.handlePremiumTestClick = handlePremiumTestClick; 
+    window.startQuiz = startQuiz; 
+    window.handlePlanClick = handlePlanClick; 
+    window.takeTest = handleTestClick;
+    window.showServerMaintenance = showServerMaintenance;
+    window.openPricingPage = openPricingPage; 
+    document.addEventListener('DOMContentLoaded', () => {
+        const dynamicMenu = document.getElementById('dynamicMenu');
+        const menuToggle = document.getElementById('menuToggle');
+        if (menuToggle && dynamicMenu) {
+            menuToggle.addEventListener('click', () => {
+                dynamicMenu.classList.toggle('hidden');
+            });
+        }
+        loginForm.addEventListener('submit', handleLogin);
+        logoutBtn.addEventListener('click', handleLogout);
+        checkLoginStatus(); 
+    });
+</script>
+</body>
+</html>
