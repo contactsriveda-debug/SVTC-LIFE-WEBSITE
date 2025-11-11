@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>SRI VEDA TALENT COMPETITION — Compact Blue Sections</title>
+  <title>SRI VEDA TALENT COMPETITION — Integrated Exams & Login</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700;800;900&display=swap" rel="stylesheet">
@@ -89,6 +89,7 @@
         transition: all 0.3s ease;
         box-shadow: 0 4px 10px rgba(255, 140, 0, 0.4);
         flex-shrink: 0; /* Prevents button from shrinking on small screens */
+        margin-top: 1rem; /* Space above button */
     }
     .cta-button:hover {
         background-color: var(--sv-yellow);
@@ -97,12 +98,12 @@
         box-shadow: 0 6px 15px rgba(255, 140, 0, 0.6);
     }
 
-    /* Styling for the horizontal class card - Compact Blue Theme */
+    /* Styling for the horizontal class card - Blue Theme */
     .class-card {
         display: flex;
-        align-items: center;
+        align-items: flex-start; /* Align items to the top for vertical content */
         justify-content: space-between;
-        padding: 0.75rem 1.25rem; /* Reduced padding for compact size */
+        padding: 1rem 1.5rem; 
         border-radius: 0.75rem; /* rounded-xl */
         background-color: #f3f7ff; /* Light Blue background */
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
@@ -113,29 +114,88 @@
         border-color: var(--sv-blue); /* Darker blue border on hover */
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
-    /* Mobile adjustments */
-    @media (max-width: 767px) {
-        .class-card {
-            flex-direction: column; /* Stack elements vertically on mobile */
-            text-align: center;
-            padding: 1.25rem 1rem; /* Adjust vertical padding for mobile stack */
-        }
-        .class-card > div {
-            margin-bottom: 0.75rem; /* Space between stacked elements */
-            width: 100%;
-        }
-    }
-    /* Styling for the class label buttons (now all blue) */
-    .class-label-blue {
+    
+    /* Styling for the left section (Class Label) */
+    .card-left {
         flex-shrink: 0; 
-        font-weight: 800; /* Extra bold */
+        min-width: 140px; /* Wider for better alignment */
+        text-align: center;
+        padding-right: 1.5rem;
+        border-right: 2px solid #dbeafe; /* Light blue divider */
+    }
+    .class-label-blue {
+        font-weight: 800; 
         background-color: var(--sv-blue); 
         color: white; 
         padding: 0.5rem 1rem; 
         border-radius: 0.5rem; 
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        min-width: 120px;
+        display: block;
+    }
+
+    /* Styling for the middle section (Exam List & Text) */
+    .card-middle {
+        flex-grow: 1;
+        padding: 0 1.5rem;
+    }
+    .exam-list {
+        list-style-type: none;
+        padding-left: 0;
+        margin-top: 0.5rem;
+        columns: 2; /* Two columns for desktop view */
+        column-gap: 2rem;
+        font-size: 0.9rem;
+    }
+    .exam-list li {
+        margin-bottom: 0.25rem;
+        color: #374151; /* Dark gray */
+        font-weight: 500;
+    }
+    .exam-list li::before {
+        content: '✓'; 
+        margin-right: 0.5rem;
+        font-size: 0.9rem;
+        color: #10b981; /* Emerald Green Check */
+        font-weight: bold;
+    }
+    
+    /* Styling for the right section (Login Button) */
+    .card-right {
+        flex-shrink: 0;
+        min-width: 180px;
         text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-left: 1.5rem;
+        border-left: 2px solid #dbeafe; /* Light blue divider */
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 767px) {
+        .class-card {
+            flex-direction: column; /* Stack vertically on mobile */
+            text-align: left;
+            padding: 1.5rem 1rem;
+        }
+        .card-left, .card-right {
+            border: none;
+            padding: 0;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+        .card-left {
+            text-align: center;
+            border-bottom: 1px dashed #dbeafe;
+            padding-bottom: 1rem;
+        }
+        .card-right {
+            border-top: 1px dashed #dbeafe;
+            padding-top: 1rem;
+        }
+        .exam-list {
+            columns: 1; /* Single column on mobile */
+        }
     }
   </style>
 </head>
@@ -209,70 +269,296 @@
         </div>
     </div>
 
-    <!-- =========== MAIN CONTENT AREA (Horizontal Class Login Sections) =========== -->
+    <!-- =========== MAIN CONTENT AREA START =========== -->
     <main class="flex-grow p-8 w-full max-w-7xl mx-auto">
-        <div class="space-y-4"> <!-- Reduced vertical spacing between cards -->
+        
+        <!-- Inspirational Message Section -->
+        <section class="bg-sv-blue border-4 border-sv-yellow p-8 mb-8 rounded-lg shadow-2xl text-white text-center">
+            <p class="text-xl sm:text-2xl font-extrabold leading-relaxed tracking-wider">
+                <i class="fas fa-bullseye text-sv-yellow mr-2"></i> YOUR SINGLE GOAL MUST BE SECURING THAT SEAT! <i class="fas fa-bullseye text-sv-yellow ml-2"></i>
+            </p>
+            <p class="text-lg sm:text-xl font-bold mt-4 max-w-4xl mx-auto">
+                Approach every test question with deep thought, and prepare with purpose. Building unwavering self-confidence starts when you write exams under conditions similar to your parents' presence. Knowledge is essential, but **PRACTICE** is paramount. Don't stop at one attempt; practice, reflect, and practice again. With persistent effort, you will effortlessly achieve the exam success you desire.
+            </p>
+        </section>
+
+        <!-- Main Heading for Combined Section -->
+        <h2 class="text-2xl font-extrabold text-sv-blue mb-6 border-b-2 border-sv-orange pb-2">
+            Top Competitive Exams & Exclusive 
+        </h2>
+
+        <!-- Login Buttons Section (Integrated with Exam Lists) -->
+        <section class="space-y-6"> 
             
             <!-- Class 3 Section -->
             <div class="class-card">
-                <!-- Class Label -->
-                <div class="class-label-blue text-2xl">
-                    CLASS 3
+                <div class="card-left">
+                    <div class="class-label-blue text-2xl">
+                        CLASS 3
+                    </div>
+                    <p class="text-sm font-medium text-sv-blue mt-2">Students: Log in here to access resources.</p>
                 </div>
                 
-                <!-- Descriptive Text (Compact) -->
-                <div class="flex-grow text-center md:text-left mx-4 md:mx-6">
-                    <p class="text-lg font-semibold text-sv-blue">
-                        Students: Log in here to access your exclusive learning materials and practice tests.
+                <div class="card-middle">
+                    <p class="text-base font-bold text-gray-700 mb-2 border-b border-gray-300 pb-1">
+                        All the question resources provided are meticulously prepared considering the scope of these major Entrance and Olympiad Examinations:
                     </p>
+                    <ul class="exam-list">
+                        <li>National Science Olympiad (NSO)</li>
+                        <li>International Mathematics Olympiad (IMO)</li>
+                        <li>International English Olympiad (IEO)</li>
+                        <li>National Cyber Olympiad (NCO)</li>
+                        <li>International General Knowledge Olympiad (IGKO)</li>
+                        <li>NLSTSE / NSTSE</li>
+                        <li>Unified International Mathematics Olympiad (UIMO)</li>
+                        <li>SilverZone Olympiads</li>
+                        <li>ASSET</li>
+                    </ul>
                 </div>
-                
-                <!-- Login Button - UPDATED LINK -->
-                <a href="https://www.svtc.life/3rd%20Class.html" class="cta-button" title="Log in for Class 3">
-                    <i class="fas fa-sign-in-alt mr-2"></i> LOGIN
-                </a>
+
+                <div class="card-right">
+                    <a href="https://www.svtc.life/3rd%20Class.html" class="cta-button" title="Log in for Class 3">
+                        <i class="fas fa-sign-in-alt mr-2"></i> LOGIN
+                    </a>
+                </div>
             </div>
             
             <!-- Class 4 Section -->
             <div class="class-card">
-                <!-- Class Label -->
-                <div class="class-label-blue text-2xl">
-                    CLASS 4
+                <div class="card-left">
+                    <div class="class-label-blue text-2xl">
+                        CLASS 4
+                    </div>
+                    <p class="text-sm font-medium text-sv-blue mt-2">Students: Log in here to access resources.</p>
                 </div>
                 
-                <!-- Descriptive Text (Compact) -->
-                <div class="flex-grow text-center md:text-left mx-4 md:mx-6">
-                    <p class="text-lg font-semibold text-sv-blue">
-                        Students: Log in here to access your exclusive learning materials and practice tests.
+                <div class="card-middle">
+                    <p class="text-base font-bold text-gray-700 mb-2 border-b border-gray-300 pb-1">
+                        All the question resources provided are meticulously prepared considering the scope of these major Entrance and Olympiad Examinations:
                     </p>
+                    <ul class="exam-list">
+                        <li>National Science Olympiad (NSO)</li>
+                        <li>International Mathematics Olympiad (IMO)</li>
+                        <li>International English Olympiad (IEO)</li>
+                        <li>National Cyber Olympiad (NCO)</li>
+                        <li>International General Knowledge Olympiad (IGKO)</li>
+                        <li>NLSTSE / NSTSE</li>
+                        <li>Unified International Mathematics Olympiad (UIMO)</li>
+                        <li>SilverZone Olympiads</li>
+                        <li>ASSET</li>
+                    </ul>
                 </div>
-                
-                <!-- Login Button - UPDATED LINK -->
-                <a href="https://www.svtc.life/4th%20Class.html" class="cta-button" title="Log in for Class 4">
-                    <i class="fas fa-sign-in-alt mr-2"></i> LOGIN
-                </a>
+
+                <div class="card-right">
+                    <a href="https://www.svtc.life/4th%20Class.html" class="cta-button" title="Log in for Class 4">
+                        <i class="fas fa-sign-in-alt mr-2"></i> LOGIN
+                    </a>
+                </div>
             </div>
 
             <!-- Class 5 Section -->
             <div class="class-card">
-                <!-- Class Label -->
-                <div class="class-label-blue text-2xl">
-                    CLASS 5
+                <div class="card-left">
+                    <div class="class-label-blue text-2xl">
+                        CLASS 5
+                    </div>
+                    <p class="text-sm font-medium text-sv-blue mt-2">Students: Log in here to access resources.</p>
                 </div>
                 
-                <!-- Descriptive Text (Compact) -->
-                <div class="flex-grow text-center md:text-left mx-4 md:mx-6">
-                    <p class="text-lg font-semibold text-sv-blue">
-                        Students: Log in here to access your exclusive learning materials and practice tests.
+                <div class="card-middle">
+                    <p class="text-base font-bold text-gray-700 mb-2 border-b border-gray-300 pb-1">
+                        All the question resources provided are meticulously prepared considering the scope of these major Entrance and Olympiad Examinations:
                     </p>
+                    <ul class="exam-list">
+                        <li>JNVST (for Class 6 Admission)</li>
+                        <li>AISSEE (for Class 6 Admission)</li>
+                        <li>National Science Olympiad (NSO)</li>
+                        <li>International Mathematics Olympiad (IMO)</li>
+                        <li>International English Olympiad (IEO)</li>
+                        <li>National Cyber Olympiad (NCO)</li>
+                        <li>International General Knowledge Olympiad (IGKO)</li>
+                        <li>NLSTSE / NSTSE</li>
+                        <li>Unified International Mathematics Olympiad (UIMO)</li>
+                        <li>ASSET</li>
+                    </ul>
+                </div>
+
+                <div class="card-right">
+                    <a href="https://www.svtc.life/5th%20Class.html" class="cta-button" title="Log in for Class 5">
+                        <i class="fas fa-sign-in-alt mr-2"></i> LOGIN
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Class 6 Section -->
+            <div class="class-card">
+                <div class="card-left">
+                    <div class="class-label-blue text-2xl">
+                        CLASS 6
+                    </div>
+                    <p class="text-sm font-medium text-sv-blue mt-2">Students: Log in here to access resources.</p>
                 </div>
                 
-                <!-- Login Button - UPDATED LINK -->
-                <a href="https://www.svtc.life/5th%20Class.html" class="cta-button" title="Log in for Class 5">
-                    <i class="fas fa-sign-in-alt mr-2"></i> LOGIN
-                </a>
+                <div class="card-middle">
+                    <p class="text-base font-bold text-gray-700 mb-2 border-b border-gray-300 pb-1">
+                        All the question resources provided are meticulously prepared considering the scope of these major Entrance and Olympiad Examinations:
+                    </p>
+                    <ul class="exam-list">
+                        <li>National Science Olympiad (NSO)</li>
+                        <li>International Mathematics Olympiad (IMO)</li>
+                        <li>International English Olympiad (IEO)</li>
+                        <li>National Cyber Olympiad (NCO)</li>
+                        <li>International General Knowledge Olympiad (IGKO)</li>
+                        <li>NLSTSE / NSTSE</li>
+                        <li>Unified Cyber Olympiad (UCO)</li>
+                        <li>ASSET</li>
+                        <li>Dr. Homi Bhabha Balvaidnyanik Competition</li>
+                    </ul>
+                </div>
+
+                <div class="card-right">
+                    <a href="https://www.svtc.life/6th%20Class.html" class="cta-button" title="Log in for Class 6">
+                        <i class="fas fa-sign-in-alt mr-2"></i> LOGIN
+                    </a>
+                </div>
             </div>
-        </div>
+
+            <!-- Class 7 Section -->
+            <div class="class-card">
+                <div class="card-left">
+                    <div class="class-label-blue text-2xl">
+                        CLASS 7
+                    </div>
+                    <p class="text-sm font-medium text-sv-blue mt-2">Students: Log in here to access resources.</p>
+                </div>
+                
+                <div class="card-middle">
+                    <p class="text-base font-bold text-gray-700 mb-2 border-b border-gray-300 pb-1">
+                        All the question resources provided are meticulously prepared considering the scope of these major Entrance and Olympiad Examinations:
+                    </p>
+                    <ul class="exam-list">
+                        <li>National Science Olympiad (NSO)</li>
+                        <li>International Mathematics Olympiad (IMO)</li>
+                        <li>International English Olympiad (IEO)</li>
+                        <li>National Cyber Olympiad (NCO)</li>
+                        <li>International General Knowledge Olympiad (IGKO)</li>
+                        <li>NLSTSE / NSTSE</li>
+                        <li>Unified Cyber Olympiad (UCO)</li>
+                        <li>ASSET</li>
+                    </ul>
+                </div>
+
+                <div class="card-right">
+                    <a href="https://www.svtc.life/7th%20Class.html" class="cta-button" title="Log in for Class 7">
+                        <i class="fas fa-sign-in-alt mr-2"></i> LOGIN
+                    </a>
+                </div>
+            </div>
+
+            <!-- Class 8 Section -->
+            <div class="class-card">
+                <div class="card-left">
+                    <div class="class-label-blue text-2xl">
+                        CLASS 8
+                    </div>
+                    <p class="text-sm font-medium text-sv-blue mt-2">Students: Log in here to access resources.</p>
+                </div>
+                
+                <div class="card-middle">
+                    <p class="text-base font-bold text-gray-700 mb-2 border-b border-gray-300 pb-1">
+                        All the question resources provided are meticulously prepared considering the scope of these major Entrance and Olympiad Examinations:
+                    </p>
+                    <ul class="exam-list">
+                        <li>JNVST (Lateral Entry for Class 9)</li>
+                        <li>AISSEE (for Class 9 Admission)</li>
+                        <li>National Standard Examination in Junior Science (NSEJS)</li>
+                        <li>National Science Olympiad (NSO)</li>
+                        <li>International Mathematics Olympiad (IMO)</li>
+                        <li>International English Olympiad (IEO)</li>
+                        <li>National Cyber Olympiad (NCO)</li>
+                        <li>NLSTSE / NSTSE</li>
+                        <li>Unified Cyber Olympiad (UCO)</li>
+                        <li>ASSET</li>
+                    </ul>
+                </div>
+
+                <div class="card-right">
+                    <a href="https://www.svtc.life/8th%20Class.html" class="cta-button" title="Log in for Class 8">
+                        <i class="fas fa-sign-in-alt mr-2"></i> LOGIN
+                    </a>
+                </div>
+            </div>
+
+            <!-- Class 9 Section -->
+            <div class="class-card">
+                <div class="card-left">
+                    <div class="class-label-blue text-2xl">
+                        CLASS 9
+                    </div>
+                    <p class="text-sm font-medium text-sv-blue mt-2">Students: Log in here to access resources.</p>
+                </div>
+                
+                <div class="card-middle">
+                    <p class="text-base font-bold text-gray-700 mb-2 border-b border-gray-300 pb-1">
+                        All the question resources provided are meticulously prepared considering the scope of these major Entrance and Olympiad Examinations:
+                    </p>
+                    <ul class="exam-list">
+                        <li>National Standard Examination in Junior Science (NSEJS)</li>
+                        <li>Dr. Homi Bhabha Balvaidnyanik Competition</li>
+                        <li>Indian National Olympiad (INO)</li>
+                        <li>National Science Olympiad (NSO)</li>
+                        <li>International Mathematics Olympiad (IMO)</li>
+                        <li>International English Olympiad (IEO)</li>
+                        <li>National Cyber Olympiad (NCO)</li>
+                        <li>NLSTSE / NSTSE</li>
+                        <li>Unified Cyber Olympiad (UCO)</li>
+                        <li>ASSET</li>
+                    </ul>
+                </div>
+
+                <div class="card-right">
+                    <a href="https://www.svtc.life/9th%20Class.html" class="cta-button" title="Log in for Class 9">
+                        <i class="fas fa-sign-in-alt mr-2"></i> LOGIN
+                    </a>
+                </div>
+            </div>
+
+            <!-- Class 10 Section -->
+            <div class="class-card">
+                <div class="card-left">
+                    <div class="class-label-blue text-2xl">
+                        CLASS 10
+                    </div>
+                    <p class="text-sm font-medium text-sv-blue mt-2">Students: Log in here to access resources.</p>
+                </div>
+                
+                <div class="card-middle">
+                    <p class="text-base font-bold text-gray-700 mb-2 border-b border-gray-300 pb-1">
+                        All the question resources provided are meticulously prepared considering the scope of these major Entrance and Olympiad Examinations:
+                    </p>
+                    <ul class="exam-list">
+                        <li>National Talent Search Examination (NTSE)</li>
+                        <li>POLYCET (Polytechnic Common Entrance Test)</li>
+                        <li>National Standard Examination in Junior Science (NSEJS)</li>
+                        <li>Indian National Olympiad (INO)</li>
+                        <li>National Science Olympiad (NSO)</li>
+                        <li>International Mathematics Olympiad (IMO)</li>
+                        <li>International English Olympiad (IEO)</li>
+                        <li>National Cyber Olympiad (NCO)</li>
+                        <li>NLSTSE / NSTSE</li>
+                        <li>Unified Cyber Olympiad (UCO)</li>
+                        <li>ASSET</li>
+                    </ul>
+                </div>
+
+                <div class="card-right">
+                    <a href="https://www.svtc.life/10th%20Class.html" class="cta-button" title="Log in for Class 10">
+                        <i class="fas fa-sign-in-alt mr-2"></i> LOGIN
+                    </a>
+                </div>
+            </div>
+            
+        </section>
 
     </main>
     <!-- =========== MAIN CONTENT AREA END =========== -->
