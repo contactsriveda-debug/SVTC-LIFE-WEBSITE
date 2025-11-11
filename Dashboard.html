@@ -3,1853 +3,360 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>SRI VEDA TALENT COMPETITION — Dashboard</title>
+  <title>SRI VEDA TALENT COMPETITION — Compact Blue Sections</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
+    /* Retaining core CSS variables for Veda branding colors */
     :root{
       --sv-blue: #00008B;
       --sv-orange: #FF8C00;
       --sv-yellow: #FFD700;
       --sv-maroon: #800000;
-      --old-maroon: #8b3a3a;
-      --maroon-2: #6f2e2e;
-      --gold: #ffd700;
       --page-max-width: 1600px;
-      --lock-color: #6c757d;
-      --login-primary: #3b82f6; 
-      --tc-live-color: #ff8c00; 
-      --tc-background-color: #fff9f9; /* Lighter background for TC panel */
     }
+    /* Core Tailwind color mappings */
     .bg-sv-blue { background-color: var(--sv-blue); }
     .text-sv-blue { color: var(--sv-blue); }
     .bg-sv-orange { background-color: var(--sv-orange); }
     .text-sv-orange { color: var(--sv-orange); }
-    .bg-sv-yellow { color: var(--sv-yellow); }
     .text-sv-yellow { color: var(--sv-yellow); }
-    .hover\:shadow-sv-yellow\/50:hover {
-        box-shadow: 0 10px 15px -3px var(--sv-yellow), 0 4px 6px -4px var(--sv-yellow);
+
+    /* Global Styling */
+    * { box-sizing:border-box }
+    body {
+      margin:0;
+      font-family: 'Roboto Slab', serif;
+      background: #f0f4f8; 
+      color:#222;
     }
-    .course-button {
-        display: inline-block;
-        padding: 0.4rem 0.8rem;
-        margin: 0.2rem;
-        background-color: #f0f0f0;
-        border: 1px solid #ddd;
-        border-radius: 9999px;
-        font-size: 0.8rem;
-        font-weight: 500;
-        color: #333;
-        text-align: center;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    }
-    .course-button:hover {
-        background-color: var(--sv-orange);
-        color: white;
-        border-color: var(--sv-orange);
-        transform: translateY(-2px);
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    /* UPDATED: Nav Button Style to match the requested size/border/font and improve text fit */
-    .nav-button {
-        display: flex;
-        align-items: center;
-        /* Adjusted padding to make background box fit text better */
-        padding: 0.5rem 1rem; 
-        color: var(--maroon-2); /* Dark text color */
-        background-color: white; 
-        border: 2px solid var(--sv-orange); /* Matched to user's old code border */
-        border-radius: 9999px;
-        font-size: 0.9rem; /* Matched to user's old code font size */
-        font-weight: 800; /* Bolder font */
-        text-transform: uppercase;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        justify-content: center; 
-    }
-    .nav-button:hover {
-        color: white;
-        background-color: var(--sv-orange);
-        border-color: var(--sv-blue);
-        transform: scale(1.03); 
-        box-shadow: 0 6px 15px rgba(255, 140, 0, 0.6);
-    }
-    /* Custom class to handle wide flex distribution and GAPS */
-    .nav-btn-flex {
-        /* Ensuring button width adapts to text while respecting layout rules */
-        flex-grow: 0; 
-        flex-shrink: 0;
-        flex-basis: auto; 
-        margin: 4px 20px; /* Increased margin for requested gap */
-        max-width: none; 
-    }
-    /* UPDATED: Menu Button Style to match the user's reference */
-    .menu-button-primary {
-        background-color: var(--sv-orange) !important;
-        color: white !important;
-        border-color: var(--sv-yellow) !important; 
-        border-width: 2px !important; /* Adjusted border width */
-    }
-    .menu-button-primary:hover {
-        background-color: white !important;
-        color: var(--sv-orange) !important;
-        border-color: var(--sv-orange) !important; 
-    }
+    a { color:inherit; text-decoration: none; }
+
+    /* Custom styles for Header Corners */
     .header-bg {
         position: relative;
         overflow: hidden;
     }
+    /* Left Corner Ornament */
     .header-bg::before {
         content: '';
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 120px;
-        height: 120px;
-        background-image: url('https://contactsriveda-debug.github.io/images/header%20coner.png');
-        background-size: 100% 100%; 
-        opacity: 1; 
-        background-repeat: no-repeat;
+        top: 0; left: 0;
+        width: 120px; height: 120px;
+        /* Using a placeholder image for the corner ornament */
+        background-image: url('https://contactsriveda-debug.github.io/images/header%20coner.png'); 
+        background-size: 100% 100%; opacity: 1; background-repeat: no-repeat;
         transform: translate(-30%, -30%); 
         z-index: 1;
+        /* Fallback: if the image fails, use a semi-transparent blue rounded shape */
+        background-color: rgba(0, 0, 139, 0.1); 
+        border-radius: 0 0 50% 0;
     }
+    /* Right Corner Ornament */
     .header-bg::after {
         content: '';
         position: absolute;
-        top: 0;
-        right: 0;
-        width: 120px;
-        height: 120px;
-        background-image: url('https://contactsriveda-debug.github.io/images/header%20coner.png');
-        background-size: 100% 100%; 
-        opacity: 1; 
-        background-repeat: no-repeat;
+        top: 0; right: 0;
+        width: 120px; height: 120px;
+        /* Using a placeholder image for the corner ornament */
+        background-image: url('https://contactsriveda-debug.github.io/images/header%20coner.png'); 
+        background-size: 100% 100%; opacity: 1; background-repeat: no-repeat;
         transform: translate(30%, -30%) scaleX(-1); 
         z-index: 1;
+        /* Fallback: if the image fails, use a semi-transparent blue rounded shape */
+        background-color: rgba(0, 0, 139, 0.1); 
+        border-radius: 0 0 0 50%;
     }
     .header-content {
         position: relative;
         z-index: 10;
     }
-    .logout-btn-header {
-        background: #f87171;
-        color: white;
-        font-weight: 700;
-        padding: 6px 12px;
-        border-radius: 9999px;
-        font-size: 0.85rem;
-        transition: all 0.2s;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    }
-    .logout-btn-header:hover {
-        background: #ef4444;
-        transform: translateY(-1px);
-    }
-    * { box-sizing:border-box }
-    body {
-      margin:0;
-      font-family: 'Roboto Slab', serif;
-      background: linear-gradient(160deg, #ffffff 50%, #fdf8f8 100%); 
-      color:#222;
-    }
-    a { color:inherit; text-decoration: none; }
-    #loginScreen {
-      position: relative; 
-      width: 100%;
-      height: auto; 
-      min-height: calc(100vh - 200px); 
-      background: linear-gradient(135deg, #6f2e2e, #a47b7b, #8b3a3a, #f7dada, #6f2e2e);
-      background-size: 400% 400%; 
-      animation: gradientShift 12s ease infinite; 
-      display: flex;
-      align-items: center; 
-      padding-top: 3rem; 
-      padding-bottom: 3rem; 
-      justify-content: center;
-      z-index: 1000;
-      overflow-y: auto; 
-    }
-    .login-card {
-      background: #fff;
-      padding: 30px 35px; 
-      border-radius: 16px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1), 0 5px 10px rgba(0, 0, 0, 0.05);
-      width: 90%;
-      max-width: 320px;
-      animation: fadeIn .4s ease-out;
-      border: 1px solid #f0f0f0; 
-    }
-    .login-branding {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-bottom: 20px; 
-    }
-    .login-logo {
-        width: 80px; 
-        height: 80px;
-        border-radius: 50%;
-        border: 3px solid var(--maroon-2); 
-        margin-bottom: 10px;
-    }
-    .login-brand-title {
-        font-size: 1.2rem; 
-        font-weight: 700;
-        color: var(--old-maroon);
-        text-align: center;
-        text-transform: uppercase;
-        line-height: 1.3;
-    }
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(-10px); }
-        to { opacity: 1, transform: translateY(0); }
-    }
-    @keyframes gradientShift {
-        0% { background-position: 0% 0%; }
-        50% { background-position: 100% 100%; }
-        100% { background-position: 0% 0%; }
-    }
-    .login-card h2 {
-      text-align: center;
-      margin: 0 0 10px;
-      color: var(--old-maroon);
-      font-size: 1.5rem;
-      font-weight: 700;
-    }
-    .login-card p {
-      text-align: center;
-      margin: 0 0 25px;
-      color: #555;
-      font-size: 1rem;
-    }
-    .login-input {
-      width: 100%;
-      padding: 14px 16px;
-      margin-bottom: 15px;
-      border: 2px solid #ddd;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-family: 'Roboto Slab', serif;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-    .login-input:focus {
-      outline: none;
-      border-color: var(--old-maroon);
-      box-shadow: 0 0 0 3px rgba(139, 58, 58, 0.2);
-    }
-    .login-btn-submit {
-      width: 100%;
-      padding: 12px; 
-      border: none;
-      border-radius: 8px;
-      background: linear-gradient(135deg, var(--old-maroon), var(--maroon-2));
-      color: #fff;
-      font-size: 1rem; 
-      font-weight: 800;
-      cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-    }
-    .login-btn-submit:hover:not(:disabled) {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(139, 58, 58, 0.4);
-    }
-    .login-btn-submit:disabled {
-      background: #c79a9a;
-      cursor: not-allowed;
-    }
-    .status-box {
-      padding: 12px 16px;
-      margin-bottom: 15px;
-      border-radius: 8px;
-      font-size: 0.95rem;
-      border: 1px solid;
-    }
-    .hidden { display: none !important; }
-    .status-error {
-        background: #fff1f2;
-        color: #e11d48;
-    }
-    .status-success {
-        background: #f0fdf4;
-        color: #22c55e;
-    }
-    .register-link-container {
-        text-align: center;
-        margin-top: 20px;
-    }
-    .register-link-btn {
-        display: inline-block;
-        padding: 10px 16px;
-        background: #fdf8f8; 
-        color: var(--maroon-2); 
-        border-radius: 8px;
-        font-weight: 700;
-        text-decoration: none;
-        font-size: 0.95rem;
-        border: 1px solid var(--old-maroon);
-        transition: background 0.2s, box-shadow 0.2s, color 0.2s;
-    }
-    .register-link-btn:hover {
-        background: var(--old-maroon);
-        color: #fff;
-        box-shadow: 0 2px 8px rgba(139, 58, 58, 0.3);
-    }
-    .loading-spinner {
-        animation: spin 1s linear infinite;
-        width: 20px; 
-        height: 20px;
-    }
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-    .welcome-stars { 
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      flex-wrap:wrap;
-      max-width:var(--page-max-width);
-      margin:5px auto; 
-      padding:0 20px;
-      color:#6f2e2e 
-    }
-    .welcome { font-size:clamp(14px,2vw,20px) }
-    .welcome .student-name { color:#b33030;font-weight:700 }
-    
-    /* NEW STYLES FOR SUBSCRIPTION BADGE */
-    .subscription-badge {
-        padding: 5px 12px;
-        border-radius: 9999px;
-        font-size: 0.9rem;
-        font-weight: 900;
-        text-transform: uppercase;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        transition: all 0.3s;
-        cursor: help;
+    /* Custom button style for the main CTA */
+    .cta-button {
         display: inline-flex;
         align-items: center;
-        letter-spacing: 0.5px;
-    }
-    .badge-free { 
-        background-color: #e0e0e0; 
-        color: #555; 
-        border: 1px solid #ccc; 
-    }
-    .badge-silver { 
-        background-color: #c0c0c0; 
-        color: #333; 
-        border: 1px solid #a0a0a0; 
-        background: linear-gradient(135deg, #f0f0f0, #c0c0c0);
-    }
-    .badge-gold { 
-        background-color: #FFD700; 
-        color: #800000; 
-        border: 1px solid #ccac00; 
-        background: linear-gradient(135deg, #ffeb8d, #FFD700);
-    }
-    .badge-platinum { 
-        background-color: #e5e4e2; 
-        color: #00008B; 
-        border: 1px solid #b8b8b8; 
-        background: linear-gradient(45deg, #e0e0e0, #ffffff); 
-    }
-    /* END NEW STYLES FOR SUBSCRIPTION BADGE */
-
-    /* MODIFIED: NEW STYLISTIC SRM CONTACT SECTION */
-    .srm-contact-section {
-        max-width: var(--page-max-width);
-        margin: 20px auto;
-        padding: 20px 25px;
-        background: linear-gradient(135deg, #f0f8ff, #e6f7ff); /* Light blue/white gradient */
-        border-radius: 16px;
-        box-shadow: 0 8px 25px rgba(0, 0, 139, 0.15); /* Shadow with a hint of Veda Blue */
-        border: 3px solid var(--sv-blue); /* Prominent blue border */
-        /* text-align: center; */
-    }
-    .srm-contact-section h2 {
-        font-size: clamp(1.4rem, 2.5vw, 1.8rem);
-        color: var(--sv-blue); /* Veda Blue text */
-        text-transform: uppercase;
-        font-weight: 900;
-        margin-bottom: 15px;
-        text-align: center; /* Keep heading centered */
-    }
-    .srm-info-card {
-        background: #fff;
-        padding: 15px;
-        border-radius: 10px;
-        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-        display: flex; 
-        flex-direction: column; /* Default stack on mobile */
-        gap: 15px;
-    }
-    @media (min-width: 768px) {
-        .srm-info-card {
-            flex-direction: row; /* Two columns on desktop */
-            align-items: center;
-        }
-    }
-    .srm-left-explanation {
-        flex: 1 1 50%;
-        padding-right: 15px;
-        font-size: 0.95rem;
-        color: #333;
-        line-height: 1.5;
-        border-bottom: 1px solid #ddd; /* Separator on mobile */
-        padding-bottom: 10px;
-    }
-    @media (min-width: 768px) {
-        .srm-left-explanation {
-            border-bottom: none;
-            border-right: 1px solid #ddd; /* Vertical separator on desktop */
-            padding-bottom: 0;
-            padding-right: 25px;
-        }
-    }
-    .srm-detail-group {
-        flex: 1 1 50%;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-        padding-left: 10px;
-    }
-
-    .srm-detail {
-        margin: 5px 0;
-        text-align: left;
-    }
-    .srm-label {
-        font-size: 0.9rem;
-        color: #555;
-        font-weight: 600;
-        text-transform: uppercase;
-        margin-bottom: 2px;
-        display: block;
-    }
-    .srm-value {
-        font-size: 1.2rem;
-        color: var(--maroon-2);
-        font-weight: 800;
-    }
-    .srm-value a {
-        color: var(--sv-orange);
-        text-decoration: none;
-        transition: color 0.2s;
-    }
-    .srm-value a:hover {
-        color: var(--old-maroon);
-    }
-    /* END NEW STYLISTIC SRM CONTACT SECTION */
-
-
-    /* MODIFIED: NEW STYLISH TC SCORE PANEL (Minimal height, English) */
-    .tc-panel-wrap { 
-      max-width:var(--page-max-width);
-      margin:15px auto; 
-      padding:0 16px;
-    }
-    .tc-panel-main {
-      padding: 5px 15px; /* Reduced padding */
-      border-radius: 12px;
-      background: var(--tc-background-color);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      border: 1px solid #ffcccc; /* Light red border */
-      height: 60px; /* Reduced height for minimal box */
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .tc-panel-live-bar {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 30%; /* Initial width */
-      background: linear-gradient(90deg, #ffc107, var(--tc-live-color), #ff5722);
-      background-size: 200% 100%;
-      animation: liveScroll 8s linear infinite;
-      z-index: 1;
-      border-radius: 12px 0 0 12px;
-      transition: width 1s ease-out; 
-    }
-    @keyframes liveScroll {
-        0% { background-position: 200% 0; }
-        100% { background-position: -200% 0; }
-    }
-
-    .tc-content-overlay {
-        position: relative;
-        z-index: 2;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        color: var(--maroon-2);
-        font-weight: 800;
-        font-size: clamp(1rem, 2vw, 1.2rem);
-    }
-    
-    .tc-score-display {
-        background: white;
-        padding: 4px 10px; /* Smaller padding */
-        border-radius: 6px; /* Smaller radius */
-        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        display: flex;
-        gap: 6px;
-        align-items: center;
-    }
-    .tc-score-display h2 { 
-        font-size: clamp(1.1rem, 2vw, 1.3rem);
-        margin: 0;
-        color: var(--sv-orange);
-    }
-    .tc-score-display small {
-        font-size: 0.75rem; /* Smaller font */
-        color: #555;
-        font-weight: 700;
-    }
-
-    /* Styles for the actions list below the main bar */
-    .tc-actions-list-container {
-      background-color: var(--tc-background-color); 
-      border-radius: 0 0 12px 12px; 
-      padding: 10px 15px; 
-      border: 1px solid #ffcccc; 
-      border-top: none;
-    }
-
-    .tc-actions-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 6px;
         justify-content: center;
-    } 
-    .tc-actions-list li { 
-        background: #fff;
-        padding: 6px 10px;
-        border-radius: 8px;
-        flex: 1 1 120px;
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-        font-size: 0.8rem;
-        color: #333;
-        font-weight: 600;
-        transition: transform 0.1s;
-    } 
-    .tc-actions-list li:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 3px 6px rgba(0,0,0,0.15);
-    }
-    .dot.daily { background:#ffb74d }.dot.openpractice { background:#4caf50 }.dot.completecourse { background:#42a5f5 }.dot.weekly { background:#ba68c8 }.dot.monthly { background:#9575cd }
-    .tc-actions-list li .dot {
-        flex-shrink: 0;
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        margin-right: 2px;
-    }
-    .tc-actions-list h3 { 
-        font-size: clamp(0.9rem, 2vw, 1rem);
-        color: var(--maroon-2);
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
         font-weight: 800;
-        margin: 0 0 5px 0;
-        width: 100%;
-        text-align: center;
+        text-transform: uppercase;
+        border-radius: 9999px; /* Full rounded */
+        background-color: var(--sv-orange);
+        color: white;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 10px rgba(255, 140, 0, 0.4);
+        flex-shrink: 0; /* Prevents button from shrinking on small screens */
+    }
+    .cta-button:hover {
+        background-color: var(--sv-yellow);
+        color: var(--sv-blue);
+        transform: translateY(-1px);
+        box-shadow: 0 6px 15px rgba(255, 140, 0, 0.6);
     }
 
-    /* MODIFIED: Added very light blue background to free test promo section */
-    .free-test-promo-section { 
-      max-width:var(--page-max-width);
-      margin:10px auto; 
-      padding:15px 16px; 
-      text-align:center;
-      background: #f0f8ff; /* Very light blue */
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      border: 1px solid #cceeff;
-    }
-
-    .free-test-promo-section h3 { font-size:clamp(1.3rem, 2.5vw, 1.6rem);color:var(--maroon-2);margin-bottom:8px;font-weight:800;text-shadow:1px 1px 1px rgba(0,0,0,0.05) }
-    .free-test-promo-section p { max-width:700px;margin:0.5rem auto 1rem auto;font-size:0.95rem;line-height:1.4;color:#333 } 
-    .free-test-promo-section button { 
-        padding:10px 20px;
-        font-size:1rem;
-        border:none;border-radius:10px;
-        background:linear-gradient(135deg, #1e6b34, #4caf50);
-        color:#fff;
-        font-weight:800;
-        cursor:pointer;
-        transition:transform 0.2s, box-shadow 0.2s;
-        box-shadow:0 4px 10px rgba(76, 175, 80, 0.3) 
-    }
-    .free-test-promo-section button:hover { 
-        transform:translateY(-2px);
-        box-shadow:0 6px 15px rgba(76, 175, 80, 0.4) 
-    }
-    .live-tests { width:100%;padding:10px 0;background:transparent } 
-    .tests-inner { max-width:var(--page-max-width);margin:0 auto;padding:0 12px }
-    .test-row { display:flex;justify-content:center;flex-wrap:wrap;gap:12px } 
-    .test-card { 
-        padding:12px;
-        min-height:140px;
-        width:clamp(280px, 100%, 360px);
-        background:#fff;
-        border-radius:12px;
-        box-shadow:none;
-        position:relative;
-        overflow:hidden;
-        transition:transform .18s ease;
-    } 
-    .test-card h3 { margin:8px 0;font-size:1rem; }
-    .test-lead { font-size:.9rem;line-height:1.4;margin-bottom:8px; }
-    .card-actions { gap:8px }
-    .btn-test { 
-        padding:8px 12px;
-        font-size:.85rem;
-        background:linear-gradient(135deg,#009688,#00e0b3);
-        color:#fff;border:none;
-        border-radius:10px;
-        font-weight:800;
-        cursor:pointer;
-        display: flex; align-items: center; justify-content: center; gap: 6px;
-    } 
-    .student-report { 
-      max-width:var(--page-max-width);
-      margin:10px auto; 
-      padding:0 16px 
-    }
-    .sr-box { 
-      background:#fff;
-      border-radius:14px;
-      padding:12px; 
-      overflow:hidden 
-    }
-    .plan-promo-box { 
-      padding:15px; 
-      margin-bottom: 20px; 
-      background: linear-gradient(135deg, #fffcf0, #fff3b2);
-      border: 2px solid var(--gold);
-      border-radius: 12px;
-      text-align: center;
-      box-shadow: 0 5px 15px rgba(255, 215, 0, 0.2)
-    }
-    .plan-promo-box h3 { font-size: clamp(1rem, 1.8vw, 1.3rem);margin-bottom: 10px; }
-    .plan-actions-container { gap: 15px; } 
-    .plan-action-card { 
-        padding: 12px; 
-        flex: 1 1 250px;
-        background: #fff;
-        border: 1px solid #ffeb8d;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-        border-radius: 8px;
-        display: flex;flex-direction: column;justify-content: space-between
-    } 
-    .plan-action-card p { font-size: 0.9rem; margin-bottom: 12px }
-    .plan-action-card button { 
-        padding: 8px 15px; 
-        font-size: 0.95rem; 
-        border: none;
-        border-radius: 8px;
-        font-weight: 700;
-        cursor: pointer;
-        width: 100%;
-        transition: transform 0.2s
-    }
-    .plan-action-card .new-plan-btn { background: linear-gradient(135deg, var(--gold), #ff8c00);color: #fff }
-    .plan-action-card .renewal-btn { background: linear-gradient(135deg, #c0392b, #8b3a3a);color: #fff }
-    .plan-action-card .update-plan-btn { background: linear-gradient(135deg, #7a67ff, #4b3eb0);color: #fff }
-    @media (max-width: 660px) {
-      .plan-actions-container { flex-direction: column;gap: 10px }
-      .plan-action-card { justify-content: flex-start;flex: 0 0 auto }
-      .plan-action-card p { margin-bottom: 8px;flex-grow: 0 }
-    }
-    .sr-stats { display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;margin-top:0 } 
-    .stat { 
-        padding:10px;
-        background:linear-gradient(180deg,#fffdeb,#fff7c9);
-        border-radius:10px;
-        text-align:center;
+    /* Styling for the horizontal class card - Compact Blue Theme */
+    .class-card {
         display: flex;
-        flex-direction: column;
         align-items: center;
-    } 
-    .stat-icon { width:32px;height:32px;margin-bottom:4px } 
-    .stat-label { font-size:0.85rem; color: #555; margin-top: 4px; }
-    .stat-value { font-size:0.95rem; font-weight: 900; }
-    .subject-tests { 
-      max-width: var(--page-max-width);
-      margin: 20px auto; 
-      padding: 15px; 
-      background: #f5fbf5;
-      border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        justify-content: space-between;
+        padding: 0.75rem 1.25rem; /* Reduced padding for compact size */
+        border-radius: 0.75rem; /* rounded-xl */
+        background-color: #f3f7ff; /* Light Blue background */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        border: 2px solid #93c5fd; /* Light Blue Border (Tailwind blue-300) */
+        transition: all 0.3s ease;
     }
-    .subject-tests h2 { text-align: center;font-size: clamp(1.4rem, 2.5vw, 1.8rem);color: #1e6b34;text-transform: uppercase;letter-spacing: 1px;margin-bottom: 20px;font-weight: 800;text-decoration: underline;text-underline-offset: 6px;text-decoration-thickness: 2px }
-    .test-list-container { gap: 10px; display: flex; flex-direction: column; } 
-    .test-list-item { 
-        padding: 12px 16px; 
-        gap: 12px; 
-        display: flex;flex-wrap: wrap;align-items: center;justify-content: space-between;
-        border-radius: 12px;
-        background: #fff;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        border: 1px solid #d4e9d9;
-    } 
-    .test-list-item-content { flex: 1 1 300px }
-    .test-list-item-content h3 { font-size: clamp(1rem, 3.5vw, 1.1rem);margin: 0 0 2px 0;color: #1e6b34; } 
-    .test-list-item-content p { font-size: clamp(0.8rem, 2.5vw, 0.9rem);color: #555;margin: 0;line-height: 1.5 }
-    .test-list-item .btn-test { padding: 8px 16px; font-size: 0.85rem; flex: 0 0 auto; width: auto; }
-    .btn-test.locked { background: #e9ecef;color: var(--lock-color);cursor: not-allowed }
-    .btn-test.locked:hover { transform: none;box-shadow: none }
-    .student-subject-tests { 
-      max-width: var(--page-max-width);
-      margin: 20px auto; 
-      padding: 15px; 
-      background: #f9f8ff;
-      border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      border: 1px solid #e0d9f5 
+    .class-card:hover {
+        border-color: var(--sv-blue); /* Darker blue border on hover */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
-    .student-subject-tests h2 { text-align: center;font-size: clamp(1.4rem, 2.5vw, 1.8rem);color: #4a148c;text-transform: uppercase;letter-spacing: 1px;margin-bottom: 20px;font-weight: 800;text-decoration: underline;text-underline-offset: 6px;text-decoration-thickness: 2px }
-    .student-subject-tests .test-list-item { border: 1px solid #e0d9f5 }
-    .student-subject-tests .test-list-item-content h3 { color: #673ab7 }
-    .profile-section { 
-      max-width: var(--page-max-width);
-      margin: 20px auto; 
-      padding: 15px; 
-      background: #fff;
-      border-radius: 16px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.08)
-    }
-    .profile-section h2 { margin-bottom: 20px; font-size: clamp(1.4rem, 2.5vw, 1.8rem); text-align: center;color: var(--maroon-2);text-transform: uppercase;letter-spacing: 1px;font-weight: 800;text-decoration: underline;text-underline-offset: 6px;text-decoration-thickness: 2px }
-    .profile-list { gap: 12px; display: grid;grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));list-style: none;padding: 0;margin: 0 } 
-    .profile-item { 
-        padding: 10px 14px; 
-        background: #fdfdfd;
-        border: 1px solid #eee;
-        border-radius: 10px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.04)
-    } 
-    .profile-label { font-size: 0.85rem; display: block;color: #777;font-weight: 600;margin-bottom: 4px;text-transform: uppercase }
-    .profile-value { font-size: 1rem; display: block;color: #111;font-weight: 700 }
-    .profile-value.agreed { color: #1e6b34 }
-    .subscription-section { 
-      max-width: var(--page-max-width);
-      margin: 20px auto; 
-      padding: 15px; 
-      background: #f7fcff;
-      border-radius: 16px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-      border: 1px solid #e0f0ff 
-    }
-    .subscription-section h2 { margin-bottom: 20px; font-size: clamp(1.4rem, 2.5vw, 1.8rem); text-align: center;color: #0d47a1;text-transform: uppercase;letter-spacing: 1px;font-weight: 800;text-decoration: underline;text-underline-offset: 6px;text-decoration-thickness: 2px }
-    .subscription-list { gap: 12px; display: grid;grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));list-style: none;padding: 0;margin: 0 } 
-    .subscription-item { 
-        padding: 10px 14px; 
-        background: #fff;
-        border: 1px solid #eee;
-        border-radius: 10px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.04)
-    } 
-    .subscription-label { font-size: 0.85rem; display: block;color: #557;font-weight: 600;margin-bottom: 4px;text-transform: uppercase }
-    .subscription-value { font-size: 1rem; display: block;color: #111;font-weight: 700 }
-    .subscription-plan-value { color: #b8860b;font-weight: 800 }
-    .subscription-days-left { color: #c0392b;font-weight: 800 }
-    @media (max-width: 900px) { /* NEW MEDIA QUERY FOR BUTTONS */
-        .nav-btn-flex {
-            margin: 4px 5px; /* Reduce margin on medium screens */
-            max-width: 48%; /* Allow two buttons per row */
-            flex: 1 1 45%;
+    /* Mobile adjustments */
+    @media (max-width: 767px) {
+        .class-card {
+            flex-direction: column; /* Stack elements vertically on mobile */
+            text-align: center;
+            padding: 1.25rem 1rem; /* Adjust vertical padding for mobile stack */
+        }
+        .class-card > div {
+            margin-bottom: 0.75rem; /* Space between stacked elements */
+            width: 100%;
         }
     }
-    @media (max-width: 640px){
-      .nav-button {
-          /* flex-grow is handled by nav-btn-flex on smaller screens */
-          justify-content: center;
-          margin: 4px 2px;
-          font-size: 0.8rem;
-          padding: 0.4rem 0.8rem;
-      }
-      .nav-btn-flex {
-          max-width: 100%; /* Full width on tiny screens */
-          flex: 1 1 100%;
-          margin: 4px 0;
-      }
-      .test-list-container {
-         gap: 10px !important; 
-      }
-      .test-list-item {
-        flex-direction: column; 
-        align-items: flex-start; 
-        padding: 10px 14px; 
-        gap: 6px; 
-      }
-      .test-list-item-content { flex: 1 1 100% }
-      .test-list-item-content p { margin-bottom: 6px }
-      .test-list-item .btn-test { width: 100%;text-align: center }
-    }
-    @media (max-width: 480px) {
-      .login-card {
-        padding: 25px 20px;
-      }
-      .login-brand-title {
-          font-size: 1.1rem;
-      }
+    /* Styling for the class label buttons (now all blue) */
+    .class-label-blue {
+        flex-shrink: 0; 
+        font-weight: 800; /* Extra bold */
+        background-color: var(--sv-blue); 
+        color: white; 
+        padding: 0.5rem 1rem; 
+        border-radius: 0.5rem; 
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        min-width: 120px;
+        text-align: center;
     }
   </style>
 </head>
-<body class="bg-gray-50">
-<header class="bg-sv-blue shadow-lg header-bg">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 header-content">
-        <div class="flex flex-col md:flex-row items-center justify-between py-3 md:py-2 space-y-3 md:space-y-0 md:h-24">
-            <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4">
-                <img src="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg" 
-                    onerror="this.onerror=null; this.src='https://placehold.co/64x64/1e3a8a/ffffff?text=VEDA';" 
-                    alt="Veda Logo" 
-                    class="w-16 h-16 object-contain shadow-md rounded-full bg-white p-1 flex-shrink-0">
-                <div class="text-center sm:text-left flex flex-col justify-center">
-                    <h1 class="text-xl sm:text-2xl font-extrabold tracking-wider text-white">
-                        SRI VEDA TALENT COMPETITION
-                    </h1>
-                    <div class="w-2/3 max-w-xs h-0.5 bg-sv-yellow my-0.5 mx-auto sm:mx-0"></div>
-                    <p class="text-sm sm:text-base font-semibold text-sv-yellow mt-0.5">
-                        "BRIGHT CHILD LIFE"
-                    </p>
+<!-- Added flex and min-h-screen to ensure the footer stays at the bottom -->
+<body class="bg-gray-50 flex flex-col min-h-screen">
+
+    <!-- =========== HEADER START =========== -->
+    <header class="bg-sv-blue shadow-lg border-b-4 border-sv-yellow w-full header-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 header-content">
+            <div class="flex flex-col md:flex-row items-center justify-between py-4 md:py-3 space-y-3 md:space-y-0">
+                <!-- Logo and Title Group -->
+                <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4">
+                    <img src="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg" 
+                        onerror="this.onerror=null; this.src='https://placehold.co/64x64/1e3a8a/ffffff?text=VEDA';" 
+                        alt="Veda Logo" 
+                        class="w-16 h-16 object-contain shadow-md rounded-full bg-white p-1 flex-shrink-0">
+                    <div class="text-center sm:text-left flex flex-col justify-center">
+                        <h1 class="text-xl sm:text-2xl font-extrabold tracking-wider text-white">
+                            SRI VEDA TALENT COMPETITION
+                        </h1>
+                        <!-- ORANGE UNDERLINE ADDED HERE -->
+                        <div class="w-3/4 max-w-xs h-0.5 bg-sv-orange my-0.5 mx-auto sm:mx-0"></div> 
+                        <!-- Subtitle color is White (text-white) -->
+                        <p class="text-sm sm:text-base font-semibold text-white mt-0.5">
+                            Student Resources and Navigation
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Right Group: Icons + MENU Button -->
+                <div class="flex items-center space-x-3 sm:space-x-6 lg:space-x-8">
+                    <!-- Icon colors are Orange (text-sv-orange) -->
+                    <i class="fas fa-book text-xl sm:text-2xl text-sv-orange hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer hidden md:block" title="Our Courses"></i>
+                    <i class="fas fa-pencil-ruler text-xl sm:text-2xl text-sv-orange hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer hidden md:block" title="Practice Tests"></i>
+                    <i class="fas fa-graduation-cap text-xl sm:text-2xl text-sv-orange hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer hidden sm:block" title="Study Material"></i>
+                    <i class="fas fa-lightbulb text-xl sm:text-2xl text-sv-orange hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer hidden sm:block" title="Insights & Guidance"></i>
+                    
+                    <!-- MENU Button -->
+                    <button id="menuToggle" class="bg-sv-orange hover:bg-sv-yellow text-white hover:text-sv-blue font-bold py-2 px-6 rounded-full transition duration-300 transform hover:scale-105 shadow-xl text-lg flex items-center flex-shrink-0">
+                        <i class="fas fa-bars mr-2"></i> MENU
+                    </button>
                 </div>
             </div>
-            <div id="loggedOutIcons" class="flex items-center space-x-3 sm:space-x-6 lg:space-x-8">
-                <i class="fas fa-book text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Our Courses"></i>
-                <i class="fas fa-pencil-ruler text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Practice Tests"></i>
-                <i class="fas fa-graduation-cap text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Study Material"></i>
-                <i class="fas fa-lightbulb text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Insights & Guidance"></i>
-            </div>
-            <div id="loggedInControls" class="hidden flex items-center space-x-4"> 
-                <div id="liveTime" class="timestamp text-sm text-white font-medium hidden">--/--/----, --:--:--</div>
-                <div id="sessionTimer" class="session-timer text-sm text-sv-yellow font-bold hidden">Session: 00:00:00</div>
-                <button id="logoutBtn" class="logout-btn-header hidden" onclick="handleLogout()">
-                    Logout
-                </button>
-            </div>
         </div>
-    </div>
-</header>
-<!-- MODIFIED: Added ID "mainNav" to control visibility after login -->
-<nav id="mainNav" class="bg-sv-blue shadow-lg border-t-2 border-sv-yellow">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Flex container with margins on the individual buttons to create requested gap -->
-        <div class="flex flex-wrap justify-center sm:justify-between items-center py-2 sm:py-3 space-x-0">
-            <!-- Button 1: MENU (Uses nav-btn-flex for spacing) -->
-            <button id="menuToggle" class="nav-button menu-button-primary nav-btn-flex">
-                <i class="fas fa-bars mr-2"></i> MENU
-            </button>
-            <!-- Button 2: DASHBOARD (Uses nav-btn-flex for spacing) -->
-            <a href="https://www.svtc.life/Dashboard.html" class="nav-button nav-btn-flex" target="_blank">
-                <i class="fas fa-tachometer-alt mr-2"></i> DASHBOARD
-            </a>
-            <!-- Button 3: JOIN NOW (Uses nav-btn-flex for spacing) -->
-            <a href="https://www.svtc.life/Join%20now.html" class="nav-button nav-btn-flex" target="_blank">
-                <i class="fas fa-user-plus mr-2"></i> JOIN NOW
-            </a >
-            <!-- Button 4: PRICING (Uses nav-btn-flex for spacing) -->
-            <a href="https://www.svtc.life/Pricing.html" class="nav-button nav-btn-flex" target="_blank">
-                <i class="fas fa-tags mr-2"></i> PRICING
-            </a>
-        </div>
-    </div>
-</nav>
-<!-- END MODIFIED NAV BAR -->
-<div id="dynamicMenu" class="hidden bg-sv-blue/95 border-b-4 border-sv-yellow transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
-        <div class="flex flex-wrap justify-center gap-2">
-            <a href="https://www.svtc.life" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
-                <i class="fas fa-home mr-1"></i> Home
-            </a>
-            <a href="https://www.svtc.life/Dashboard.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
-                <i class="fas fa-tachometer-alt mr-1"></i> DASHBOARD
-            </a>
-            <a href="https://www.svtc.life/Join%20now.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
-                <i class="fas fa-user-plus mr-1"></i> Join Now
-            </a>
-            <a href="https://www.svtc.life/Pricing.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
-                <i class="fas fa-tags mr-1"></i> Pricing
-            </a>
-            <a href="https://www.svtc.life/Contact.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
-                <i class="fas fa-envelope mr-1"></i> Contact
-            </a>
-            <a href="https://www.svtc.life/connect.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
-                <i class="fas fa-headset mr-1"></i> Connect
-            </a>
-            <a href="https://www.svtc.life/About%20Us.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
-                <i class="fas fa-info-circle mr-1"></i> About Us
-            </a>
-            <a href="https://www.svtc.life/Privacy%20policy.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
-                <i class="fas fa-file-contract mr-1"></i> Terms & Privacy
-            </a>
-        </div>
-    </div>
-</div>
-<div id="loginScreen">
-    <div class="login-card">
-        <div class="login-branding">
-            <img src="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg" alt="SRI VEDA Logo" class="login-logo">
-            <h3 class="login-brand-title">SRI VEDA TALENT COMPETITIONS</h3>
-        </div>
-        <h2 id="loginTitle">STUDENT LOGIN - PROFILE</h2>
-        <p id="loginSubtitle">Please enter your Username and Password with Caps.</p>
-        <form id="loginForm">
-            <div id="statusMessage" class="status-box status-error hidden" role="alert"></div>
-            <input type="text" id="username" name="username" required
-                class="login-input" placeholder="Username">
-            <input type="password" id="password" name="password" required
-                class="login-input" placeholder="Password">
-            <button type="submit" id="loginButton" class="login-btn-submit">
-                <span id="buttonText">Login</span>
-                <svg id="loadingSpinner" class="loading-spinner h-5 w-5 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" stroke="#ffffff"></circle>
-                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                </svg>
-            </button>
-        </form>
-        <div class="register-link-container">
-            <a href="https://www.svtc.life/Join%20now.html" target="_blank" class="register-link-btn">
-                New Registers? Click Here
-            </a>
-        </div>
-    </div>
-</div>
-<div id="dashboardContent" class="hidden">
-  <div class="welcome-stars">
-    <div class="welcome">Welcome <span id="studentNameDisplay" class="student-name"></span>, <strong id="studentClassDisplay" style="color: var(--maroon-2);"></strong>...</div>
-    <!-- REPLACED STARS WITH SUBSCRIPTION BADGE -->
-    <div id="subscriptionBadge" class="subscription-badge"></div>
-  </div>
-  
-  <!-- MODIFIED: NEW STYLISH TC SCORE PANEL -->
-  <div class="tc-panel-wrap">
-    <!-- Top Bar: TC Score and Live Animation -->
-    <div class="tc-panel-main">
-        <div id="tcLiveBar" class="tc-panel-live-bar" style="width: 29%;"></div> 
-        <div class="tc-content-overlay">
-            <div class="tc-score-display">
-                <small>YOUR TC SCORE:</small>
-                <h2 id="tcPercent">29%</h2>
+    </header>
+    <!-- =========== HEADER END =========== -->
+
+    <!-- Dynamic Horizontal Menu Section (Toggles visibility via JS) -->
+    <div id="dynamicMenu" class="hidden bg-sv-blue/95 border-b-4 border-sv-yellow transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+            <div class="flex flex-wrap justify-center gap-3 py-2">
+                <a href="#" class="inline-flex items-center px-4 py-2 text-sm font-extrabold rounded-full bg-sv-yellow/90 text-sv-blue hover:bg-sv-orange hover:text-white transition shadow-md">
+                    <i class="fas fa-home mr-1"></i> Home
+                </a>
+                <a href="#" class="inline-flex items-center px-4 py-2 text-sm font-extrabold rounded-full bg-sv-yellow/90 text-sv-blue hover:bg-sv-orange hover:text-white transition shadow-md">
+                    <i class="fas fa-tachometer-alt mr-1"></i> DASHBOARD
+                </a>
+                <a href="#" class="inline-flex items-center px-4 py-2 text-sm font-extrabold rounded-full bg-sv-yellow/90 text-sv-blue hover:bg-sv-orange hover:text-white transition shadow-md">
+                    <i class="fas fa-user-plus mr-1"></i> Join Now
+                </a>
+                <a href="#" class="inline-flex items-center px-4 py-2 text-sm font-extrabold rounded-full bg-sv-yellow/90 text-sv-blue hover:bg-sv-orange hover:text-white transition shadow-md">
+                    <i class="fas fa-tags mr-1"></i> Pricing
+                </a>
+                <a href="#" class="inline-flex items-center px-4 py-2 text-sm font-extrabold rounded-full bg-sv-yellow/90 text-sv-blue hover:bg-sv-orange hover:text-white transition shadow-md">
+                    <i class="fas fa-envelope mr-1"></i> Contact
+                </a>
+                <a href="#" class="inline-flex items-center px-4 py-2 text-sm font-extrabold rounded-full bg-sv-yellow/90 text-sv-blue hover:bg-sv-orange hover:text-white transition shadow-md">
+                    <i class="fas fa-info-circle mr-1"></i> About Us
+                </a>
             </div>
         </div>
     </div>
 
-    <!-- Bottom Bar: Score Increase Actions (Now all in English) -->
-    <div class="tc-actions-list-container">
-        <h3 class="tc-actions-list h3">Increase Your Score:</h3>
-        <ul class="tc-actions-list">
-            <li><span class="dot daily"></span>Daily Login</li>
-            <li><span class="dot openpractice"></span>Open All Practice</li>
-            <li><span class="dot completecourse"></span>Complete Full Course</li>
-            <li><span class="dot weekly"></span>Complete General Awareness Tests</li>
-            <li><span class="dot monthly"></span>Complete Subject Tests</li>
-        </ul>
-    </div>
-  </div>
-  <!-- END MODIFIED TC SCORE PANEL -->
+    <!-- =========== MAIN CONTENT AREA (Horizontal Class Login Sections) =========== -->
+    <main class="flex-grow p-8 w-full max-w-7xl mx-auto">
+        <div class="space-y-4"> <!-- Reduced vertical spacing between cards -->
+            
+            <!-- Class 3 Section -->
+            <div class="class-card">
+                <!-- Class Label -->
+                <div class="class-label-blue text-2xl">
+                    CLASS 3
+                </div>
+                
+                <!-- Descriptive Text (Compact) -->
+                <div class="flex-grow text-center md:text-left mx-4 md:mx-6">
+                    <p class="text-lg font-semibold text-sv-blue">
+                        Students: Log in here to access your exclusive learning materials and practice tests.
+                    </p>
+                </div>
+                
+                <!-- Login Button - UPDATED LINK -->
+                <a href="https://www.svtc.life/3rd%20Class.html" class="cta-button" title="Log in for Class 3">
+                    <i class="fas fa-sign-in-alt mr-2"></i> LOGIN
+                </a>
+            </div>
+            
+            <!-- Class 4 Section -->
+            <div class="class-card">
+                <!-- Class Label -->
+                <div class="class-label-blue text-2xl">
+                    CLASS 4
+                </div>
+                
+                <!-- Descriptive Text (Compact) -->
+                <div class="flex-grow text-center md:text-left mx-4 md:mx-6">
+                    <p class="text-lg font-semibold text-sv-blue">
+                        Students: Log in here to access your exclusive learning materials and practice tests.
+                    </p>
+                </div>
+                
+                <!-- Login Button - UPDATED LINK -->
+                <a href="https://www.svtc.life/4th%20Class.html" class="cta-button" title="Log in for Class 4">
+                    <i class="fas fa-sign-in-alt mr-2"></i> LOGIN
+                </a>
+            </div>
 
-  <!-- MODIFIED: BACKGROUND ADDED HERE -->
-  <section class="free-test-promo-section" id="freeTestPromo">
-    <h3>Test Your Knowledge for Free!</h3>
-    <p>Ready to see how much you really know? Take our quick and easy knowledge test to challenge yourself and discover your score instantly. These tests are completely free, fun, and designed to help you learn while you play. Improve your skills and track your progress — Check Now!</p>
-    <button onclick="handleTestClick('general_free_test')">Start Free Test</button>
-  </section>
-  <section class="live-tests">
-    <div class="tests-inner">
-      <div class="test-row">
-      </div>
-    </div>
-  </section>
-  <section class="student-report">
-    <div class="sr-box" role="region" aria-label="Student report">
-      <div class="plan-promo-box">
-        <h3>Unlock Your Full Potential!</h3>
-        <div class="plan-actions-container flex flex-wrap justify-center gap-4">
-          <div class="plan-action-card p-4 flex-1 min-w-[250px] max-w-[400px]">
-            <p>Please take a Plan now and access all learning programs and premium tests!</p>
-            <button class="new-plan-btn" onclick="openPricingPage()">Take Plan Now</button>
-          </div>
-          <div class="plan-action-card p-4 flex-1 min-w-[250px] max-w-[400px]">
-            <p>If your plan is expiring soon, renew it here to ensure uninterrupted access!</p>
-            <button class="renewal-btn" onclick="openPricingPage()">Renew Plan</button>
-          </div>
-          <div class="plan-action-card p-4 flex-1 min-w-[250px] max-w-[400px]">
-            <p>Existing students: Update your plan here to continue accessing more learning programs and premium tests.</p>
-            <button class="update-plan-btn" onclick="openPricingPage()">Update Plan</button>
-          </div>
-        </div>
-      </div>
-      <div class="sr-stats" aria-hidden="true">
-        <div class="stat">
-            <img class="stat-icon" src="https://cdn-icons-png.flaticon.com/512/1828/1828859.png" alt="Logins icon">
-            <div class="stat-label">Logins</div>
-            <div class="stat-value" id="statLogins">15</div>
-        </div>
-        <div class="stat">
-            <img class="stat-icon" src="https://cdn-icons-png.flaticon.com/512/2088/2088617.png" alt="Time Spent icon">
-            <div class="stat-label">Time Spent</div>
-            <div class="stat-value" id="statTimeSpent">40 Min</div>
-        </div>
-        <div class="stat">
-            <img class="stat-icon" src="https://cdn-icons-png.flaticon.com/512/3094/3094834.png" alt="General tests icon">
-            <div class="stat-label">General Tests</div>
-            <div class="stat-value" id="statGeneralTests">3</div>
-        </div>
-        <div class="stat">
-            <img class="stat-icon" src="https://cdn-icons-png.flaticon.com/512/3107/3107679.png" alt="Subject tests icon">
-            <div class="stat-label">Subject Tests</div>
-            <div class="stat-value" id="statSubjectTests">6</div>
-        </div>
-        <div class="stat">
-            <img class="stat-icon" src="https://cdn-icons-png.flaticon.com/512/2989/2989988.png" alt="Subscription icon">
-            <div class="stat-label">Subscription</div>
-            <div class="stat-value" id="statSubscription">Gold Plan</div>
-        </div>
-        <div class="stat">
-            <img class="stat-icon" src="https://cdn-icons-png.flaticon.com/512/733/733635.png" alt="Social Follow icon">
-            <div class="stat-label">Social Follow</div>
-            <div class="stat-value" id="statSocialFollow">Yes</div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- START DEDICATED SRM CONTACT SECTION (MOVED UP) -->
-  <section class="srm-contact-section">
-    <h2>Dedicated Student Relations Manager (SRM)</h2>
-    <div class="srm-info-card">
-        <!-- LEFT SIDE: Explanation Text -->
-        <div class="srm-left-explanation">
-            <p class="font-bold text-sv-blue mb-2">Your Personal Success Guide:</p>
-            <p>We are committed to your success! Your Student Relations Manager (SRM) is your dedicated point of contact for all support, academic guidance, subscription queries, and any coordination needed to maximize your learning experience with Sri Veda TC. Reach out directly for personalized assistance.</p>
-        </div>
-        
-        <!-- RIGHT SIDE: Manager Details -->
-        <div class="srm-detail-group md:flex-row md:flex-wrap md:justify-end md:items-center flex-1">
-            <div class="srm-detail">
-                <span class="srm-label">Manager Name</span>
-                <span class="srm-value">Sri Veda Teja</span>
-            </div>
-            <div class="srm-detail">
-                <span class="srm-label">Direct Contact</span>
-                <span class="srm-value">
-                    <!-- Making the number clickable for mobile users -->
-                    <a href="tel:+918985170500">8985170500</a>
-                </span>
+            <!-- Class 5 Section -->
+            <div class="class-card">
+                <!-- Class Label -->
+                <div class="class-label-blue text-2xl">
+                    CLASS 5
+                </div>
+                
+                <!-- Descriptive Text (Compact) -->
+                <div class="flex-grow text-center md:text-left mx-4 md:mx-6">
+                    <p class="text-lg font-semibold text-sv-blue">
+                        Students: Log in here to access your exclusive learning materials and practice tests.
+                    </p>
+                </div>
+                
+                <!-- Login Button - UPDATED LINK -->
+                <a href="https://www.svtc.life/5th%20Class.html" class="cta-button" title="Log in for Class 5">
+                    <i class="fas fa-sign-in-alt mr-2"></i> LOGIN
+                </a>
             </div>
         </div>
-    </div>
-  </section>
-  <!-- END DEDICATED SRM CONTACT SECTION -->
-  <section class="subject-tests">
-    <h2>Student General Test Corner</h2>
-    <div class="test-list-container gap-3">
-      <article class="test-list-item">
-        <div class="test-list-item-content">
-          <h3><strong>General Awareness Learn & Tests</strong></h3>
-          <p>Sharpen your knowledge of current events, history, and the world around you.</p>
-        </div>
-        <button id="btn_general_awareness" class="btn-test" onclick="handleTestClick('general_awareness')">
-            <span class="btn-text">Take Test</span>
-        </button>
-      </article>
-      <article class="test-list-item">
-        <div class="test-list-item-content">
-          <h3><strong>General Maths Awareness Learn & Tests</strong></h3>
-          <p>Challenge your problem-solving skills with a comprehensive mathematics assessment.</p>
-        </div>
-        <button id="btn_general_maths" class="btn-test" onclick="handleTestClick('general_maths')">
-            <span class="btn-text">Take Test</span>
-        </button>
-      </article>
-      <article class="test-list-item">
-        <div class="test-list-item-content">
-          <h3><strong>Advanced Maths for Entrance Exams</strong></h3>
-          <p>Prepare for competitive exams with advanced concepts and challenging problems.</p>
-        </div>
-        <button id="btn_advance_maths" class="btn-test" onclick="handleTestClick('advance_maths')">
-            <span class="btn-text">Take Test</span>
-        </button>
-      </article>
-    </div>
-  </section>
-  <section class="student-subject-tests" id="studentSubjectTestsSection">
-    <h2>Student Subject Tests Corner</h2>
-    <div class="test-list-container">
-      <article class="test-list-item" id="item_telugu">
-        <div class="test-list-item-content">
-          <h3><strong>Telugu Subject Tests</strong></h3>
-          <p>Test your understanding of Telugu grammar and literature.</p>
-        </div>
-        <button id="btn_telugu" class="btn-test" onclick="handleTestClick('telugu')">Take Test</button>
-      </article>
-      <article class="test-list-item" id="item_english">
-        <div class="test-list-item-content">
-          <h3><strong>English Subject Tests</strong></h3>
-          <p>Assess your English comprehension, vocabulary, and grammar skills.</p>
-        </div>
-        <button id="btn_english" class="btn-test" onclick="handleTestClick('english')">Take Test</button>
-      </article>
-      <article class="test-list-item" id="item_evs_sem1">
-        <div class="test-list-item-content">
-          <h3><strong>Evs SEM1 Subject Tests</strong></h3>
-          <p>Explore your knowledge of Environmental Science (Semester 1) concepts.</p>
-        </div>
-        <button id="btn_evs_sem1" class="btn-test" onclick="handleTestClick('evs_sem1')">Take Test</button>
-      </article>
-      <article class="test-list-item" id="item_evs_sem2">
-        <div class="test-list-item-content">
-          <h3><strong>Evs SEM2 Subject Tests</strong></h3>
-          <p>Explore your knowledge of Environmental Science (Semester 2) concepts.</p>
-        </div>
-        <button id="btn_evs_sem2" class="btn-test" onclick="handleTestClick('evs_sem2')">Take Test</button> 
-      </article>
-      <article class="test-list-item" id="item_maths_sem1">
-        <div class="test-list-item-content">
-          <h3><strong>Maths SEM1 Subject Tests</strong></h3>
-          <p>Practice and master all the mathematics (Semester 1) topics.</p>
-        </div>
-        <button id="btn_maths_sem1" class="btn-test" onclick="handleTestClick('maths_sem1')">Take Test</button>
-      </article>
-      <article class="test-list-item" id="item_maths_sem2">
-        <div class="test-list-item-content">
-          <h3><strong>Maths SEM2 Subject Tests</strong></h3>
-          <p>Practice and master all the mathematics (Semester 2) topics.</p>
-        </div>
-        <button id="btn_maths_sem2" class="btn-test" onclick="handleTestClick('maths_sem2')">Take Test</button>
-      </article>
-      <article class="test-list-item" id="item_hindi">
-        <div class="test-list-item-content">
-          <h3><strong>Hindi Subject Tests</strong></h3>
-          <p>Test your knowledge of Hindi grammar and language skills.</p>
-        </div>
-        <button id="btn_hindi" class="btn-test" onclick="handleTestClick('hindi')">Take Test</button>
-      </article>
-      <article class="test-list-item" id="item_general_science">
-        <div class="test-list-item-content">
-          <h3><strong>General Science Subject Tests</strong></h3>
-          <p>Explore general science topics covering basics of Physics, Chemistry, and Biology.</p>
-        </div>
-        <button id="btn_general_science" class="btn-test" onclick="handleTestClick('general_science')">Take Test</button>
-      </article>
-      <article class="test-list-item" id="item_physical_sem1">
-        <div class="test-list-item-content">
-          <h3><strong>Physical Science SEM 1 Tests</strong></h3>
-          <p>Semester 1 assessment for Physics and Chemistry topics.</p>
-        </div>
-        <button id="btn_physical_sem1" class="btn-test" onclick="handleTestClick('physical_sem1')">Take Test</button>
-      </article>
-      <article class="test-list-item" id="item_physical_sem2">
-        <div class="test-list-item-content">
-          <h3><strong>Physical Science SEM 2 Tests</strong></h3>
-          <p>Semester 2 assessment for Physics and Chemistry topics.</p>
-        </div>
-        <button id="btn_physical_sem2" class="btn-test" onclick="handleTestClick('physical_sem2')">Take Test</button>
-      </article>
-      <article class="test-list-item" id="item_biological_sem1">
-        <div class="test-list-item-content">
-          <h3><strong>Biological Science SEM 1 Tests</strong></h3>
-          <p>Semester 1 assessment for Biology and Life Science topics.</p>
-        </div>
-        <button id="btn_biological_sem1" class="btn-test" onclick="handleTestClick('biological_sem1')">Take Test</button>
-      </article>
-      <article class="test-list-item" id="item_biological_sem2">
-        <div class="test-list-item-content">
-          <h3><strong>Biological Science SEM 2 Tests</strong></h3>
-          <p>Semester 2 assessment for Biology and Life Science topics.</p>
-        </div>
-        <button id="btn_biological_sem2" class="btn-test" onclick="handleTestClick('biological_sem2')">Take Test</button>
-      </article>
-      <article class="test-list-item" id="item_social_sem1">
-        <div class="test-list-item-content">
-          <h3><strong>Social Studies SEM 1 Tests</strong></h3>
-          <p>Semester 1 assessment covering History, Civics, and Geography.</p>
-          </div>
-        <button id="btn_social_sem1" class="btn-test" onclick="handleTestClick('social_sem1')">Take Test</button>
-      </article>
-      <article class="test-list-item" id="item_social_sem2">
-        <div class="test-list-item-content">
-          <h3><strong>Social Studies SEM 2 Tests</strong></h3>
-          <p>Semester 2 assessment covering History, Civics, and Geography.</p>
-        </div>
-        <button id="btn_social_sem2" class="btn-test" onclick="handleTestClick('social_sem2')">Take Test</button>
-      </article>
-    </div>
-  </section>
-  <section class="profile-section">
-    <h2>Student Profile</h2>
-    <ul class="profile-list">
-      <li class="profile-item">
-        <span class="profile-label">Username</span>
-        <span class="profile-value" id="profileUsername">N/A</span>
-      </li>
-      <li class="profile-item">
-        <span class="profile-label">Full Name</span>
-        <span class="profile-value" id="profileFullName">N/A</span>
-      </li>
-      <li class="profile-item">
-        <span class="profile-label">Father's Name</span>
-        <span class="profile-value" id="profileFatherName">N/A</span>
-      </li>
-      <li class="profile-item">
-        <span class="profile-label">Mobile Number</span>
-        <span class="profile-value" id="profileMobile">N/A</span>
-      </li>
-      <li class="profile-item">
-        <span class="profile-label">Present Class</span>
-        <span class="profile-value" id="profileClass">N/A</span>
-      </li>
-      <li class="profile-item">
-        <span class="profile-label">School Name</span>
-        <span class="profile-value" id="profileSchool">N/A</span>
-      </li>
-      <li class="profile-item">
-        <span class="profile-label">Terms & Conditions</span>
-        <span class="profile-value" id="profileTerms">N/A</span>
-      </li>
-    </ul>
-  </section>
-  <section class="subscription-section">
-    <h2>Subscription Details</h2>
-    <ul class="subscription-list">
-      <li class="subscription-item">
-        <span class="subscription-label">Full Name</span>
-        <span class="subscription-value" id="subFullName">N/A</span>
-      </li>
-      <li class="subscription-item">
-        <span class="subscription-label">Subscription Plan</span>
-        <span class="subscription-value subscription-plan-value" id="subPlan">N/A</span>
-      </li>
-      <li class="subscription-item">
-        <span class="subscription-label">Login Times</span>
-        <span class="subscription-value" id="subLoginTimes">N/A</span>
-      </li>
-      <li class="subscription-item">
-        <span class="subscription-label">Start Date</span>
-        <span class="subscription-value" id="subStartDate">N/A</span>
-      </li>
-      <li class="subscription-item">
-        <span class="subscription-label">Expiration Date</span>
-        <span class="subscription-value" id="subExpDate">N/A</span>
-      </li>
-      <li class="subscription-item">
-        <span class="subscription-label">Days Left</span>
-        <span class="subscription-value subscription-days-left" id="subDaysLeft">N/A</span>
-      </li>
-    </ul>
-  </section>
-</div>
-<footer class="bg-sv-blue text-white py-5 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-7xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <div>
-                <img class="h-12 w-auto mb-2 object-contain shadow-md rounded-full bg-white p-1" 
+
+    </main>
+    <!-- =========== MAIN CONTENT AREA END =========== -->
+
+    <!-- =========== FOOTER START (Unchanged) =========== -->
+    <footer class="bg-sv-blue text-white py-8 px-4 sm:px-6 lg:px-8 w-full mt-auto">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-left">
+                <!-- Branding and Mission -->
+                <div class="col-span-2 md:col-span-1">
+                    <img class="h-12 w-auto mb-2 object-contain shadow-md rounded-full bg-white p-1" 
                         src="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg" 
                         alt="Sri Veda Logo"
                         onerror="this.onerror=null; this.src='https://placehold.co/48x48/1e3a8a/ffffff?text=VEDA';">
-                <p class="text-gray-300 text-xs">
-                    Sri Veda Talent Competition<br>
-                    Empowering students with knowledge and skills for a bright future.
-                </p>
-            </div>
-            <div>
-                <h5 class="text-base font-bold text-sv-yellow mb-2">Quick Links</h5>
-                <ul class="space-y-1 text-sm">
-                    <li><a href="https://www.svtc.life/index.html" class="text-gray-300 hover:text-white transition" target="_blank">Home</a></li>
-                    <li><a href="https://www.svtc.life/Dashboard.html" class="text-gray-300 hover:text-white transition" target="_blank">Dashboard</a></li>
-                    <li><a href="https://www.svtc.life/Join%20now.html" class="text-gray-300 hover:text-white transition" target="_blank">Join Now</a></li>
-                    <li><a href="https://www.svtc.life/Pricing.html" class="text-gray-300 hover:text-white transition" target="_blank">Pricing</a></li>
-                    <li><a href="https://www.svtc.life/connect.html" class="text-gray-300 hover:text-white transition" target="_blank">Connect</a></li>
-                </ul>
-            </div>
-            <div>
-                <h5 class="text-base font-bold text-sv-yellow mb-2">Company</h5>
-                <ul class="space-y-1 text-sm">
-                    <li><a href="https://www.svtc.life/About%20Us.html" class="text-gray-300 hover:text-white transition" target="_blank">About Us</a></li>
-                    <li><a href="https://www.svtc.life/Contact.html" class="text-gray-300 hover:text-white transition" target="_blank">Contact</a></li>
-                    <li><a href="https://www.svtc.life/Privacy%20policy.html" class="text-gray-300 hover:text-white transition" target="_blank">Terms & Privacy</a></li>
-                </ul>
-            </div>
-            <div>
-                <h5 class="text-base font-bold text-sv-yellow mt-3 mb-2">Get In Touch</h5>
-                <ul class="space-y-1 text-sm">
-                    <li class="flex items-center">
-                        <i class="fas fa-phone-alt mr-3 text-sv-yellow text-xs"></i>
-                        <a href="tel:+918985170500" class="text-gray-300 hover:text-white transition" target="_blank">+91 8985170500</a>
-                    </li>
-                </ul>
-                <h5 class="text-base font-bold text-sv-yellow mt-3 mb-2">Connect With Us</h5>
-                <div class="flex space-x-3">
-                    <a href="https://www.facebook.com/share/1ZXXCLRGwh" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-sv-yellow transition text-lg">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=zreta93" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-sv-yellow transition text-lg">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="httpst.me/srivedatc" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-sv-yellow transition text-lg">
-                        <i class="fab fa-telegram-plane"></i>
-                    </a>
-                    <a href="http://wa.me/918985170500" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-sv-yellow transition text-lg">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
+                    <p class="text-gray-300 text-sm mt-2">
+                        Empowering students with knowledge and skills for a bright future.
+                    </p>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h5 class="text-base font-bold text-sv-yellow mb-3 border-b border-sv-yellow/50 pb-1">Quick Links</h5>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">Home</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">Dashboard</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">Pricing</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Company -->
+                <div>
+                    <h5 class="text-base font-bold text-sv-yellow mb-3 border-b border-sv-yellow/50 pb-1">Company</h5>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">About Us</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">Contact</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact & Social -->
+                <div>
+                    <h5 class="text-base font-bold text-sv-yellow mb-3 border-b border-sv-yellow/50 pb-1">Connect</h5>
+                    <p class="text-sm text-gray-300 mb-3">Call us: +91 8985170500</p>
+                    <div class="flex space-x-4 justify-start">
+                        <a href="#" class="text-gray-300 hover:text-sv-yellow transition text-xl"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-sv-yellow transition text-xl"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-sv-yellow transition text-xl"><i class="fab fa-telegram-plane"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-sv-yellow transition text-xl"><i class="fab fa-whatsapp"></i></a>
+                    </div>
                 </div>
             </div>
+            
+            <!-- Copyright -->
+            <div class="border-t border-gray-700 mt-6 pt-4 text-center">
+                <p class="text-gray-400 text-xs">
+                    &copy; 2025 Sri Veda Talent Competition. All Rights Reserved.
+                </p>
+            </div>
         </div>
-        <div class="border-t border-gray-700 mt-4 pt-4 text-center">
-            <p class="text-gray-400 text-xs">
-                &copy; 2025 Sri Veda Talent Competition. All Rights Reserved.
-            </p>
-        </div>
-    </div>
-</footer>
-<script>
-    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwENT3dutyj_FLsEymhaMpaYkXadcukRmur41VoetHKq93bv010mLu4qTypwcscd8Y/exec";
-    const loginScreen = document.getElementById('loginScreen');
-    const dashboardContent = document.getElementById('dashboardContent');
-    const loginForm = document.getElementById('loginForm');
-    const statusMessage = document.getElementById('statusMessage');
-    const loginButton = document.getElementById('loginButton');
-    const buttonText = document.getElementById('buttonText');
-    const loadingSpinner = document.getElementById('loadingSpinner');
-    const loggedOutIcons = document.getElementById('loggedOutIcons');
-    const loggedInControls = document.getElementById('loggedInControls');
-    const mainNav = document.getElementById('mainNav'); // Added reference for main nav
-    const menuToggle = document.getElementById('menuToggle');
-    const liveTime = document.getElementById('liveTime');
-    const sessionTimer = document.getElementById('sessionTimer');
-    const logoutBtn = document.getElementById('logoutBtn');
-    const studentNameDisplay = document.getElementById('studentNameDisplay');
-    const studentClassDisplay = document.getElementById('studentClassDisplay');
-    const profileUsername = document.getElementById('profileUsername');
-    const profileFullName = document.getElementById('profileFullName');
-    const profileClass = document.getElementById('profileClass');
-    const subFullName = document.getElementById('subFullName');
-    const studentSubjectTestsSection = document.getElementById('studentSubjectTestsSection');
-    const profileFatherName = document.getElementById('profileFatherName');
-    const profileMobile = document.getElementById('profileMobile');
-    const profileSchool = document.getElementById('profileSchool');
-    const profileTerms = document.getElementById('profileTerms');
-    const subPlan = document.getElementById('subPlan');
-    const subLoginTimes = document.getElementById('subLoginTimes');
-    const subStartDate = document.getElementById('subStartDate');
-    const subExpDate = document.getElementById('subExpDate');
-    const subDaysLeft = document.getElementById('subDaysLeft');
-    const subscriptionBadge = document.getElementById('subscriptionBadge'); // Added reference for the new badge
-    let studentClass = 0;
-    const urlMap = {
-        'general_free_test': {
-            3: 'https://www.svtc.life',
-            4: 'https://www.svtc.life',
-            5: 'https://www.svtc.life',
-            6: 'https://www.svtc.life',
-            7: 'https://www.svtc.life',
-            8: 'https://www.svtc.life',
-            9: 'https://www.svtc.life',
-            10: 'https://www.svtc.life',
-        },
-        'telugu': {
-            3: '',
-            4: '',
-            5: '',
-            6: 'https://www.svtc.life',
-            7: 'https://www.svtc.life',
-            8: 'https://www.svtc.life',
-            9: 'https://www.svtc.life',
-            10: 'https://www.svtc.life',
-        },
-        'english': { 
-            3: '',
-            4: '',
-            5: '',
-            6: 'https://www.svtc.life',
-            7: 'https://www.svtc.life',
-            8: 'https://www.svtc.life',
-            9: 'https://www.svtc.life',
-            10: 'https://www.svtc.life',
-        },
-        'evs_sem1': { 
-            3: '',
-            4: '',
-            5: '',
-            6: 'locked',
-            7: 'locked',
-            8: 'locked',
-            9: 'locked',
-            10: 'locked',
-        },
-        'evs_sem2': { 
-            3: '',
-            4: '',
-            5: '',
-            6: 'locked',
-            7: 'locked',
-            8: 'locked',
-            9: 'locked',
-            10: 'locked',
-        },
-        'maths_sem1': { 
-            3: '',
-            4: '',
-            5: '',
-            6: 'https://www.svtc.life',
-            7: 'https://www.svtc.life',
-            8: 'https://www.svtc.life',
-            9: 'https://www.svtc.life',
-            10: 'https://www.svtc.life',
-        },
-        'maths_sem2': { 
-            3: '',
-            4: '',
-            5: '',
-            6: 'https://www.svtc.life',
-            7: 'https://www.svtc.life',
-            8: 'https://www.svtc.life',
-            9: 'https://www.svtc.life',
-            10: 'https://www.svtc.life',
-        },
-        'hindi': {
-            3: '',
-            4: '',
-            5: '',
-            6: 'https://www.svtc.life',
-            7: 'https://www.svtc.life',
-            8: 'https://www.svtc.life',
-            9: 'https://www.svtc.life',
-            10: 'https://www.svtc.life',
-        },
-        'general_science': { 
-            3: '',
-            4: '',
-            5: '',
-            6: 'https://www.svtc.life',
-            7: 'https://www.svtc.life',
-            8: 'locked',
-            9: 'locked',
-            10: 'locked',
-        },
-        'physical_sem1': { 
-            3: '',
-            4: '',
-            5: '',
-            6: 'locked',
-            7: 'locked',
-            8: 'https://www.svtc.life',
-            9: 'https://www.svtc.life',
-            10: 'https://www.svtc.life',
-        },
-        'physical_sem2': { 
-            3: '',
-            4: '',
-            5: '',
-            6: 'locked',
-            7: 'locked',
-            8: 'https://www.svtc.life',
-            9: 'https://www.svtc.life',
-            10: 'https://www.svtc.life',
-        },
-        'biological_sem1': { 
-            3: '',
-            4: '',
-            5: '',
-            6: 'locked',
-            7: 'locked',
-            8: 'https://www.svtc.life',
-            9: 'https://www.svtc.life',
-            10: 'https://www.svtc.life',
-        },
-        'biological_sem2': { 
-            3: '',
-            4: '',
-            5: '',
-            6: 'locked',
-            7: 'locked',
-            8: 'https://www.svtc.life',
-            9: 'https://www.svtc.life',
-            10: 'https://www.svtc.life',
-        },
-        'social_sem1': { 
-            3: 'https://www.svtc.life',
-            4: 'https://www.svtc.life',
-            5: 'https://www.svtc.life',
-            6: 'https://www.svtc.life',
-            7: 'https://www.svtc.life',
-            8: 'https://www.svtc.life',
-            9: 'https://www.svtc.life',
-            10: 'https://www.svtc.life',
-        },
-        'social_sem2': { 
-            3: 'https://www.svtc.life',
-            4: 'https://www.svtc.life',
-            5: 'https://www.svtc.life',
-            6: 'https://www.svtc.life',
-            7: 'https://www.svtc.life',
-            8: 'https://www.svtc.life',
-            9: 'https://www.svtc.life',
-            10: 'https://www.svtc.life',
-        },
-        'general_awareness': {
-            3: 'https://www.svtc.life',
-            4: 'https://www.svtc.life',
-            5: 'https://www.svtc.life',
-            6: 'https://www.svtc.life',
-            7: 'https://www.svtc.life',
-            8: 'https://www.svtc.life',
-            9: 'https://www.svtc.life',
-            10: 'https://www.svtc.life',
-        },
-        'general_maths': {
-            3: 'https://www.svtc.life',
-            4: 'https://www.svtc.life',
-            5: 'https://www.svtc.life',
-            6: 'https://www.svtc.life',
-            7: 'https://www.svtc.life',
-            8: 'https://www.svtc.life',
-            9: 'https://www.svtc.life',
-            10: 'https://www.svtc.life',
-        },
-        'advance_maths': {
-            3: 'https://www.svtc.life',
-            4: 'https://www.svtc.life',
-            5: 'https://www.svtc.life',
-            6: 'https://www.svtc.life',
-            7: 'https://www.svtc.life',
-            8: 'https://www.svtc.life',
-            9: 'https://www.svtc.life',
-            10: 'https://www.svtc.life',
-        },
-    };
-    function pad(n){return n.toString().padStart(2,'0')}
-    function updateTime(){
-        const now=new Date();
-        if (liveTime && !liveTime.classList.contains('hidden')) liveTime.textContent = `${pad(now.getDate())}/${pad(now.getMonth()+1)}/${now.getFullYear()}, ${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`
-    }
-    updateTime();
-    setInterval(updateTime,1000);
-    let session = parseInt(sessionStorage.getItem('sessionTime') || 0);
-    function formatHMS(s){const h=Math.floor(s/3600), m=Math.floor((s%3600)/60), sec=s%60;return `${pad(h)}:${pad(m)}:${pad(sec)}`}
-    function updateSession(){
-        session++;
-        sessionStorage.setItem('sessionTime', session);
-        if (sessionTimer && !sessionTimer.classList.contains('hidden')) sessionTimer.textContent = 'Session: '+formatHMS(session);
-    }
-    updateSession();
-    setInterval(updateSession,1000);
-    function showStatus(message, isSuccess = false) {
-        statusMessage.textContent = message;
-        statusMessage.classList.remove('hidden', 'status-error', 'status-success');
-        if (isSuccess) {
-            statusMessage.classList.add('status-success');
-        } else {
-            statusMessage.classList.add('status-error');
-        }
-    }
-    function setLoading(isLoading) {
-        loginButton.disabled = isLoading;
-        if (isLoading) {
-            buttonText.textContent = "Loading...";
-            loadingSpinner.classList.remove('hidden');
-        } else {
-            buttonText.textContent = "Login";
-            loadingSpinner.classList.add('hidden');
-        }
-    }
-    function showServerMaintenance(message = 'This function is currently locked or under maintenance.'){
-      const t = document.createElement('div');
-      t.textContent = message;
-      t.style.position = 'fixed';
-      t.style.left = '50%';
-      t.style.top = '22px';
-      t.style.transform = 'translateX(-50%)';
-      t.style.background = 'linear-gradient(90deg, #b33030, #ff7b00)';
-      t.style.color = '#fff';
-      t.style.padding = '12px 20px';
-      t.style.borderRadius = '10px';
-      t.style.zIndex = 14000;
-      t.style.fontWeight = 900;
-      document.body.appendChild(t);
-      setTimeout(()=>{ t.style.transition = 'opacity .4s'; t.style.opacity = '0'; setTimeout(()=>t.remove(),500); }, 2500);
-    }
-    function openPricingPage() {
-        window.open('https://www.svtc.life/Pricing.html', '_blank');
-    }
-    async function handleLogin(event) {
-        event.preventDefault();
-        setLoading(true);
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
-        const params = new URLSearchParams();
-        params.append('username', username);
-        params.append('password', password);
-        try {
-            const response = await fetch(APPS_SCRIPT_URL, {
-                method: 'POST',
-                mode: 'cors',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                body: params.toString()
-            });
-            const result = await response.json();
-            if (result.success) {
-                showStatus("Login successful!", true);
-                sessionStorage.setItem('isLoggedIn', 'true');
-                sessionStorage.setItem('username', result.username); 
-                sessionStorage.setItem('fullName', result.fullName); 
-                sessionStorage.setItem('fatherName', result.fatherName); 
-                sessionStorage.setItem('mobileNumber', result.mobileNumber); 
-                sessionStorage.setItem('class', result.class); 
-                sessionStorage.setItem('schoolName', result.schoolName); 
-                sessionStorage.setItem('termsConditions', result.termsConditions); 
-                sessionStorage.setItem('subscription', result.subscription); 
-                sessionStorage.setItem('loginTimes', result.loginTimes); 
-                sessionStorage.setItem('startDate', result.startDate); 
-                sessionStorage.setItem('endDate', result.endDate); 
-                sessionStorage.setItem('daysLeft', result.daysLeft); 
-                sessionStorage.setItem('timeSpent', result.timeSpent); 
-                sessionStorage.setItem('generalTests', result.generalTests); 
-                sessionStorage.setItem('subjectTests', result.subjectTests); 
-                setTimeout(showDashboard, 1000); 
-            } else {
-                showStatus(result.message || "Login Failed Please check USERNAME & PASSWROD.", false);
-            }
-        } catch (error) {
-            console.error("Fetch Error:", error);
-            showStatus("Please retry.", false);
-        } finally {
-            setLoading(false);
-        }
-    }
-    function handleLogout() {
-        sessionStorage.clear();
-        session = 0;
-        updateSession();
-        loggedOutIcons.classList.remove('hidden');
-        loggedInControls.classList.add('hidden');
-        /* primaryNavLinks is removed from HTML structure, no need to hide it */
-        /* menuToggle is always visible in the new structure */
-        if (mainNav) mainNav.classList.remove('hidden'); // SHOW NAV ON LOGOUT
-        liveTime.classList.add('hidden');
-        sessionTimer.classList.add('hidden');
-        logoutBtn.classList.add('hidden'); 
-        dashboardContent.classList.add('hidden');
-        loginScreen.classList.remove('hidden');
-        loginForm.reset();
-        statusMessage.classList.add('hidden');
-        studentClass = 0; 
-    }
-    // ADDED: Function to check login status on page load
-    function checkLoginStatus() {
-        if (sessionStorage.getItem('isLoggedIn') === 'true') {
-            showDashboard();
-        } else {
-            // Ensure logged out state is correctly shown
-            loggedOutIcons.classList.remove('hidden');
-            loggedInControls.classList.add('hidden');
-            dashboardContent.classList.add('hidden');
-            loginScreen.classList.remove('hidden');
-        }
-    }
-    function showDashboard() {
-        const username = sessionStorage.getItem('username') || 'N/A';
-        const fullName = sessionStorage.getItem('fullName') || 'N/A';
-        const classString = sessionStorage.getItem('class') || 'N/A';
-        const fatherName = sessionStorage.getItem('fatherName') || 'N/A';
-        const mobileNumber = sessionStorage.getItem('mobileNumber') || 'N/A';
-        const schoolName = sessionStorage.getItem('schoolName') || 'N/A';
-        const termsConditions = sessionStorage.getItem('termsConditions') || 'N/A';
-        const subscription = sessionStorage.getItem('subscription') || 'N/A';
-        const loginTimes = sessionStorage.getItem('loginTimes') || 'N/A';
-        const startDate = sessionStorage.getItem('startDate') || 'N/A';
-        const endDate = sessionStorage.getItem('endDate') || 'N/A';
-        const daysLeft = sessionStorage.getItem('daysLeft') || 'N/A';
-        const timeSpent = sessionStorage.getItem('timeSpent') || 'N/A';
-        const generalTests = sessionStorage.getItem('generalTests') || 'N/A';
-        const subjectTests = sessionStorage.getItem('subjectTests') || 'N/A';
-        const statLogins = document.getElementById('statLogins');
-        const statTimeSpent = document.getElementById('statTimeSpent');
-        const statGeneralTests = document.getElementById('statGeneralTests');
-        const statSubjectTests = document.getElementById('statSubjectTests');
-        const statSubscription = document.getElementById('statSubscription');
-        const classMatch = classString.match(/(\d+)/);
-        studentClass = classMatch ? parseInt(classMatch[1], 10) : 0; 
-        loggedOutIcons.classList.add('hidden');
-        loggedInControls.classList.remove('hidden');
-        /* primaryNavLinks is removed from HTML structure, no need to hide it */
-        /* menuToggle is always visible in the new structure */
-        if (mainNav) mainNav.classList.add('hidden'); // HIDE NAV ON LOGIN
-        liveTime.classList.remove('hidden');
-        sessionTimer.classList.remove('hidden');
-        logoutBtn.classList.remove('hidden'); 
-        studentNameDisplay.textContent = fullName;
-        studentClassDisplay.textContent = classString;
-        profileUsername.textContent = username; 
-        profileFullName.textContent = fullName; 
-        profileFatherName.textContent = fatherName; 
-        let maskedMobile = 'N/A';
-        if (mobileNumber && mobileNumber !== 'N/A' && mobileNumber.length >= 10) {
-            maskedMobile = `${mobileNumber.substring(0, 2)}XXXXXX${mobileNumber.substring(mobileNumber.length - 2)}`;
-        } else if (mobileNumber) {
-            maskedMobile = mobileNumber; 
-        }
-        profileMobile.textContent = maskedMobile;
-        profileClass.textContent = classString; 
-        profileSchool.textContent = schoolName; 
-        profileTerms.textContent = termsConditions; 
-        if (termsConditions.toLowerCase().trim() === 'agreed') {
-            profileTerms.classList.add('agreed');
-        } else {
-            profileTerms.classList.remove('agreed');
-        }
-        subFullName.textContent = fullName; 
-        subPlan.textContent = subscription; 
-        subLoginTimes.textContent = loginTimes; 
-        subStartDate.textContent = startDate; 
-        subExpDate.textContent = endDate; 
-        subDaysLeft.textContent = daysLeft; 
-        if(statLogins) statLogins.textContent = loginTimes; 
-        if(statTimeSpent) statTimeSpent.textContent = timeSpent; 
-        if(statGeneralTests) statGeneralTests.textContent = generalTests; 
-        if(statSubjectTests) statSubjectTests.textContent = subjectTests; 
-        if(statSubscription) statSubscription.textContent = subscription; 
-        
-        // Logic to update the new Subscription Badge
-        let badgeClass = 'badge-free';
-        let displayText = subscription || 'Free Student';
+    </footer>
+    <!-- =========== FOOTER END =========== -->
 
-        if (subscription && typeof subscription === 'string') {
-            const plan = subscription.toLowerCase().trim();
-            if (plan.includes('silver')) {
-                badgeClass = 'badge-silver';
-                displayText = 'Silver Student';
-            } else if (plan.includes('gold')) {
-                badgeClass = 'badge-gold';
-                displayText = 'Gold Student';
-            } else if (plan.includes('platin')) {
-                badgeClass = 'badge-platinum';
-                displayText = 'Platinum Student';
-            } else {
-                displayText = 'Free Student';
-            }
-        } else {
-             displayText = 'Free Student';
-        }
-        
-        // Remove existing classes, add new ones, and set text
-        subscriptionBadge.className = 'subscription-badge'; 
-        subscriptionBadge.classList.add(badgeClass);
-        subscriptionBadge.textContent = displayText;
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.getElementById('menuToggle');
+            const dynamicMenu = document.getElementById('dynamicMenu');
 
-        setupSubjectButtons();
-        animateTCRing();
-        loginScreen.classList.add('hidden');
-        dashboardContent.classList.remove('hidden');
-        if (studentSubjectTestsSection && [3, 4, 5].includes(studentClass)) {
-             studentSubjectTestsSection.classList.add('hidden');
-        } else if (studentSubjectTestsSection) {
-             studentSubjectTestsSection.classList.remove('hidden');
-        }
-    }
-    function handleTestClick(testId) {
-        const classUrls = urlMap[testId];
-        const targetUrl = (classUrls && classUrls[studentClass]) 
-                            ? classUrls[studentClass] 
-                            : 'locked'; 
-        const button = document.getElementById(`btn_${testId}`);
-        if (targetUrl === 'locked' || targetUrl === '') {
-            showServerMaintenance(`This subject is not available for your current class (${studentClass}th Class).`);
-            return;
-        }
-        const newWindow = window.open(targetUrl, '_blank'); 
-        if (newWindow) {
-            newWindow.focus();
-        } else {
-             showServerMaintenance('Pop-ups blocked! Please allow pop-ups to start the test.');
-        }
-        if (button) button.animate([{transform:'scale(1)'},{transform:'scale(1.04)'},{transform:'scale(1)'}],{duration:360});
-    }
-    function setupSubjectButtons() {
-        const testIds = Object.keys(urlMap).filter(id => id !== 'general_free_test'); 
-        testIds.forEach(testId => {
-            const button = document.getElementById(`btn_${testId}`);
-            const listItem = document.getElementById(`item_${testId}`);
-            if (!button || !listItem) return;
-            const targetUrl = (urlMap[testId] && urlMap[testId][studentClass]) ? urlMap[testId][studentClass] : 'locked';
-            listItem.classList.remove('hidden'); 
-            if (targetUrl === '') {
-                 if (studentClass >= 6) {
-                    listItem.classList.add('hidden'); 
-                 } else {
-                    listItem.classList.add('hidden'); 
-                 }
-            } else if (targetUrl === 'locked') {
-                if (studentClass >= 6) {
-                    listItem.classList.add('hidden'); 
-                } else {
-                    button.classList.add('locked');
-                    button.setAttribute('onclick', `showServerMaintenance('This subject is not available for your current class (${studentClass}th Class).');`);
-                    button.innerHTML = `<svg class="lock-icon" viewBox="0 0 24 24"><path d="M12 17c1.1 0 2-.9 2-2s-.9-2-2-2s-2 .9-2 2s.9 2 2 2zm6-9h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM8.9 6c0-1.71 1.39-3.1 3.1-3.1s3.1 1.39 3.1 3.1v2H8.9V6zM18 20H6V10h12v10z"/></svg> <span class="btn-text">Take Test</span>`;
-                }
-            } else {
-                button.classList.remove('locked');
-                listItem.classList.remove('hidden');
-                button.setAttribute('onclick', `handleTestClick('${testId}')`);
-                button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M10 17l5-5-5-5v10z"/></svg> <span class="btn-text">Take Test</span>`;
+            if (menuToggle && dynamicMenu) {
+                menuToggle.addEventListener('click', () => {
+                    dynamicMenu.classList.toggle('hidden');
+                    
+                    // Change icon from bars to close (fa-times)
+                    const icon = menuToggle.querySelector('i');
+                    if (dynamicMenu.classList.contains('hidden')) {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    } else {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    }
+                });
             }
         });
-    }
-    function animateTCRing(){
-      const target = 29;
-      const liveBar = document.getElementById('tcLiveBar'); 
-      const pctText = document.getElementById('tcPercent');
-      
-      let current = 0;
-      const step = Math.max(1, Math.round(target / 60));
-      if (window.tcLiveInterval) clearInterval(window.tcLiveInterval); 
+    </script>
 
-      window.tcLiveInterval = setInterval(()=>{
-        current += step;
-        if(current >= target){ current = target; clearInterval(window.tcLiveInterval); }
-        liveBar.style.width = current + '%';
-        pctText.textContent = current + '%';
-      },16);
-    }
-    window.handleTestClick = handleTestClick;
-    window.takeTest = handleTestClick;
-    window.showServerMaintenance = showServerMaintenance;
-    window.openPricingPage = openPricingPage; 
-    document.addEventListener('DOMContentLoaded', () => {
-        const dynamicMenu = document.getElementById('dynamicMenu');
-        const menuToggle = document.getElementById('menuToggle');
-        if (menuToggle && dynamicMenu) {
-            menuToggle.addEventListener('click', () => {
-                dynamicMenu.classList.toggle('hidden');
-            });
-        }
-        loginForm.addEventListener('submit', handleLogin);
-        logoutBtn.addEventListener('click', handleLogout);
-        checkLoginStatus(); // Function call is now valid
-    });
-</script>
 </body>
 </html>
