@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sri Veda Talent Competition</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="icon" type="image/jpeg" href="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg">
+
+    <style>
+        /* New Custom Colors from user's template */
+        :root {
+            --sv-blue: #00008B; /* Dark Blue */
+            --sv-orange: #FF8C00; /* Dark Orange */
+            --sv-yellow: #FFD700; /* Gold Yellow */
+            --sv-maroon: #800000; /* Maroon */
+            --sv-gray-light: #f0f0f0; /* Light Gray for buttons */
+        }
+        
+        body {
+            font-family: 'Roboto Slab', serif;
+        }
+        
+        /* New Tailwind Custom Classes */
+        .bg-sv-blue { background-color: var(--sv-blue); }
+        .text-sv-blue { color: var(--sv-blue); }
+        .bg-sv-orange { background-color: var(--sv-orange); }
+        .text-sv-orange { color: var(--sv-orange); }
+        .bg-sv-yellow { background-color: var(--sv-yellow); }
+        .text-sv-yellow { color: var(--sv-yellow); }
+        
+        .hover\:shadow-sv-yellow\/50:hover {
+            box-shadow: 0 10px 15px -3px var(--sv-yellow), 0 4px 6px -4px var(--sv-yellow);
+        }
+
+        /* Course Button Style */
+        .course-button {
+            display: inline-block;
+            padding: 0.4rem 0.8rem;
+            margin: 0.2rem;
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #333;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .course-button:hover {
+            background-color: var(--sv-orange);
+            color: white;
+            border-color: var(--sv-orange);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        /* CTA Button Styles (Kept for potential future use, though not in header) */
+        .cta-button {
+            display: inline-block;
+            background-color: var(--sv-orange);
+            color: white;
+            padding: 0.6rem 1.8rem;
+            border-radius: 9999px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-align: center;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(255, 140, 0, 0.4);
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            background-color: #e67e00;
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(255, 140, 0, 0.6);
+        }
+        
+        .cta-button-secondary {
+            display: inline-block;
+            background-color: var(--sv-blue);
+            color: white;
+            padding: 0.6rem 1.8rem;
+            border-radius: 9999px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-align: center;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 139, 0.3);
+            transition: all 0.3s ease;
+        }
+        .cta-button-secondary:hover {
+            background-color: #0000cd;
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 139, 0.5);
+        }
+        
+        .cta-button-large {
+            display: inline-block;
+            background-color: var(--sv-blue);
+            color: white;
+            padding: 0.7rem 2rem;
+            border-radius: 9999px;
+            font-size: 1.1rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            text-align: center;
+            text-decoration: none;
+            box-shadow: 0 8px 15px rgba(0, 0, 139, 0.5);
+            transition: all 0.3s ease;
+        }
+        .cta-button-large:hover {
+            background-color: #0000cd;
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 139, 0.8);
+        }
+
+        /* Nav button style is kept but only used in the dynamic menu */
+        .nav-button {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            color: var(--sv-blue);
+            background-color: white;
+            border: 2px solid var(--sv-orange);
+            border-radius: 9999px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin: 3px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .nav-button:hover {
+            color: white;
+            background-color: var(--sv-orange);
+            border-color: var(--sv-blue);
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(255, 140, 0, 0.6);
+        }
+        
+        @media (max-width: 640px) {
+            .nav-button {
+                flex-grow: 1;
+                justify-content: center;
+                margin: 4px 2px;
+                font-size: 0.8rem;
+                padding: 0.4rem 0.8rem;
+            }
+        }
+
+        /* Custom Header Corner Design */
+        .header-bg {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Left Corner PNG Image Design */
+        .header-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 120px;
+            height: 120px;
+            background-image: url('https://contactsriveda-debug.github.io/images/header%20coner.png');
+            background-size: 100% 100%;
+            opacity: 1;
+            background-repeat: no-repeat;
+            transform: translate(-30%, -30%); 
+            z-index: 1;
+        }
+        
+        /* Right Corner PNG Image Design (Mirrored for Symmetry) */
+        .header-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 120px;
+            height: 120px;
+            background-image: url('https://contactsriveda-debug.github.io/images/header%20coner.png');
+            background-size: 100% 100%; 
+            opacity: 1; 
+            background-repeat: no-repeat;
+            transform: translate(30%, -30%) scaleX(-1); 
+            z-index: 1;
+        }
+        
+        /* Ensure content is above the corner designs */
+        .header-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* --- STYLES FOR THE MENU BUTTON (White/Orange Style) --- */
+        .header-menu-button {
+            background-color: white !important; 
+            color: var(--sv-orange) !important;
+            font-weight: 900;
+            padding: 0.6rem 1.25rem; 
+            font-size: 1rem;
+            border-width: 4px;
+            border-color: var(--sv-orange) !important;
+            box-shadow: 0 6px 12px rgba(255, 140, 0, 0.7);
+            border-radius: 1.5rem; /* Bent corners */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+        .header-menu-button:hover {
+            background-color: var(--sv-yellow) !important; 
+            color: var(--sv-blue) !important; 
+            transform: scale(1.05);
+        }
+        
+        /* --- STYLES FOR NEW SECTIONS --- */
+        
+        /* Card styles */
+        .info-card {
+            background-color: white;
+            border-radius: 0.75rem; /* 12px */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            border: 1px solid #e5e7eb; /* border-gray-200 */
+        }
+        
+        .info-card-header {
+            padding: 1rem 1.5rem; /* p-4 sm:p-6 */
+            background-color: #f9fafb; /* bg-gray-50 */
+            border-bottom: 1px solid #e5e7eb; /* border-gray-200 */
+        }
+        
+        .info-card-title {
+            font-size: 1.25rem; /* text-xl */
+            font-weight: 800; /* font-extrabold */
+            color: var(--sv-blue);
+            font-family: 'Roboto Slab', serif;
+        }
+        
+        .info-card-body {
+            padding: 1.5rem; /* p-6 */
+        }
+        
+        /* Plan badge styles for the table */
+        .plan-badge {
+            display: inline-block;
+            padding: 0.25em 0.6em;
+            font-size: 0.8rem;
+            font-weight: 700;
+            line-height: 1;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: baseline;
+            border-radius: 0.375rem; /* rounded-md */
+        }
+        .plan-free {
+            color: #374151; /* text-gray-800 */
+            background-color: #e5e7eb; /* bg-gray-200 */
+        }
+        .plan-silver {
+            color: #1d4ed8; /* text-blue-800 */
+            background-color: #dbeafe; /* bg-blue-100 */
+        }
+        .plan-gold {
+            color: #92400e; /* text-yellow-800 */
+            background-color: #fef3c7; /* bg-yellow-100 */
+        }
+        .plan-platina {
+            color: #7e22ce; /* text-purple-800 */
+            background-color: #f3e8ff; /* bg-purple-100 */
+        }
+        
+        /* Styles for remaining days */
+        .days-critical {
+            color: #dc2626; /* text-red-600 */
+            font-weight: 700;
+        }
+        .days-warning {
+            color: #d97706; /* text-yellow-600 */
+            font-weight: 700;
+        }
+        .days-safe {
+            color: #16a34a; /* text-green-600 */
+            font-weight: 700;
+        }
+        
+    </style>
+</head>
+<body class="bg-gray-50 antiasaia-body">
+
+    <!-- ========== HEADER START ========== -->
+    <!-- The following lines were missing and are now added -->
+    <header class="bg-sv-blue header-bg shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-3 md:py-4 header-content">
+                
+                <!-- Left Group: Logo + Title -->
+                <div class="flex items-center space-x-3 sm:space-x-4">
+                    <!-- Logo (This was also missing) -->
+                    <a href="httpsT://www.svtc.life" target="_blank" class="flex-shrink-0">
+                        <img class="h-12 w-12 sm:h-16 sm:w-16 rounded-full border-2 border-sv-yellow shadow-md" 
+                             src="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg" 
+                             alt="Sri Veda Logo">
+                    </a>
+                    <!-- Title -->
+                    <div class="text-left">
+                        <!-- END OF ADDED LINES -->
+                        
+                        <h1 class="text-xl sm:text-2xl font-extrabold tracking-wider text-white">
+                            SRI VEDA TALENT COMPETITION
+                        </h1>
+                        
+                        <div class="w-2/3 max-w-xs h-0.5 bg-sv-yellow my-0.5 mx-auto sm:mx-0"></div>
+
+                        <p class="text-sm sm:text-base font-semibold text-sv-yellow mt-0.5">
+                            "Service Corner"
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Right Group: Icons + MENU Button -->
+                <div class="flex items-center space-x-3 sm:space-x-6 lg:space-x-8">
+                    <!-- Icon navigation in Header -->
+                    <i class="fas fa-book text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Our Courses"></i>
+                    <i class="fas fa-pencil-ruler text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Practice Tests"></i>
+                    <i class="fas fa-graduation-cap text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Study Material"></i>
+                    <i class="fas fa-lightbulb text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Insights & Guidance"></i>
+                    
+                    <!-- MENU Button is now here -->
+                    <button id="menuToggle" class="header-menu-button">
+                        MENU <i class="fas fa-bars ml-1"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Dynamic Horizontal Menu Section (Initially hidden) -->
+    <div id="dynamicMenu" class="hidden bg-sv-blue/95 border-b-4 border-sv-yellow transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+            <div class="flex flex-wrap justify-center gap-2">
+                
+                <!-- 1. Home Link -->
+                <a href="https://www.svtc.life" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                    <i class="fas fa-home mr-1"></i> Home
+                </a>
+
+                <!-- 2. DASHBOARD Link -->
+                <a href="https://www.svtc.life/Dashboard.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                    <i class="fas fa-tachometer-alt mr-1"></i> DASHBOARD
+                </a>
+                
+                <!-- 3. Join Now Link -->
+                <a href="https://www.svtc.life/Join%20now.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                    <i class="fas fa-user-plus mr-1"></i> Join Now
+                </a>
+                
+                <!-- 4. Pricing Link -->
+                <a href="https://www.svtc.life/Pricing.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                    <i class="fas fa-tags mr-1"></i> Pricing
+                </a>
+                
+                <!-- 5. Contact Link -->
+                <a href="https://www.svtc.life/Contact.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                    <i class="fas fa-envelope mr-1"></i> Contact
+                </a>
+                
+                <!-- 6. Connect Link -->
+                <a href="https://www.svtc.life/connect.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                    <i class="fas fa-headset mr-1"></i> Connect
+                </a>
+
+                <!-- 7. About Us Link -->
+                <a href="https://www.svtc.life/About%20Us.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                    <i class="fas fa-info-circle mr-1"></i> About Us
+                </a>
+                
+                <!-- 8. Terms & Privacy Link -->
+                <a href="https://www.svtc.life/Privacy%20policy.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                    <i class="fas fa-file-contract mr-1"></i> Terms & Privacy
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- END Dynamic Horizontal Menu Section -->
+
+    <!-- ========== MAIN CONTENT START ========== -->
+    <main class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+        
+        <!-- Grid for the top 3 sections -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- 1. PROFILE SECTION -->
+            <div class="info-card md:col-span-1 lg:col-span-1">
+                <div class="info-card-body flex flex-col items-center text-center">
+                    <!-- Top-Middle: Passport Photo Frame -->
+                    <div class="mb-4">
+                        <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-4 border-sv-orange shadow-md overflow-hidden">
+                            <img class="w-full h-full object-cover" src="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg" alt="Profile Photo">
+                        </div>
+                    </div>
+                    
+                    <!-- Downside: Name -->
+                    <h2 class="text-xl font-bold text-sv-blue">K Narasimha Reddy</h2>
+                    
+                    <!-- Name Downside: Role -->
+                    <p class="text-sm font-medium text-gray-600 mb-4">Student Relationship Manager</p>
+                    
+                    <!-- Below Name/Role: Reporting Details -->
+                    <div class="space-y-1 text-sm text-left"> <!-- Using text-left for better icon alignment -->
+                        <p class="font-semibold text-gray-700">
+                            <i class="fas fa-building fa-fw w-5 text-sv-orange"></i>
+                            Reporting: <span class="font-normal">SRI VEDA TC</span>
+                        </p>
+                        <p class="font-semibold text-gray-700">
+                            <i class="fas fa-phone fa-fw w-5 text-sv-orange"></i>
+                            Manager: <span class="font-normal">8985170500</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- END 1. PROFILE SECTION -->
+
+            <!-- 2. SALES SECTION -->
+            <div class="info-card">
+                <div class="info-card-header">
+                    <h3 class="info-card-title"><i class="fas fa-chart-line mr-2 text-sv-orange"></i>Sales Section</h3>
+                </div>
+                <div class="info-card-body">
+                    <ul class="space-y-4">
+                        <li class="flex items-center justify-between">
+                            <span class="font-semibold text-gray-700 text-lg">Silver Plans </span>
+                            <span class="font-extrabold text-3xl text-sv-blue">4</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <span class="font-semibold text-gray-700 text-lg">Platina Plans</span>
+                            <span class="font-extrabold text-3xl text-sv-blue">6</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <span class="font-semibold text-gray-700 text-lg">Gold Plans</span>
+                            <span class="font-extrabold text-3xl text-sv-blue">2</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <span class="font-semibold text-gray-700 text-lg">Free Registers</span>
+                            <span class="font-extrabold text-3xl text-sv-orange">140</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- END 2. SALES SECTION -->
+
+            <!-- 3. INCOME SECTION -->
+            <div class="info-card">
+                <div class="info-card-header">
+                    <h3 class="info-card-title"><i class="fas fa-wallet mr-2 text-sv-orange"></i>Service Overall Income</h3>
+                </div>
+                <div class="info-card-body">
+                    <ul class="space-y-4">
+                        <li class="flex items-center justify-between">
+                            <span class="font-semibold text-gray-700 text-base">Total Income</span>
+                            <span class="font-bold text-xl text-green-600">₹ 25,000</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <span class="font-semibold text-gray-700 text-base">This Month</span>
+                            <span class="font-bold text-xl text-sv-blue">₹ 5,500</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <span class="font-semibold text-gray-700 text-base">This Week</span>
+                            <span class="font-bold text-xl text-sv-blue">₹ 1,200</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <span class="font-semibold text-gray-700 text-base">Today's Income</span>
+                            <span class="font-bold text-xl text-sv-orange">₹ 300</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- END 3. INCOME SECTION -->
+
+        </div>
+        
+        <!-- 4. LIST SECTION -->
+        <div class="info-card mt-6">
+            <div class="info-card-header">
+                <h3 class="info-card-title"><i class="fas fa-users mr-2 text-sv-orange"></i>Recent Registrations</h3>
+            </div>
+            
+            <!-- Table Container -->
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-100">
+                        <tr>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Name</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Class</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Number</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Plan</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Expiration Date</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Remaining Days</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <!-- Free Registers (15) -->
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Priya Sharma</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">10th Class</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">98XXXX0002</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                <span class="plan-badge plan-free">Free</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">-</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">-</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Mahesh Varma</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">9th Class</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">98XXXX0005</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                <span class="plan-badge plan-free">Free</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">-</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">-</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Kavitha Nair</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">8th Class</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">98XXXX0008</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                <span class="plan-badge plan-free">Free</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">-</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">-</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Bhanu Prasad</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">10th Class</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">98XXXX0010</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                <span class="plan-badge plan-free">Free</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">-</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">-</td>
+                        </tr>
+                         <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Aditya Rao</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">7th Class</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">98XXXX0011</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                <span class="plan-badge plan-free">Free</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">-</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">-</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Sneha Gupta</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">6th Class</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">98XXXX0012</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                <span class="plan-badge plan-free">Free</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">-</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">-</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Rohan Reddy</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">5th Class</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">98XXXX0013</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                <span class="plan-badge plan-free">Free</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">-</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">-</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Meera Desai</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">4th Class</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">98XXXX0014</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                <span class="plan-badge plan-free">Free</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">-</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">-</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Vikram Singh</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">3rd Class</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">98XXXX0015</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                <span class="plan-badge plan-free">Free</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">-</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">-</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Pooja Iyer</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">10th Class</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">98XXXX0016</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                <span class="plan-badge plan-free">Free</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">-</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">-</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Sameer Ali</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">9th Class</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">98XXXX0017</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                <span class="plan-badge plan-free">Free</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">-</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">-</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Geetha Murthy</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">8th Class</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">98XXXX0018</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                <span class="plan-badge plan-free">Free</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">-</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">-</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Tarun Kumar</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">7th Class</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">98XXXX0019</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                <span class="plan-badge plan-free">Free</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">-</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">-</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Divya Shenoy</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">6th Class</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">98XXXX0020</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                <span class="plan-badge plan-free">Free</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">-</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">-</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Harish Patel</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">5th Class</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">98XXXX0021</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                <span class="plan-badge plan-free">Free</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">-</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">-</td>
+                        </tr>
+
+                        <!-- Silver Plans (10) -->
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Anil Reddy</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">9th Class</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">98XXXX0003</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                <span class="plan-badge plan-silver">Silver</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">03 May 2026</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm days-safe">181</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Suresh Babu</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">8th Class</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">98XXXX0007</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                <span class="plan-badge plan-silver">Silver</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">07 May 2026</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm days-safe">181</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Mohan Das</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">7th Class</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">98XXXX0022</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                <span class="plan-badge plan-silver">Silver</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">22 May 2026</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm days-safe">181</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Swathi Pillai</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">6th Class</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">98XXXX0023</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                <span class="plan-badge plan-silver">Silver</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">23 May 2026</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm days-safe">181</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Imran Khan</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">5th Class</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">98XXXX0024</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                <span class="plan-badge plan-silver">Silver</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">24 May 2026</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm days-safe">181</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Prema Kumari</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">4th Class</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">98XXXX0025</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                <span class="plan-badge plan-silver">Silver</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">25 May 2026</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm days-safe">181</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">David John</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">3rd Class</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">98XXXX0026</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                <span class="plan-badge plan-silver">Silver</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">26 May 2026</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm days-safe">181</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Fatima Sheikh</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">10th Class</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">98XXXX0027</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                <span class="plan-badge plan-silver">Silver</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">27 May 2026</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm days-safe">181</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Ganesh Yadav</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">9th Class</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">98XXXX0028</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                <span class="plan-badge plan-silver">Silver</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">28 May 2026</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm days-safe">181</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Varun Bajaj</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">8th Class</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">98XXXX0029</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                <span class="plan-badge plan-silver">Silver</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">29 May 2026</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm days-safe">181</td>
+                        </tr>
+
+                        <!-- Platina Plans (10) -->
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Sunitha Rao</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">7th Class</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">98XXXX0004</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                <span class="plan-badge plan-platina">Platina</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">04 Nov 2026</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm days-safe">365</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Arjun Singh</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">10th Class</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">98XXXX0009</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                <span class="plan-badge plan-platina">Platina</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">09 Nov 2026</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm days-safe">365</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Neha Sharma</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">6th Class</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">98XXXX0030</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                <span class="plan-badge plan-platina">Platina</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">30 Nov 2026</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm days-safe">365</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Karan Mehra</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">5th Class</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">98XXXX0031</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                <span class="plan-badge plan-platina">Platina</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">01 Dec 2026</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm days-safe">365</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Anjali Mishra</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">4th Class</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">98XXXX0032</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                <span class="plan-badge plan-platina">Platina</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">02 Dec 2026</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm days-safe">365</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Rajeshwari</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">3rd Class</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">98XXXX0033</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                <span class="plan-badge plan-platina">Platina</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">03 Dec 2026</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm days-safe">365</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Manoj Tiwari</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">10th Class</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">98XXXX0034</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                <span class="plan-badge plan-platina">Platina</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">04 Dec 2026</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm days-safe">365</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Deepika Jain</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">9th Class</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">98XXXX0035</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                <span class="plan-badge plan-platina">Platina</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">05 Dec 2026</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm days-safe">365</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Balu Mahendra</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">8th Class</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">98XXXX0036</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                <span class="plan-badge plan-platina">Platina</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">06 Dec 2026</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm days-safe">365</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Zoya Akthar</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">7th Class</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">98XXXX0037</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                <span class="plan-badge plan-platina">Platina</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">07 Dec 2026</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm days-safe">365</td>
+                        </tr>
+
+                        <!-- Gold Plans (5) -->
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Ravi Kumar</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">10th Class</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">98XXXX0001</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                <span class="plan-badge plan-gold">Gold</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">01 Nov 2026</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm days-safe">365</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Lakshmi Devi</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">10th Class</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">98XXXX0006</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                <span class="plan-badge plan-gold">Gold</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">06 Nov 2026</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm days-safe">365</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Amar Bhatia</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">9th Class</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">98XXXX0038</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                <span class="plan-badge plan-gold">Gold</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">08 Nov 2026</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm days-safe">365</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Chandu Reddy</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">8th Class</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">98XXXX0039</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                <span class="plan-badge plan-gold">Gold</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">09 Nov 2026</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm days-safe">365</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Esha Verma</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">7th Class</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">98XXXX0040</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                <span class="plan-badge plan-gold">Gold</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">10 Nov 2026</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm days-safe">365</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- END Table Container -->
+        </div>
+        <!-- END 4. LIST SECTION -->
+
+    </main>
+    <!-- ========== MAIN CONTENT END ========== -->
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Get Menu Elements 
+            const menuToggle = document.getElementById('menuToggle');
+            const dynamicMenu = document.getElementById('dynamicMenu');
+
+            // --- Menu Toggle Logic ---
+            if (menuToggle && dynamicMenu) {
+                menuToggle.addEventListener('click', () => {
+                    dynamicMenu.classList.toggle('hidden');
+                });
+            }
+            
+            // Other modal-related script has been removed
+        });
+    </script>
+</body>
+</html>
