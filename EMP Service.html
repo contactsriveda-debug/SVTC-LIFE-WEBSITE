@@ -254,28 +254,27 @@
         
         <header class="bg-sv-blue header-bg shadow-lg">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex justify-between items-center py-3 md:py-4 header-content">
+                <div class="flex flex-col md:flex-row md:justify-between md:items-center py-3 md:py-4 header-content space-y-3 md:space-y-0">
                     
-                    <div class="flex items-center space-x-3 sm:space-x-4">
+                    <div class="flex items-center space-x-3 sm:space-x-4 justify-center md:justify-start">
                         <a href="httpsT://www.svtc.life" target="_blank" class="flex-shrink-0">
                             <img class="h-12 w-12 sm:h-16 sm:w-16 rounded-full border-2 border-sv-yellow shadow-md" 
                                 src="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg" 
                                 alt="Sri Veda Logo">
                         </a>
-                        <div class="text-left">
-                            <h1 class="text-xl sm:text-2xl font-extrabold tracking-wider text-white">
+                        <div class="text-center md:text-left">
+                            <h1 class="text-lg sm:text-2xl font-extrabold tracking-wider text-white">
                                 SRI VEDA TALENT COMPETITION
                             </h1>
-                            <div class="w-2/3 max-w-xs h-0.5 bg-sv-yellow my-0.5 mx-auto sm:mx-0"></div>
+                            <div class="w-2/3 max-w-xs h-0.5 bg-sv-yellow my-0.5 mx-auto md:mx-0"></div>
                             <p class="text-sm sm:text-base font-semibold text-sv-yellow mt-0.5">
                                 "Service Corner"
                             </p>
                         </div>
                     </div>
 
-                    <div class="flex items-center space-x-3 sm:space-x-6 lg:space-x-8">
+                    <div class="flex items-center space-x-3 sm:space-x-6 lg:space-x-8 justify-center md:justify-end">
                         
-                        <!-- REMOVED ICONS AND ADDED LOGOUT BUTTON -->
                         <button id="logoutButton" class="logout-button flex items-center">
                             <i class="fas fa-sign-out-alt mr-2"></i> LOGOUT
                         </button>
@@ -411,7 +410,7 @@
                 
                 <div class="overflow-x-auto">
                     <table class="min-w-full divide-y divide-gray-200">
-                        <thead class="bg-gray-100">
+                        <thead id="registrationThead" class="bg-gray-100">
                             <tr>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Name</th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Class</th>
@@ -472,8 +471,9 @@
             const incomeToday = document.getElementById('incomeToday');
 
             const registrationTbody = document.getElementById('registrationTbody');
+            const registrationThead = document.getElementById('registrationThead'); 
 
-            const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwZdz1YLRxDR2afLa_xBrzV_Lte9VgZxmUir2j-sNDubQBd6pMrmW-OZtvxl4EDtfCs/exec";
+            const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxxu1e4C2SQH__N6Go_5c7b0impsO_eTD_RwAhZJ26CPwbzu4mizs9GDbkvYYfHLIrk/exec";
 
             function getPlanBadge(plan) {
                 if (!plan) return '<span class="plan-badge plan-free">N/A</span>';
@@ -501,6 +501,31 @@
                 }
             }
 
+            function copyToClipboard(text) {
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                textarea.style.position = 'fixed';
+                textarea.style.top = 0;
+                textarea.style.left = 0;
+                textarea.style.opacity = 0;
+                
+                document.body.appendChild(textarea);
+                
+                textarea.focus();
+                textarea.select();
+                
+                let success = false;
+                try {
+                    success = document.execCommand('copy');
+                } catch (err) {
+                    console.error('Fallback: Oops, unable to copy', err);
+                    success = false;
+                }
+                
+                document.body.removeChild(textarea);
+                return success;
+            }
+
             function renderDashboard(data) {
                 profilePhoto.src = data.profile.photo || "https://placehold.co/112x112/E8F0FE/AAAAAA?text=N/A";
                 profileName.textContent = data.profile.name || "-";
@@ -519,9 +544,36 @@
                 incomeWeek.textContent = data.income.week || "₹ 0";
                 incomeToday.textContent = data.income.today || "₹ 0";
 
+                
+                registrationThead.innerHTML = ''; 
+                let headerHtml = `
+                    <tr>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Name</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Class</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Number</th>
+                `;
+                
+                
+                if (currentEmpId === 'EMPBSN' || currentEmpId === 'EMPKNR') {
+                    headerHtml += `<th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Manager Name</th>`;
+                }
+
+                headerHtml += `
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Plan</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Expiration Date</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Remaining Days</th>
+                    </tr>
+                `;
+                registrationThead.innerHTML = headerHtml;
+                
+
                 registrationTbody.innerHTML = '';
+                
+                
+                const colspan = (currentEmpId === 'EMPBSN' || currentEmpId === 'EMPKNR') ? 7 : 6;
+
                 if (!data.registrations || data.registrations.length === 0) {
-                    registrationTbody.innerHTML = '<tr><td colspan="6" class="px-6 py-4 text-center text-gray-500">No registrations found for this employee.</td></tr>';
+                    registrationTbody.innerHTML = `<tr><td colspan="${colspan}" class="px-6 py-4 text-center text-gray-500">No registrations found for this employee.</td></tr>`;
                     return;
                 }
 
@@ -529,11 +581,25 @@
                     const expDate = (reg.plan && reg.plan.toString().toLowerCase() === 'free') ? '-' : (reg.expDate || '-');
                     const remDays = (reg.plan && reg.plan.toString().toLowerCase() === 'free') ? null : reg.remDays;
 
-                    const row = `
+                    let row = `
                         <tr>
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${reg.name || '-'}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">${reg.class || '-'}</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">${reg.number || '-'}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">
+                                <div class="flex items-center justify-start">
+                                    <span>${reg.number || '-'}</span>
+                                    ${ (reg.number && reg.number !== '-') ? `<i class="fas fa-copy copy-icon text-sv-blue hover:text-sv-orange cursor-pointer ml-2" data-number="${reg.number}" title="Copy number"></i>` : '' }
+                                </div>
+                            </td>
+                    `;
+
+                    
+                    
+                    if (currentEmpId === 'EMPBSN' || currentEmpId === 'EMPKNR') {
+                        row += `<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">${reg.managerName || '-'}</td>`;
+                    }
+
+                    row += `
                             <td class="px-6 py-4 whitespace-nowrap text-sm">${getPlanBadge(reg.plan)}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">${expDate}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm">${getRemainingDays(remDays)}</td>
@@ -558,6 +624,18 @@
                 incomeMonth.textContent = "-";
                 incomeWeek.textContent = "-";
                 incomeToday.textContent = "-";
+
+                
+                registrationThead.innerHTML = `
+                    <tr>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Name</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Class</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Number</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Plan</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Expiration Date</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Remaining Days</th>
+                    </tr>
+                `;
                 registrationTbody.innerHTML = '<tr><td colspan="6" class="px-6 py-4 text-center text-gray-500">Authentication failed or data not found.</td></tr>';
             }
 
@@ -590,10 +668,10 @@
             
             async function handleLogout() {
                 if (currentEmpId && currentSessionId) {
-                    // Perform asynchronous cleanup on the server
+                    
                     await performLogout(currentEmpId, currentSessionId);
                 }
-                // Clear client-side state and show login screen
+                
                 resetSession();
             }
 
@@ -634,7 +712,13 @@
 
                 } catch (error) {
                     console.error("Fetch error:", error);
-                    showLoginMessage("Failed to connect to the server. Check URL or network.", true);
+                    
+                    let userErrorMessage = "Failed to connect to the server. Check URL or network.";
+                    if (error instanceof TypeError && error.message.includes("Failed to fetch")) {
+                        userErrorMessage = "Data fetch failed: Could not connect to the server. This may be a CORS or network issue with the Google App Script.";
+                    }
+                    
+                    showLoginMessage(userErrorMessage, true);
                     clearDashboard();
                     return false;
                 }
@@ -660,7 +744,7 @@
                 try {
                     const url = `${WEB_APP_URL}?action=login_start&empId=${empId}&password=${password}&sessionId=${newSessionId}`;
                     const response = await fetch(url);
-                    
+
                     if (!response.ok) {
                         throw new Error(`HTTP error! status: ${response.status}`);
                     }
@@ -690,8 +774,19 @@
 
                 } catch (error) {
                     console.error("Login attempt failed:", error);
-                    showLoginMessage("Login failed due to a network error.", true);
-                    resetSession();
+                    
+                    let userErrorMessage = "Login failed due to a network error.";
+                    if (error instanceof TypeError && error.message.includes("Failed to fetch")) {
+                        userErrorMessage = "Login failed: Could not connect to server. Check network or Google App Script (CORS issue).";
+                    }
+
+                    showLoginMessage(userErrorMessage, true);
+                    
+                    
+                    loginButton.disabled = false;
+                    loginButton.innerHTML = '<i class="fas fa-sign-in-alt mr-2"></i> LOGIN';
+                    passwordInput.value = "";
+                    
                 }
             }
             
@@ -703,6 +798,27 @@
 
             loginForm.addEventListener('submit', handleLogin);
             logoutButton.addEventListener('click', handleLogout);
+
+            registrationTbody.addEventListener('click', (e) => {
+                const icon = e.target.closest('.copy-icon');
+                if (icon) {
+                    const numberToCopy = icon.dataset.number;
+                    if (numberToCopy && numberToCopy !== '-') {
+                        if (copyToClipboard(numberToCopy)) {
+                            icon.classList.remove('fa-copy');
+                            icon.classList.remove('text-sv-blue');
+                            icon.classList.add('fa-check');
+                            icon.classList.add('text-green-500');
+                            setTimeout(() => {
+                                icon.classList.remove('fa-check');
+                                icon.classList.remove('text-green-500');
+                                icon.classList.add('fa-copy');
+                                icon.classList.add('text-sv-blue');
+                            }, 1500);
+                        }
+                    }
+                }
+            });
 
             window.addEventListener('beforeunload', () => {
                 if (currentEmpId && currentSessionId) {
