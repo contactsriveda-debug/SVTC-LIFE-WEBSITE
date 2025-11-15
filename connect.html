@@ -228,12 +228,26 @@
             transform: scale(1.05);
         }
         
+        /* Top Performer Card Styles */
+        .performer-card {
+            background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%);
+            border: 4px solid var(--sv-yellow);
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.5);
+            animation: pulse-border 2s infinite;
+        }
+        @keyframes pulse-border {
+            0% { border-color: #FFD700; box-shadow: 0 10px 20px rgba(255, 215, 0, 0.5); }
+            50% { border-color: #FFA500; box-shadow: 0 15px 30px rgba(255, 165, 0, 0.7); }
+            100% { border-color: #FFD700; box-shadow: 0 10px 20px rgba(255, 215, 0, 0.5); }
+        }
+        
     </style>
 </head>
 <body class="bg-gray-50 antialiased">
 
-    <!-- HEADER SECTION - Re-inserted as requested -->
-    <header class="bg-sv-blue shadow-lg header-bg">
+    <!-- HEADER SECTION -->
+    <header class="bg-sv-blue shadow-lg header-bg mb-4"> <!-- Added mb-4 -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 header-content">
             <div class="flex flex-col md:flex-row items-center justify-between py-3 md:py-2 space-y-3 md:space-y-0 md:h-24">
                 
@@ -252,7 +266,7 @@
                         <div class="w-2/3 max-w-xs h-0.5 bg-sv-yellow my-0.5 mx-auto sm:mx-0"></div>
 
                         <p class="text-sm sm:text-base font-semibold text-sv-yellow mt-0.5">
-                            "BRIGHT CHILD LIFE"
+                            "EMPLOYEE CORNER"
                         </p>
                     </div>
                 </div>
@@ -275,7 +289,7 @@
     </header>
     
     <!-- Dynamic Horizontal Menu Section (Initially hidden) -->
-    <div id="dynamicMenu" class="hidden bg-sv-blue/95 border-b-4 border-sv-yellow transition-all duration-300">
+    <div id="dynamicMenu" class="hidden bg-sv-blue/95 border-b-4 border-sv-yellow transition-all duration-300 mb-6"> <!-- Added mb-6 -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
             <div class="flex flex-wrap justify-center gap-2">
                 
@@ -322,9 +336,52 @@
         </div>
     </div>
     <!-- END Dynamic Horizontal Menu Section -->
+    
+    <!-- START: NEW TOP PERFORMER SECTION -->
+    <section class="py-6 bg-gray-50 mb-8"> <!-- Increased py- and kept mb-8 for gap below -->
+        <div class="max-w-5xl mx-auto px-2 sm:px-6 lg:px-8">
+            <div class="performer-card p-3 sm:p-4 text-center">
+                
+                <h3 class="text-xl sm:text-2xl font-black text-sv-maroon mb-1">
+                    <i class="fas fa-trophy text-sv-yellow mr-2 animate-bounce"></i> 
+                    November Month Best Performer
+                    <i class="fas fa-trophy text-sv-yellow ml-2 animate-bounce"></i>
+                </h3>
+
+                <div class="flex flex-col md:flex-row items-center justify-center space-y-2 md:space-y-0 md:space-x-4 mt-3">
+                    
+                    <!-- Performer Profile -->
+                    <div class="flex flex-col items-center flex-shrink-0">
+                        <!-- Performer Logo/Image (Updated to use Veda logo placeholder) -->
+                        <img src="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg" 
+                             alt="Performer Photo" 
+                             class="w-20 h-20 rounded-full border-4 border-sv-orange shadow-xl object-cover mb-1">
+                        <h4 class="text-xl font-extrabold text-sv-blue">K. NARASIMHA REDDY</h4>
+                        <p class="text-base font-semibold text-sv-orange">Student Relationship Manager</p>
+                    </div>
+
+                    <!-- Congratulatory Message (Reduced for compactness) -->
+                    <div class="md:text-left text-gray-800 max-w-sm">
+                        <p class="text-lg font-bold text-green-700 mb-1">CONGRATULATIONS ON YOUR OUTSTANDING PERFORMANCE!</p>
+                        <p class="text-sm leading-snug">
+                            Your exceptional follow-up and ability to inspire students made you this month's champion. You are a great inspiration to the entire team!
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Flower Icons (Reduced size/margin) -->
+                <div class="flex justify-between mt-2">
+                    <i class="fas fa-certificate text-sv-orange text-3xl transform -rotate-12"></i>
+                    <i class="fas fa-star text-sv-yellow text-3xl"></i>
+                    <i class="fas fa-certificate text-sv-orange text-3xl transform rotate-12"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END: NEW TOP PERFORMER SECTION -->
 
     <!-- RETAINED: EMPLOYEE LOGIN CORNER SECTION (Styling updated for new theme) -->
-    <section class="py-8 mt-8 mb-8 bg-green-300/80 shadow-xl border-b-4 border-sv-orange">
+    <section class="py-8 bg-green-300/80 shadow-xl border-b-4 border-sv-orange mb-12"> <!-- Added mb-12 for a larger gap below -->
         <div class="max-w-5xl mx-auto px-6 text-center">
             <h2 class="text-2xl md:text-3xl font-bold text-green-900 mb-3">Employee Login Corner</h2>
             <p class="text-md text-green-700 mb-6 max-w-2xl mx-auto">
@@ -492,7 +549,6 @@
             const modal = document.getElementById('maintenanceModal');
             const closeModalBtn = document.getElementById('closeModalBtn');
             const readApplyBtn = document.getElementById('readApplyBtn');
-            // const loginBtn = document.getElementById('loginBtn'); // This is now a standard link, no JS needed.
 
             function openModal() {
                 modal.classList.remove('hidden');
@@ -516,8 +572,6 @@
                     openModal();
                 });
             }
-            
-            // The 'loginBtn' click listener is removed, as it's now a direct link.
             
             if (closeModalBtn) {
                 closeModalBtn.addEventListener('click', () => {
