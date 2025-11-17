@@ -906,7 +906,7 @@
         border-bottom: 3px solid #e68e00;
     }
     body {
-        padding-top: 0; /* Changed from 20px */
+        padding-top: 0; 
     }
     .class-selector-box {
         max-width: var(--page-max-width);
@@ -1405,7 +1405,7 @@
     }
     
     .main-section-header {
-        font-size: 1.5rem; /* 24px */
+        font-size: 1.5rem; 
         font-weight: 900;
         color: var(--sv-maroon);
         text-align: center;
@@ -1560,10 +1560,10 @@
     </div>
   </section>
   
-  <section class="free-test-promo-section">
+  <section class="free-test-promo-section" id="free_test_item">
     <h3>Test Your Knowledge for FREE!</h3>
     <p>Take our free test to assess your skills and get a glimpse of our learning platform. No subscription required.</p>
-    <button onclick="startQuiz()">
+    <button onclick="handlePremiumTestClick(this)" data-test-id="free_test">
       <i class="fas fa-play-circle mr-2"></i>Start Free Test
     </button>
   </section>
@@ -1655,609 +1655,605 @@
         <h3 class="main-section-header">Section 1: Core Academic Subjects</h3>
         
         <h4 class="sub-section-header">1. Science (Physics, Chemistry, Biology)</h4>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s1_sci_1_item">
             <span>I. Components of Food</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s1_sci_1')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s1_sci_1">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s1_sci_2_item">
             <span>II. Separation of Substances</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s1_sci_2')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s1_sci_2">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s1_sci_3_item">
             <span>III. Getting to Know Plants</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s1_sci_3')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s1_sci_3">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s1_sci_4_item">
             <span>IV. Body Movements</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s1_sci_4')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s1_sci_4">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s1_sci_5_item">
             <span>V. The Living Organisms and Their Surroundings</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s1_sci_5')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s1_sci_5">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s1_sci_6_item">
             <span>VI. Motion and Measurement of Distances</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s1_sci_6')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s1_sci_6">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s1_sci_7_item">
             <span>VII. Light, Shadows and Reflections</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s1_sci_7')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s1_sci_7">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s1_sci_8_item">
             <span>VIII. Electricity and Circuits</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s1_sci_8')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s1_sci_8">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s1_sci_9_item">
             <span>IX. Water</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s1_sci_9')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s1_sci_9">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s1_sci_10_item">
             <span>X. Changes Around Us</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s1_sci_10')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s1_sci_10">Take Test</button>
         </div>
 
         <h4 class="sub-section-header">2. Mathematics</h4>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s1_mat_1_item">
             <span>I. Knowing Our Numbers</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s1_mat_1')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s1_mat_1">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s1_mat_2_item">
             <span>II. Whole Numbers</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s1_mat_2')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s1_mat_2">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s1_mat_3_item">
             <span>III. Integers</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s1_mat_3')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s1_mat_3">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s1_mat_4_item">
             <span>IV. Fractions</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s1_mat_4')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s1_mat_4">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s1_mat_5_item">
             <span>V. Decimals</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s1_mat_5')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s1_mat_5">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s1_mat_6_item">
             <span>VI. Algebra - Introduction</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s1_mat_6')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s1_mat_6">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s1_mat_7_item">
             <span>VII. Ratio and Proportion</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s1_mat_7')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s1_mat_7">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s1_mat_8_item">
             <span>VIII. Basic Geometrical Ideas</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s1_mat_8')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s1_mat_8">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s1_mat_9_item">
             <span>IX. Understanding Elementary Shapes</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s1_mat_9')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s1_mat_9">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s1_mat_10_item">
             <span>X. Mensuration - Perimeter and Area</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s1_mat_10')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s1_mat_10">Take Test</button>
         </div>
 
         <h4 class="sub-section-header">3. English</h4>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s1_eng_1_item">
             <span>I. Nouns</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s1_eng_1')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s1_eng_1">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s1_eng_2_item">
             <span>II. Pronouns</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s1_eng_2')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s1_eng_2">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s1_eng_3_item">
             <span>III. Verbs and Tenses</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s1_eng_3')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s1_eng_3">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s1_eng_4_item">
             <span>IV. Adjectives</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s1_eng_4')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s1_eng_4">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s1_eng_5_item">
             <span>V. Adverbs</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s1_eng_5')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s1_eng_5">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s1_eng_6_item">
             <span>VI. Prepositions</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s1_eng_6')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s1_eng_6">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s1_eng_7_item">
             <span>VII. Conjunctions</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s1_eng_7')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s1_eng_7">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s1_eng_8_item">
             <span>VIII. Synonyms</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s1_eng_8')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s1_eng_8">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s1_eng_9_item">
             <span>IX. Antonyms</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s1_eng_9')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s1_eng_9">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s1_eng_10_item">
             <span>X. Reading Comprehension</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s1_eng_10')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s1_eng_10">Take Test</button>
         </div>
         
         <h4 class="sub-section-header">4. Computers & Information Technology (Computers & IT)</h4>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s1_com_1_item">
             <span>I. Introduction to Computers</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s1_com_1')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s1_com_1">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s1_com_2_item">
             <span>II. Evolution of Computers</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s1_com_2')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s1_com_2">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s1_com_3_item">
             <span>III. Hardware and Software</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s1_com_3')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s1_com_3">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s1_com_4_item">
             <span>IV. Input and Output Devices</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s1_com_4')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s1_com_4">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s1_com_5_item">
             <span>V. Memory and Storage</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s1_com_5')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s1_com_5">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s1_com_6_item">
             <span>VI. MS-Word (Basics)</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s1_com_6')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s1_com_6">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s1_com_7_item">
             <span>VII. MS-PowerPoint (Basics)</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s1_com_7')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s1_com_7">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s1_com_8_item">
             <span>VIII. MS-Excel (Basics)</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s1_com_8')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s1_com_8">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s1_com_9_item">
             <span>IX. Internet and E-mail</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s1_com_9')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s1_com_9">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s1_com_10_item">
             <span>X. Windows Operating System</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s1_com_10')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s1_com_10">Take Test</button>
         </div>
         
         <!-- SECTION 2: LOGICAL REASONING & MENTAL ABILITY -->
         <h3 class="main-section-header">Section 2: Logical Reasoning & Mental Ability</h3>
         
         <h4 class="sub-section-header">1. Logical Reasoning (General)</h4>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s2_log_1_item">
             <span>I. Series Completion</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s2_log_1')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s2_log_1">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s2_log_2_item">
             <span>II. Analogy</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s2_log_2')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s2_log_2">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s2_log_3_item">
             <span>III. Classification</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s2_log_3')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s2_log_3">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s2_log_4_item">
             <span>IV. Coding-Decoding</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s2_log_4')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s2_log_4">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s2_log_5_item">
             <span>V. Direction Sense Test</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s2_log_5')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s2_log_5">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s2_log_6_item">
             <span>VI. Ranking Test</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s2_log_6')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s2_log_6">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s2_log_7_item">
             <span>VII. Puzzles</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s2_log_7')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s2_log_7">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s2_log_8_item">
             <span>VIII. Pattern Completion</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s2_log_8')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s2_log_8">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s2_log_9_item">
             <span>IX. Mirror Images</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s2_log_9')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s2_log_9">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s2_log_10_item">
             <span>X. Blood Relations</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s2_log_10')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s2_log_10">Take Test</button>
         </div>
         
         <h4 class="sub-section-header">2. Verbal Reasoning</h4>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s2_vrb_1_item">
             <span>I. Number Series</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s2_vrb_1')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s2_vrb_1">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s2_vrb_2_item">
             <span>II. Letter Series</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s2_vrb_2')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s2_vrb_2">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s2_vrb_3_item">
             <span>III. Word Analogy</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s2_vrb_3')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s2_vrb_3">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s2_vrb_4_item">
             <span>IV. Word Classification</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s2_vrb_4')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s2_vrb_4">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s2_vrb_5_item">
             <span>V. Coding-Decoding</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s2_vrb_5')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s2_vrb_5">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s2_vrb_6_item">
             <span>VI. Blood Relations</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s2_vrb_6')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s2_vrb_6">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s2_vrb_7_item">
             <span>VII. Direction Puzzles</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s2_vrb_7')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s2_vrb_7">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s2_vrb_8_item">
             <span>VIII. Calendar and Clock</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s2_vrb_8')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s2_vrb_8">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s2_vrb_9_item">
             <span>IX. Ranking Test</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s2_vrb_9')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s2_vrb_9">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s2_vrb_10_item">
             <span>X. Word Formation</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s2_vrb_10')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s2_vrb_10">Take Test</button>
         </div>
 
         <h4 class="sub-section-header">3. Non-Verbal Reasoning</h4>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s2_non_1_item">
             <span>I. Figure Series</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s2_non_1')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s2_non_1">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s2_non_2_item">
             <span>II. Figure Analogy</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s2_non_2')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s2_non_2">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s2_non_3_item">
             <span>III. Figure Classification</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s2_non_3')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s2_non_3">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s2_non_4_item">
             <span>IV. Mirror Images</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s2_non_4')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s2_non_4">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s2_non_5_item">
             <span>V. Water Images</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s2_non_5')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s2_non_5">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s2_non_6_item">
             <span>VI. Embedded Figures</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s2_non_6')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s2_non_6">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s2_non_7_item">
             <span>VII. Figure Completion</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s2_non_7')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s2_non_7">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s2_non_8_item">
             <span>VIII. Paper Folding</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s2_non_8')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s2_non_8">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s2_non_9_item">
             <span>IX. Paper Cutting</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s2_non_9')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s2_non_9">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s2_non_10_item">
             <span>X. Cubes and Dice</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s2_non_10')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s2_non_10">Take Test</button>
         </div>
 
         <h4 class="sub-section-header">4. Mental Ability (This combines both verbal and non-verbal)</h4>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s2_men_1_item">
             <span>I. Number Series</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s2_men_1')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s2_men_1">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s2_men_2_item">
             <span>II. Letter Series</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s2_men_2')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s2_men_2">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s2_men_3_item">
             <span>III. Coding-Decoding</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s2_men_3')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s2_men_3">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s2_men_4_item">
             <span>IV. Odd One Out</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s2_men_4')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s2_men_4">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s2_men_5_item">
             <span>V. Analogy</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s2_men_5')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s2_men_5">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s2_men_6_item">
             <span>VI. Ranking Test</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s2_men_6')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s2_men_6">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s2_men_7_item">
             <span>VII. Figure Patterns</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s2_men_7')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s2_men_7">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s2_men_8_item">
             <span>VIII. Mirror Images</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s2_men_8')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s2_men_8">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s2_men_9_item">
             <span>IX. Directions</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s2_men_9')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s2_men_9">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s2_men_10_item">
             <span>X. Blood Relations</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s2_men_10')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s2_men_10">Take Test</button>
         </div>
 
         <!-- SECTION 3: GENERAL KNOWLEDGE -->
         <h3 class="main-section-header">Section 3: General Knowledge</h3>
         
         <h4 class="sub-section-header">1. General Awareness</h4>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s3_gen_1_item">
             <span>I. Indian States and Capitals</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s3_gen_1')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s3_gen_1">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s3_gen_2_item">
             <span>II. Important Books and Authors</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s3_gen_2')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s3_gen_2">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s3_gen_3_item">
             <span>III. Inventions and Inventors</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s3_gen_3')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s3_gen_3">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s3_gen_4_item">
             <span>IV. Sports and Trophies</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s3_gen_4')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s3_gen_4">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s3_gen_5_item">
             <span>V. National Symbols</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s3_gen_5')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s3_gen_5">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s3_gen_6_item">
             <span>VI. Historical Monuments</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s3_gen_6')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s3_gen_6">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s3_gen_7_item">
             <span>VII. Plants and Animals</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s3_gen_7')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s3_gen_7">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s3_gen_8_item">
             <span>VIII. Our Solar System</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s3_gen_8')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s3_gen_8">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s3_gen_9_item">
             <span>IX. Important Days</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s3_gen_9')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s3_gen_9">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s3_gen_10_item">
             <span>X. Indian History (Basics)</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s3_gen_10')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s3_gen_10">Take Test</button>
         </div>
         
         <h4 class="sub-section-header">2. Current Affairs</h4>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s3_cur_1_item">
             <span>I. Current National News</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s3_cur_1')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s3_cur_1">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s3_cur_2_item">
             <span>II. Current International News</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s3_cur_2')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s3_cur_2">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s3_cur_3_item">
             <span>III. Recent Awards and Honors</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s3_cur_3')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s3_cur_3">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s3_cur_4_item">
             <span>IV. Sports News</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s3_cur_4')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s3_cur_4">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s3_cur_5_item">
             <span>V. Government Schemes</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s3_cur_5')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s3_cur_5">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s3_cur_6_item">
             <span>VI. Developments in Science & Tech</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s3_cur_6')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s3_cur_6">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s3_cur_7_item">
             <span>VII. Important Appointments</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s3_cur_7')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s3_cur_7">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s3_cur_8_item">
             <span>VIII. Environmental News</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s3_cur_8')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s3_cur_8">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s3_cur_9_item">
             <span>IX. Personalities in News</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s3_cur_9')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s3_cur_9">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s3_cur_10_item">
             <span>X. Summits and Conferences</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s3_cur_10')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s3_cur_10">Take Test</button>
         </div>
 
         <h4 class="sub-section-header">3. General Questions (Combines basic GK and Science)</h4>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s3_que_1_item">
             <span>I. Our Environment</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s3_que_1')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s3_que_1">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s3_que_2_item">
             <span>II. Health and Hygiene</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s3_que_2')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s3_que_2">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s3_que_3_item">
             <span>III. Safety Rules</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s3_que_3')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s3_que_3">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s3_que_4_item">
             <span>IV. Society and Civic Life</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s3_que_4')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s3_que_4">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s3_que_5_item">
             <span>V. Wonders of the World</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s3_que_5')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s3_que_5">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s3_que_6_item">
             <span>VI. Universe</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s3_que_6')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s3_que_6">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s3_que_7_item">
             <span>VII. Weather and Climate</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s3_que_7')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s3_que_7">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s3_que_8_item">
             <span>VIII. Indian Culture</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s3_que_8')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s3_que_8">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s3_que_9_item">
             <span>IX. Famous Inventions</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s3_que_9')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s3_que_9">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s3_que_10_item">
             <span>X. Food Habits</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s3_que_10')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s3_que_10">Take Test</button>
         </div>
         
         <!-- SECTION 4: APPLIED SKILLS & SPECIAL TOPICS -->
         <h3 class="main-section-header">Section 4: Applied Skills & Special Topics</h3>
 
         <h4 class="sub-section-header">1. Everyday Mathematics (This is an application of Mathematics)</h4>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s4_eve_1_item">
             <span>I. Money Calculations</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s4_eve_1')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s4_eve_1">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s4_eve_2_item">
             <span>II. Time and Work</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s4_eve_2')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s4_eve_2">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s4_eve_3_item">
             <span>III. Distance and Speed</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s4_eve_3')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s4_eve_3">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s4_eve_4_item">
             <span>IV. Profit and Loss (Basics)</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s4_eve_4')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s4_eve_4">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s4_eve_5_item">
             <span>V. Measurement (Length, Weight, Capacity)</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s4_eve_5')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s4_eve_5">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s4_eve_6_item">
             <span>VI. Calendar</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s4_eve_6')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s4_eve_6">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s4_eve_7_item">
             <span>VII. Clock</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s4_eve_7')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s4_eve_7">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s4_eve_8_item">
             <span>VIII. Age Problems</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s4_eve_8')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s4_eve_8">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s4_eve_9_item">
             <span>IX. Unitary Method</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s4_eve_9')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s4_eve_9">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s4_eve_10_item">
             <span>X. Billing and Discounts</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s4_eve_10')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s4_eve_10">Take Test</button>
         </div>
         
         <h4 class="sub-section-header">2. Achievers Section (This is a type of question, testing these skills)</h4>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s4_ach_1_item">
             <span>I. Analytical Skills</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s4_ach_1')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s4_ach_1">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s4_ach_2_item">
             <span>II. Application-based questions</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s4_ach_2')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s4_ach_2">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s4_ach_3_item">
             <span>III. Problem-Solving Skills</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s4_ach_3')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s4_ach_3">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s4_ach_4_item">
             <span>IV. Multi-concept questions</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s4_ach_4')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s4_ach_4">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s4_ach_5_item">
             <span>V. Case Studies</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s4_ach_5')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s4_ach_5">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s4_ach_6_item">
             <span>VI. Data Interpretation</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s4_ach_6')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s4_ach_6">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s4_ach_7_item">
             <span>VII. Critical Thinking</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s4_ach_7')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s4_ach_7">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s4_ach_8_item">
             <span>VIII. Complex Calculations</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s4_ach_8')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s4_ach_8">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s4_ach_9_item">
             <span>IX. In-depth Understanding</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s4_ach_9')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s4_ach_9">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s4_ach_10_item">
             <span>X. Logical Deduction</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s4_ach_10')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s4_ach_10">Take Test</button>
         </div>
         
         <h4 class="sub-section-header">3. Life Skills</h4>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s4_lif_1_item">
             <span>I. Moral Values</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s4_lif_1')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s4_lif_1">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s4_lif_2_item">
             <span>II. Empathy</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s4_lif_2')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s4_lif_2">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s4_lif_3_item">
             <span>III. Communication Skills</span>
-            <button classV="btn-test" onclick="handlePremiumTestClick('s4_lif_3')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s4_lif_3">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s4_lif_4_item">
             <span>IV. Decision Making</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s4_lif_4')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s4_lif_4">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s4_lif_5_item">
             <span>V. Problem Solving</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s4_lif_5')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s4_lif_5">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s4_lif_6_item">
             <span>VI. Leadership</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s4_lif_6')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s4_lif_6">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s4_lif_7_item">
             <span>VII. Teamwork</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s4_lif_7')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s4_lif_7">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s4_lif_8_item">
             <span>VIII. Time Management</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s4_lif_8')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s4_lif_8">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s4_lif_9_item">
             <span>IX. Stress Management</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s4_lif_9')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s4_lif_9">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" id="s4_lif_10_item">
             <span>X. Kindness</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('s4_lif_10')">Take Test</button>
+            <button class="btn-test" onclick="handlePremiumTestClick(this)" data-test-id="s4_lif_10">Take Test</button>
         </div>
 
     </div>
   </section>
   
-  
-
-  <!-- The 'Student Subject Tests Corner' section previously here has been removed. -->
-
   <section class="profile-section">
     <h2>Student Profile</h2>
     <ul class="profile-list">
@@ -2329,13 +2325,13 @@
                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                 <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
             </svg>
-            <p class="mt-4 font-semibold text-lg text-gray-600">Loading Free Test...</p>
+            <p class="mt-4 font-semibold text-lg text-gray-600">Loading Test...</p>
             <p class="text-gray-500">Please wait while we fetch the questions.</p>
         </div>
         
         <div id="quizInterface" class="hidden">
             <div class="quiz-header">
-                <h2 id="quizHeaderTitle">Free Test: Question 1 of 15</h2>
+                <h2 id="quizHeaderTitle">Test Title: Question 1 of 15</h2>
                 <button class="quiz-close-btn" onclick="closeQuiz(true)">×</button>
             </div>
             <div class="quiz-body">
@@ -2363,17 +2359,19 @@
             <p class="results-feedback" id="resultsFeedback">Excellent</p>
 
             <div class="results-summary">
-                <div class="summary-item">
-                    <span class="summary-label">Correct</span>
-                    <span class="summary-value value-correct" id="resultsCorrect">12</span>
-                </div>
-                <div class="summary-item">
-                    <span class="summary-label">Wrong</span>
-                    <span class="summary-value value-wrong" id="resultsWrong">3</span>
-                </div>
-                <div class="summary-item">
-                    <span class="summary-label">Unanswered</span>
-                    <span class="summary-value" id="resultsUnanswered">0</span>
+                <div class="results-summary-inner flex justify-center gap-4">
+                    <div class="summary-item">
+                        <span class="summary-label">Correct</span>
+                        <span class="summary-value value-correct" id="resultsCorrect">12</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">Wrong</span>
+                        <span class="summary-value value-wrong" id="resultsWrong">3</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">Unanswered</span>
+                        <span class="summary-value" id="resultsUnanswered">0</span>
+                    </div>
                 </div>
             </div>
             
@@ -2464,6 +2462,7 @@
 </footer>
     <script>
     const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwxkXhT-S-ig4Ngrm-VpMmuhWQ1ZKadSLLx_FLDRHE6B_VJjJJEw9mjqu-G3unppbyk/exec";
+    const QUIZ_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec/exec";
     const LOCK_ICON_SVG = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="inline-block mr-1" viewBox="0 0 16 16" style="margin-bottom: 2px;">
             <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/>
         </svg>`;
@@ -2487,7 +2486,6 @@
     const profileFullName = document.getElementById('profileFullName');
     const profileClass = document.getElementById('profileClass');
     const subFullName = document.getElementById('subFullName');
-    /* studentSubjectTestsSection variable removed */
     const profileFatherName = document.getElementById('profileFatherName');
     const profileMobile = document.getElementById('profileMobile');
     const profileSchool = document.getElementById('profileSchool');
@@ -2499,7 +2497,12 @@
     const subDaysLeft = document.getElementById('subDaysLeft');
     const subscriptionBadge = document.getElementById('subscriptionBadge'); 
     let studentClass = 0;
-    /* urlMap variable removed */
+    
+    // --- New State Variables for Scroll/Redirection ---
+    let lastScrollPosition = 0; 
+    let lastClickedElementId = null; 
+    let currentTestConfig = {}; // Stores the config object {url, title, section, topic}
+
     function pad(n){return n.toString().padStart(2,'0')}
     function updateTime(){
         const now=new Date();
@@ -2554,13 +2557,59 @@
     function openPricingPage() {
         window.open('https://www.svtc.life/Pricing.html', '_blank');
     }
+    
+    // --- Single Session Logic ---
+    let sessionCheckInterval;
+    function handleLogout(external = false) {
+        if (!external) {
+            localStorage.removeItem('sessionId');
+            localStorage.removeItem('loggedInUser');
+        }
+        
+        sessionStorage.clear();
+        session = 0;
+        updateSession();
+        loggedOutIcons.forEach(icon => icon.classList.remove('hidden')); 
+        loggedInControls.classList.add('hidden');
+        liveTime.classList.add('hidden');
+        sessionTimer.classList.add('hidden');
+        logoutBtn.classList.add('hidden'); 
+        dashboardContent.classList.add('hidden');
+        loginScreen.classList.remove('hidden');
+        loginForm.reset();
+        statusMessage.classList.add('hidden');
+        studentClass = 0; 
+        updatePremiumButtonsVisuals(false);
+
+        if (external) {
+             showStatus("You have been logged out because you logged in on another browser or tab.", false);
+        }
+    }
+
+    function startSessionPolling() {
+        if (sessionCheckInterval) clearInterval(sessionCheckInterval);
+
+        sessionCheckInterval = setInterval(() => {
+            const currentSessionId = localStorage.getItem('sessionId');
+            const isLoggedIn = sessionStorage.getItem('isLoggedIn') === 'true';
+            const sessionStartId = sessionStorage.getItem('sessionStartId'); 
+
+            if (isLoggedIn && (!currentSessionId || currentSessionId !== sessionStartId)) {
+                handleLogout(true);
+            } else if (!isLoggedIn && currentSessionId) {
+                localStorage.removeItem('sessionId');
+                localStorage.removeItem('loggedInUser');
+            }
+        }, 5000); 
+    }
+    // --- End Single Session Logic ---
+
     async function handleLogin(event) {
         event.preventDefault();
         setLoading(true);
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
         
-        // Change: Create a JSON object
         const bodyData = {
             username: username,
             password: password
@@ -2571,10 +2620,8 @@
                 method: 'POST',
                 mode: 'cors',
                 headers: {
-                    // Change: Send as 'text/plain' to avoid CORS pre-flight
                     'Content-Type': 'text/plain;charset=utf-8'
                 },
-                // Change: Send the stringified JSON object
                 body: JSON.stringify(bodyData)
             });
             const result = await response.json();
@@ -2586,6 +2633,14 @@
                 }
 
                 showStatus("Login successful!", true);
+                
+                // --- Single Session Logic: Set Unique Session ID ---
+                const sessionId = Date.now().toString(36) + Math.random().toString(36).substring(2); 
+                localStorage.setItem('sessionId', sessionId);
+                localStorage.setItem('loggedInUser', result.username);
+                sessionStorage.setItem('sessionStartId', sessionId); 
+                // --- End Single Session Logic ---
+
                 sessionStorage.setItem('isLoggedIn', 'true');
                 sessionStorage.setItem('username', result.username); 
                 sessionStorage.setItem('fullName', result.fullName); 
@@ -2616,24 +2671,23 @@
             setLoading(false);
         }
     }
-    function handleLogout() {
-        sessionStorage.clear();
-        session = 0;
-        updateSession();
-        loggedOutIcons.forEach(icon => icon.classList.remove('hidden')); 
-        loggedInControls.classList.add('hidden');
-        liveTime.classList.add('hidden');
-        sessionTimer.classList.add('hidden');
-        logoutBtn.classList.add('hidden'); 
-        dashboardContent.classList.add('hidden');
-        loginScreen.classList.remove('hidden');
-        loginForm.reset();
-        statusMessage.classList.add('hidden');
-        studentClass = 0; 
-        updatePremiumButtonsVisuals(false);
-    }
+
     function checkLoginStatus() {
+        // --- Single Session Logic: Clear ID on close/refresh ---
+        window.addEventListener('beforeunload', function() {
+            if (sessionStorage.getItem('isLoggedIn') === 'true') {
+                 const currentSessionId = localStorage.getItem('sessionId');
+                 const sessionStartId = sessionStorage.getItem('sessionStartId');
+                 if(currentSessionId && currentSessionId === sessionStartId) {
+                     localStorage.removeItem('sessionId');
+                     localStorage.removeItem('loggedInUser');
+                 }
+            }
+        });
+        // --- End Single Session Logic ---
+
         if (sessionStorage.getItem('isLoggedIn') === 'true') {
+            startSessionPolling(); // Start check on load
             showDashboard();
         } else {
             loggedOutIcons.forEach(icon => icon.classList.remove('hidden')); 
@@ -2642,8 +2696,13 @@
             loginScreen.classList.remove('hidden');
         }
     }
+
     function showDashboard() {
         window.scrollTo(0, 0);
+
+        // Ensure session polling starts whenever dashboard is shown
+        startSessionPolling(); 
+
         const username = sessionStorage.getItem('username') || 'N/A';
         const fullName = sessionStorage.getItem('fullName') || 'N/A';
         const classString = sessionStorage.getItem('class') || 'N/A';
@@ -2744,16 +2803,12 @@
         subscriptionBadge.classList.add(badgeClass);
         subscriptionBadge.textContent = displayText;
 
-        /* setupSubjectButtons() call removed */
         updatePremiumButtonsVisuals(isPremium);
         animateTCRing();
         loginScreen.classList.add('hidden');
         dashboardContent.classList.remove('hidden');
-        /* check for studentSubjectTestsSection removed */
     }
     
-    /* setupSubjectButtons function removed */
-
     function animateTCRing() {
         const tcPercentEl = document.getElementById('tcPercent');
         const tcLiveBarEl = document.getElementById('tcLiveBar');
@@ -2775,175 +2830,175 @@
             console.warn('TC Ring elements not found.');
         }
     }
-
-    const externalUrlMap = {
-    };
     
+    // --- Updated Quiz Config with Section and Topic Numbers ---
     const quizTestConfig = {
+        'free_test': { url: QUIZ_SCRIPT_URL + '?sheet=FREE', title: 'Free Test', section: null, topic: null },
         // Section 1: Core Academic Subjects
-        // 1. Science
-        's1_sci_1': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S111', title: 'Components of Food' },
-        's1_sci_2': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S112', title: 'Separation of Substances' },
-        's1_sci_3': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S113', title: 'Getting to Know Plants' },
-        's1_sci_4': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S114', title: 'Body Movements' },
-        's1_sci_5': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S115', title: 'The Living Organisms and Their Surroundings' },
-        's1_sci_6': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S116', title: 'Motion and Measurement of Distances' },
-        's1_sci_7': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S117', title: 'Light, Shadows and Reflections' },
-        's1_sci_8': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S118', title: 'Electricity and Circuits' },
-        's1_sci_9': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S119', title: 'Water' },
-        's1_sci_10': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S1110', title: 'Changes Around Us' },
-        // 2. Mathematics
-        's1_mat_1': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S121', title: 'Knowing Our Numbers' },
-        's1_mat_2': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S122', title: 'Whole Numbers' },
-        's1_mat_3': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S123', title: 'Integers' },
-        's1_mat_4': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S124', title: 'Fractions' },
-        's1_mat_5': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S125', title: 'Decimals' },
-        's1_mat_6': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S126', title: 'Algebra - Introduction' },
-        's1_mat_7': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S127', title: 'Ratio and Proportion' },
-        's1_mat_8': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S128', title: 'Basic Geometrical Ideas' },
-        's1_mat_9': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S129', title: 'Understanding Elementary Shapes' },
-        's1_mat_10': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S1210', title: 'Mensuration - Perimeter and Area' },
-        // 3. English
-        's1_eng_1': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S131', title: 'Nouns' },
-        's1_eng_2': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S132', title: 'Pronouns' },
-        's1_eng_3': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S133', title: 'Verbs and Tenses' },
-        's1_eng_4': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S134', title: 'Adjectives' },
-        's1_eng_5': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S135', title: 'Adverbs' },
-        's1_eng_6': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S136', title: 'Prepositions' },
-        's1_eng_7': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S137', title: 'Conjunctions' },
-        's1_eng_8': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S138', title: 'Synonyms' },
-        's1_eng_9': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S139', title: 'Antonyms' },
-        's1_eng_10': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S1310', title: 'Reading Comprehension' },
-        // 4. Computers & IT
-        's1_com_1': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S141', title: 'Introduction to Computers' },
-        's1_com_2': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S142', title: 'Evolution of Computers' },
-        's1_com_3': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S143', title: 'Hardware and Software' },
-        's1_com_4': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S144', title: 'Input and Output Devices' },
-        's1_com_5': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S145', title: 'Memory and Storage' },
-        's1_com_6': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S146', title: 'MS-Word (Basics)' },
-        's1_com_7': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S147', title: 'MS-PowerPoint (Basics)' },
-        's1_com_8': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S148', title: 'MS-Excel (Basics)' },
-        's1_com_9': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S149', title: 'Internet and E-mail' },
-        's1_com_10': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S1410', title: 'Windows Operating System' },
+        // 1. Science (S1.1)
+        's1_sci_1': { url: QUIZ_SCRIPT_URL + '?sheet=S111', title: 'Components of Food', section: 1, topic: 1 },
+        's1_sci_2': { url: QUIZ_SCRIPT_URL + '?sheet=S112', title: 'Separation of Substances', section: 1, topic: 2 },
+        's1_sci_3': { url: QUIZ_SCRIPT_URL + '?sheet=S113', title: 'Getting to Know Plants', section: 1, topic: 3 },
+        's1_sci_4': { url: QUIZ_SCRIPT_URL + '?sheet=S114', title: 'Body Movements', section: 1, topic: 4 },
+        's1_sci_5': { url: QUIZ_SCRIPT_URL + '?sheet=S115', title: 'The Living Organisms and Their Surroundings', section: 1, topic: 5 },
+        's1_sci_6': { url: QUIZ_SCRIPT_URL + '?sheet=S116', title: 'Motion and Measurement of Distances', section: 1, topic: 6 },
+        's1_sci_7': { url: QUIZ_SCRIPT_URL + '?sheet=S117', title: 'Light, Shadows and Reflections', section: 1, topic: 7 },
+        's1_sci_8': { url: QUIZ_SCRIPT_URL + '?sheet=S118', title: 'Electricity and Circuits', section: 1, topic: 8 },
+        's1_sci_9': { url: QUIZ_SCRIPT_URL + '?sheet=S119', title: 'Water', section: 1, topic: 9 },
+        's1_sci_10': { url: QUIZ_SCRIPT_URL + '?sheet=S1110', title: 'Changes Around Us', section: 1, topic: 10 },
+        // 2. Mathematics (S1.2)
+        's1_mat_1': { url: QUIZ_SCRIPT_URL + '?sheet=S121', title: 'Knowing Our Numbers', section: 1, topic: 11 },
+        's1_mat_2': { url: QUIZ_SCRIPT_URL + '?sheet=S122', title: 'Whole Numbers', section: 1, topic: 12 },
+        's1_mat_3': { url: QUIZ_SCRIPT_URL + '?sheet=S123', title: 'Integers', section: 1, topic: 13 },
+        's1_mat_4': { url: QUIZ_SCRIPT_URL + '?sheet=S124', title: 'Fractions', section: 1, topic: 14 },
+        's1_mat_5': { url: QUIZ_SCRIPT_URL + '?sheet=S125', title: 'Decimals', section: 1, topic: 15 },
+        's1_mat_6': { url: QUIZ_SCRIPT_URL + '?sheet=S126', title: 'Algebra - Introduction', section: 1, topic: 16 },
+        's1_mat_7': { url: QUIZ_SCRIPT_URL + '?sheet=S127', title: 'Ratio and Proportion', section: 1, topic: 17 },
+        's1_mat_8': { url: QUIZ_SCRIPT_URL + '?sheet=S128', title: 'Basic Geometrical Ideas', section: 1, topic: 18 },
+        's1_mat_9': { url: QUIZ_SCRIPT_URL + '?sheet=S129', title: 'Understanding Elementary Shapes', section: 1, topic: 19 },
+        's1_mat_10': { url: QUIZ_SCRIPT_URL + '?sheet=S1210', title: 'Mensuration - Perimeter and Area', section: 1, topic: 20 },
+        // 3. English (S1.3)
+        's1_eng_1': { url: QUIZ_SCRIPT_URL + '?sheet=S131', title: 'Nouns', section: 1, topic: 21 },
+        's1_eng_2': { url: QUIZ_SCRIPT_URL + '?sheet=S132', title: 'Pronouns', section: 1, topic: 22 },
+        's1_eng_3': { url: QUIZ_SCRIPT_URL + '?sheet=S133', title: 'Verbs and Tenses', section: 1, topic: 23 },
+        's1_eng_4': { url: QUIZ_SCRIPT_URL + '?sheet=S134', title: 'Adjectives', section: 1, topic: 24 },
+        's1_eng_5': { url: QUIZ_SCRIPT_URL + '?sheet=S135', title: 'Adverbs', section: 1, topic: 25 },
+        's1_eng_6': { url: QUIZ_SCRIPT_URL + '?sheet=S136', title: 'Prepositions', section: 1, topic: 26 },
+        's1_eng_7': { url: QUIZ_SCRIPT_URL + '?sheet=S137', title: 'Conjunctions', section: 1, topic: 27 },
+        's1_eng_8': { url: QUIZ_SCRIPT_URL + '?sheet=S138', title: 'Synonyms', section: 1, topic: 28 },
+        's1_eng_9': { url: QUIZ_SCRIPT_URL + '?sheet=S139', title: 'Antonyms', section: 1, topic: 29 },
+        's1_eng_10': { url: QUIZ_SCRIPT_URL + '?sheet=S1310', title: 'Reading Comprehension', section: 1, topic: 30 },
+        // 4. Computers & IT (S1.4)
+        's1_com_1': { url: QUIZ_SCRIPT_URL + '?sheet=S141', title: 'Introduction to Computers', section: 1, topic: 31 },
+        's1_com_2': { url: QUIZ_SCRIPT_URL + '?sheet=S142', title: 'Evolution of Computers', section: 1, topic: 32 },
+        's1_com_3': { url: QUIZ_SCRIPT_URL + '?sheet=S143', title: 'Hardware and Software', section: 1, topic: 33 },
+        's1_com_4': { url: QUIZ_SCRIPT_URL + '?sheet=S144', title: 'Input and Output Devices', section: 1, topic: 34 },
+        's1_com_5': { url: QUIZ_SCRIPT_URL + '?sheet=S145', title: 'Memory and Storage', section: 1, topic: 35 },
+        's1_com_6': { url: QUIZ_SCRIPT_URL + '?sheet=S146', title: 'MS-Word (Basics)', section: 1, topic: 36 },
+        's1_com_7': { url: QUIZ_SCRIPT_URL + '?sheet=S147', title: 'MS-PowerPoint (Basics)', section: 1, topic: 37 },
+        's1_com_8': { url: QUIZ_SCRIPT_URL + '?sheet=S148', title: 'MS-Excel (Basics)', section: 1, topic: 38 },
+        's1_com_9': { url: QUIZ_SCRIPT_URL + '?sheet=S149', title: 'Internet and E-mail', section: 1, topic: 39 },
+        's1_com_10': { url: QUIZ_SCRIPT_URL + '?sheet=S1410', title: 'Windows Operating System', section: 1, topic: 40 },
         
-        // Section 2: Logical Reasoning & Mental Ability
-        // 1. Logical Reasoning (General)
-        's2_log_1': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S211', title: 'Series Completion' },
-        's2_log_2': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S212', title: 'Analogy' },
-        's2_log_3': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S213', title: 'Classification' },
-        's2_log_4': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S214', title: 'Coding-Decoding' },
-        's2_log_5': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S215', title: 'Direction Sense Test' },
-        's2_log_6': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S216', title: 'Ranking Test' },
-        's2_log_7': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S217', title: 'Puzzles' },
-        's2_log_8': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S218', title: 'Pattern Completion' },
-        's2_log_9': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S219', title: 'Mirror Images' },
-        's2_log_10': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S2110', title: 'Blood Relations' },
-        // 2. Verbal Reasoning
-        's2_vrb_1': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S221', title: 'Number Series' },
-        's2_vrb_2': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S222', title: 'Letter Series' },
-        's2_vrb_3': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S223', title: 'Word Analogy' },
-        's2_vrb_4': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S224', title: 'Word Classification' },
-        's2_vrb_5': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S225', title: 'Coding-Decoding' },
-        's2_vrb_6': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S226', title: 'Blood Relations' },
-        's2_vrb_7': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S227', title: 'Direction Puzzles' },
-        's2_vrb_8': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S228', title: 'Calendar and Clock' },
-        's2_vrb_9': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S229', title: 'Ranking Test' },
-        's2_vrb_10': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S2210', title: 'Word Formation' },
-        // 3. Non-Verbal Reasoning
-        's2_non_1': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S231', title: 'Figure Series' },
-        's2_non_2': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S232', title: 'Figure Analogy' },
-        's2_non_3': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S233', title: 'Figure Classification' },
-        's2_non_4': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S234', title: 'Mirror Images' },
-        's2_non_5': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S235', title: 'Water Images' },
-        's2_non_6': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S236', title: 'Embedded Figures' },
-        's2_non_7': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S237', title: 'Figure Completion' },
-        's2_non_8': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S238', title: 'Paper Folding' },
-        's2_non_9': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S239', title: 'Paper Cutting' },
-        's2_non_10': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S2310', title: 'Cubes and Dice' },
-        // 4. Mental Ability
-        's2_men_1': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S241', title: 'Number Series' },
-        's2_men_2': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S242', title: 'Letter Series' },
-        's2_men_3': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S243', title: 'Coding-Decoding' },
-        's2_men_4': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S244', title: 'Odd One Out' },
-        's2_men_5': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S245', title: 'Analogy' },
-        's2_men_6': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S246', title: 'Ranking Test' },
-        's2_men_7': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S247', title: 'Figure Patterns' },
-        's2_men_8': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S248', title: 'Mirror Images' },
-        's2_men_9': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S249', title: 'Directions' },
-        's2_men_10': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S2410', title: 'Blood Relations' },
+        // Section 2: Logical Reasoning & Mental Ability (S2)
+        // 1. Logical Reasoning (General) (S2.1)
+        's2_log_1': { url: QUIZ_SCRIPT_URL + '?sheet=S211', title: 'Series Completion', section: 2, topic: 1 },
+        's2_log_2': { url: QUIZ_SCRIPT_URL + '?sheet=S212', title: 'Analogy', section: 2, topic: 2 },
+        's2_log_3': { url: QUIZ_SCRIPT_URL + '?sheet=S213', title: 'Classification', section: 2, topic: 3 },
+        's2_log_4': { url: QUIZ_SCRIPT_URL + '?sheet=S214', title: 'Coding-Decoding', section: 2, topic: 4 },
+        's2_log_5': { url: QUIZ_SCRIPT_URL + '?sheet=S215', title: 'Direction Sense Test', section: 2, topic: 5 },
+        's2_log_6': { url: QUIZ_SCRIPT_URL + '?sheet=S216', title: 'Ranking Test', section: 2, topic: 6 },
+        's2_log_7': { url: QUIZ_SCRIPT_URL + '?sheet=S217', title: 'Puzzles', section: 2, topic: 7 },
+        's2_log_8': { url: QUIZ_SCRIPT_URL + '?sheet=S218', title: 'Pattern Completion', section: 2, topic: 8 },
+        's2_log_9': { url: QUIZ_SCRIPT_URL + '?sheet=S219', title: 'Mirror Images', section: 2, topic: 9 },
+        's2_log_10': { url: QUIZ_SCRIPT_URL + '?sheet=S2110', title: 'Blood Relations', section: 2, topic: 10 },
+        // 2. Verbal Reasoning (S2.2)
+        's2_vrb_1': { url: QUIZ_SCRIPT_URL + '?sheet=S221', title: 'Number Series', section: 2, topic: 11 },
+        's2_vrb_2': { url: QUIZ_SCRIPT_URL + '?sheet=S222', title: 'Letter Series', section: 2, topic: 12 },
+        's2_vrb_3': { url: QUIZ_SCRIPT_URL + '?sheet=S223', title: 'Word Analogy', section: 2, topic: 13 },
+        's2_vrb_4': { url: QUIZ_SCRIPT_URL + '?sheet=S224', title: 'Word Classification', section: 2, topic: 14 },
+        's2_vrb_5': { url: QUIZ_SCRIPT_URL + '?sheet=S225', title: 'Coding-Decoding', section: 2, topic: 15 },
+        's2_vrb_6': { url: QUIZ_SCRIPT_URL + '?sheet=S226', title: 'Blood Relations', section: 2, topic: 16 },
+        's2_vrb_7': { url: QUIZ_SCRIPT_URL + '?sheet=S227', title: 'Direction Puzzles', section: 2, topic: 17 },
+        's2_vrb_8': { url: QUIZ_SCRIPT_URL + '?sheet=S228', title: 'Calendar and Clock', section: 2, topic: 18 },
+        's2_vrb_9': { url: QUIZ_SCRIPT_URL + '?sheet=S229', title: 'Ranking Test', section: 2, topic: 19 },
+        's2_vrb_10': { url: QUIZ_SCRIPT_URL + '?sheet=S2210', title: 'Word Formation', section: 2, topic: 20 },
+        // 3. Non-Verbal Reasoning (S2.3)
+        's2_non_1': { url: QUIZ_SCRIPT_URL + '?sheet=S231', title: 'Figure Series', section: 2, topic: 21 },
+        's2_non_2': { url: QUIZ_SCRIPT_URL + '?sheet=S232', title: 'Figure Analogy', section: 2, topic: 22 },
+        's2_non_3': { url: QUIZ_SCRIPT_URL + '?sheet=S233', title: 'Figure Classification', section: 2, topic: 23 },
+        's2_non_4': { url: QUIZ_SCRIPT_URL + '?sheet=S234', title: 'Mirror Images', section: 2, topic: 24 },
+        's2_non_5': { url: QUIZ_SCRIPT_URL + '?sheet=S235', title: 'Water Images', section: 2, topic: 25 },
+        's2_non_6': { url: QUIZ_SCRIPT_URL + '?sheet=S236', title: 'Embedded Figures', section: 2, topic: 26 },
+        's2_non_7': { url: QUIZ_SCRIPT_URL + '?sheet=S237', title: 'Figure Completion', section: 2, topic: 27 },
+        's2_non_8': { url: QUIZ_SCRIPT_URL + '?sheet=S238', title: 'Paper Folding', section: 2, topic: 28 },
+        's2_non_9': { url: QUIZ_SCRIPT_URL + '?sheet=S239', title: 'Paper Cutting', section: 2, topic: 29 },
+        's2_non_10': { url: QUIZ_SCRIPT_URL + '?sheet=S2310', title: 'Cubes and Dice', section: 2, topic: 30 },
+        // 4. Mental Ability (S2.4)
+        's2_men_1': { url: QUIZ_SCRIPT_URL + '?sheet=S241', title: 'Number Series', section: 2, topic: 31 },
+        's2_men_2': { url: QUIZ_SCRIPT_URL + '?sheet=S242', title: 'Letter Series', section: 2, topic: 32 },
+        's2_men_3': { url: QUIZ_SCRIPT_URL + '?sheet=S243', title: 'Coding-Decoding', section: 2, topic: 33 },
+        's2_men_4': { url: QUIZ_SCRIPT_URL + '?sheet=S244', title: 'Odd One Out', section: 2, topic: 34 },
+        's2_men_5': { url: QUIZ_SCRIPT_URL + '?sheet=S245', title: 'Analogy', section: 2, topic: 35 },
+        's2_men_6': { url: QUIZ_SCRIPT_URL + '?sheet=S246', title: 'Ranking Test', section: 2, topic: 36 },
+        's2_men_7': { url: QUIZ_SCRIPT_URL + '?sheet=S247', title: 'Figure Patterns', section: 2, topic: 37 },
+        's2_men_8': { url: QUIZ_SCRIPT_URL + '?sheet=S248', title: 'Mirror Images', section: 2, topic: 38 },
+        's2_men_9': { url: QUIZ_SCRIPT_URL + '?sheet=S249', title: 'Directions', section: 2, topic: 39 },
+        's2_men_10': { url: QUIZ_SCRIPT_URL + '?sheet=S2410', title: 'Blood Relations', section: 2, topic: 40 },
 
-        // Section 3: General Knowledge
-        // 1. General Awareness
-        's3_gen_1': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S311', title: 'Indian States and Capitals' },
-        's3_gen_2': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S312', title: 'Important Books and Authors' },
-        's3_gen_3': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S313', title: 'Inventions and Inventors' },
-        's3_gen_4': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S314', title: 'Sports and Trophies' },
-        's3_gen_5': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S315', title: 'National Symbols' },
-        's3_gen_6': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S316', title: 'Historical Monuments' },
-        's3_gen_7': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S317', title: 'Plants and Animals' },
-        's3_gen_8': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S318', title: 'Our Solar System' },
-        's3_gen_9': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S319', title: 'Important Days' },
-        's3_gen_10': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S3110', title: 'Indian History (Basics)' },
-        // 2. Current Affairs
-        's3_cur_1': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S321', title: 'Current National News' },
-        's3_cur_2': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S322', title: 'Current International News' },
-        's3_cur_3': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S323', title: 'Recent Awards and Honors' },
-        's3_cur_4': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S324', title: 'Sports News' },
-        's3_cur_5': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S325', title: 'Government Schemes' },
-        's3_cur_6': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S326', title: 'Developments in Science & Tech' },
-        's3_cur_7': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S327', title: 'Important Appointments' },
-        's3_cur_8': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S328', title: 'Environmental News' },
-        's3_cur_9': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S329', title: 'Personalities in News' },
-        's3_cur_10': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S3210', title: 'Summits and Conferences' },
-        // 3. General Questions
-        's3_que_1': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S331', title: 'Our Environment' },
-        's3_que_2': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S332', title: 'Health and Hygiene' },
-        's3_que_3': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S333', title: 'Safety Rules' },
-        's3_que_4': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S334', title: 'Society and Civic Life' },
-        's3_que_5': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S335', title: 'Wonders of the World' },
-        's3_que_6': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S336', title: 'Universe' },
-        's3_que_7': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S337', title: 'Weather and Climate' },
-        's3_que_8': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S338', title: 'Indian Culture' },
-        's3_que_9': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S339', title: 'Famous Inventions' },
-        's3_que_10': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S3310', title: 'Food Habits' },
+        // Section 3: General Knowledge (S3)
+        // 1. General Awareness (S3.1)
+        's3_gen_1': { url: QUIZ_SCRIPT_URL + '?sheet=S311', title: 'Indian States and Capitals', section: 3, topic: 1 },
+        's3_gen_2': { url: QUIZ_SCRIPT_URL + '?sheet=S312', title: 'Important Books and Authors', section: 3, topic: 2 },
+        's3_gen_3': { url: QUIZ_SCRIPT_URL + '?sheet=S313', title: 'Inventions and Inventors', section: 3, topic: 3 },
+        's3_gen_4': { url: QUIZ_SCRIPT_URL + '?sheet=S314', title: 'Sports and Trophies', section: 3, topic: 4 },
+        's3_gen_5': { url: QUIZ_SCRIPT_URL + '?sheet=S315', title: 'National Symbols', section: 3, topic: 5 },
+        's3_gen_6': { url: QUIZ_SCRIPT_URL + '?sheet=S316', title: 'Historical Monuments', section: 3, topic: 6 },
+        's3_gen_7': { url: QUIZ_SCRIPT_URL + '?sheet=S317', title: 'Plants and Animals', section: 3, topic: 7 },
+        's3_gen_8': { url: QUIZ_SCRIPT_URL + '?sheet=S318', title: 'Our Solar System', section: 3, topic: 8 },
+        's3_gen_9': { url: QUIZ_SCRIPT_URL + '?sheet=S319', title: 'Important Days', section: 3, topic: 9 },
+        's3_gen_10': { url: QUIZ_SCRIPT_URL + '?sheet=S3110', title: 'Indian History (Basics)', section: 3, topic: 10 },
+        // 2. Current Affairs (S3.2)
+        's3_cur_1': { url: QUIZ_SCRIPT_URL + '?sheet=S321', title: 'Current National News', section: 3, topic: 11 },
+        's3_cur_2': { url: QUIZ_SCRIPT_URL + '?sheet=S322', title: 'Current International News', section: 3, topic: 12 },
+        's3_cur_3': { url: QUIZ_SCRIPT_URL + '?sheet=S323', title: 'Recent Awards and Honors', section: 3, topic: 13 },
+        's3_cur_4': { url: QUIZ_SCRIPT_URL + '?sheet=S324', title: 'Sports News', section: 3, topic: 14 },
+        's3_cur_5': { url: QUIZ_SCRIPT_URL + '?sheet=S325', title: 'Government Schemes', section: 3, topic: 15 },
+        's3_cur_6': { url: QUIZ_SCRIPT_URL + '?sheet=S326', title: 'Developments in Science & Tech', section: 3, topic: 16 },
+        's3_cur_7': { url: QUIZ_SCRIPT_URL + '?sheet=S327', title: 'Important Appointments', section: 3, topic: 17 },
+        's3_cur_8': { url: QUIZ_SCRIPT_URL + '?sheet=S328', title: 'Environmental News', section: 3, topic: 18 },
+        's3_cur_9': { url: QUIZ_SCRIPT_URL + '?sheet=S329', title: 'Personalities in News', section: 3, topic: 19 },
+        's3_cur_10': { url: QUIZ_SCRIPT_URL + '?sheet=S3210', title: 'Summits and Conferences', section: 3, topic: 20 },
+        // 3. General Questions (S3.3)
+        's3_que_1': { url: QUIZ_SCRIPT_URL + '?sheet=S331', title: 'Our Environment', section: 3, topic: 21 },
+        's3_que_2': { url: QUIZ_SCRIPT_URL + '?sheet=S332', title: 'Health and Hygiene', section: 3, topic: 22 },
+        's3_que_3': { url: QUIZ_SCRIPT_URL + '?sheet=S333', title: 'Safety Rules', section: 3, topic: 23 },
+        's3_que_4': { url: QUIZ_SCRIPT_URL + '?sheet=S334', title: 'Society and Civic Life', section: 3, topic: 24 },
+        's3_que_5': { url: QUIZ_SCRIPT_URL + '?sheet=S335', title: 'Wonders of the World', section: 3, topic: 25 },
+        's3_que_6': { url: QUIZ_SCRIPT_URL + '?sheet=S336', title: 'Universe', section: 3, topic: 26 },
+        's3_que_7': { url: QUIZ_SCRIPT_URL + '?sheet=S337', title: 'Weather and Climate', section: 3, topic: 27 },
+        's3_que_8': { url: QUIZ_SCRIPT_URL + '?sheet=S338', title: 'Indian Culture', section: 3, topic: 28 },
+        's3_que_9': { url: QUIZ_SCRIPT_URL + '?sheet=S339', title: 'Famous Inventions', section: 3, topic: 29 },
+        's3_que_10': { url: QUIZ_SCRIPT_URL + '?sheet=S3310', title: 'Food Habits', section: 3, topic: 30 },
         
-        // Section 4: Applied Skills & Special Topics
-        // 1. Everyday Mathematics
-        's4_eve_1': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S41', title: 'Money Calculations' },
-        's4_eve_2': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S42', title: 'Time and Work' },
-        's4_eve_3': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S43', title: 'Distance and Speed' },
-        's4_eve_4': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S44', title: 'Profit and Loss (Basics)' },
-        's4_eve_5': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S45', title: 'Measurement (Length, Weight, Capacity)' },
-        's4_eve_6': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S46', title: 'Calendar' },
-        's4_eve_7': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S47', title: 'Clock' },
-        's4_eve_8': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S48', title: 'Age Problems' },
-        's4_eve_9': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S49', title: 'Unitary Method' },
-        's4_eve_10': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S410', title: 'Billing and Discounts' },
-        // 2. Achievers Section
-        's4_ach_1': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S421', title: 'Analytical Skills' },
-        's4_ach_2': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S422', title: 'Application-based questions' },
-        's4_ach_3': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S423', title: 'Problem-Solving Skills' },
-        's4_ach_4': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S424', title: 'Multi-concept questions' },
-        's4_ach_5': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S425', title: 'Case Studies' },
-        's4_ach_6': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S426', title: 'Data Interpretation' },
-        's4_ach_7': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S427', title: 'Critical Thinking' },
-        's4_ach_8': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S428', title: 'Complex Calculations' },
-        's4_ach_9': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S429', title: 'In-depth Understanding' },
-        's4_ach_10': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S4210', title: 'Logical Deduction' },
-        // 3. Life Skills
-        's4_lif_1': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S431', title: 'Moral Values' },
-        's4_lif_2': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S432', title: 'Empathy' },
-        's4_lif_3': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S433', title: 'Communication Skills' },
-        's4_lif_4': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S434', title: 'Decision Making' },
-        's4_lif_5': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S435', title: 'Problem Solving' },
-        's4_lif_6': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S436', title: 'Leadership' },
-        's4_lif_7': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S437', title: 'Teamwork' },
-        's4_lif_8': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S438', title: 'Time Management' },
-        's4_lif_9': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S439', title: 'Stress Management' },
-        's4_lif_10': { url: 'https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=S4310', title: 'Kindness' },
+        // Section 4: Applied Skills & Special Topics (S4)
+        // 1. Everyday Mathematics (S4.1)
+        's4_eve_1': { url: QUIZ_SCRIPT_URL + '?sheet=S411', title: 'Money Calculations', section: 4, topic: 1 },
+        's4_eve_2': { url: QUIZ_SCRIPT_URL + '?sheet=S412', title: 'Time and Work', section: 4, topic: 2 },
+        's4_eve_3': { url: QUIZ_SCRIPT_URL + '?sheet=S413', title: 'Distance and Speed', section: 4, topic: 3 },
+        's4_eve_4': { url: QUIZ_SCRIPT_URL + '?sheet=S414', title: 'Profit and Loss (Basics)', section: 4, topic: 4 },
+        's4_eve_5': { url: QUIZ_SCRIPT_URL + '?sheet=S415', title: 'Measurement (Length, Weight, Capacity)', section: 4, topic: 5 },
+        's4_eve_6': { url: QUIZ_SCRIPT_URL + '?sheet=S416', title: 'Calendar', section: 4, topic: 6 },
+        's4_eve_7': { url: QUIZ_SCRIPT_URL + '?sheet=S417', title: 'Clock', section: 4, topic: 7 },
+        's4_eve_8': { url: QUIZ_SCRIPT_URL + '?sheet=S418', title: 'Age Problems', section: 4, topic: 8 },
+        's4_eve_9': { url: QUIZ_SCRIPT_URL + '?sheet=S419', title: 'Unitary Method', section: 4, topic: 9 },
+        's4_eve_10': { url: QUIZ_SCRIPT_URL + '?sheet=S4110', title: 'Billing and Discounts', section: 4, topic: 10 },
+        // 2. Achievers Section (S4.2)
+        's4_ach_1': { url: QUIZ_SCRIPT_URL + '?sheet=S421', title: 'Analytical Skills', section: 4, topic: 11 },
+        's4_ach_2': { url: QUIZ_SCRIPT_URL + '?sheet=S422', title: 'Application-based questions', section: 4, topic: 12 },
+        's4_ach_3': { url: QUIZ_SCRIPT_URL + '?sheet=S423', title: 'Problem-Solving Skills', section: 4, topic: 13 },
+        's4_ach_4': { url: QUIZ_SCRIPT_URL + '?sheet=S424', title: 'Multi-concept questions', section: 4, topic: 14 },
+        's4_ach_5': { url: QUIZ_SCRIPT_URL + '?sheet=S425', title: 'Case Studies', section: 4, topic: 15 },
+        's4_ach_6': { url: QUIZ_SCRIPT_URL + '?sheet=S426', title: 'Data Interpretation', section: 4, topic: 16 },
+        's4_ach_7': { url: QUIZ_SCRIPT_URL + '?sheet=S427', title: 'Critical Thinking', section: 4, topic: 17 },
+        's4_ach_8': { url: QUIZ_SCRIPT_URL + '?sheet=S428', title: 'Complex Calculations', section: 4, topic: 18 },
+        's4_ach_9': { url: QUIZ_SCRIPT_URL + '?sheet=S429', title: 'In-depth Understanding', section: 4, topic: 19 },
+        's4_ach_10': { url: QUIZ_SCRIPT_URL + '?sheet=S4210', title: 'Logical Deduction', section: 4, topic: 20 },
+        // 3. Life Skills (S4.3)
+        's4_lif_1': { url: QUIZ_SCRIPT_URL + '?sheet=S431', title: 'Moral Values', section: 4, topic: 21 },
+        's4_lif_2': { url: QUIZ_SCRIPT_URL + '?sheet=S432', title: 'Empathy', section: 4, topic: 22 },
+        's4_lif_3': { url: QUIZ_SCRIPT_URL + '?sheet=S433', title: 'Communication Skills', section: 4, topic: 23 },
+        's4_lif_4': { url: QUIZ_SCRIPT_URL + '?sheet=S434', title: 'Decision Making', section: 4, topic: 24 },
+        's4_lif_5': { url: QUIZ_SCRIPT_URL + '?sheet=S435', title: 'Problem Solving', section: 4, topic: 25 },
+        's4_lif_6': { url: QUIZ_SCRIPT_URL + '?sheet=S436', title: 'Leadership', section: 4, topic: 26 },
+        's4_lif_7': { url: QUIZ_SCRIPT_URL + '?sheet=S437', title: 'Teamwork', section: 4, topic: 27 },
+        's4_lif_8': { url: QUIZ_SCRIPT_URL + '?sheet=S438', title: 'Time Management', section: 4, topic: 28 },
+        's4_lif_9': { url: QUIZ_SCRIPT_URL + '?sheet=S439', title: 'Stress Management', section: 4, topic: 29 },
+        's4_lif_10': { url: QUIZ_SCRIPT_URL + '?sheet=S4310', title: 'Kindness', section: 4, topic: 30 },
     };
+    // --- End Updated Quiz Config ---
 
-    /* handleTestClick function removed */
+    const externalUrlMap = {};
 
     function updatePremiumButtonsVisuals(isPremium) {
         const premiumButtons = document.querySelectorAll('.subject-tests .sub-topic-item .btn-test');
@@ -2961,33 +3016,39 @@
         });
     }
 
-    function handlePremiumTestClick(testId) {
+    function handlePremiumTestClick(buttonElement) {
+        const testId = buttonElement.getAttribute('data-test-id');
         const isPremium = sessionStorage.getItem('isPremium') === 'true';
 
-        if (!isPremium) {
+        if (testId !== 'free_test' && !isPremium) {
             showServerMaintenance('This is a premium feature. Please upgrade your plan to access.');
             return; 
         }
 
         if (quizTestConfig[testId]) {
-            const config = quizTestConfig[testId];
-            startQuiz(config.url, config.title);
+            // --- Save Scroll Position and Element ID (Fix 1) ---
+            lastScrollPosition = window.scrollY;
+            lastClickedElementId = buttonElement.closest('section, .sub-topic-item').id || 'dashboardContent';
+            
+            currentTestConfig = quizTestConfig[testId]; // Set the config globally
+            startQuiz(currentTestConfig.url, currentTestConfig.title);
         } else if (externalUrlMap[testId]) {
             const url = externalUrlMap[testId];
             console.log(`Navigating to test: ${url}`);
             window.open(url, '_blank');
         } else {
             console.warn(`No URL or Quiz Config found for testId: ${testId}`);
+            showServerMaintenance('This test is currently unavailable.');
         }
     }
 
     function handlePlanClick(planType) {
         const urls = {
-            'take_plan': 'https://example.com/plans/subscribe',
-            'renew_plan': 'https://example.com/plans/renew',
-            'update_plan': 'https://example.com/plans/update'
+            'take_plan': 'https://www.svtc.life/Pricing.html', 
+            'renew_plan': 'https://www.svtc.life/Contact.html', 
+            'update_plan': 'https://www.svtc.life/Contact.html' 
         };
-        const url = urls[planType] || 'https://example.com/plans';
+        const url = urls[planType] || 'https://www.svtc.life/Pricing.html';
         console.log(`Plan action: ${planType}, URL: ${url}`);
         window.open(url, '_blank');
     }
@@ -2995,24 +3056,13 @@
 
     let allQuestions = [];
     let userAnswers = {}; 
-    let currentTestTitle = "Free Test"; 
     let currentQuestionIndex = 0;
     
-    const freeQuizApiUrl = "https://script.google.com/macros/s/AKfycbz9HmpC2E-4abXCdrkGwl1uF6gnla_M-IvP7Kq1grdRjnwq1_Ij-trPuacoBGpPctE/exec?sheet=FREE";
+    const freeQuizApiUrl = QUIZ_SCRIPT_URL + "?sheet=FREE";
     
     const correctOptionMap = {
-        "ONE": 1,
-        "TWO": 2,
-        "THREE": 3,
-        "FOUR": 4,
-        "1": 1, 
-        "2": 2,
-        "3": 3,
-        "4": 4,
-        "OPTION 1": 1,
-        "OPTION 2": 2,
-        "OPTION 3": 3,
-        "OPTION 4": 4
+        "ONE": 1, "TWO": 2, "THREE": 3, "FOUR": 4, "1": 1, "2": 2, "3": 3, "4": 4,
+        "OPTION 1": 1, "OPTION 2": 2, "OPTION 3": 3, "OPTION 4": 4
     };
     
     const quizOverlay = document.getElementById('quizOverlay');
@@ -3033,8 +3083,6 @@
         dashboardContent.style.display = 'none';
         quizOverlay.style.display = 'block';
         
-        currentTestTitle = testTitle;
-        
         quizInterface.classList.add('hidden');
         quizResults.classList.add('hidden');
         quizReview.classList.add('hidden');
@@ -3043,6 +3091,11 @@
         allQuestions = [];
         userAnswers = {};
         currentQuestionIndex = 0;
+        
+        // Ensure currentTestConfig is set for free test if not coming from handlePremiumTestClick
+        if (apiUrl === freeQuizApiUrl) {
+            currentTestConfig = quizTestConfig['free_test'];
+        }
 
         fetchQuestions(apiUrl); 
     }
@@ -3085,8 +3138,18 @@
 
         currentQuestionIndex = index;
         const question = allQuestions[index];
+        
+        // --- Updated Quiz Title Logic (Fix 2) ---
+        let titlePrefix = currentTestConfig.title;
+        if (currentTestConfig.section && currentTestConfig.topic) {
+             titlePrefix = `S${currentTestConfig.section}.T${currentTestConfig.topic} - ${currentTestConfig.title}`;
+        } else if (currentTestConfig.title) {
+            titlePrefix = currentTestConfig.title;
+        }
 
-        quizHeaderTitle.textContent = `${currentTestTitle}: Question ${index + 1} of ${allQuestions.length}`;
+        quizHeaderTitle.textContent = `${titlePrefix}: Question ${index + 1} of ${allQuestions.length}`;
+        // --- End of Updated Quiz Title Logic ---
+
         quizQuestionText.textContent = question.question;
 
         quizOptions.innerHTML = ''; 
@@ -3272,14 +3335,24 @@
         quizResults.classList.add('hidden');
         quizReview.classList.add('hidden');
         quizLoading.classList.remove('hidden'); 
+        
+        // --- Scroll back to the original position (Fix 1) ---
+        if (lastClickedElementId) {
+            const targetElement = document.getElementById(lastClickedElementId);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } else {
+                window.scrollTo({ top: lastScrollPosition, behavior: 'smooth' });
+            }
+            lastClickedElementId = null; 
+            lastScrollPosition = 0; 
+        }
     }
 
     
-    /* window.handleTestClick removed */
     window.handlePremiumTestClick = handlePremiumTestClick; 
     window.startQuiz = startQuiz; 
     window.handlePlanClick = handlePlanClick; 
-    /* window.takeTest removed */
     window.showServerMaintenance = showServerMaintenance;
     window.openPricingPage = openPricingPage; 
     document.addEventListener('DOMContentLoaded', () => {
@@ -3296,5 +3369,4 @@
     });
 </script>
 </body>
-
 </html>
