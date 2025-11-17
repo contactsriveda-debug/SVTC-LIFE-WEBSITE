@@ -751,7 +751,7 @@
       padding: 15px; 
       background: #f9f8ff;
       border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       border: 1px solid #e0d9f5 
     }
     .student-subject-tests h2 { text-align: center;font-size: clamp(1.4rem, 2.5vw, 1.8rem);color: #4a148c;text-transform: uppercase;letter-spacing: 1px;margin-bottom: 20px;font-weight: 800;text-decoration: underline;text-underline-offset: 6px;text-decoration-thickness: 2px }
@@ -906,7 +906,7 @@
         border-bottom: 3px solid #e68e00;
     }
     body {
-        padding-top: 0; /* Changed from 20px */
+        padding-top: 0; 
     }
     .class-selector-box {
         max-width: var(--page-max-width);
@@ -1544,7 +1544,7 @@
   <section class="free-test-promo-section">
     <h3>Test Your Knowledge for FREE!</h3>
     <p>Take our free test to assess your skills and get a glimpse of our learning platform. No subscription required.</p>
-    <button onclick="startQuiz()">
+    <button onclick="startQuiz('free_test')">
       <i class="fas fa-play-circle mr-2"></i>Start Free Test
     </button>
   </section>
@@ -1626,7 +1626,7 @@
     </div>
   </section>
   
-  <section class="subject-tests" style="max-width: var(--page-max-width); margin-left: auto; margin-right: auto; padding-left: 16px; padding-right: 16px;">
+  <section class="subject-tests" id="premiumSection" style="max-width: var(--page-max-width); margin-left: auto; margin-right: auto; padding-left: 16px; padding-right: 16px;">
     <div class="premium-section-header">
       <span>Premium Section</span>
     </div>
@@ -1636,135 +1636,135 @@
         <p class="passage-intro">
             Welcome, 4th Grade Champions! This General Awareness section is your magical window to the amazing world around you. Learning about our country, festivals, and great leaders is not just for exams—it makes you a super-smart citizen! Every topic you learn here is a new power. When you know about seasons, good habits, or different helpers, you understand how everything works. These topics build a strong foundation for all your future exams and make you confident. So, read with curiosity, learn with joy, and click 'Take Test' to show everyone the star you are!
         </p>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" data-section="1" data-topic="1" id="ga_topic_1_item">
             <span>1. Our Country and Its Symbols</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('ga_topic_1')">Take Test</button>
+            <button class="btn-test" data-test-id="ga_topic_1" onclick="handlePremiumTestClick(this)">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" data-section="1" data-topic="2" id="ga_topic_2_item">
             <span>2. Important Festivals of India</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('ga_topic_2')">Take Test</button>
+            <button class="btn-test" data-test-id="ga_topic_2" onclick="handlePremiumTestClick(this)">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" data-section="1" data-topic="3" id="ga_topic_3_item">
             <span>3. Famous Places Around the World</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('ga_topic_3')">Take Test</button>
+            <button class="btn-test" data-test-id="ga_topic_3" onclick="handlePremiumTestClick(this)">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" data-section="1" data-topic="4" id="ga_topic_4_item">
             <span>4. Seasons and Weather</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('ga_topic_4')">Take Test</button>
+            <button class="btn-test" data-test-id="ga_topic_4" onclick="handlePremiumTestClick(this)">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" data-section="1" data-topic="5" id="ga_topic_5_item">
             <span>5. Great Leaders of India</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('ga_topic_5')">Take Test</button>
+            <button class="btn-test" data-test-id="ga_topic_5" onclick="handlePremiumTestClick(this)">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" data-section="1" data-topic="6" id="ga_topic_6_item">
             <span>6. Our Helpers in Daily Life</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('ga_topic_6')">Take Test</button>
+            <button class="btn-test" data-test-id="ga_topic_6" onclick="handlePremiumTestClick(this)">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" data-section="1" data-topic="7" id="ga_topic_7_item">
             <span>7. Healthy Food and Good Habits</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('ga_topic_7')">Take Test</button>
+            <button class="btn-test" data-test-id="ga_topic_7" onclick="handlePremiumTestClick(this)">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" data-section="1" data-topic="8" id="ga_topic_8_item">
             <span>8. Means of Transport</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('ga_topic_8')">Take Test</button>
+            <button class="btn-test" data-test-id="ga_topic_8" onclick="handlePremiumTestClick(this)">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" data-section="1" data-topic="9" id="ga_topic_9_item">
             <span>9. Plants and Their Uses</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('ga_topic_9')">Take Test</button>
+            <button class="btn-test" data-test-id="ga_topic_9" onclick="handlePremiumTestClick(this)">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" data-section="1" data-topic="10" id="ga_topic_10_item">
             <span>10. Animals and Their Homes</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('ga_topic_10')">Take Test</button>
+            <button class="btn-test" data-test-id="ga_topic_10" onclick="handlePremiumTestClick(this)">Take Test</button>
         </div>
       
         <h4 class="sub-section-header">Section 2: General Maths Learn & Tests</h4>
         <p class="passage-intro">
             Hello, 4th Grade Math Whizzes! Get ready to play with numbers. This section is your training ground to become a problem-solving superstar. Maths is not scary; it's a game! When you master addition, subtraction, and multiplication tables, you unlock the power to solve any puzzle. Learning about shapes, time, and money helps you in real life every single day. For 4th graders, these are the most important building blocks. Practice them well, and you'll be faster and smarter in all your exams. Don't just learn, play with maths! Click 'Take Test' and show us your brilliant mind!
         </p>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" data-section="2" data-topic="1" id="gm_topic_1_item">
             <span>1. Numbers and Number Names</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('gm_topic_1')">Take Test</button>
+            <button class="btn-test" data-test-id="gm_topic_1" onclick="handlePremiumTestClick(this)">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" data-section="2" data-topic="2" id="gm_topic_2_item">
             <span>2. Addition and Subtraction</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('gm_topic_2')">Take Test</button>
+            <button class="btn-test" data-test-id="gm_topic_2" onclick="handlePremiumTestClick(this)">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" data-section="2" data-topic="3" id="gm_topic_3_item">
             <span>3. Multiplication Tables (1 to 10)</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('gm_topic_3')">Take Test</button>
+            <button class="btn-test" data-test-id="gm_topic_3" onclick="handlePremiumTestClick(this)">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" data-section="2" data-topic="4" id="gm_topic_4_item">
             <span>4. Division – Sharing Equally</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('gm_topic_4')">Take Test</button>
+            <button class="btn-test" data-test-id="gm_topic_4" onclick="handlePremiumTestClick(this)">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" data-section="2" data-topic="5" id="gm_topic_5_item">
             <span>5. Shapes and Patterns</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('gm_topic_5')">Take Test</button>
+            <button class="btn-test" data-test-id="gm_topic_5" onclick="handlePremiumTestClick(this)">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" data-section="2" data-topic="6" id="gm_topic_6_item">
             <span>6. Measurement of Length, Weight, and Time</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('gm_topic_6')">Take Test</button>
+            <button class="btn-test" data-test-id="gm_topic_6" onclick="handlePremiumTestClick(this)">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" data-section="2" data-topic="7" id="gm_topic_7_item">
             <span>7. Money – Coins and Notes</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('gm_topic_7')">Take Test</button>
+            <button class="btn-test" data-test-id="gm_topic_7" onclick="handlePremiumTestClick(this)">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" data-section="2" data-topic="8" id="gm_topic_8_item">
             <span>8. Days, Weeks, Months, and Calendar</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('gm_topic_8')">Take Test</button>
+            <button class="btn-test" data-test-id="gm_topic_8" onclick="handlePremiumTestClick(this)">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" data-section="2" data-topic="9" id="gm_topic_9_item">
             <span>9. Odd and Even Numbers</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('gm_topic_9')">Take Test</button>
+            <button class="btn-test" data-test-id="gm_topic_9" onclick="handlePremiumTestClick(this)">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" data-section="2" data-topic="10" id="gm_topic_10_item">
             <span>10. Simple Word Problems</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('gm_topic_10')">Take Test</button>
+            <button class="btn-test" data-test-id="gm_topic_10" onclick="handlePremiumTestClick(this)">Take Test</button>
         </div>
 
         <h4 class="sub-section-header">Section 3: Advanced Maths for Entrance Exams</h4>
         <p class="passage-intro">
             Are you ready for a challenge, 4th Grade Genius? This Advanced Maths section is for future leaders like you who want to be extra sharp! These topics—like fractions, mental math tricks, and logical puzzles—are your secret tools for acing tough entrance exams. Learning these skills in 4th grade puts you way ahead of everyone else. It teaches your brain to think faster, find patterns, and solve problems that others can't. This is your first step towards becoming a true scholar. Believe in yourself, focus hard, and try these advanced tests. Your future self will thank you!
         </p>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" data-section="3" data-topic="1" id="am_topic_1_item">
             <span>1. Mental Math Tricks (Addition & Subtraction)</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('am_topic_1')">Take Test</button>
+            <button class="btn-test" data-test-id="am_topic_1" onclick="handlePremiumTestClick(this)">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" data-section="3" data-topic="2" id="am_topic_2_item">
             <span>2. Introduction to Fractions</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('am_topic_2')">Take Test</button>
+            <button class="btn-test" data-test-id="am_topic_2" onclick="handlePremiumTestClick(this)">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" data-section="3" data-topic="3" id="am_topic_3_item">
             <span>3. Place Value and Face Value</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('am_topic_3')">Take Test</button>
+            <button class="btn-test" data-test-id="am_topic_3" onclick="handlePremiumTestClick(this)">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" data-section="3" data-topic="4" id="am_topic_4_item">
             <span>4. Simple Geometry – Lines and Angles</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('am_topic_4')">Take Test</button>
+            <button class="btn-test" data-test-id="am_topic_4" onclick="handlePremiumTestClick(this)">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" data-section="3" data-topic="5" id="am_topic_5_item">
             <span>5. Introduction to Data Handling (Pictographs)</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('am_topic_5')">Take Test</button>
+            <button class="btn-test" data-test-id="am_topic_5" onclick="handlePremiumTestClick(this)">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" data-section="3" data-topic="6" id="am_topic_6_item">
             <span>6. Patterns and Sequences</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('am_topic_6')">Take Test</button>
+            <button class="btn-test" data-test-id="am_topic_6" onclick="handlePremiumTestClick(this)">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" data-section="3" data-topic="7" id="am_topic_7_item">
             <span>7. Basic Concepts of Area and Perimeter</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('am_topic_7')">Take Test</button>
+            <button class="btn-test" data-test-id="am_topic_7" onclick="handlePremiumTestClick(this)">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" data-section="3" data-topic="8" id="am_topic_8_item">
             <span>8. Roman Numbers (I to XX)</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('am_topic_8')">Take Test</button>
+            <button class="btn-test" data-test-id="am_topic_8" onclick="handlePremiumTestClick(this)">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" data-section="3" data-topic="9" id="am_topic_9_item">
             <span>9. Time Conversion (Hours, Minutes, Seconds)</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('am_topic_9')">Take Test</button>
+            <button class="btn-test" data-test-id="am_topic_9" onclick="handlePremiumTestClick(this)">Take Test</button>
         </div>
-        <div class="sub-topic-item">
+        <div class="sub-topic-item" data-section="3" data-topic="10" id="am_topic_10_item">
             <span>10. Logical Reasoning – Puzzles and Number Series</span>
-            <button class="btn-test" onclick="handlePremiumTestClick('am_topic_10')">Take Test</button>
+            <button class="btn-test" data-test-id="am_topic_10" onclick="handlePremiumTestClick(this)">Take Test</button>
         </div>
 
     </div>
@@ -1780,98 +1780,98 @@
           <h3><strong>Telugu Subject Tests</strong></h3>
           <p>Test your understanding of Telugu grammar and literature.</p>
         </div>
-        <button id="btn_telugu" class="btn-test" onclick="handleTestClick('telugu')">Take Test</button>
+        <button id="btn_telugu" class="btn-test" data-test-id="telugu" onclick="handleTestClick(this)">Take Test</button>
       </article>
       <article class="test-list-item" id="item_english">
         <div class="test-list-item-content">
           <h3><strong>English Subject Tests</strong></h3>
           <p>Assess your English comprehension, vocabulary, and grammar skills.</p>
         </div>
-        <button id="btn_english" class="btn-test" onclick="handleTestClick('english')">Take Test</button>
+        <button id="btn_english" class="btn-test" data-test-id="english" onclick="handleTestClick(this)">Take Test</button>
       </article>
       <article class="test-list-item" id="item_evs_sem1">
         <div class="test-list-item-content">
           <h3><strong>Evs SEM1 Subject Tests</strong></h3>
           <p>Explore your knowledge of Environmental Science (Semester 1) concepts.</p>
         </div>
-        <button id="btn_evs_sem1" class="btn-test" onclick="handleTestClick('evs_sem1')">Take Test</button>
+        <button id="btn_evs_sem1" class="btn-test" data-test-id="evs_sem1" onclick="handleTestClick(this)">Take Test</button>
       </article>
       <article class="test-list-item" id="item_evs_sem2">
         <div class="test-list-item-content">
           <h3><strong>Evs SEM2 Subject Tests</strong></h3>
           <p>Explore your knowledge of Environmental Science (Semester 2) concepts.</p>
         </div>
-        <button id="btn_evs_sem2" class="btn-test" onclick="handleTestClick('evs_sem2')">Take Test</button> 
+        <button id="btn_evs_sem2" class="btn-test" data-test-id="evs_sem2" onclick="handleTestClick(this)">Take Test</button> 
       </article>
       <article class="test-list-item" id="item_maths_sem1">
         <div class="test-list-item-content">
           <h3><strong>Maths SEM1 Subject Tests</strong></h3>
           <p>Practice and master all the mathematics (Semester 1) topics.</p>
         </div>
-        <button id="btn_maths_sem1" class="btn-test" onclick="handleTestClick('maths_sem1')">Take Test</button>
+        <button id="btn_maths_sem1" class="btn-test" data-test-id="maths_sem1" onclick="handleTestClick(this)">Take Test</button>
       </article>
       <article class="test-list-item" id="item_maths_sem2">
         <div class="test-list-item-content">
           <h3><strong>Maths SEM2 Subject Tests</strong></h3>
           <p>Practice and master all the mathematics (Semester 2) topics.</p>
         </div>
-        <button id="btn_maths_sem2" class="btn-test" onclick="handleTestClick('maths_sem2')">Take Test</button>
+        <button id="btn_maths_sem2" class="btn-test" data-test-id="maths_sem2" onclick="handleTestClick(this)">Take Test</button>
       </article>
       <article class="test-list-item" id="item_hindi">
         <div class="test-list-item-content">
           <h3><strong>Hindi Subject Tests</strong></h3>
           <p>Test your knowledge of Hindi grammar and language skills.</p>
         </div>
-        <button id="btn_hindi" class="btn-test" onclick="handleTestClick('hindi')">Take Test</button>
+        <button id="btn_hindi" class="btn-test" data-test-id="hindi" onclick="handleTestClick(this)">Take Test</button>
       </article>
       <article class="test-list-item" id="item_general_science">
         <div class="test-list-item-content">
           <h3><strong>General Science Subject Tests</strong></h3>
           <p>Explore general science topics covering basics of Physics, Chemistry, and Biology.</p>
         </div>
-        <button id="btn_general_science" class="btn-test" onclick="handleTestClick('general_science')">Take Test</button>
+        <button id="btn_general_science" class="btn-test" data-test-id="general_science" onclick="handleTestClick(this)">Take Test</button>
       </article>
       <article class="test-list-item" id="item_physical_sem1">
         <div class="test-list-item-content">
           <h3><strong>Physical Science SEM 1 Tests</strong></h3>
           <p>Semester 1 assessment for Physics and Chemistry topics.</p>
         </div>
-        <button id="btn_physical_sem1" class="btn-test" onclick="handleTestClick('physical_sem1')">Take Test</button>
+        <button id="btn_physical_sem1" class="btn-test" data-test-id="physical_sem1" onclick="handleTestClick(this)">Take Test</button>
       </article>
       <article class="test-list-item" id="item_physical_sem2">
         <div class="test-list-item-content">
           <h3><strong>Physical Science SEM 2 Tests</strong></h3>
           <p>Semester 2 assessment for Physics and Chemistry topics.</p>
         </div>
-        <button id="btn_physical_sem2" class="btn-test" onclick="handleTestClick('physical_sem2')">Take Test</button>
+        <button id="btn_physical_sem2" class="btn-test" data-test-id="physical_sem2" onclick="handleTestClick(this)">Take Test</button>
       </article>
       <article class="test-list-item" id="item_biological_sem1">
         <div class="test-list-item-content">
           <h3><strong>Biological Science SEM 1 Tests</strong></h3>
           <p>Semester 1 assessment for Biology and Life Science topics.</p>
         </div>
-        <button id="btn_biological_sem1" class="btn-test" onclick="handleTestClick('biological_sem1')">Take Test</button>
+        <button id="btn_biological_sem1" class="btn-test" data-test-id="biological_sem1" onclick="handleTestClick(this)">Take Test</button>
       </article>
       <article class="test-list-item" id="item_biological_sem2">
         <div class="test-list-item-content">
           <h3><strong>Biological Science SEM 2 Tests</strong></h3>
           <p>Semester 2 assessment for Biology and Life Science topics.</p>
         </div>
-        <button id="btn_biological_sem2" class="btn-test" onclick="handleTestClick('biological_sem2')">Take Test</button>
+        <button id="btn_biological_sem2" class="btn-test" data-test-id="biological_sem2" onclick="handleTestClick(this)">Take Test</button>
       </article>
       <article class="test-list-item" id="item_social_sem1">
         <div class="test-list-item-content">
           <h3><strong>Social Studies SEM 1 Tests</strong></h3>
           <p>Semester 1 assessment covering History, Civics, and Geography.</p>
           </div>
-        <button id="btn_social_sem1" class="btn-test" onclick="handleTestClick('social_sem1')">Take Test</button>
+        <button id="btn_social_sem1" class="btn-test" data-test-id="social_sem1" onclick="handleTestClick(this)">Take Test</button>
       </article>
       <article class="test-list-item" id="item_social_sem2">
         <div class="test-list-item-content">
           <h3><strong>Social Studies SEM 2 Tests</strong></h3>
           <p>Semester 2 assessment covering History, Civics, and Geography.</p>
         </div>
-        <button id="btn_social_sem2" class="btn-test" onclick="handleTestClick('social_sem2')">Take Test</button>
+        <button id="btn_social_sem2" class="btn-test" data-test-id="social_sem2" onclick="handleTestClick(this)">Take Test</button>
       </article>
     </div>
   </section>
@@ -1952,7 +1952,7 @@
         
         <div id="quizInterface" class="hidden">
             <div class="quiz-header">
-                <h2 id="quizHeaderTitle">Free Test: Question 1 of 15</h2>
+                <h2 id="quizHeaderTitle">Test Title: Question 1 of 15</h2>
                 <button class="quiz-close-btn" onclick="closeQuiz(true)">×</button>
             </div>
             <div class="quiz-body">
@@ -1980,17 +1980,19 @@
             <p class="results-feedback" id="resultsFeedback">Excellent</p>
 
             <div class="results-summary">
-                <div class="summary-item">
-                    <span class="summary-label">Correct</span>
-                    <span class="summary-value value-correct" id="resultsCorrect">12</span>
-                </div>
-                <div class="summary-item">
-                    <span class="summary-label">Wrong</span>
-                    <span class="summary-value value-wrong" id="resultsWrong">3</span>
-                </div>
-                <div class="summary-item">
-                    <span class="summary-label">Unanswered</span>
-                    <span class="summary-value" id="resultsUnanswered">0</span>
+                <div class="results-summary-inner flex justify-center gap-4">
+                    <div class="summary-item">
+                        <span class="summary-label">Correct</span>
+                        <span class="summary-value value-correct" id="resultsCorrect">12</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">Wrong</span>
+                        <span class="summary-value value-wrong" id="resultsWrong">3</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">Unanswered</span>
+                        <span class="summary-value" id="resultsUnanswered">0</span>
+                    </div>
                 </div>
             </div>
             
@@ -2081,6 +2083,7 @@
 </footer>
     <script>
     const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwxkXhT-S-ig4Ngrm-VpMmuhWQ1ZKadSLLx_FLDRHE6B_VJjJJEw9mjqu-G3unppbyk/exec";
+    const QUIZ_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbylIA4rAd-fj762jQfawBOEevYqgKSU4ZNyhx8RMXK2ky3dfdg_39auREMezASALqu8/exec/exec";
     const LOCK_ICON_SVG = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="inline-block mr-1" viewBox="0 0 16 16" style="margin-bottom: 2px;">
             <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/>
         </svg>`;
@@ -2116,6 +2119,12 @@
     const subDaysLeft = document.getElementById('subDaysLeft');
     const subscriptionBadge = document.getElementById('subscriptionBadge'); 
     let studentClass = 0;
+    
+    // Variable to store the Y-coordinate of the button clicked to open the quiz
+    let lastScrollPosition = 0; 
+    let lastClickedElementId = null; 
+
+    // Define URLs for subject tests (assuming they open externally or are not yet implemented in the quiz overlay)
     const urlMap = {
         'telugu': {
             3: '',
@@ -2128,6 +2137,8 @@
             10: 'https://www.svtc.life',
         },
     };
+    const externalUrlMap = {}; // Placeholder for external links if any
+
     function pad(n){return n.toString().padStart(2,'0')}
     function updateTime(){
         const now=new Date();
@@ -2144,6 +2155,7 @@
     }
     updateSession();
     setInterval(updateSession,1000);
+    
     function showStatus(message, isSuccess = false) {
         statusMessage.textContent = message;
         statusMessage.classList.remove('hidden', 'status-error', 'status-success');
@@ -2182,13 +2194,13 @@
     function openPricingPage() {
         window.open('https://www.svtc.life/Pricing.html', '_blank');
     }
+
     async function handleLogin(event) {
         event.preventDefault();
         setLoading(true);
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
         
-        // Change: Create a JSON object
         const bodyData = {
             username: username,
             password: password
@@ -2199,21 +2211,26 @@
                 method: 'POST',
                 mode: 'cors',
                 headers: {
-                    // Change: Send as 'text/plain' to avoid CORS pre-flight
                     'Content-Type': 'text/plain;charset=utf-8'
                 },
-                // Change: Send the stringified JSON object
                 body: JSON.stringify(bodyData)
             });
             const result = await response.json();
             if (result.success) {
                 if (!result.class || !result.class.trim().startsWith("4")) {
-                    showStatus("Only 4th Class students are allowed. Please contact 8985170500.", false);
+                    showStatus("Only 4th Class students are allowed here. Please contact 8985170500.", false);
                     setLoading(false); 
                     return; 
                 }
 
                 showStatus("Login successful!", true);
+                
+                // --- Start of New Single Session Logic: Set Unique Session ID and Store Data ---
+                const sessionId = Date.now().toString(36) + Math.random().toString(36).substring(2); 
+                localStorage.setItem('sessionId', sessionId);
+                localStorage.setItem('loggedInUser', result.username);
+                // The rest of the data remains in sessionStorage, but the session control relies on localStorage
+                // Clearing sessionStorage is not needed here as it will be populated in showDashboard
                 sessionStorage.setItem('isLoggedIn', 'true');
                 sessionStorage.setItem('username', result.username); 
                 sessionStorage.setItem('fullName', result.fullName); 
@@ -2233,6 +2250,7 @@
                 sessionStorage.setItem('subjectTests', result.subjectTests); 
                 sessionStorage.setItem('managerName', result.managerName); 
                 sessionStorage.setItem('directContact', result.directContact); 
+                
                 setTimeout(showDashboard, 1000); 
             } else {
                 showStatus(result.message || "Login Failed Please check USERNAME & PASSWROD.", false);
@@ -2244,7 +2262,14 @@
             setLoading(false);
         }
     }
-    function handleLogout() {
+    
+    function handleLogout(external = false) {
+        if (!external) {
+            // Only clear the active session ID if this tab triggered the logout
+            localStorage.removeItem('sessionId');
+            localStorage.removeItem('loggedInUser');
+        }
+        
         sessionStorage.clear();
         session = 0;
         updateSession();
@@ -2259,9 +2284,53 @@
         statusMessage.classList.add('hidden');
         studentClass = 0; 
         updatePremiumButtonsVisuals(false);
+
+        if (external) {
+             showStatus("You have been logged out.", false);
+        }
     }
+
+    // --- Start of New Single Session Logic: Session Polling ---
+    let sessionCheckInterval;
+
+    function startSessionPolling() {
+        if (sessionCheckInterval) clearInterval(sessionCheckInterval);
+
+        sessionCheckInterval = setInterval(() => {
+            const currentSessionId = localStorage.getItem('sessionId');
+            const isLoggedIn = sessionStorage.getItem('isLoggedIn') === 'true';
+
+            if (isLoggedIn && !currentSessionId) {
+                // If sessionStorage says logged in, but localStorage session ID is gone, force logout
+                handleLogout(true);
+            } else if (isLoggedIn && localStorage.getItem('loggedInUser') !== sessionStorage.getItem('username')) {
+                // If another user logged in on this browser (or session ID changed for a different user)
+                 handleLogout(true);
+            } else if (!isLoggedIn && currentSessionId) {
+                // Should not happen, but if it does, clear localStorage to ensure consistency
+                localStorage.removeItem('sessionId');
+                localStorage.removeItem('loggedInUser');
+            }
+        }, 5000); // Check every 5 seconds
+    }
+    
+    // Check if user is logged in on load
     function checkLoginStatus() {
+        // Clear sessionStorage on browser/tab close
+        window.addEventListener('beforeunload', function() {
+            if (sessionStorage.getItem('isLoggedIn') === 'true') {
+                 // Check if the current tab is the active session before clearing localStorage data
+                 const currentSessionId = localStorage.getItem('sessionId');
+                 const sessionStartId = sessionStorage.getItem('sessionStartId');
+                 if(currentSessionId && currentSessionId === sessionStartId) {
+                     localStorage.removeItem('sessionId');
+                     localStorage.removeItem('loggedInUser');
+                 }
+            }
+        });
+
         if (sessionStorage.getItem('isLoggedIn') === 'true') {
+            startSessionPolling();
             showDashboard();
         } else {
             loggedOutIcons.forEach(icon => icon.classList.remove('hidden')); 
@@ -2270,8 +2339,15 @@
             loginScreen.classList.remove('hidden');
         }
     }
+    // --- End of New Single Session Logic ---
+
     function showDashboard() {
         window.scrollTo(0, 0);
+
+        // Ensure current session ID is tracked in sessionStorage for the 'beforeunload' check
+        sessionStorage.setItem('sessionStartId', localStorage.getItem('sessionId'));
+        startSessionPolling(); 
+
         const username = sessionStorage.getItem('username') || 'N/A';
         const fullName = sessionStorage.getItem('fullName') || 'N/A';
         const classString = sessionStorage.getItem('class') || 'N/A';
@@ -2409,138 +2485,208 @@
         }
     }
 
-    const externalUrlMap = {
-    };
-    
     const quizTestConfig = {
-    'ga_topic_1': {
-        url: 'https://script.google.com/macros/s/AKfycbylIA4rAd-fj762jQfawBOEevYqgKSU4ZNyhx8RMXK2ky3dfdg_39auREMezASALqu8/exec?sheet=GA11',
-        title: 'Numbers (4 and 5-digit)'
-    },
-    'ga_topic_2': {
-        url: 'https://script.google.com/macros/s/AKfycbylIA4rAd-fj762jQfawBOEevYqgKSU4ZNyhx8RMXK2ky3dfdg_39auREMezASALqu8/exec?sheet=GA12',
-        title: 'Addition and Subtraction'
-    },
-    'ga_topic_3': {
-        url: 'https://script.google.com/macros/s/AKfycbylIA4rAd-fj762jQfawBOEevYqgKSU4ZNyhx8RMXK2ky3dfdg_39auREMezASALqu8/exec?sheet=GA13',
-        title: 'Multiplication'
-    },
-    'ga_topic_4': {
-        url: 'https://script.google.com/macros/s/AKfycbylIA4rAd-fj762jQfawBOEevYqgKSU4ZNyhx8RMXK2ky3dfdg_39auREMezASALqu8/exec?sheet=GA14',
-        title: 'Division'
-    },
-    'ga_topic_5': {
-        url: 'https://script.google.com/macros/s/AKfycbylIA4rAd-fj762jQfawBOEevYqgKSU4ZNyhx8RMXK2ky3dfdg_39auREMezASALqu8/exec?sheet=GA15',
-        title: 'Fractions'
-    },
-    'ga_topic_6': {
-        url: 'https://script.google.com/macros/s/AKfycbylIA4rAd-fj762jQfawBOEevYqgKSU4ZNyhx8RMXK2ky3dfdg_39auREMezASALqu8/exec?sheet=GA16',
-        title: 'Measurements (Length & Weight)'
-    },
-    'ga_topic_7': {
-        url: 'https://script.google.com/macros/s/AKfycbylIA4rAd-fj762jQfawBOEevYqgKSU4ZNyhx8RMXK2ky3dfdg_39auREMezASALqu8/exec?sheet=GA17',
-        title: 'Measurements (Capacity)'
-    },
-    'ga_topic_8': {
-        url: 'https://script.google.com/macros/s/AKfycbylIA4rAd-fj762jQfawBOEevYqgKSU4ZNyhx8RMXK2ky3dfdg_39auREMezASALqu8/exec?sheet=GA18',
-        title: 'Time'
-    },
-    'ga_topic_9': {
-        url: 'https://script.google.com/macros/s/AKfycbylIA4rAd-fj762jQfawBOEevYqgKSU4ZNyhx8RMXK2ky3dfdg_39auREMezASALqu8/exec?sheet=GA19',
-        title: 'Money'
-    },
-    'ga_topic_10': {
-        url: 'https://script.google.com/macros/s/AKfycbylIA4rAd-fj762jQfawBOEevYqgKSU4ZNyhx8RMXK2ky3dfdg_39auREMezASALqu8/exec?sheet=GA110',
-        title: 'Geometry (Basic)'
-    },
-    'gm_topic_1': {
-        url: 'https://script.google.com/macros/s/AKfycbylIA4rAd-fj762jQfawBOEevYqgKSU4ZNyhx8RMXK2ky3dfdg_39auREMezASALqu8/exec?sheet=GMA21',
-        title: 'Our Family and Community'
-    },
-    'gm_topic_2': {
-        url: 'https://script.google.com/macros/s/AKfycbylIA4rAd-fj762jQfawBOEevYqgKSU4ZNyhx8RMXK2ky3dfdg_39auREMezASALqu8/exec?sheet=GMA22',
-        title: 'Plants Around Us'
-    },
-    'gm_topic_3': {
-        url: 'https://script.google.com/macros/s/AKfycbylIA4rAd-fj762jQfawBOEevYqgKSU4ZNyhx8RMXK2ky3dfdg_39auREMezASALqu8/exec?sheet=GMA23',
-        title: 'Animals Around Us'
-    },
-    'gm_topic_4': {
-        url: 'https://script.google.com/macros/s/AKfycbylIA4rAd-fj762jQfawBOEevYqgKSU4ZNyhx8RMXK2ky3dfdg_39auREMezASALqu8/exec?sheet=GMA24',
-        title: 'Food and Health'
-    },
-    'gm_topic_5': {
-        url: 'https://script.google.com/macros/s/AKfycbylIA4rAd-fj762jQfawBOEevYqgKSU4ZNyhx8RMXK2ky3dfdg_39auREMezASALqu8/exec?sheet=GMA25',
-        title: 'Water'
-    },
-    'gm_topic_6': {
-        url: 'https://script.google.com/macros/s/AKfycbylIA4rAd-fj762jQfawBOEevYqgKSU4ZNyhx8RMXK2ky3dfdg_39auREMezASALqu8/exec?sheet=GMA26',
-        title: 'Our Body'
-    },
-    'gm_topic_7': {
-        url: 'https://script.google.com/macros/s/AKfycbylIA4rAd-fj762jQfawBOEevYqgKSU4ZNyhx8RMXK2ky3dfdg_39auREMezASALqu8/exec?sheet=GMA27',
-        title: 'Safety Rules'
-    },
-    'gm_topic_8': {
-        url: 'https://script.google.com/macros/s/AKfycbylIA4rAd-fj762jQfawBOEevYqgKSU4ZNyhx8RMXK2ky3dfdg_39auREMezASALqu8/exec?sheet=GMA28',
-        title: 'Our State and Country'
-    },
-    'gm_topic_9': {
-        url: 'https://script.google.com/macros/s/AKfycbylIA4rAd-fj762jQfawBOEevYqgKSU4ZNyhx8RMXK2ky3dfdg_39auREMezASALqu8/exec?sheet=GMA29',
-        title: 'Maps and Directions'
-    },
-    'gm_topic_10': {
-        url: 'https://script.google.com/macros/s/AKfycbylIA4rAd-fj762jQfawBOEevYqgKSU4ZNyhx8RMXK2ky3dfdg_39auREMezASALqu8/exec?sheet=GMA210',
-        title: 'Work and Occupations'
-    },
-    'am_topic_1': {
-        url: 'https://script.google.com/macros/s/AKfycbylIA4rAd-fj762jQfawBOEevYqgKSU4ZNyhx8RMXK2ky3dfdg_39auREMezASALqu8/exec?sheet=GAMA31',
-        title: 'Nouns (Common/Proper, Singular/Plural)'
-    },
-    'am_topic_2': {
-        url: 'https://script.google.com/macros/s/AKfycbylIA4rAd-fj762jQfawBOEevYqgKSU4ZNyhx8RMXK2ky3dfdg_39auREMezASALqu8/exec?sheet=GAMA32',
-        title: 'Verbs (Action words, \'is/am/are\')'
-    },
-    'am_topic_3': {
-        url: 'https://script.google.com/macros/s/AKfycbylIA4rAd-fj762jQfawBOEevYqgKSU4ZNyhx8RMXK2ky3dfdg_39auREMezASALqu8/exec?sheet=GAMA33',
-        title: 'Articles (A, An, The)'
-    },
-    'am_topic_4': {
-        url: 'https://script.google.com/macros/s/AKfycbylIA4rAd-fj762jQfawBOEevYqgKSU4ZNyhx8RMXK2ky3dfdg_39auREMezASALqu8/exec?sheet=GAMA34',
-        title: 'Opposites (Antonyms)'
-    },
-    'am_topic_5': {
-        url: 'https://script.google.com/macros/s/AKfycbylIA4rAd-fj762jQfawBOEevYqgKSU4ZNyhx8RMXK2ky3dfdg_39auREMezASALqu8/exec?sheet=GAMA35',
-        title: 'Reading Comprehension (English)'
-    },
-    'am_topic_6': {
-        url: 'https://script.google.com/macros/s/AKfycbylIA4rAd-fj762jQfawBOEevYqgKSU4ZNyhx8RMXK2ky3dfdg_39auREMezASALqu8/exec?sheet=GAMA36',
-        title: 'పదజాలం / అర్థాలు (Vocabulary / Meanings)'
-    },
-    'am_topic_7': {
-        url: 'https://script.google.com/macros/s/AKfycbylIA4rAd-fj762jQfawBOEevYqgKSU4ZNyhx8RMXK2ky3dfdg_39auREMezASALqu8/exec?sheet=GAMA37',
-        title: 'వ్యతిరేక పదాలు (Opposite Words)'
-    },
-    'am_topic_8': {
-        url: 'https://script.google.com/macros/s/AKfycbylIA4rAd-fj762jQfawBOEevYqgKSU4ZNyhx8RMXK2ky3dfdg_39auREMezASALqu8/exec?sheet=GAMA38',
-        title: 'ఏకవచనం - బహువచనం (Singular - Plural)'
-    },
-    'am_topic_9': {
-        url: 'https://script.google.com/macros/s/AKfycbylIA4rAd-fj762jQfawBOEevYqgKSU4ZNyhx8RMXK2ky3dfdg_39auREMezASALqu8/exec?sheet=GAMA39',
-        title: 'భాషా భాగాలు (Parts of Speech)'
-    },
-    'am_topic_10': {
-        url: 'https://script.google.com/macros/s/AKfycbylIA4rAd-fj762jQfawBOEevYqgKSU4ZNyhx8RMXK2ky3dfdg_39auREMezASALqu8/exec?sheet=GAMA310',
-        title: 'అవగాహన (Reading Comprehension - Telugu)'
-    }
-};
+        'free_test': {
+            url: QUIZ_SCRIPT_URL + '?sheet=FREE',
+            title: 'Free Test',
+            section: null,
+            topic: null
+        },
+        'ga_topic_1': {
+            url: QUIZ_SCRIPT_URL + '?sheet=GA11',
+            title: 'Our Country and Its Symbols',
+            section: 1,
+            topic: 1
+        },
+        'ga_topic_2': {
+            url: QUIZ_SCRIPT_URL + '?sheet=GA12',
+            title: 'Important Festivals of India',
+            section: 1,
+            topic: 2
+        },
+        'ga_topic_3': {
+            url: QUIZ_SCRIPT_URL + '?sheet=GA13',
+            title: 'Famous Places Around the World',
+            section: 1,
+            topic: 3
+        },
+        'ga_topic_4': {
+            url: QUIZ_SCRIPT_URL + '?sheet=GA14',
+            title: 'Seasons and Weather',
+            section: 1,
+            topic: 4
+        },
+        'ga_topic_5': {
+            url: QUIZ_SCRIPT_URL + '?sheet=GA15',
+            title: 'Great Leaders of India',
+            section: 1,
+            topic: 5
+        },
+        'ga_topic_6': {
+            url: QUIZ_SCRIPT_URL + '?sheet=GA16',
+            title: 'Our Helpers in Daily Life',
+            section: 1,
+            topic: 6
+        },
+        'ga_topic_7': {
+            url: QUIZ_SCRIPT_URL + '?sheet=GA17',
+            title: 'Healthy Food and Good Habits',
+            section: 1,
+            topic: 7
+        },
+        'ga_topic_8': {
+            url: QUIZ_SCRIPT_URL + '?sheet=GA18',
+            title: 'Means of Transport',
+            section: 1,
+            topic: 8
+        },
+        'ga_topic_9': {
+            url: QUIZ_SCRIPT_URL + '?sheet=GA19',
+            title: 'Plants and Their Uses',
+            section: 1,
+            topic: 9
+        },
+        'ga_topic_10': {
+            url: QUIZ_SCRIPT_URL + '?sheet=GA110',
+            title: 'Animals and Their Homes',
+            section: 1,
+            topic: 10
+        },
+        'gm_topic_1': {
+            url: QUIZ_SCRIPT_URL + '?sheet=GMA21',
+            title: 'Numbers and Number Names',
+            section: 2,
+            topic: 1
+        },
+        'gm_topic_2': {
+            url: QUIZ_SCRIPT_URL + '?sheet=GMA22',
+            title: 'Addition and Subtraction',
+            section: 2,
+            topic: 2
+        },
+        'gm_topic_3': {
+            url: QUIZ_SCRIPT_URL + '?sheet=GMA23',
+            title: 'Multiplication Tables (1 to 10)',
+            section: 2,
+            topic: 3
+        },
+        'gm_topic_4': {
+            url: QUIZ_SCRIPT_URL + '?sheet=GMA24',
+            title: 'Division – Sharing Equally',
+            section: 2,
+            topic: 4
+        },
+        'gm_topic_5': {
+            url: QUIZ_SCRIPT_URL + '?sheet=GMA25',
+            title: 'Shapes and Patterns',
+            section: 2,
+            topic: 5
+        },
+        'gm_topic_6': {
+            url: QUIZ_SCRIPT_URL + '?sheet=GMA26',
+            title: 'Measurement of Length, Weight, and Time',
+            section: 2,
+            topic: 6
+        },
+        'gm_topic_7': {
+            url: QUIZ_SCRIPT_URL + '?sheet=GMA27',
+            title: 'Money – Coins and Notes',
+            section: 2,
+            topic: 7
+        },
+        'gm_topic_8': {
+            url: QUIZ_SCRIPT_URL + '?sheet=GMA28',
+            title: 'Days, Weeks, Months, and Calendar',
+            section: 2,
+            topic: 8
+        },
+        'gm_topic_9': {
+            url: QUIZ_SCRIPT_URL + '?sheet=GMA29',
+            title: 'Odd and Even Numbers',
+            section: 2,
+            topic: 9
+        },
+        'gm_topic_10': {
+            url: QUIZ_SCRIPT_URL + '?sheet=GMA210',
+            title: 'Simple Word Problems',
+            section: 2,
+            topic: 10
+        },
+        'am_topic_1': {
+            url: QUIZ_SCRIPT_URL + '?sheet=GAMA31',
+            title: 'Mental Math Tricks (Addition & Subtraction)',
+            section: 3,
+            topic: 1
+        },
+        'am_topic_2': {
+            url: QUIZ_SCRIPT_URL + '?sheet=GAMA32',
+            title: 'Introduction to Fractions',
+            section: 3,
+            topic: 2
+        },
+        'am_topic_3': {
+            url: QUIZ_SCRIPT_URL + '?sheet=GAMA33',
+            title: 'Place Value and Face Value',
+            section: 3,
+            topic: 3
+        },
+        'am_topic_4': {
+            url: QUIZ_SCRIPT_URL + '?sheet=GAMA34',
+            title: 'Simple Geometry – Lines and Angles',
+            section: 3,
+            topic: 4
+        },
+        'am_topic_5': {
+            url: QUIZ_SCRIPT_URL + '?sheet=GAMA35',
+            title: 'Introduction to Data Handling (Pictographs)',
+            section: 3,
+            topic: 5
+        },
+        'am_topic_6': {
+            url: QUIZ_SCRIPT_URL + '?sheet=GAMA36',
+            title: 'Patterns and Sequences',
+            section: 3,
+            topic: 6
+        },
+        'am_topic_7': {
+            url: QUIZ_SCRIPT_URL + '?sheet=GAMA37',
+            title: 'Basic Concepts of Area and Perimeter',
+            section: 3,
+            topic: 7
+        },
+        'am_topic_8': {
+            url: QUIZ_SCRIPT_URL + '?sheet=GAMA38',
+            title: 'Roman Numbers (I to XX)',
+            section: 3,
+            topic: 8
+        },
+        'am_topic_9': {
+            url: QUIZ_SCRIPT_URL + '?sheet=GAMA39',
+            title: 'Time Conversion (Hours, Minutes, Seconds)',
+            section: 3,
+            topic: 9
+        },
+        'am_topic_10': {
+            url: QUIZ_SCRIPT_URL + '?sheet=GAMA310',
+            title: 'Logical Reasoning – Puzzles and Number Series',
+            section: 3,
+            topic: 10
+        }
+    };
 
-    function handleTestClick(testId) {
+    // Updated handleTestClick to accept the button element
+    function handleTestClick(buttonElement) {
+        const testId = buttonElement.getAttribute('data-test-id');
         const isPremium = sessionStorage.getItem('isPremium') === 'true';
+
         if (!isPremium) {
             showServerMaintenance('This is a premium feature. Please upgrade your plan to access.');
             return;
         }
+
+        // Store the current scroll position and the element ID before opening the quiz
+        lastScrollPosition = window.scrollY;
+        lastClickedElementId = buttonElement.closest('article, .sub-topic-item').id;
 
         if (urlMap[testId] && urlMap[testId][studentClass]) {
             const url = urlMap[testId][studentClass];
@@ -2574,8 +2720,15 @@
         });
     }
 
-    function handlePremiumTestClick(testId) {
+    // Updated handlePremiumTestClick to accept the button element
+    function handlePremiumTestClick(buttonElement) {
+        const testId = buttonElement.getAttribute('data-test-id');
         const isPremium = sessionStorage.getItem('isPremium') === 'true';
+        
+        if (testId === 'free_test') {
+            startQuiz('free_test');
+            return;
+        }
 
         if (!isPremium) {
             showServerMaintenance('This is a premium feature. Please upgrade your plan to access.');
@@ -2583,24 +2736,28 @@
         }
 
         if (quizTestConfig[testId]) {
-            const config = quizTestConfig[testId];
-            startQuiz(config.url, config.title);
+            // Store the current scroll position and the element ID before opening the quiz
+            lastScrollPosition = window.scrollY;
+            lastClickedElementId = buttonElement.closest('article, .sub-topic-item').id;
+
+            startQuiz(testId);
         } else if (externalUrlMap[testId]) {
             const url = externalUrlMap[testId];
             console.log(`Navigating to test: ${url}`);
             window.open(url, '_blank');
         } else {
             console.warn(`No URL or Quiz Config found for testId: ${testId}`);
+            showServerMaintenance('This test is currently unavailable.');
         }
     }
 
     function handlePlanClick(planType) {
         const urls = {
-            'take_plan': 'https://example.com/plans/subscribe',
-            'renew_plan': 'https://example.com/plans/renew',
-            'update_plan': 'https://example.com/plans/update'
+            'take_plan': 'https://www.svtc.life/Pricing.html', // Redirecting to Pricing as an assumption
+            'renew_plan': 'https://www.svtc.life/Contact.html', // Redirecting to Contact for renewal help
+            'update_plan': 'https://www.svtc.life/Contact.html' // Redirecting to Contact for upgrade help
         };
-        const url = urls[planType] || 'https://example.com/plans';
+        const url = urls[planType] || 'https://www.svtc.life/Pricing.html';
         console.log(`Plan action: ${planType}, URL: ${url}`);
         window.open(url, '_blank');
     }
@@ -2608,25 +2765,8 @@
 
     let allQuestions = [];
     let userAnswers = {}; 
-    let currentTestTitle = "Free Test"; 
+    let currentTestConfig = {}; 
     let currentQuestionIndex = 0;
-    
-    const freeQuizApiUrl = "https://script.google.com/macros/s/AKfycbylIA4rAd-fj762jQfawBOEevYqgKSU4ZNyhx8RMXK2ky3dfdg_39auREMezASALqu8/exec?sheet=FREE";
-    
-    const correctOptionMap = {
-        "ONE": 1,
-        "TWO": 2,
-        "THREE": 3,
-        "FOUR": 4,
-        "1": 1, 
-        "2": 2,
-        "3": 3,
-        "4": 4,
-        "OPTION 1": 1,
-        "OPTION 2": 2,
-        "OPTION 3": 3,
-        "OPTION 4": 4
-    };
     
     const quizOverlay = document.getElementById('quizOverlay');
     const quizLoading = document.getElementById('quizLoading');
@@ -2642,11 +2782,16 @@
     const quizNextBtn = document.getElementById('quizNextBtn');
     const quizSubmitBtn = document.getElementById('quizSubmitBtn');
 
-    function startQuiz(apiUrl = freeQuizApiUrl, testTitle = "Free Test") {
+    function startQuiz(testId) {
+        currentTestConfig = quizTestConfig[testId];
+        
+        if (!currentTestConfig) {
+             showServerMaintenance('Test configuration not found.');
+             return;
+        }
+        
         dashboardContent.style.display = 'none';
         quizOverlay.style.display = 'block';
-        
-        currentTestTitle = testTitle;
         
         quizInterface.classList.add('hidden');
         quizResults.classList.add('hidden');
@@ -2657,7 +2802,7 @@
         userAnswers = {};
         currentQuestionIndex = 0;
 
-        fetchQuestions(apiUrl); 
+        fetchQuestions(currentTestConfig.url); 
     }
 
     async function fetchQuestions(apiUrl) {
@@ -2671,7 +2816,7 @@
             if (result.success && result.data) {
                 let rawData = result.data;
                 
-                const isFreeTest = (apiUrl === freeQuizApiUrl);
+                const isFreeTest = (currentTestConfig.title === 'Free Test');
                 const questionLimit = isFreeTest ? 15 : 50;
 
                 allQuestions = rawData.filter(q => q.serialNumber && q.question && String(q.serialNumber).toLowerCase() !== 'serialnumber').slice(0, questionLimit);
@@ -2692,14 +2837,21 @@
             quizLoading.innerHTML = `<p class="text-red-600 font-semibold">Error: ${error.message}</p><p class="mt-4">Please try again later.</p><button class="quiz-nav-btn mt-6" onclick="closeQuiz(false)">Close</button>`;
         }
     }
-
+    
     function showQuestion(index) {
         if (index < 0 || index >= allQuestions.length) return;
 
         currentQuestionIndex = index;
         const question = allQuestions[index];
+        
+        // --- Updated Quiz Title Logic ---
+        let titlePrefix = currentTestConfig.title;
+        if (currentTestConfig.section && currentTestConfig.topic) {
+             titlePrefix = `S${currentTestConfig.section}.T${currentTestConfig.topic} - ${currentTestConfig.title}`;
+        }
+        quizHeaderTitle.textContent = `${titlePrefix}: Question ${index + 1} of ${allQuestions.length}`;
+        // --- End of Updated Quiz Title Logic ---
 
-        quizHeaderTitle.textContent = `${currentTestTitle}: Question ${index + 1} of ${allQuestions.length}`;
         quizQuestionText.textContent = question.question;
 
         quizOptions.innerHTML = ''; 
@@ -2753,6 +2905,18 @@
         calculateAndShowResults();
     }
 
+    // This map converts text options in the source sheet (if any) to their index (1-4)
+    const correctOptionMap = {
+        "ONE": 1,
+        "TWO": 2,
+        "THREE": 3,
+        "FOUR": 4,
+        "1": 1, 
+        "2": 2,
+        "3": 3,
+        "4": 4
+    };
+
     function calculateAndShowResults() {
         let correctCount = 0;
         let wrongCount = 0;
@@ -2792,10 +2956,13 @@
         let feedbackText = "";
         let feedbackClass = "";
 
-        if (correctCount < 10) {
+        // Percentage calculation based on total questions
+        const scorePercentage = (correctCount / allQuestions.length) * 100;
+
+        if (scorePercentage < 60) {
             feedbackText = "Needs Improvement";
             feedbackClass = "feedback-improve";
-        } else if (correctCount >= 10 && correctCount <= 12) { 
+        } else if (scorePercentage >= 60 && scorePercentage < 80) { 
             feedbackText = "Very Good";
             feedbackClass = "feedback-good";
         } else { 
@@ -2876,15 +3043,32 @@
 
     function closeQuiz(checkInProgress = false) {
         if (checkInProgress) {
+             // You can add a confirmation modal here instead of using the native alert/confirm
         }
         
         quizOverlay.style.display = 'none';
         dashboardContent.style.display = 'block';
 
+        // Reset quiz state
         quizInterface.classList.add('hidden');
         quizResults.classList.add('hidden');
         quizReview.classList.add('hidden');
         quizLoading.classList.remove('hidden'); 
+
+        // --- New Logic: Scroll back to the original position ---
+        if (lastClickedElementId) {
+            const targetElement = document.getElementById(lastClickedElementId);
+            if (targetElement) {
+                // Scroll the dashboard content so that the clicked element is in view
+                targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } else {
+                // If element is gone, scroll to the previous general scroll position
+                window.scrollTo({ top: lastScrollPosition, behavior: 'smooth' });
+            }
+            lastClickedElementId = null; // Clear the stored element ID
+        } else {
+             window.scrollTo({ top: lastScrollPosition, behavior: 'smooth' });
+        }
     }
 
     
@@ -2895,6 +3079,7 @@
     window.takeTest = handleTestClick;
     window.showServerMaintenance = showServerMaintenance;
     window.openPricingPage = openPricingPage; 
+    
     document.addEventListener('DOMContentLoaded', () => {
         const dynamicMenu = document.getElementById('dynamicMenu');
         const menuToggle = document.getElementById('menuToggle');
@@ -2909,5 +3094,4 @@
     });
 </script>
 </body>
-
 </html>
