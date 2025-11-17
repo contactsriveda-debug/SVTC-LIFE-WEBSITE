@@ -2218,7 +2218,7 @@
             const result = await response.json();
             if (result.success) {
                 if (!result.class || !result.class.trim().startsWith("3")) {
-                    showStatus("Only 3rd Class students are allowed. Please contact 8985170500.", false);
+                    showStatus("Only 3rd Class students are allowed here. Please contact 8985170500.", false);
                     setLoading(false); 
                     return; 
                 }
@@ -2286,7 +2286,7 @@
         updatePremiumButtonsVisuals(false);
 
         if (external) {
-             showStatus("You have been logged out because you logged in on another browser or tab.", false);
+             showStatus("You have been logged out.", false);
         }
     }
 
@@ -3095,3 +3095,4 @@
 </script>
 </body>
 </html>
+
