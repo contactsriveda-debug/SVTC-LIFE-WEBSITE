@@ -1439,7 +1439,7 @@
                     </h1>
                     <div class="w-2/3 max-w-xs h-0.5 bg-sv-yellow my-0.5 mx-auto sm:mx-0"></div>
                     <p class="text-sm sm:text-base font-semibold text-sv-yellow mt-0.5">
-                        "Student Profile Tests Corner"
+                        "Student Premium Corner"
                     </p>
                 </div>
             </div>
@@ -1502,7 +1502,7 @@
             <img src="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg" alt="SRI VEDA Logo" class="login-logo">
             <h3 class="login-brand-title">SRI VEDA TALENT COMPETITIONS</h3>
         </div>
-        <h2 id="loginTitle">STUDENT LOGIN - PROFILE</h2>
+        <h2 id="loginTitle">STUDENT LOGIN</h2>
         <p id="loginSubtitle">Please enter your Username and Password with Caps.</p>
         <form id="loginForm">
             <div id="statusMessage" class="status-box status-error hidden" role="alert"></div>
@@ -1533,11 +1533,11 @@
   
   <div class="tc-panel-wrap">
     <div class="tc-panel-main">
-        <div id="tcLiveBar" class="tc-panel-live-bar" style="width: 29%;"></div> 
+        <div id="tcLiveBar" class="tc-panel-live-bar" style="width: 59%;"></div> 
         <div class="tc-content-overlay">
             <div class="tc-score-display">
                 <small>YOUR TC SCORE:</small>
-                <h2 id="tcPercent">29%</h2>
+                <h2 id="tcPercent">59.6%</h2>
             </div>
         </div>
     </div>
@@ -1626,7 +1626,6 @@
     <h2>Dedicated Student Relations Manager (SRM)</h2>
     <div class="srm-info-card">
         <div class="srm-left-explanation">
-            <p class="font-bold text-sv-blue mb-2">Your Personal Success Guide:</p>
             <p>We are committed to your success! Your Student Relations Manager (SRM) is your dedicated point of contact for all support, academic guidance, subscription queries, and any coordination needed to maximize your learning experience with Sri Veda TC. Reach out directly for personalized assistance.</p>
         </div>
         
@@ -2582,7 +2581,7 @@
         updatePremiumButtonsVisuals(false);
 
         if (external) {
-             showStatus("You have been logged out because you logged in on another browser or tab.", false);
+             showStatus("You have been logged out.", false);
         }
     }
 
@@ -2832,171 +2831,184 @@
     }
     
     // --- Updated Quiz Config with Section and Topic Numbers ---
-    const quizTestConfig = {
-        'free_test': { url: QUIZ_SCRIPT_URL + '?sheet=FREE', title: 'Free Test', section: null, topic: null },
-        // Section 1: Core Academic Subjects
-        // 1. Science (S1.1)
-        's1_sci_1': { url: QUIZ_SCRIPT_URL + '?sheet=S111', title: 'Components of Food', section: 1, topic: 1 },
-        's1_sci_2': { url: QUIZ_SCRIPT_URL + '?sheet=S112', title: 'Separation of Substances', section: 1, topic: 2 },
-        's1_sci_3': { url: QUIZ_SCRIPT_URL + '?sheet=S113', title: 'Getting to Know Plants', section: 1, topic: 3 },
-        's1_sci_4': { url: QUIZ_SCRIPT_URL + '?sheet=S114', title: 'Body Movements', section: 1, topic: 4 },
-        's1_sci_5': { url: QUIZ_SCRIPT_URL + '?sheet=S115', title: 'The Living Organisms and Their Surroundings', section: 1, topic: 5 },
-        's1_sci_6': { url: QUIZ_SCRIPT_URL + '?sheet=S116', title: 'Motion and Measurement of Distances', section: 1, topic: 6 },
-        's1_sci_7': { url: QUIZ_SCRIPT_URL + '?sheet=S117', title: 'Light, Shadows and Reflections', section: 1, topic: 7 },
-        's1_sci_8': { url: QUIZ_SCRIPT_URL + '?sheet=S118', title: 'Electricity and Circuits', section: 1, topic: 8 },
-        's1_sci_9': { url: QUIZ_SCRIPT_URL + '?sheet=S119', title: 'Water', section: 1, topic: 9 },
-        's1_sci_10': { url: QUIZ_SCRIPT_URL + '?sheet=S1110', title: 'Changes Around Us', section: 1, topic: 10 },
-        // 2. Mathematics (S1.2)
-        's1_mat_1': { url: QUIZ_SCRIPT_URL + '?sheet=S121', title: 'Knowing Our Numbers', section: 1, topic: 11 },
-        's1_mat_2': { url: QUIZ_SCRIPT_URL + '?sheet=S122', title: 'Whole Numbers', section: 1, topic: 12 },
-        's1_mat_3': { url: QUIZ_SCRIPT_URL + '?sheet=S123', title: 'Integers', section: 1, topic: 13 },
-        's1_mat_4': { url: QUIZ_SCRIPT_URL + '?sheet=S124', title: 'Fractions', section: 1, topic: 14 },
-        's1_mat_5': { url: QUIZ_SCRIPT_URL + '?sheet=S125', title: 'Decimals', section: 1, topic: 15 },
-        's1_mat_6': { url: QUIZ_SCRIPT_URL + '?sheet=S126', title: 'Algebra - Introduction', section: 1, topic: 16 },
-        's1_mat_7': { url: QUIZ_SCRIPT_URL + '?sheet=S127', title: 'Ratio and Proportion', section: 1, topic: 17 },
-        's1_mat_8': { url: QUIZ_SCRIPT_URL + '?sheet=S128', title: 'Basic Geometrical Ideas', section: 1, topic: 18 },
-        's1_mat_9': { url: QUIZ_SCRIPT_URL + '?sheet=S129', title: 'Understanding Elementary Shapes', section: 1, topic: 19 },
-        's1_mat_10': { url: QUIZ_SCRIPT_URL + '?sheet=S1210', title: 'Mensuration - Perimeter and Area', section: 1, topic: 20 },
-        // 3. English (S1.3)
-        's1_eng_1': { url: QUIZ_SCRIPT_URL + '?sheet=S131', title: 'Nouns', section: 1, topic: 21 },
-        's1_eng_2': { url: QUIZ_SCRIPT_URL + '?sheet=S132', title: 'Pronouns', section: 1, topic: 22 },
-        's1_eng_3': { url: QUIZ_SCRIPT_URL + '?sheet=S133', title: 'Verbs and Tenses', section: 1, topic: 23 },
-        's1_eng_4': { url: QUIZ_SCRIPT_URL + '?sheet=S134', title: 'Adjectives', section: 1, topic: 24 },
-        's1_eng_5': { url: QUIZ_SCRIPT_URL + '?sheet=S135', title: 'Adverbs', section: 1, topic: 25 },
-        's1_eng_6': { url: QUIZ_SCRIPT_URL + '?sheet=S136', title: 'Prepositions', section: 1, topic: 26 },
-        's1_eng_7': { url: QUIZ_SCRIPT_URL + '?sheet=S137', title: 'Conjunctions', section: 1, topic: 27 },
-        's1_eng_8': { url: QUIZ_SCRIPT_URL + '?sheet=S138', title: 'Synonyms', section: 1, topic: 28 },
-        's1_eng_9': { url: QUIZ_SCRIPT_URL + '?sheet=S139', title: 'Antonyms', section: 1, topic: 29 },
-        's1_eng_10': { url: QUIZ_SCRIPT_URL + '?sheet=S1310', title: 'Reading Comprehension', section: 1, topic: 30 },
-        // 4. Computers & IT (S1.4)
-        's1_com_1': { url: QUIZ_SCRIPT_URL + '?sheet=S141', title: 'Introduction to Computers', section: 1, topic: 31 },
-        's1_com_2': { url: QUIZ_SCRIPT_URL + '?sheet=S142', title: 'Evolution of Computers', section: 1, topic: 32 },
-        's1_com_3': { url: QUIZ_SCRIPT_URL + '?sheet=S143', title: 'Hardware and Software', section: 1, topic: 33 },
-        's1_com_4': { url: QUIZ_SCRIPT_URL + '?sheet=S144', title: 'Input and Output Devices', section: 1, topic: 34 },
-        's1_com_5': { url: QUIZ_SCRIPT_URL + '?sheet=S145', title: 'Memory and Storage', section: 1, topic: 35 },
-        's1_com_6': { url: QUIZ_SCRIPT_URL + '?sheet=S146', title: 'MS-Word (Basics)', section: 1, topic: 36 },
-        's1_com_7': { url: QUIZ_SCRIPT_URL + '?sheet=S147', title: 'MS-PowerPoint (Basics)', section: 1, topic: 37 },
-        's1_com_8': { url: QUIZ_SCRIPT_URL + '?sheet=S148', title: 'MS-Excel (Basics)', section: 1, topic: 38 },
-        's1_com_9': { url: QUIZ_SCRIPT_URL + '?sheet=S149', title: 'Internet and E-mail', section: 1, topic: 39 },
-        's1_com_10': { url: QUIZ_SCRIPT_URL + '?sheet=S1410', title: 'Windows Operating System', section: 1, topic: 40 },
-        
-        // Section 2: Logical Reasoning & Mental Ability (S2)
-        // 1. Logical Reasoning (General) (S2.1)
-        's2_log_1': { url: QUIZ_SCRIPT_URL + '?sheet=S211', title: 'Series Completion', section: 2, topic: 1 },
-        's2_log_2': { url: QUIZ_SCRIPT_URL + '?sheet=S212', title: 'Analogy', section: 2, topic: 2 },
-        's2_log_3': { url: QUIZ_SCRIPT_URL + '?sheet=S213', title: 'Classification', section: 2, topic: 3 },
-        's2_log_4': { url: QUIZ_SCRIPT_URL + '?sheet=S214', title: 'Coding-Decoding', section: 2, topic: 4 },
-        's2_log_5': { url: QUIZ_SCRIPT_URL + '?sheet=S215', title: 'Direction Sense Test', section: 2, topic: 5 },
-        's2_log_6': { url: QUIZ_SCRIPT_URL + '?sheet=S216', title: 'Ranking Test', section: 2, topic: 6 },
-        's2_log_7': { url: QUIZ_SCRIPT_URL + '?sheet=S217', title: 'Puzzles', section: 2, topic: 7 },
-        's2_log_8': { url: QUIZ_SCRIPT_URL + '?sheet=S218', title: 'Pattern Completion', section: 2, topic: 8 },
-        's2_log_9': { url: QUIZ_SCRIPT_URL + '?sheet=S219', title: 'Mirror Images', section: 2, topic: 9 },
-        's2_log_10': { url: QUIZ_SCRIPT_URL + '?sheet=S2110', title: 'Blood Relations', section: 2, topic: 10 },
-        // 2. Verbal Reasoning (S2.2)
-        's2_vrb_1': { url: QUIZ_SCRIPT_URL + '?sheet=S221', title: 'Number Series', section: 2, topic: 11 },
-        's2_vrb_2': { url: QUIZ_SCRIPT_URL + '?sheet=S222', title: 'Letter Series', section: 2, topic: 12 },
-        's2_vrb_3': { url: QUIZ_SCRIPT_URL + '?sheet=S223', title: 'Word Analogy', section: 2, topic: 13 },
-        's2_vrb_4': { url: QUIZ_SCRIPT_URL + '?sheet=S224', title: 'Word Classification', section: 2, topic: 14 },
-        's2_vrb_5': { url: QUIZ_SCRIPT_URL + '?sheet=S225', title: 'Coding-Decoding', section: 2, topic: 15 },
-        's2_vrb_6': { url: QUIZ_SCRIPT_URL + '?sheet=S226', title: 'Blood Relations', section: 2, topic: 16 },
-        's2_vrb_7': { url: QUIZ_SCRIPT_URL + '?sheet=S227', title: 'Direction Puzzles', section: 2, topic: 17 },
-        's2_vrb_8': { url: QUIZ_SCRIPT_URL + '?sheet=S228', title: 'Calendar and Clock', section: 2, topic: 18 },
-        's2_vrb_9': { url: QUIZ_SCRIPT_URL + '?sheet=S229', title: 'Ranking Test', section: 2, topic: 19 },
-        's2_vrb_10': { url: QUIZ_SCRIPT_URL + '?sheet=S2210', title: 'Word Formation', section: 2, topic: 20 },
-        // 3. Non-Verbal Reasoning (S2.3)
-        's2_non_1': { url: QUIZ_SCRIPT_URL + '?sheet=S231', title: 'Figure Series', section: 2, topic: 21 },
-        's2_non_2': { url: QUIZ_SCRIPT_URL + '?sheet=S232', title: 'Figure Analogy', section: 2, topic: 22 },
-        's2_non_3': { url: QUIZ_SCRIPT_URL + '?sheet=S233', title: 'Figure Classification', section: 2, topic: 23 },
-        's2_non_4': { url: QUIZ_SCRIPT_URL + '?sheet=S234', title: 'Mirror Images', section: 2, topic: 24 },
-        's2_non_5': { url: QUIZ_SCRIPT_URL + '?sheet=S235', title: 'Water Images', section: 2, topic: 25 },
-        's2_non_6': { url: QUIZ_SCRIPT_URL + '?sheet=S236', title: 'Embedded Figures', section: 2, topic: 26 },
-        's2_non_7': { url: QUIZ_SCRIPT_URL + '?sheet=S237', title: 'Figure Completion', section: 2, topic: 27 },
-        's2_non_8': { url: QUIZ_SCRIPT_URL + '?sheet=S238', title: 'Paper Folding', section: 2, topic: 28 },
-        's2_non_9': { url: QUIZ_SCRIPT_URL + '?sheet=S239', title: 'Paper Cutting', section: 2, topic: 29 },
-        's2_non_10': { url: QUIZ_SCRIPT_URL + '?sheet=S2310', title: 'Cubes and Dice', section: 2, topic: 30 },
-        // 4. Mental Ability (S2.4)
-        's2_men_1': { url: QUIZ_SCRIPT_URL + '?sheet=S241', title: 'Number Series', section: 2, topic: 31 },
-        's2_men_2': { url: QUIZ_SCRIPT_URL + '?sheet=S242', title: 'Letter Series', section: 2, topic: 32 },
-        's2_men_3': { url: QUIZ_SCRIPT_URL + '?sheet=S243', title: 'Coding-Decoding', section: 2, topic: 33 },
-        's2_men_4': { url: QUIZ_SCRIPT_URL + '?sheet=S244', title: 'Odd One Out', section: 2, topic: 34 },
-        's2_men_5': { url: QUIZ_SCRIPT_URL + '?sheet=S245', title: 'Analogy', section: 2, topic: 35 },
-        's2_men_6': { url: QUIZ_SCRIPT_URL + '?sheet=S246', title: 'Ranking Test', section: 2, topic: 36 },
-        's2_men_7': { url: QUIZ_SCRIPT_URL + '?sheet=S247', title: 'Figure Patterns', section: 2, topic: 37 },
-        's2_men_8': { url: QUIZ_SCRIPT_URL + '?sheet=S248', title: 'Mirror Images', section: 2, topic: 38 },
-        's2_men_9': { url: QUIZ_SCRIPT_URL + '?sheet=S249', title: 'Directions', section: 2, topic: 39 },
-        's2_men_10': { url: QUIZ_SCRIPT_URL + '?sheet=S2410', title: 'Blood Relations', section: 2, topic: 40 },
+const quizTestConfig = {
+    'free_test': { url: QUIZ_SCRIPT_URL + '?sheet=FREE', title: 'Free Test', section: null, subSection: null, topic: null },
 
-        // Section 3: General Knowledge (S3)
-        // 1. General Awareness (S3.1)
-        's3_gen_1': { url: QUIZ_SCRIPT_URL + '?sheet=S311', title: 'Indian States and Capitals', section: 3, topic: 1 },
-        's3_gen_2': { url: QUIZ_SCRIPT_URL + '?sheet=S312', title: 'Important Books and Authors', section: 3, topic: 2 },
-        's3_gen_3': { url: QUIZ_SCRIPT_URL + '?sheet=S313', title: 'Inventions and Inventors', section: 3, topic: 3 },
-        's3_gen_4': { url: QUIZ_SCRIPT_URL + '?sheet=S314', title: 'Sports and Trophies', section: 3, topic: 4 },
-        's3_gen_5': { url: QUIZ_SCRIPT_URL + '?sheet=S315', title: 'National Symbols', section: 3, topic: 5 },
-        's3_gen_6': { url: QUIZ_SCRIPT_URL + '?sheet=S316', title: 'Historical Monuments', section: 3, topic: 6 },
-        's3_gen_7': { url: QUIZ_SCRIPT_URL + '?sheet=S317', title: 'Plants and Animals', section: 3, topic: 7 },
-        's3_gen_8': { url: QUIZ_SCRIPT_URL + '?sheet=S318', title: 'Our Solar System', section: 3, topic: 8 },
-        's3_gen_9': { url: QUIZ_SCRIPT_URL + '?sheet=S319', title: 'Important Days', section: 3, topic: 9 },
-        's3_gen_10': { url: QUIZ_SCRIPT_URL + '?sheet=S3110', title: 'Indian History (Basics)', section: 3, topic: 10 },
-        // 2. Current Affairs (S3.2)
-        's3_cur_1': { url: QUIZ_SCRIPT_URL + '?sheet=S321', title: 'Current National News', section: 3, topic: 11 },
-        's3_cur_2': { url: QUIZ_SCRIPT_URL + '?sheet=S322', title: 'Current International News', section: 3, topic: 12 },
-        's3_cur_3': { url: QUIZ_SCRIPT_URL + '?sheet=S323', title: 'Recent Awards and Honors', section: 3, topic: 13 },
-        's3_cur_4': { url: QUIZ_SCRIPT_URL + '?sheet=S324', title: 'Sports News', section: 3, topic: 14 },
-        's3_cur_5': { url: QUIZ_SCRIPT_URL + '?sheet=S325', title: 'Government Schemes', section: 3, topic: 15 },
-        's3_cur_6': { url: QUIZ_SCRIPT_URL + '?sheet=S326', title: 'Developments in Science & Tech', section: 3, topic: 16 },
-        's3_cur_7': { url: QUIZ_SCRIPT_URL + '?sheet=S327', title: 'Important Appointments', section: 3, topic: 17 },
-        's3_cur_8': { url: QUIZ_SCRIPT_URL + '?sheet=S328', title: 'Environmental News', section: 3, topic: 18 },
-        's3_cur_9': { url: QUIZ_SCRIPT_URL + '?sheet=S329', title: 'Personalities in News', section: 3, topic: 19 },
-        's3_cur_10': { url: QUIZ_SCRIPT_URL + '?sheet=S3210', title: 'Summits and Conferences', section: 3, topic: 20 },
-        // 3. General Questions (S3.3)
-        's3_que_1': { url: QUIZ_SCRIPT_URL + '?sheet=S331', title: 'Our Environment', section: 3, topic: 21 },
-        's3_que_2': { url: QUIZ_SCRIPT_URL + '?sheet=S332', title: 'Health and Hygiene', section: 3, topic: 22 },
-        's3_que_3': { url: QUIZ_SCRIPT_URL + '?sheet=S333', title: 'Safety Rules', section: 3, topic: 23 },
-        's3_que_4': { url: QUIZ_SCRIPT_URL + '?sheet=S334', title: 'Society and Civic Life', section: 3, topic: 24 },
-        's3_que_5': { url: QUIZ_SCRIPT_URL + '?sheet=S335', title: 'Wonders of the World', section: 3, topic: 25 },
-        's3_que_6': { url: QUIZ_SCRIPT_URL + '?sheet=S336', title: 'Universe', section: 3, topic: 26 },
-        's3_que_7': { url: QUIZ_SCRIPT_URL + '?sheet=S337', title: 'Weather and Climate', section: 3, topic: 27 },
-        's3_que_8': { url: QUIZ_SCRIPT_URL + '?sheet=S338', title: 'Indian Culture', section: 3, topic: 28 },
-        's3_que_9': { url: QUIZ_SCRIPT_URL + '?sheet=S339', title: 'Famous Inventions', section: 3, topic: 29 },
-        's3_que_10': { url: QUIZ_SCRIPT_URL + '?sheet=S3310', title: 'Food Habits', section: 3, topic: 30 },
-        
-        // Section 4: Applied Skills & Special Topics (S4)
-        // 1. Everyday Mathematics (S4.1)
-        's4_eve_1': { url: QUIZ_SCRIPT_URL + '?sheet=S411', title: 'Money Calculations', section: 4, topic: 1 },
-        's4_eve_2': { url: QUIZ_SCRIPT_URL + '?sheet=S412', title: 'Time and Work', section: 4, topic: 2 },
-        's4_eve_3': { url: QUIZ_SCRIPT_URL + '?sheet=S413', title: 'Distance and Speed', section: 4, topic: 3 },
-        's4_eve_4': { url: QUIZ_SCRIPT_URL + '?sheet=S414', title: 'Profit and Loss (Basics)', section: 4, topic: 4 },
-        's4_eve_5': { url: QUIZ_SCRIPT_URL + '?sheet=S415', title: 'Measurement (Length, Weight, Capacity)', section: 4, topic: 5 },
-        's4_eve_6': { url: QUIZ_SCRIPT_URL + '?sheet=S416', title: 'Calendar', section: 4, topic: 6 },
-        's4_eve_7': { url: QUIZ_SCRIPT_URL + '?sheet=S417', title: 'Clock', section: 4, topic: 7 },
-        's4_eve_8': { url: QUIZ_SCRIPT_URL + '?sheet=S418', title: 'Age Problems', section: 4, topic: 8 },
-        's4_eve_9': { url: QUIZ_SCRIPT_URL + '?sheet=S419', title: 'Unitary Method', section: 4, topic: 9 },
-        's4_eve_10': { url: QUIZ_SCRIPT_URL + '?sheet=S4110', title: 'Billing and Discounts', section: 4, topic: 10 },
-        // 2. Achievers Section (S4.2)
-        's4_ach_1': { url: QUIZ_SCRIPT_URL + '?sheet=S421', title: 'Analytical Skills', section: 4, topic: 11 },
-        's4_ach_2': { url: QUIZ_SCRIPT_URL + '?sheet=S422', title: 'Application-based questions', section: 4, topic: 12 },
-        's4_ach_3': { url: QUIZ_SCRIPT_URL + '?sheet=S423', title: 'Problem-Solving Skills', section: 4, topic: 13 },
-        's4_ach_4': { url: QUIZ_SCRIPT_URL + '?sheet=S424', title: 'Multi-concept questions', section: 4, topic: 14 },
-        's4_ach_5': { url: QUIZ_SCRIPT_URL + '?sheet=S425', title: 'Case Studies', section: 4, topic: 15 },
-        's4_ach_6': { url: QUIZ_SCRIPT_URL + '?sheet=S426', title: 'Data Interpretation', section: 4, topic: 16 },
-        's4_ach_7': { url: QUIZ_SCRIPT_URL + '?sheet=S427', title: 'Critical Thinking', section: 4, topic: 17 },
-        's4_ach_8': { url: QUIZ_SCRIPT_URL + '?sheet=S428', title: 'Complex Calculations', section: 4, topic: 18 },
-        's4_ach_9': { url: QUIZ_SCRIPT_URL + '?sheet=S429', title: 'In-depth Understanding', section: 4, topic: 19 },
-        's4_ach_10': { url: QUIZ_SCRIPT_URL + '?sheet=S4210', title: 'Logical Deduction', section: 4, topic: 20 },
-        // 3. Life Skills (S4.3)
-        's4_lif_1': { url: QUIZ_SCRIPT_URL + '?sheet=S431', title: 'Moral Values', section: 4, topic: 21 },
-        's4_lif_2': { url: QUIZ_SCRIPT_URL + '?sheet=S432', title: 'Empathy', section: 4, topic: 22 },
-        's4_lif_3': { url: QUIZ_SCRIPT_URL + '?sheet=S433', title: 'Communication Skills', section: 4, topic: 23 },
-        's4_lif_4': { url: QUIZ_SCRIPT_URL + '?sheet=S434', title: 'Decision Making', section: 4, topic: 24 },
-        's4_lif_5': { url: QUIZ_SCRIPT_URL + '?sheet=S435', title: 'Problem Solving', section: 4, topic: 25 },
-        's4_lif_6': { url: QUIZ_SCRIPT_URL + '?sheet=S436', title: 'Leadership', section: 4, topic: 26 },
-        's4_lif_7': { url: QUIZ_SCRIPT_URL + '?sheet=S437', title: 'Teamwork', section: 4, topic: 27 },
-        's4_lif_8': { url: QUIZ_SCRIPT_URL + '?sheet=S438', title: 'Time Management', section: 4, topic: 28 },
-        's4_lif_9': { url: QUIZ_SCRIPT_URL + '?sheet=S439', title: 'Stress Management', section: 4, topic: 29 },
-        's4_lif_10': { url: QUIZ_SCRIPT_URL + '?sheet=S4310', title: 'Kindness', section: 4, topic: 30 },
-    };
-    // --- End Updated Quiz Config ---
+    // Section 1: CORE ACADEMIC SUBJECTS (S1)
+    // 1. Science (S1.1) - subSection: 1
+    's1_sci_1': { url: QUIZ_SCRIPT_URL + '?sheet=S111', title: 'Components of Food', section: 1, subSection: 1, topic: 1 },
+    's1_sci_2': { url: QUIZ_SCRIPT_URL + '?sheet=S112', title: 'Separation of Substances', section: 1, subSection: 1, topic: 2 },
+    's1_sci_3': { url: QUIZ_SCRIPT_URL + '?sheet=S113', title: 'Getting to Know Plants', section: 1, subSection: 1, topic: 3 },
+    's1_sci_4': { url: QUIZ_SCRIPT_URL + '?sheet=S114', title: 'Body Movements', section: 1, subSection: 1, topic: 4 },
+    's1_sci_5': { url: QUIZ_SCRIPT_URL + '?sheet=S115', title: 'The Living Organisms and Their Surroundings', section: 1, subSection: 1, topic: 5 },
+    's1_sci_6': { url: QUIZ_SCRIPT_URL + '?sheet=S116', title: 'Motion and Measurement of Distances', section: 1, subSection: 1, topic: 6 },
+    's1_sci_7': { url: QUIZ_SCRIPT_URL + '?sheet=S117', title: 'Light, Shadows and Reflections', section: 1, subSection: 1, topic: 7 },
+    's1_sci_8': { url: QUIZ_SCRIPT_URL + '?sheet=S118', title: 'Electricity and Circuits', section: 1, subSection: 1, topic: 8 },
+    's1_sci_9': { url: QUIZ_SCRIPT_URL + '?sheet=S119', title: 'Water', section: 1, subSection: 1, topic: 9 },
+    's1_sci_10': { url: QUIZ_SCRIPT_URL + '?sheet=S1110', title: 'Changes Around Us', section: 1, subSection: 1, topic: 10 },
+    
+    // 2. Mathematics (S1.2) - subSection: 2
+    's1_mat_1': { url: QUIZ_SCRIPT_URL + '?sheet=S121', title: 'Knowing Our Numbers', section: 1, subSection: 2, topic: 1 },
+    's1_mat_2': { url: QUIZ_SCRIPT_URL + '?sheet=S122', title: 'Whole Numbers', section: 1, subSection: 2, topic: 2 },
+    's1_mat_3': { url: QUIZ_SCRIPT_URL + '?sheet=S123', title: 'Integers', section: 1, subSection: 2, topic: 3 },
+    's1_mat_4': { url: QUIZ_SCRIPT_URL + '?sheet=S124', title: 'Fractions', section: 1, subSection: 2, topic: 4 },
+    's1_mat_5': { url: QUIZ_SCRIPT_URL + '?sheet=S125', title: 'Decimals', section: 1, subSection: 2, topic: 5 },
+    's1_mat_6': { url: QUIZ_SCRIPT_URL + '?sheet=S126', title: 'Algebra - Introduction', section: 1, subSection: 2, topic: 6 },
+    's1_mat_7': { url: QUIZ_SCRIPT_URL + '?sheet=S127', title: 'Ratio and Proportion', section: 1, subSection: 2, topic: 7 },
+    's1_mat_8': { url: QUIZ_SCRIPT_URL + '?sheet=S128', title: 'Basic Geometrical Ideas', section: 1, subSection: 2, topic: 8 },
+    's1_mat_9': { url: QUIZ_SCRIPT_URL + '?sheet=S129', title: 'Understanding Elementary Shapes', section: 1, subSection: 2, topic: 9 },
+    's1_mat_10': { url: QUIZ_SCRIPT_URL + '?sheet=S1210', title: 'Mensuration - Perimeter and Area', section: 1, subSection: 2, topic: 10 },
+    
+    // 3. English (S1.3) - subSection: 3
+    's1_eng_1': { url: QUIZ_SCRIPT_URL + '?sheet=S131', title: 'Nouns', section: 1, subSection: 3, topic: 1 },
+    's1_eng_2': { url: QUIZ_SCRIPT_URL + '?sheet=S132', title: 'Pronouns', section: 1, subSection: 3, topic: 2 },
+    's1_eng_3': { url: QUIZ_SCRIPT_URL + '?sheet=S133', title: 'Verbs and Tenses', section: 1, subSection: 3, topic: 3 },
+    's1_eng_4': { url: QUIZ_SCRIPT_URL + '?sheet=S134', title: 'Adjectives', section: 1, subSection: 3, topic: 4 },
+    's1_eng_5': { url: QUIZ_SCRIPT_URL + '?sheet=S135', title: 'Adverbs', section: 1, subSection: 3, topic: 5 },
+    's1_eng_6': { url: QUIZ_SCRIPT_URL + '?sheet=S136', title: 'Prepositions', section: 1, subSection: 3, topic: 6 },
+    's1_eng_7': { url: QUIZ_SCRIPT_URL + '?sheet=S137', title: 'Conjunctions', section: 1, subSection: 3, topic: 7 },
+    's1_eng_8': { url: QUIZ_SCRIPT_URL + '?sheet=S138', title: 'Synonyms', section: 1, subSection: 3, topic: 8 },
+    's1_eng_9': { url: QUIZ_SCRIPT_URL + '?sheet=S139', title: 'Antonyms', section: 1, subSection: 3, topic: 9 },
+    's1_eng_10': { url: QUIZ_SCRIPT_URL + '?sheet=S1310', title: 'Reading Comprehension', section: 1, subSection: 3, topic: 10 },
+    
+    // 4. Computers & IT (S1.4) - subSection: 4
+    's1_com_1': { url: QUIZ_SCRIPT_URL + '?sheet=S141', title: 'Introduction to Computers', section: 1, subSection: 4, topic: 1 },
+    's1_com_2': { url: QUIZ_SCRIPT_URL + '?sheet=S142', title: 'Evolution of Computers', section: 1, subSection: 4, topic: 2 },
+    's1_com_3': { url: QUIZ_SCRIPT_URL + '?sheet=S143', title: 'Hardware and Software', section: 1, subSection: 4, topic: 3 },
+    's1_com_4': { url: QUIZ_SCRIPT_URL + '?sheet=S144', title: 'Input and Output Devices', section: 1, subSection: 4, topic: 4 },
+    's1_com_5': { url: QUIZ_SCRIPT_URL + '?sheet=S145', title: 'Memory and Storage', section: 1, subSection: 4, topic: 5 },
+    's1_com_6': { url: QUIZ_SCRIPT_URL + '?sheet=S146', title: 'MS-Word (Basics)', section: 1, subSection: 4, topic: 6 },
+    's1_com_7': { url: QUIZ_SCRIPT_URL + '?sheet=S147', title: 'MS-PowerPoint (Basics)', section: 1, subSection: 4, topic: 7 },
+    's1_com_8': { url: QUIZ_SCRIPT_URL + '?sheet=S148', title: 'MS-Excel (Basics)', section: 1, subSection: 4, topic: 8 },
+    's1_com_9': { url: QUIZ_SCRIPT_URL + '?sheet=S149', title: 'Internet and E-mail', section: 1, subSection: 4, topic: 9 },
+    's1_com_10': { url: QUIZ_SCRIPT_URL + '?sheet=S1410', title: 'Windows Operating System', section: 1, subSection: 4, topic: 10 },
+    
+    
+    // Section 2: LOGICAL REASONING & MENTAL ABILITY (S2) - (యథాతథంగా ఉంచబడింది)
+    // 1. Logical Reasoning (General) (S2.1) - subSection: 1
+    's2_log_1': { url: QUIZ_SCRIPT_URL + '?sheet=S211', title: 'Series Completion', section: 2, subSection: 1, topic: 1 },
+    's2_log_2': { url: QUIZ_SCRIPT_URL + '?sheet=S212', title: 'Analogy', section: 2, subSection: 1, topic: 2 },
+    's2_log_3': { url: QUIZ_SCRIPT_URL + '?sheet=S213', title: 'Classification', section: 2, subSection: 1, topic: 3 },
+    's2_log_4': { url: QUIZ_SCRIPT_URL + '?sheet=S214', title: 'Coding-Decoding', section: 2, subSection: 1, topic: 4 },
+    's2_log_5': { url: QUIZ_SCRIPT_URL + '?sheet=S215', title: 'Direction Sense Test', section: 2, subSection: 1, topic: 5 },
+    's2_log_6': { url: QUIZ_SCRIPT_URL + '?sheet=S216', title: 'Ranking Test', section: 2, subSection: 1, topic: 6 },
+    's2_log_7': { url: QUIZ_SCRIPT_URL + '?sheet=S217', title: 'Puzzles', section: 2, subSection: 1, topic: 7 },
+    's2_log_8': { url: QUIZ_SCRIPT_URL + '?sheet=S218', title: 'Pattern Completion', section: 2, subSection: 1, topic: 8 },
+    's2_log_9': { url: QUIZ_SCRIPT_URL + '?sheet=S219', title: 'Mirror Images', section: 2, subSection: 1, topic: 9 },
+    's2_log_10': { url: QUIZ_SCRIPT_URL + '?sheet=S2110', title: 'Blood Relations', section: 2, subSection: 1, topic: 10 },
+    
+    // 2. Verbal Reasoning (S2.2) - subSection: 2
+    's2_vrb_1': { url: QUIZ_SCRIPT_URL + '?sheet=S221', title: 'Number Series', section: 2, subSection: 2, topic: 1 },
+    's2_vrb_2': { url: QUIZ_SCRIPT_URL + '?sheet=S222', title: 'Letter Series', section: 2, subSection: 2, topic: 2 },
+    's2_vrb_3': { url: QUIZ_SCRIPT_URL + '?sheet=S223', title: 'Word Analogy', section: 2, subSection: 2, topic: 3 },
+    's2_vrb_4': { url: QUIZ_SCRIPT_URL + '?sheet=S224', title: 'Word Classification', section: 2, subSection: 2, topic: 4 },
+    's2_vrb_5': { url: QUIZ_SCRIPT_URL + '?sheet=S225', title: 'Coding-Decoding', section: 2, subSection: 2, topic: 5 },
+    's2_vrb_6': { url: QUIZ_SCRIPT_URL + '?sheet=S226', title: 'Blood Relations', section: 2, subSection: 2, topic: 6 },
+    's2_vrb_7': { url: QUIZ_SCRIPT_URL + '?sheet=S227', title: 'Direction Puzzles', section: 2, subSection: 2, topic: 7 },
+    's2_vrb_8': { url: QUIZ_SCRIPT_URL + '?sheet=S228', title: 'Calendar and Clock', section: 2, subSection: 2, topic: 8 },
+    's2_vrb_9': { url: QUIZ_SCRIPT_URL + '?sheet=S229', title: 'Ranking Test', section: 2, subSection: 2, topic: 9 },
+    's2_vrb_10': { url: QUIZ_SCRIPT_URL + '?sheet=S2210', title: 'Word Formation', section: 2, subSection: 2, topic: 10 },
+    
+    // 3. Non-Verbal Reasoning (S2.3) - subSection: 3
+    's2_non_1': { url: QUIZ_SCRIPT_URL + '?sheet=S231', title: 'Figure Series', section: 2, subSection: 3, topic: 1 },
+    's2_non_2': { url: QUIZ_SCRIPT_URL + '?sheet=S232', title: 'Figure Analogy', section: 2, subSection: 3, topic: 2 },
+    's2_non_3': { url: QUIZ_SCRIPT_URL + '?sheet=S233', title: 'Figure Classification', section: 2, subSection: 3, topic: 3 },
+    's2_non_4': { url: QUIZ_SCRIPT_URL + '?sheet=S234', title: 'Mirror Images', section: 2, subSection: 3, topic: 4 },
+    's2_non_5': { url: QUIZ_SCRIPT_URL + '?sheet=S235', title: 'Water Images', section: 2, subSection: 3, topic: 5 },
+    's2_non_6': { url: QUIZ_SCRIPT_URL + '?sheet=S236', title: 'Embedded Figures', section: 2, subSection: 3, topic: 6 },
+    's2_non_7': { url: QUIZ_SCRIPT_URL + '?sheet=S237', title: 'Figure Completion', section: 2, subSection: 3, topic: 7 },
+    's2_non_8': { url: QUIZ_SCRIPT_URL + '?sheet=S238', title: 'Paper Folding', section: 2, subSection: 3, topic: 8 },
+    's2_non_9': { url: QUIZ_SCRIPT_URL + '?sheet=S239', title: 'Paper Cutting', section: 2, subSection: 3, topic: 9 },
+    's2_non_10': { url: QUIZ_SCRIPT_URL + '?sheet=S2310', title: 'Cubes and Dice', section: 2, subSection: 3, topic: 10 },
+    
+    // 4. Mental Ability (S2.4) - subSection: 4
+    's2_men_1': { url: QUIZ_SCRIPT_URL + '?sheet=S241', title: 'Number Series', section: 2, subSection: 4, topic: 1 },
+    's2_men_2': { url: QUIZ_SCRIPT_URL + '?sheet=S242', title: 'Letter Series', section: 2, subSection: 4, topic: 2 },
+    's2_men_3': { url: QUIZ_SCRIPT_URL + '?sheet=S243', title: 'Coding-Decoding', section: 2, subSection: 4, topic: 3 },
+    's2_men_4': { url: QUIZ_SCRIPT_URL + '?sheet=S244', title: 'Odd One Out', section: 2, subSection: 4, topic: 4 },
+    's2_men_5': { url: QUIZ_SCRIPT_URL + '?sheet=S245', title: 'Analogy', section: 2, subSection: 4, topic: 5 },
+    's2_men_6': { url: QUIZ_SCRIPT_URL + '?sheet=S246', title: 'Ranking Test', section: 2, subSection: 4, topic: 6 },
+    's2_men_7': { url: QUIZ_SCRIPT_URL + '?sheet=S247', title: 'Figure Patterns', section: 2, subSection: 4, topic: 7 },
+    's2_men_8': { url: QUIZ_SCRIPT_URL + '?sheet=S248', title: 'Mirror Images', section: 2, subSection: 4, topic: 8 },
+    's2_men_9': { url: QUIZ_SCRIPT_URL + '?sheet=S249', title: 'Directions', section: 2, subSection: 4, topic: 9 },
+    's2_men_10': { url: QUIZ_SCRIPT_URL + '?sheet=S2410', title: 'Blood Relations', section: 2, subSection: 4, topic: 10 },
+    
+    
+    // Section 3: GENERAL KNOWLEDGE (S3)
+    // 1. General Awareness (S3.1) - subSection: 1
+    's3_gen_1': { url: QUIZ_SCRIPT_URL + '?sheet=S311', title: 'Indian States and Capitals', section: 3, subSection: 1, topic: 1 },
+    's3_gen_2': { url: QUIZ_SCRIPT_URL + '?sheet=S312', title: 'Important Books and Authors', section: 3, subSection: 1, topic: 2 },
+    's3_gen_3': { url: QUIZ_SCRIPT_URL + '?sheet=S313', title: 'Inventions and Inventors', section: 3, subSection: 1, topic: 3 },
+    's3_gen_4': { url: QUIZ_SCRIPT_URL + '?sheet=S314', title: 'Sports and Trophies', section: 3, subSection: 1, topic: 4 },
+    's3_gen_5': { url: QUIZ_SCRIPT_URL + '?sheet=S315', title: 'National Symbols', section: 3, subSection: 1, topic: 5 },
+    's3_gen_6': { url: QUIZ_SCRIPT_URL + '?sheet=S316', title: 'Historical Monuments', section: 3, subSection: 1, topic: 6 },
+    's3_gen_7': { url: QUIZ_SCRIPT_URL + '?sheet=S317', title: 'Plants and Animals', section: 3, subSection: 1, topic: 7 },
+    's3_gen_8': { url: QUIZ_SCRIPT_URL + '?sheet=S318', title: 'Our Solar System', section: 3, subSection: 1, topic: 8 },
+    's3_gen_9': { url: QUIZ_SCRIPT_URL + '?sheet=S319', title: 'Important Days', section: 3, subSection: 1, topic: 9 },
+    's3_gen_10': { url: QUIZ_SCRIPT_URL + '?sheet=S3110', title: 'Indian History (Basics)', section: 3, subSection: 1, topic: 10 },
+    
+    // 2. Current Affairs (S3.2) - subSection: 2
+    's3_cur_1': { url: QUIZ_SCRIPT_URL + '?sheet=S321', title: 'Current National News', section: 3, subSection: 2, topic: 1 },
+    's3_cur_2': { url: QUIZ_SCRIPT_URL + '?sheet=S322', title: 'Current International News', section: 3, subSection: 2, topic: 2 },
+    's3_cur_3': { url: QUIZ_SCRIPT_URL + '?sheet=S323', title: 'Recent Awards and Honors', section: 3, subSection: 2, topic: 3 },
+    's3_cur_4': { url: QUIZ_SCRIPT_URL + '?sheet=S324', title: 'Sports News', section: 3, subSection: 2, topic: 4 },
+    's3_cur_5': { url: QUIZ_SCRIPT_URL + '?sheet=S325', title: 'Government Schemes', section: 3, subSection: 2, topic: 5 },
+    's3_cur_6': { url: QUIZ_SCRIPT_URL + '?sheet=S326', title: 'Developments in Science & Tech', section: 3, subSection: 2, topic: 6 },
+    's3_cur_7': { url: QUIZ_SCRIPT_URL + '?sheet=S327', title: 'Important Appointments', section: 3, subSection: 2, topic: 7 },
+    's3_cur_8': { url: QUIZ_SCRIPT_URL + '?sheet=S328', title: 'Environmental News', section: 3, subSection: 2, topic: 8 },
+    's3_cur_9': { url: QUIZ_SCRIPT_URL + '?sheet=S329', title: 'Personalities in News', section: 3, subSection: 2, topic: 9 },
+    's3_cur_10': { url: QUIZ_SCRIPT_URL + '?sheet=S3210', title: 'Summits and Conferences', section: 3, subSection: 2, topic: 10 },
+    
+    // 3. General Questions (S3.3) - subSection: 3
+    's3_que_1': { url: QUIZ_SCRIPT_URL + '?sheet=S331', title: 'Our Environment', section: 3, subSection: 3, topic: 1 },
+    's3_que_2': { url: QUIZ_SCRIPT_URL + '?sheet=S332', title: 'Health and Hygiene', section: 3, subSection: 3, topic: 2 },
+    's3_que_3': { url: QUIZ_SCRIPT_URL + '?sheet=S333', title: 'Safety Rules', section: 3, subSection: 3, topic: 3 },
+    's3_que_4': { url: QUIZ_SCRIPT_URL + '?sheet=S334', title: 'Society and Civic Life', section: 3, subSection: 3, topic: 4 },
+    's3_que_5': { url: QUIZ_SCRIPT_URL + '?sheet=S335', title: 'Wonders of the World', section: 3, subSection: 3, topic: 5 },
+    's3_que_6': { url: QUIZ_SCRIPT_URL + '?sheet=S336', title: 'Universe', section: 3, subSection: 3, topic: 6 },
+    's3_que_7': { url: QUIZ_SCRIPT_URL + '?sheet=S337', title: 'Weather and Climate', section: 3, subSection: 3, topic: 7 },
+    's3_que_8': { url: QUIZ_SCRIPT_URL + '?sheet=S338', title: 'Indian Culture', section: 3, subSection: 3, topic: 8 },
+    's3_que_9': { url: QUIZ_SCRIPT_URL + '?sheet=S339', title: 'Famous Inventions', section: 3, subSection: 3, topic: 9 },
+    's3_que_10': { url: QUIZ_SCRIPT_URL + '?sheet=S3310', title: 'Food Habits', section: 3, subSection: 3, topic: 10 },
+    
+    
+    // Section 4: APPLIED SKILLS & SPECIAL TOPICS (S4) - (యథాతథంగా ఉంచబడింది)
+    // 1. Everyday Mathematics (S4.1) - subSection: 1
+    's4_eve_1': { url: QUIZ_SCRIPT_URL + '?sheet=S411', title: 'Money Calculations', section: 4, subSection: 1, topic: 1 },
+    's4_eve_2': { url: QUIZ_SCRIPT_URL + '?sheet=S412', title: 'Time and Work', section: 4, subSection: 1, topic: 2 },
+    's4_eve_3': { url: QUIZ_SCRIPT_URL + '?sheet=S413', title: 'Distance and Speed', section: 4, subSection: 1, topic: 3 },
+    's4_eve_4': { url: QUIZ_SCRIPT_URL + '?sheet=S414', title: 'Profit and Loss (Basics)', section: 4, subSection: 1, topic: 4 },
+    's4_eve_5': { url: QUIZ_SCRIPT_URL + '?sheet=S415', title: 'Measurement (Length, Weight, Capacity)', section: 4, subSection: 1, topic: 5 },
+    's4_eve_6': { url: QUIZ_SCRIPT_URL + '?sheet=S416', title: 'Calendar', section: 4, subSection: 1, topic: 6 },
+    's4_eve_7': { url: QUIZ_SCRIPT_URL + '?sheet=S417', title: 'Clock', section: 4, subSection: 1, topic: 7 },
+    's4_eve_8': { url: QUIZ_SCRIPT_URL + '?sheet=S418', title: 'Age Problems', section: 4, subSection: 1, topic: 8 },
+    's4_eve_9': { url: QUIZ_SCRIPT_URL + '?sheet=S419', title: 'Unitary Method', section: 4, subSection: 1, topic: 9 },
+    's4_eve_10': { url: QUIZ_SCRIPT_URL + '?sheet=S4110', title: 'Billing and Discounts', section: 4, subSection: 1, topic: 10 },
+    
+    // 2. Achievers Section (S4.2) - subSection: 2
+    's4_ach_1': { url: QUIZ_SCRIPT_URL + '?sheet=S421', title: 'Analytical Skills', section: 4, subSection: 2, topic: 11 },
+    's4_ach_2': { url: QUIZ_SCRIPT_URL + '?sheet=S422', title: 'Application-based questions', section: 4, subSection: 2, topic: 12 },
+    's4_ach_3': { url: QUIZ_SCRIPT_URL + '?sheet=S423', title: 'Problem-Solving Skills', section: 4, subSection: 2, topic: 13 },
+    's4_ach_4': { url: QUIZ_SCRIPT_URL + '?sheet=S424', title: 'Multi-concept questions', section: 4, subSection: 2, topic: 14 },
+    's4_ach_5': { url: QUIZ_SCRIPT_URL + '?sheet=S425', title: 'Case Studies', section: 4, subSection: 2, topic: 15 },
+    's4_ach_6': { url: QUIZ_SCRIPT_URL + '?sheet=S426', title: 'Data Interpretation', section: 4, subSection: 2, topic: 16 },
+    's4_ach_7': { url: QUIZ_SCRIPT_URL + '?sheet=S427', title: 'Critical Thinking', section: 4, subSection: 2, topic: 17 },
+    's4_ach_8': { url: QUIZ_SCRIPT_URL + '?sheet=S428', title: 'Complex Calculations', section: 4, subSection: 2, topic: 18 },
+    's4_ach_9': { url: QUIZ_SCRIPT_URL + '?sheet=S429', title: 'In-depth Understanding', section: 4, subSection: 2, topic: 19 },
+    's4_ach_10': { url: QUIZ_SCRIPT_URL + '?sheet=S4210', title: 'Logical Deduction', section: 4, subSection: 2, topic: 20 },
+    
+    // 3. Life Skills (S4.3) - subSection: 3
+    's4_lif_1': { url: QUIZ_SCRIPT_URL + '?sheet=S431', title: 'Moral Values', section: 4, subSection: 3, topic: 21 },
+    's4_lif_2': { url: QUIZ_SCRIPT_URL + '?sheet=S432', title: 'Empathy', section: 4, subSection: 3, topic: 22 },
+    's4_lif_3': { url: QUIZ_SCRIPT_URL + '?sheet=S433', title: 'Communication Skills', section: 4, subSection: 3, topic: 23 },
+    's4_lif_4': { url: QUIZ_SCRIPT_URL + '?sheet=S434', title: 'Decision Making', section: 4, subSection: 3, topic: 24 },
+    's4_lif_5': { url: QUIZ_SCRIPT_URL + '?sheet=S435', title: 'Problem Solving', section: 4, subSection: 3, topic: 25 },
+    's4_lif_6': { url: QUIZ_SCRIPT_URL + '?sheet=S436', title: 'Leadership', section: 4, subSection: 3, topic: 26 },
+    's4_lif_7': { url: QUIZ_SCRIPT_URL + '?sheet=S437', title: 'Teamwork', section: 4, subSection: 3, topic: 27 },
+    's4_lif_8': { url: QUIZ_SCRIPT_URL + '?sheet=S438', title: 'Time Management', section: 4, subSection: 3, topic: 28 },
+    's4_lif_9': { url: QUIZ_SCRIPT_URL + '?sheet=S439', title: 'Stress Management', section: 4, subSection: 3, topic: 29 },
+    's4_lif_10': { url: QUIZ_SCRIPT_URL + '?sheet=S4310', title: 'Kindness', section: 4, subSection: 3, topic: 30 },
+};    // --- End Updated Quiz Config ---
 
     const externalUrlMap = {};
 
@@ -3139,13 +3151,33 @@
         currentQuestionIndex = index;
         const question = allQuestions[index];
         
-        // --- Updated Quiz Title Logic (Fix 2) ---
-        let titlePrefix = currentTestConfig.title;
-        if (currentTestConfig.section && currentTestConfig.topic) {
-             titlePrefix = `S${currentTestConfig.section}.T${currentTestConfig.topic} - ${currentTestConfig.title}`;
-        } else if (currentTestConfig.title) {
-            titlePrefix = currentTestConfig.title;
-        }
+// --- Updated Quiz Title Logic (Fix 2) ---
+// పాత కోడ్ (సుమారుగా 1307 నుండి 1312 లైన్లు):
+/*
+let titlePrefix = currentTestConfig.title;
+if (currentTestConfig.section && currentTestConfig.topic) {
+    titlePrefix = `S${currentTestConfig.section}.T${currentTestConfig.topic} - ${currentTestConfig.title}`;
+} else if (currentTestConfig.title) {
+    titlePrefix = currentTestConfig.title;
+}
+*/
+
+// కొత్త కోడ్ (మీరు అడిగిన ఫార్మాట్‌కు మార్చబడింది):
+let titlePrefix = currentTestConfig.title;
+const classNum = studentClass || 6; // డిఫాల్ట్‌గా 6 వ తరగతి సెట్ అవుతుంది
+const sectionNum = currentTestConfig.section || 'X';
+const subSectionNum = currentTestConfig.subSection || 'Y'; // కొత్తగా జతచేయబడిన కీ
+const topicNum = currentTestConfig.topic || 'Z'; // కొత్తగా జతచేయబడిన కీ
+const questionCount = allQuestions.length;
+
+if (sectionNum !== 'X' && subSectionNum !== 'Y' && topicNum !== 'Z') {
+    titlePrefix = `${classNum}S${sectionNum}SB${subSectionNum}T${topicNum} - ${currentTestConfig.title}`;
+} else {
+    titlePrefix = currentTestConfig.title; // పాత టైటిల్ ని అలాగే ఉంచండి
+}
+
+quizHeaderTitle.textContent = `${titlePrefix}: Question ${index + 1} / ${questionCount}`;
+// --- End of Updated Quiz Title Logic ---
 
         quizHeaderTitle.textContent = `${titlePrefix}: Question ${index + 1} of ${allQuestions.length}`;
         // --- End of Updated Quiz Title Logic ---
