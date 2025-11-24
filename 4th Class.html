@@ -2907,51 +2907,60 @@
         calculateAndShowResults();
     }
 
-    // This map converts text options in the source sheet (if any) to their index (1-4)
-    const correctOptionMap = {
-        "ONE": 1,
-        "TWO": 2,
-        "THREE": 3,
-        "FOUR": 4,
-        "1": 1, 
-        "2": 2,
-        "3": 3,
-        "4": 4
-    };
 
-    function calculateAndShowResults() {
-        let correctCount = 0;
-        let wrongCount = 0;
 
-        for (let i = 0; i < allQuestions.length; i++) {
-            const question = allQuestions[i];
-            
-            const correctAnswerText = String(question.correctOption || "").trim();
-            let correctIndex;
+// This map converts option text indicators (like 'ONE', 'OPTION 1') to their index (1-4)
+    const correctOptionMap = {
+        "ONE": 1, "OPTION 1": 1, "1": 1,
+        "TWO": 2, "OPTION 2": 2, "2": 2,
+        "THREE": 3, "OPTION 3": 3, "3": 3,
+        "FOUR": 4, "OPTION 4": 4, "4": 4
+    };
 
-            if (correctAnswerText && correctAnswerText === String(question.option1 || "").trim()) {
-                correctIndex = 1;
-            } else if (correctAnswerText && correctAnswerText === String(question.option2 || "").trim()) {
-                correctIndex = 2;
-            } else if (correctAnswerText && correctAnswerText === String(question.option3 || "").trim()) {
-                correctIndex = 3;
-            } else if (correctAnswerText && correctAnswerText === String(question.option4 || "").trim()) {
-                correctIndex = 4;
-            } else {
-                const correctOptionString = String(question.correctOption || "").toUpperCase().trim();
-                correctIndex = correctOptionMap[correctOptionString];
-            }
+    function calculateAndShowResults() {
+        let correctCount = 0;
+        let wrongCount = 0;
 
-            const userIndex = userAnswers[i]; 
+        for (let i = 0; i < allQuestions.length; i++) {
+            const question = allQuestions[i];
+            
+            const correctOptionValue = String(question.correctOption || "").toUpperCase().trim();
+            let correctIndex = null;
+            
+            // Attempt 1: Map the value directly from the sheet (supports '1', 'FOUR', 'OPTION 2', etc.)
+            correctIndex = correctOptionMap[correctOptionValue];
 
-            if (userIndex) {
-                if (userIndex === correctIndex) {
-                    correctCount++;
-                } else {
-                    wrongCount++;
-                }
-            }
-        }
+            // Attempt 2: If mapping failed, try parsing as an integer
+            if (!correctIndex) {
+                const numValue = parseInt(correctOptionValue, 10);
+                if (!isNaN(numValue) && numValue >= 1 && numValue <= 4) {
+                    correctIndex = numValue;
+                }
+            }
+
+            // Attempt 3 (Fallback/Old Logic): If all else fails, match by option text. (Only if G column has the full text of A/B/C/D)
+            if (!correctIndex && correctOptionValue.length > 0) {
+                const option1Text = String(question.option1 || "").toUpperCase().trim();
+                const option2Text = String(question.option2 || "").toUpperCase().trim();
+                const option3Text = String(question.option3 || "").toUpperCase().trim();
+                const option4Text = String(question.option4 || "").toUpperCase().trim();
+
+                if (correctOptionValue === option1Text) { correctIndex = 1; }
+                else if (correctOptionValue === option2Text) { correctIndex = 2; }
+                else if (correctOptionValue === option3Text) { correctIndex = 3; }
+                else if (correctOptionValue === option4Text) { correctIndex = 4; }
+            }
+            
+            const userIndex = userAnswers[i]; 
+            
+            if (userIndex && correctIndex) {
+                if (userIndex === correctIndex) {
+                    correctCount++;
+                } else {
+                    wrongCount++;
+                }
+            }
+        }
         
         const unansweredCount = allQuestions.length - (correctCount + wrongCount);
         
@@ -3097,4 +3106,5 @@
 </script>
 </body>
 </html>
+
 
