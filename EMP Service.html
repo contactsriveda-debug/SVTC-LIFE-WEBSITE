@@ -222,8 +222,8 @@
         <div class="w-full max-w-sm mx-4 p-8 bg-white rounded-xl shadow-2xl border-t-8 border-sv-blue">
             <div class="text-center mb-6">
                 <img class="h-16 w-16 rounded-full border-4 border-sv-orange inline-block mb-3" 
-                     src="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg" 
-                     alt="Sri Veda Logo">
+                    src="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg" 
+                    alt="Sri Veda Logo">
                 <h2 class="text-2xl font-extrabold text-sv-blue">Employee Login</h2>
                 <p class="text-sm text-gray-600">Access the Service Corner Dashboard</p>
             </div>
@@ -232,13 +232,13 @@
                 <div>
                     <label for="employeeId" class="block text-sm font-bold text-gray-700 mb-1">Employee ID</label>
                     <input type="text" id="employeeId" placeholder="EMP ID " required
-                           class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-sv-orange transition duration-150">
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-sv-orange transition duration-150">
                 </div>
                 
                 <div>
                     <label for="password" class="block text-sm font-bold text-gray-700 mb-1">Password</label>
                     <input type="password" id="password" placeholder="Password" required
-                           class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-sv-orange transition duration-150">
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-sv-orange transition duration-150">
                 </div>
                 
                 <div id="loginMessage" class="text-center text-sm font-semibold text-red-600 h-5"></div>
@@ -411,18 +411,11 @@
                 <div class="overflow-x-auto">
                     <table class="min-w-full divide-y divide-gray-200">
                         <thead id="registrationThead" class="bg-gray-100">
-                            <tr>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Name</th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Class</th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Number</th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Plan</th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Expiration Date</th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Remaining Days</th>
-                            </tr>
+                            <!-- Table Header will be generated dynamically -->
                         </thead>
                         <tbody id="registrationTbody" class="bg-white divide-y divide-gray-200">
                             <tr>
-                                <td colspan="6" class="px-6 py-4 text-center text-gray-500">Loading data...</td>
+                                <td colspan="9" class="px-6 py-4 text-center text-gray-500">Loading data...</td>
                             </tr>
                         </tbody>
                     </table>
@@ -472,8 +465,9 @@
 
             const registrationTbody = document.getElementById('registrationTbody');
             const registrationThead = document.getElementById('registrationThead'); 
-
-            const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyXw4fwj8tb9al4ItdZgZPnPYsooxsyAnl5KFtv50asYMrzNjhi3DKR20JWNRMJGxer/exec";
+            
+            // IMPORTANT: Update this URL after deploying your Google App Script
+            const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwlBk2_PTmORj1ILOf9p6TVAOe_dTeGn9UG7YoszD6U76tiQvyq0AfGQ7X6G-3WrCIJ/exec";
 
             function getPlanBadge(plan) {
                 if (!plan) return '<span class="plan-badge plan-free">N/A</span>';
@@ -548,6 +542,9 @@
                 registrationThead.innerHTML = ''; 
                 let headerHtml = `
                     <tr>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">S.No.</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Username</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Password</th>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Name</th>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Class</th>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Number</th>
@@ -570,7 +567,8 @@
                 registrationTbody.innerHTML = '';
                 
                 
-                const colspan = (currentEmpId === 'EMPBSN' || currentEmpId === 'EMPKNR') ? 7 : 6;
+                // Calculate colspan for the 'No data' row
+                const colspan = (currentEmpId === 'EMPBSN' || currentEmpId === 'EMPKNR') ? 10 : 9;
 
                 if (!data.registrations || data.registrations.length === 0) {
                     registrationTbody.innerHTML = `<tr><td colspan="${colspan}" class="px-6 py-4 text-center text-gray-500">No registrations found for this employee.</td></tr>`;
@@ -583,12 +581,27 @@
 
                     let row = `
                         <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${reg.sNo || '-'}</td>
+                            
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">
+                                <div class="flex items-center justify-start">
+                                    <span>${reg.username || '-'}</span>
+                                    ${ (reg.username && reg.username !== '-') ? `<i class="fas fa-copy copy-icon text-sv-blue hover:text-sv-orange cursor-pointer ml-2" data-copy-type="username" data-value="${reg.username}" title="Copy username"></i>` : '' }
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">
+                                <div class="flex items-center justify-start">
+                                    <span class="font-mono tracking-wider">${reg.password || '-'}</span>
+                                    ${ (reg.password && reg.password !== '-') ? `<i class="fas fa-copy copy-icon text-sv-blue hover:text-sv-orange cursor-pointer ml-2" data-copy-type="password" data-value="${reg.password}" title="Copy password"></i>` : '' }
+                                </div>
+                            </td>
+                            
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${reg.name || '-'}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">${reg.class || '-'}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">
                                 <div class="flex items-center justify-start">
                                     <span>${reg.number || '-'}</span>
-                                    ${ (reg.number && reg.number !== '-') ? `<i class="fas fa-copy copy-icon text-sv-blue hover:text-sv-orange cursor-pointer ml-2" data-number="${reg.number}" title="Copy number"></i>` : '' }
+                                    ${ (reg.number && reg.number !== '-') ? `<i class="fas fa-copy copy-icon text-sv-blue hover:text-sv-orange cursor-pointer ml-2" data-copy-type="number" data-value="${reg.number}" title="Copy number"></i>` : '' }
                                 </div>
                             </td>
                     `;
@@ -628,6 +641,9 @@
                 
                 registrationThead.innerHTML = `
                     <tr>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">S.No.</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Username</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Password</th>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Name</th>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Class</th>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Number</th>
@@ -636,7 +652,7 @@
                         <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Remaining Days</th>
                     </tr>
                 `;
-                registrationTbody.innerHTML = '<tr><td colspan="6" class="px-6 py-4 text-center text-gray-500">Authentication failed or data not found.</td></tr>';
+                registrationTbody.innerHTML = '<tr><td colspan="9" class="px-6 py-4 text-center text-gray-500">Authentication failed or data not found.</td></tr>';
             }
 
             function showLoginMessage(text, isError = false) {
@@ -704,7 +720,7 @@
                     if (data.error) {
                         showLoginMessage(`Data load failed: ${data.error}`, true);
                         clearDashboard();
-                        return true;
+                        return true; // Return true here to show the cleared dashboard state with the error
                     }
 
                     renderDashboard(data);
@@ -751,8 +767,8 @@
                     
                     const data = await response.json();
 
-                    if (data.authError) {
-                        showLoginMessage(data.authError, true);
+                    if (data.authError || !data.success) {
+                        showLoginMessage(data.authError || "Login failed. Check ID/Password.", true);
                         loginButton.disabled = false;
                         loginButton.innerHTML = '<i class="fas fa-sign-in-alt mr-2"></i> LOGIN';
                         passwordInput.value = "";
@@ -802,9 +818,9 @@
             registrationTbody.addEventListener('click', (e) => {
                 const icon = e.target.closest('.copy-icon');
                 if (icon) {
-                    const numberToCopy = icon.dataset.number;
-                    if (numberToCopy && numberToCopy !== '-') {
-                        if (copyToClipboard(numberToCopy)) {
+                    const valueToCopy = icon.dataset.value;
+                    if (valueToCopy && valueToCopy !== '-') {
+                        if (copyToClipboard(valueToCopy)) {
                             icon.classList.remove('fa-copy');
                             icon.classList.remove('text-sv-blue');
                             icon.classList.add('fa-check');
