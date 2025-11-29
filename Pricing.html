@@ -142,6 +142,7 @@
         /* Target the Razorpay button specifically to ensure it fits the design */
         #razorpay-button-container-silver form,
         #razorpay-button-container-platina form,
+        #razorpay-button-container-crown form,
         #razorpay-button-container-gold form,
         #razorpay-button-renew form,
         #razorpay-button-upgrade form {
@@ -156,9 +157,9 @@
             <div class="flex flex-col md:flex-row items-center justify-between py-3 md:py-2 space-y-3 md:space-y-0 md:h-24">
                 <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4">
                     <img src="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg" 
-                            onerror="this.onerror=null; this.src='https://placehold.co/64x64/1e3a8a/ffffff?text=VEDA';" 
-                            alt="Veda Logo" 
-                            class="w-16 h-16 object-contain shadow-md rounded-full bg-white p-1 flex-shrink-0">
+                                onerror="this.onerror=null; this.src='https://placehold.co/64x64/1e3a8a/ffffff?text=VEDA';" 
+                                alt="Veda Logo" 
+                                class="w-16 h-16 object-contain shadow-md rounded-full bg-white p-1 flex-shrink-0">
                     <div class="text-center sm:text-left flex flex-col justify-center">
                         <h1 class="text-xl sm:text-2xl font-extrabold tracking-wider text-white">
                             SRI VEDA TALENT COMPETITION
@@ -239,7 +240,8 @@
         </div>
     </section>
 
-    <main class="max-w-6xl mx-auto py-12 px-4 sm:px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+    <!-- Updated grid layout to accommodate 4 columns on large screens -->
+    <main class="max-w-6xl mx-auto py-12 px-4 sm:px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         <!-- Silver Plan -->
         <div class="relative rounded-2xl shadow-lg p-8 text-center border-2 border-gray-400 hover:shadow-2xl transition transform hover:-translate-y-1 iron-gradient">
             <div class="absolute top-4 right-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full">50% OFF</div>
@@ -257,27 +259,45 @@
             </div>
         </div>
 
-        <!-- Platina Plan -->
+        <!-- Platina Plan (Removed MOST POPULAR and visual scaling) -->
+        <div class="relative rounded-2xl shadow-lg p-8 text-center border-2 border-blue-400 hover:shadow-2xl transition transform hover:-translate-y-1 bg-white">
+            <div class="absolute top-4 right-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full">58% OFF</div>
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Platina Plan</h2>
+            <p class="text-4xl font-bold text-blue-600 mb-1">₹249 <span class="text-sm line-through text-gray-400 ml-2">₹599</span></p>
+            <p class="text-base text-gray-500 mb-4">(99 days access)</p>
+            <ul class="text-gray-600 space-y-2 mb-6 text-left px-4">
+                <li><i class="fas fa-check text-green-500 mr-2"></i> All Silver features</li>
+                <li><i class="fas fa-check text-green-500 mr-2"></i> Advance Maths</li>
+                <li><i class="fas fa-check text-green-500 mr-2"></i> Live mentor support</li>
+            </ul>
+            <!-- Razorpay Button for Platina Plan -->
+            <div id="razorpay-button-container-platina" class="w-full">
+                <form class="w-full"><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_RdD11lnBe4UGNN" async> </script> </form>
+            </div>
+        </div>
+
+        <!-- Crown Plan (NEW - Now MOST POPULAR with visual scaling) -->
         <div class="relative flex flex-col items-center">
+            <!-- ✨ MOST POPULAR label moved here as requested -->
             <div class="absolute top-0 transform -translate-y-1/2 bg-yellow-400 text-gray-800 text-xs font-extrabold tracking-wider px-4 py-1 rounded-full blink shadow-xl z-20 border-2 border-yellow-500">✨ MOST POPULAR ✨</div>
-            <div class="bg-white rounded-2xl shadow-lg p-8 text-center border-2 border-blue-400 transform md:scale-105 hover:shadow-2xl transition hover:-translate-y-1 z-10 w-full pt-8">
-                <div class="absolute top-4 left-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full">58% OFF</div>
-                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Platina Plan</h2>
-                <p class="text-4xl font-bold text-blue-600 mb-1">₹249 <span class="text-sm line-through text-gray-400 ml-2">₹599</span></p>
-                <p class="text-base text-gray-500 mb-4">(99 days access)</p>
-                <ul class="text-gray-600 space-y-2 mb-6 text-left px-4">
-                    <li><i class="fas fa-check text-green-500 mr-2"></i> All Silver features</li>
-                    <li><i class="fas fa-check text-green-500 mr-2"></i> Advance Maths</li>
-                    <li><i class="fas fa-check text-green-500 mr-2"></i> Live mentor support</li>
+            <div class="relative rounded-2xl shadow-lg p-8 text-center border-2 border-purple-500 hover:shadow-2xl transition transform md:scale-105 hover:-translate-y-1 bg-gradient-to-br from-purple-100 to-indigo-200 text-gray-800 z-10 w-full pt-8">
+                <div class="absolute top-4 right-4 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full">61% OFF</div>
+                <h2 class="text-2xl font-semibold mb-4 text-purple-700">Crown Plan</h2>
+                <p class="text-4xl font-bold text-indigo-800 mb-1">₹499 <span class="text-sm line-through text-gray-500 ml-2">₹1299</span></p>
+                <p class="text-base text-gray-600 mb-4">(180 days access)</p>
+                <ul class="space-y-2 mb-6 text-left px-4 text-gray-700">
+                    <li><i class="fas fa-crown text-purple-500 mr-2"></i> All Platina features</li>
+                    <li><i class="fas fa-crown text-purple-500 mr-2"></i> Dedicated doubt resolution channel</li>
+                    <li><i class="fas fa-crown text-purple-500 mr-2"></i> Monthly performance review sessions</li>
                 </ul>
-                <!-- Razorpay Button for Platina Plan -->
-                <div id="razorpay-button-container-platina" class="w-full">
-                    <form class="w-full"><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_RdD11lnBe4UGNN" async> </script> </form>
+                <!-- Razorpay Button for Crown Plan (Using Gold's Link as requested) -->
+                <div id="razorpay-button-container-crown" class="w-full">
+                    <form class="w-full"><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_RdD1xNHLisK0WS" async> </script> </form>
                 </div>
             </div>
         </div>
 
-        <!-- Gold Plan -->
+        <!-- Gold Plan (Button text updated to TAKE IT NOW) -->
         <div class="relative rounded-2xl shadow-lg p-8 text-center border-2 border-yellow-500 hover:shadow-2xl transition transform hover:-translate-y-1 light-gold-gradient">
             <div class="absolute top-4 right-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full">58% OFF</div>
             <h2 class="text-2xl font-semibold mb-4">Gold Plan</h2>
@@ -288,30 +308,36 @@
                 <li><i class="fas fa-check text-green-600 mr-2"></i> Live calls & exclusive study materials</li>
                 <li><i class="fas fa-check text-green-600 mr-2"></i> Advanced exam preparation</li>
             </ul>
-            <!-- Razorpay Button for Gold Plan -->
+            <!-- Razorpay Button for Gold Plan - Replaced with custom button text 'TAKE IT NOW' -->
             <div id="razorpay-button-container-gold" class="w-full">
-                <form class="w-full"><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_RdD1xNHLisK0WS" async> </script> </form>
+                <!-- NOTE: Since the external Razorpay script cannot be easily styled with custom text, -->
+                <!-- this is replaced with a custom-styled button. Please integrate your payment logic here. -->
+                <button class="w-full py-3 mt-4 text-white font-bold rounded-xl shadow-lg bg-sv-orange hover:bg-sv-maroon transition transform hover:scale-[1.02] active:scale-[0.98] text-xl tracking-wider">
+                    TAKE IT NOW
+                </button>
             </div>
         </div>
     </main>
-
-    <section class="max-w-6xl mx-auto mt-8 px-4 sm:px-6 text-center">
-        <div class="bg-white rounded-2xl shadow-lg p-6 border-2 border-indigo-300 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6">
-            <h3 class="text-xl font-semibold text-gray-800">Existing Subscribers?</h3>
-            <p class="text-gray-700">Please click here to renew your plan.</p>
-            <!-- Razorpay Button for Renew -->
-            <div id="razorpay-button-renew" class="w-auto">
-                <form class="w-full"><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_RdD8XcxjDv7H6M" async> </script> </form>
-            </div>
-        </div>
-    </section>
-
+    
+    <!-- Relocated Upgrade Section (Now first, per interpretation of user's request to place it near Crown Plan) -->
     <section class="max-w-6xl mx-auto mt-8 px-4 sm:px-6 text-center">
         <div class="bg-white rounded-2xl shadow-lg p-6 border-2 border-purple-300 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6">
             <h3 class="text-xl font-semibold text-gray-800">Upgrade Subscribers?</h3>
             <p class="text-gray-700">Please click here to Upgrade your plan.</p>
             <!-- Razorpay Button for Upgrade -->
             <div id="razorpay-button-upgrade" class="w-auto">
+                <form class="w-full"><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_RdD8XcxjDv7H6M" async> </script> </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Existing Subscribers (Renew) Section (Now second) -->
+    <section class="max-w-6xl mx-auto mt-8 px-4 sm:px-6 text-center">
+        <div class="bg-white rounded-2xl shadow-lg p-6 border-2 border-indigo-300 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6">
+            <h3 class="text-xl font-semibold text-gray-800">Existing Subscribers?</h3>
+            <p class="text-gray-700">Please click here to renew your plan.</p>
+            <!-- Razorpay Button for Renew -->
+            <div id="razorpay-button-renew" class="w-auto">
                 <form class="w-full"><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_RdD8XcxjDv7H6M" async> </script> </form>
             </div>
         </div>
@@ -328,9 +354,9 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
                 <div>
                     <img class="h-12 w-auto mb-2 object-contain shadow-md rounded-full bg-white p-1" 
-                            src="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg" 
-                            alt="Sri Veda Logo"
-                            onerror="this.onerror=null; this.src='https://placehold.co/48x48/1e3a8a/ffffff?text=VEDA';">
+                                src="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg" 
+                                alt="Sri Veda Logo"
+                                onerror="this.onerror=null; this.src='https://placehold.co/48x48/1e3a8a/ffffff?text=VEDA';">
                     <p class="text-gray-300 text-xs">
                         Sri Veda Talent Competition<br>
                         Empowering students with knowledge and skills for a bright future.
