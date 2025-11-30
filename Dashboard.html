@@ -267,7 +267,7 @@
     }
     
     .card-right {
-        flex-shrink: 0;
+        flex-shrink: 0; 
         min-width: 180px;
         text-align: center;
         display: flex;
@@ -468,35 +468,52 @@
             </div>
         </div>
 
-        <!-- Class 5 Section -->
-        <div class="class-card">
-            <div class="card-left">
-                <div class="class-label-blue text-2xl">
-                    CLASS 5
+        <!-- Class 5 Section - UPDATED WITH BOTTOM CENTER SECTION FOR NAVODAYA SPECIAL FOCUS -->
+        <!-- Added flex-wrap for the new bottom section to drop below the main three columns -->
+        <div class="class-card flex-wrap">
+            <!-- Top Section (Left, Middle, Right) - This div ensures the top 3 columns behave correctly on desktop/mobile -->
+            <div class="flex justify-between items-start w-full flex-col md:flex-row">
+                
+                <div class="card-left">
+                    <div class="class-label-blue text-2xl">
+                        CLASS 5
+                    </div>
+                    <p class="text-sm font-medium text-sv-blue mt-2">Students: Log in here to access resources.</p>
                 </div>
-                <p class="text-sm font-medium text-sv-blue mt-2">Students: Log in here to access resources.</p>
-            </div>
-            
-            <div class="card-middle">
-                <p class="text-base font-bold text-gray-700 mb-2 border-b border-gray-300 pb-1">
-                    All the question resources provided are meticulously prepared considering the scope of these major Entrance and Olympiad Examinations:
-                </p>
-                <ul class="exam-list">
-                    <li>JNVST (for Class 6 Admission)</li>
-                    <li>AISSEE (for Class 6 Admission)</li>
-                    <li>National Science Olympiad (NSO)</li>
-                    <li>International Mathematics Olympiad (IMO)</li>
-                    <li>International English Olympiad (IEO)</li>
-                    <li>National Cyber Olympiad (NCO)</li>
-                    <li>International General Knowledge Olympiad (IGKO)</li>
-                    <li>NLSTSE / NSTSE</li>
-                    <li>Unified International Mathematics Olympiad (UIMO)</li>
-                    <li>ASSET</li>
-                </ul>
+                
+                <div class="card-middle">
+                    <p class="text-base font-bold text-gray-700 mb-2 border-b border-gray-300 pb-1">
+                        All the question resources provided are meticulously prepared considering the scope of these major Entrance and Olympiad Examinations:
+                    </p>
+                    <ul class="exam-list">
+                        <li>JNVST (for Class 6 Admission)</li>
+                        <li>AISSEE (for Class 6 Admission)</li>
+                        <li>National Science Olympiad (NSO)</li>
+                        <li>International Mathematics Olympiad (IMO)</li>
+                        <li>International English Olympiad (IEO)</li>
+                        <li>National Cyber Olympiad (NCO)</li>
+                        <li>International General Knowledge Olympiad (IGKO)</li>
+                        <li>NLSTSE / NSTSE</li>
+                        <li>Unified International Mathematics Olympiad (UIMO)</li>
+                        <li>ASSET</li>
+                    </ul>
+                </div>
+
+                <div class="card-right">
+                    <a href="https://www.svtc.life/5th%20Class.html" class="cta-button" title="Log in for Class 5">
+                        <i class="fas fa-sign-in-alt mr-2"></i> LOGIN
+                    </a>
+                </div>
             </div>
 
-            <div class="card-right">
-                <a href="https://www.svtc.life/5th%20Class.html" class="cta-button" title="Log in for Class 5">
+            <!-- NEW BOTTOM SECTION: Full width, centered, one row (Navodaya Special Focus) -->
+            <!-- Using Tailwind classes to enforce one row centered layout for text and button -->
+            <div class="w-full flex justify-center items-center gap-4 mt-4 pt-4 border-t-2 border-dashed border-blue-300 flex-wrap">
+                <p class="text-sv-blue font-extrabold text-base tracking-wide uppercase m-0 p-0 text-center leading-snug">
+                    NAVODAYA 5<sup class="align-super">Th</sup> Class COMPLETED STUDENTS WHO WILL BE PREPARE FOR 6TH ETRNECE FPR THIS IS SPECIAL FOCUS
+                </p>
+                <!-- Removed default cta-button margin-top (mt-0) to align with text in the flex container -->
+                <a href="https://www.svtc.life/5navodaya%20eng.html" class="cta-button mt-0">
                     <i class="fas fa-sign-in-alt mr-2"></i> LOGIN
                 </a>
             </div>
