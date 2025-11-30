@@ -1,0 +1,1027 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SRI VEDA TALENT COMPETITION — Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{
+      --sv-blue: #00008B;
+      --sv-orange: #FF8C00;
+      --sv-yellow: #FFD700;
+      --sv-maroon: #800000;
+      --old-maroon: #8b3a3a;
+      --maroon-2: #6f2e2e;
+      --gold: #ffd700;
+      --page-max-width: 1600px;
+      --lock-color: #6c757d;
+      --login-primary: #3b82f6; 
+      --tc-live-color: #ff8c00; 
+      --tc-background-color: #fff9f9; 
+    }
+    .bg-sv-blue{background-color:var(--sv-blue)}.text-sv-blue{color:var(--sv-blue)}.bg-sv-orange{background-color:var(--sv-orange)}.text-sv-orange{color:var(--sv-orange)}.bg-sv-yellow{background-color:var(--sv-yellow)}.text-sv-yellow{color:var(--sv-yellow)}.hover\:shadow-sv-yellow\/50:hover{box-shadow:0 10px 15px -3px var(--sv-yellow), 0 4px 6px -4px var(--sv-yellow)}.course-button{display:inline-block;padding:.4rem .8rem;margin:.2rem;background-color:#f0f0f0;border:1px solid #ddd;border-radius:9999px;font-size:.8rem;font-weight:500;color:#333;text-align:center;text-decoration:none;transition:all .3s ease;box-shadow:0 2px 4px rgba(0,0,0,.05)}.course-button:hover{background-color:var(--sv-orange);color:white;border-color:var(--sv-orange);transform:translateY(-2px);box-shadow:0 4px 8px rgba(0,0,0,.1)}.nav-button{display:flex;align-items:center;padding:.5rem 1rem;color:var(--sv-blue);background-color:white;border:2px solid var(--sv-orange);border-radius:9999px;font-size:.9rem;font-weight:700;text-transform:uppercase;text-decoration:none;transition:all .3s ease;margin:3px 0;box-shadow:0 4px 8px rgba(0,0,0,.1)}.nav-button:hover{color:white;background-color:var(--sv-orange);border-color:var(--sv-blue);transform:scale(1.05);box-shadow:0 6px 15px rgba(255,140,0,.6)}.header-menu-button{background-color:white!important;color:var(--sv-orange)!important;font-weight:900;padding:.6rem 1.25rem;font-size:1rem;border-width:4px;border-color:var(--sv-orange)!important;box-shadow:0 6px 12px rgba(255,140,0,.7);border-radius:1.5rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .3s ease}.header-menu-button:hover{background-color:var(--sv-yellow)!important;color:var(--sv-blue)!important;transform:scale(1.05)}.header-bg{position:relative;overflow:hidden}.header-bg::before{content:'';position:absolute;top:0;left:0;width:120px;height:120px;background-image:url('https://contactsriveda-debug.github.io/images/header%20coner.png');background-size:100% 100%;opacity:1;background-repeat:no-repeat;transform:translate(-30%, -30%);z-index:1}.header-bg::after{content:'';position:absolute;top:0;right:0;width:120px;height:120px;background-image:url('https://contactsriveda-debug.github.io/images/header%20coner.png');background-size:100% 100%;opacity:1;background-repeat:no-repeat;transform:translate(30%, -30%) scaleX(-1);z-index:1}.header-content{position:relative;z-index:10}.logout-btn-header{background:#f87171;color:white;font-weight:700;padding:6px 12px;border-radius:9999px;font-size:.85rem;transition:all .2s;box-shadow:0 2px 4px rgba(0,0,0,.2)}.logout-btn-header:hover{background:#ef4444;transform:translateY(-1px)}*{box-sizing:border-box}body{margin:0;font-family:'Roboto Slab', serif;background:linear-gradient(160deg, #ffffff 50%, #fdf8f8 100%);color:#222}a{color:inherit;text-decoration:none}#loginScreen{position:relative;width:100%;height:auto;min-height:calc(100vh - 200px);background:linear-gradient(135deg, #6f2e2e, #a47b7b, #8b3a3a, #f7dada, #6f2e2e);background-size:400% 400%;animation:gradientShift 12s ease infinite;display:flex;align-items:center;padding-top:3rem;padding-bottom:3rem;justify-content:center;z-index:1000;overflow-y:auto}.login-card{background:#fff;padding:30px 35px;border-radius:16px;box-shadow:0 10px 25px rgba(0,0,0,.1), 0 5px 10px rgba(0,0,0,.05);width:90%;max-width:320px;animation:fadeIn .4s ease-out;border:1px solid #f0f0f0}.login-branding{display:flex;flex-direction:column;align-items:center;margin-bottom:20px}.login-logo{width:80px;height:80px;border-radius:50%;border:3px solid var(--maroon-2);margin-bottom:10px}.login-brand-title{font-size:1.2rem;font-weight:700;color:var(--old-maroon);text-align:center;text-transform:uppercase;line-height:1.3}@keyframes fadeIn{from{opacity:0;transform:translateY(-10px)}to{opacity:1, transform:translateY(0)}}@keyframes gradientShift{0%{background-position:0% 0%}50%{background-position:100% 100%}100%{background-position:0% 0%}}.login-card h2{text-align:center;margin:0 0 10px;color:var(--old-maroon);font-size:1.5rem;font-weight:700}.login-card p{text-align:center;margin:0 0 25px;color:#555;font-size:1rem}.login-input{width:100%;padding:14px 16px;margin-bottom:15px;border:2px solid #ddd;border-radius:8px;font-size:1rem;font-family:'Roboto Slab', serif;transition:border-color .2s, box-shadow .2s}.login-input:focus{outline:none;border-color:var(--old-maroon);box-shadow:0 0 0 3px rgba(139,58,58,.2)}.login-btn-submit{width:100%;padding:12px;border:none;border-radius:8px;background:linear-gradient(135deg, var(--old-maroon), var(--maroon-2));color:#fff;font-size:1rem;font-weight:800;cursor:pointer;transition:transform .2s, box-shadow .2s;display:flex;align-items:center;justify-content:center;gap:10px}.login-btn-submit:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 4px 12px rgba(139,58,58,.4)}.login-btn-submit:disabled{background:#c79a9a;cursor:not-allowed}.status-box{padding:12px 16px;margin-bottom:15px;border-radius:8px;font-size:.95rem;border:1px solid}.hidden{display:none!important}.status-error{background:#fff1f2;color:#e11d48}.status-success{background:#f0fdf4;color:#22c55e}.register-link-container{text-align:center;margin-top:20px}.register-link-btn{display:inline-block;padding:10px 16px;background:#fdf8f8;color:var(--maroon-2);border-radius:8px;font-weight:700;text-decoration:none;font-size:.95rem;border:1px solid var(--old-maroon);transition:background .2s, box-shadow .2s, color .2s}.register-link-btn:hover{background:var(--old-maroon);color:#fff;box-shadow:0 2px 8px rgba(139,58,58,.3)}.loading-spinner{animation:spin 1s linear infinite;width:20px;height:20px}@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}.welcome-stars{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;max-width:var(--page-max-width);margin:5px auto;padding:0 20px;color:#6f2e2e}.welcome{font-size:clamp(14px,2vw,20px)}.welcome .student-name{color:#b33030;font-weight:700}.subscription-badge{padding:5px 12px;border-radius:9999px;font-size:.9rem;font-weight:900;text-transform:uppercase;box-shadow:0 2px 5px rgba(0,0,0,.2);transition:all .3s;cursor:help;display:inline-flex;align-items:center;letter-spacing:.5px}.badge-free{background-color:#e0e0e0;color:#555;border:1px solid #ccc}.badge-silver{background-color:#c0c0c0;color:#333;border:1px solid #a0a0a0;background:linear-gradient(135deg, #f0f0f0, #c0c0c0)}.badge-gold{background-color:#FFD700;color:#800000;border:1px solid #ccac00;background:linear-gradient(135deg, #ffeb8d, #FFD700)}.badge-platinum{background-color:#e5e4e2;color:#00008B;border:1px solid #b8b8b8;background:linear-gradient(45deg, #e0e0e0, #ffffff)}.srm-contact-section{max-width:var(--page-max-width);width:calc(100% - 32px);margin:20px auto;padding:20px 25px;background:#ffffff;border-radius:16px;box-shadow:0 8px 25px rgba(0,0,139,.15);border:3px solid var(--sv-blue)}.srm-contact-section h2{font-size:clamp(1.4rem, 2.5vw, 1.8rem);color:var(--sv-blue);text-transform:uppercase;font-weight:900;margin-bottom:15px;text-align:center}.srm-info-card{background:#fff;padding:15px;border-radius:10px;box-shadow:0 3px 10px rgba(0,0,0,.05);display:flex;flex-direction:column;gap:15px}@media (min-width: 768px){.srm-info-card{flex-direction:row;align-items:center}}.srm-left-explanation{flex:1 1 50%;padding-right:15px;font-size:.95rem;color:#333;line-height:1.5;border-bottom:1px solid #ddd;padding-bottom:10px}@media (min-width: 768px){.srm-left-explanation{border-bottom:none;border-right:1px solid #ddd;padding-bottom:0;padding-right:25px}}.srm-detail-group{flex:1 1 50%;display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding-left:10px}.srm-detail{margin:5px 0;text-align:left}.srm-label{font-size:.9rem;color:#555;font-weight:600;text-transform:uppercase;margin-bottom:2px;display:block}.srm-value{font-size:1.2rem;color:var(--maroon-2);font-weight:800}.srm-value a{color:var(--sv-orange);text-decoration:none;transition:color .2s}.srm-value a:hover{color:var(--old-maroon)}.tc-panel-wrap{max-width:var(--page-max-width);margin:15px auto;padding:0 16px}.tc-panel-main{padding:5px 15px;border-radius:12px;background:var(--tc-background-color);box-shadow:0 4px 12px rgba(0,0,0,.1);border:1px solid #ffcccc;height:60px;display:flex;align-items:center;justify-content:space-between;overflow:hidden;position:relative}.tc-panel-live-bar{position:absolute;top:0;left:0;height:100%;width:30%;background:linear-gradient(90deg, #ffc107, var(--tc-live-color), #ff5722);background-size:200% 100%;animation:liveScroll 8s linear infinite;z-index:1;border-radius:12px 0 0 12px;transition:width 1s ease-out}@keyframes liveScroll{0%{background-position:200% 0}100%{background-position:-200% 0}}.tc-content-overlay{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:center;width:100%;color:var(--maroon-2);font-weight:800;font-size:clamp(1rem, 2vw, 1.2rem)}.tc-score-display{background:white;padding:4px 10px;border-radius:6px;box-shadow:0 1px 3px rgba(0,0,0,.1);display:flex;gap:6px;align-items:center}.tc-score-display h2{font-size:clamp(1.1rem, 2vw, 1.3rem);margin:0;color:var(--sv-orange)}.tc-score-display small{font-size:.75rem;color:#555;font-weight:700}.tc-actions-list-container{background-color:var(--tc-background-color);border-radius:0 0 12px 12px;padding:10px 15px;border:1px solid #ffcccc;border-top:none}.tc-actions-list{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:6px;justify-content:center}.tc-actions-list li{background:#fff;padding:6px 10px;border-radius:8px;flex:1 1 120px;display:flex;align-items:center;gap:6px;box-shadow:0 1px 3px rgba(0,0,0,.08);font-size:.8rem;color:#333;font-weight:600;transition:transform .1s}.tc-actions-list li:hover{transform:translateY(-1px);box-shadow:0 3px 6px rgba(0,0,0,.15)}.dot.daily{background:#ffb74d}.dot.openpractice{background:#4caf50}.dot.completecourse{background:#42a5f5}.dot.weekly{background:#ba68c8}.dot.monthly{background:#9575cd}.tc-actions-list li .dot{flex-shrink:0;width:8px;height:8px;border-radius:50%;margin-right:2px}.tc-actions-list h3{font-size:clamp(.9rem, 2vw, 1rem);color:var(--maroon-2);font-weight:800;margin:0 0 5px 0;width:100%;text-align:center}.free-test-promo-section{max-width:var(--page-max-width);margin:10px auto;padding:15px 16px;text-align:center;background:#f0f8ff;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.05);border:1px solid #cceeff}.free-test-promo-section h3{font-size:clamp(1.3rem, 2.5vw, 1.6rem);color:var(--maroon-2);margin-bottom:8px;font-weight:800;text-shadow:1px 1px 1px rgba(0,0,0,.05)}.free-test-promo-section p{max-width:700px;margin:.5rem auto 1rem auto;font-size:.95rem;line-height:1.4;color:#333}.free-test-promo-section button{padding:10px 20px;font-size:1rem;border:none;border-radius:10px;background:linear-gradient(135deg, #1e6b34, #4caf50);color:#fff;font-weight:800;cursor:pointer;transition:transform .2s, box-shadow .2s;box-shadow:0 4px 10px rgba(76,175,80,.3)}.free-test-promo-section button:hover{transform:translateY(-2px);box-shadow:0 6px 15px rgba(76,175,80,.4)}.live-tests{width:100%;padding:10px 0;background:transparent}.tests-inner{max-width:var(--page-max-width);margin:0 auto;padding:0 12px}.test-row{display:flex;justify-content:center;flex-wrap:wrap;gap:12px}.test-card{padding:12px;min-height:140px;width:clamp(280px, 100%, 360px);background:#fff;border-radius:12px;box-shadow:none;position:relative;overflow:hidden;transition:transform .18s ease}.test-card h3{margin:8px 0;font-size:1rem}.test-lead{font-size:.9rem;line-height:1.4;margin-bottom:8px}.card-actions{gap:8px}.btn-test{padding:8px 12px;font-size:.85rem;background:linear-gradient(135deg,#009688,#00e0b3);color:#fff;border:none;border-radius:10px;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px}.student-report{max-width:var(--page-max-width);margin:10px auto;padding:0 16px}.sr-box{background:#fff;border-radius:14px;padding:12px;overflow:hidden}.plan-promo-box{padding:15px;margin-bottom:20px;background:linear-gradient(135deg, #fffcf0, #fff3b2);border:2px solid var(--gold);border-radius:12px;text-align:center;box-shadow:0 5px 15px rgba(255,215,0,.2)}.plan-promo-box h3{font-size:clamp(1rem, 1.8vw, 1.3rem);margin-bottom:10px}.plan-actions-container{gap:15px}.plan-action-card{padding:12px;flex:1 1 250px;background:#fff;border:1px solid #ffeb8d;box-shadow:0 2px 5px rgba(0,0,0,.05);border-radius:8px;display:flex;flex-direction:column;justify-content:space-between}.plan-action-card p{font-size:.9rem;margin-bottom:12px}.plan-action-card button{padding:8px 15px;font-size:.95rem;border:none;border-radius:8px;font-weight:700;cursor:pointer;width:100%;transition:transform .2s}.plan-action-card .new-plan-btn{background:linear-gradient(135deg, var(--gold), #ff8c00);color:#fff}.plan-action-card .renewal-btn{background:linear-gradient(135deg, #c0392b, #8b3a3a);color:#fff}.plan-action-card .update-plan-btn{background:linear-gradient(135deg, #7a67ff, #4b3eb0);color:#fff}@media (max-width: 660px){.plan-actions-container{flex-direction:column;gap:10px}.plan-action-card{justify-content:flex-start;flex:0 0 auto}.plan-action-card p{margin-bottom:8px;flex-grow:0}}.sr-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;margin-top:0}.stat-item{padding:10px;background:linear-gradient(180deg,#fffdeb,#fff7c9);border-radius:10px;text-align:center;display:flex;flex-direction:column;align-items:center;background:#fffcf2;border:1px solid #f0eacb;box-shadow:0 2px 5px rgba(0,0,0,.05);transition:transform .2s}.stat-item:hover{transform:translateY(-2px)}.stat-icon{width:32px;height:32px;margin-bottom:4px;font-size:1.5rem;color:var(--sv-blue)}.stat-label{font-size:.85rem;color:#555;margin-top:4px;font-weight:600;margin-bottom:4px;display:block}.stat-value{font-size:.95rem;font-weight:900;color:var(--sv-maroon)}.subject-tests{max-width:var(--page-max-width);margin:20px auto;padding:15px;background:#f5fbf5;border-radius:16px;box-shadow:0 4px 12px rgba(0,0,0,.1)}.subject-tests h2{text-align:center;font-size:clamp(1.4rem, 2.5vw, 1.8rem);color:#1e6b34;text-transform:uppercase;letter-spacing:1px;margin-bottom:20px;font-weight:800;text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:2px}.test-list-item{padding:12px 16px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;border-radius:12px;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.05);border:1px solid #d4e9d9;flex-direction:column;align-items:stretch;border:1px solid #e0e0e0;padding:16px}.test-list-item-content{flex:1 1 300px}.test-list-item-content h3{font-size:clamp(1rem, 3.5vw, 1.1rem);margin:0 0 2px 0;color:#1e6b34}.test-list-item-content p{font-size:clamp(.8rem, 2.5vw, .9rem);color:#555;margin:0;line-height:1.5}.test-list-item .btn-test{padding:8px 16px;font-size:.85rem;flex:0 0 auto;width:auto}.btn-test.locked{background:#e9ecef;color:var(--lock-color);cursor:not-allowed}.btn-test.locked:hover{transform:none;box-shadow:none}.student-subject-tests{max-width:var(--page-max-width);margin:20px auto;padding:15px;background:#f9f8ff;border-radius:16px;box-shadow:0 4px 12px rgba(0,0,0,.1);border:1px solid #e0d9f5}.student-subject-tests h2{text-align:center;font-size:clamp(1.4rem, 2.5vw, 1.8rem);color:#4a148c;text-transform:uppercase;letter-spacing:1px;margin-bottom:20px;font-weight:800;text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:2px}.student-subject-tests .test-list-item{border:1px solid #e0d9f5}.student-subject-tests .test-list-item-content h3{color:#673ab7}.student-subject-tests .test-list-item .btn-test{margin-top:12px}.profile-section{max-width:var(--page-max-width);margin:20px auto;padding:15px;background:#fff;border-radius:16px;box-shadow:0 6px 18px rgba(0,0,0,.08)}.profile-section h2{margin-bottom:20px;font-size:clamp(1.4rem, 2.5vw, 1.8rem);text-align:center;color:var(--maroon-2);text-transform:uppercase;letter-spacing:1px;font-weight:800;text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:2px}.profile-list{gap:12px;display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));list-style:none;padding:0;margin:0}.profile-item{padding:10px 14px;background:#fdfdfd;border:1px solid #eee;border-radius:10px;box-shadow:0 2px 4px rgba(0,0,0,.04)}.profile-label{font-size:.85rem;display:block;color:#777;font-weight:600;margin-bottom:4px;text-transform:uppercase}.profile-value{font-size:1rem;display:block;color:#111;font-weight:700}.profile-value.agreed{color:#1e6b34}.subscription-section{max-width:var(--page-max-width);margin:20px auto;padding:15px;background:#f7fcff;border-radius:16px;box-shadow:0 6px 18px rgba(0,0,0,.08);border:1px solid #e0f0ff}.subscription-section h2{margin-bottom:20px;font-size:clamp(1.4rem, 2.5vw, 1.8rem);text-align:center;color:#0d47a1;text-transform:uppercase;letter-spacing:1px;font-weight:800;text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:2px}.subscription-list{gap:12px;display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));list-style:none;padding:0;margin:0}.subscription-item{padding:10px 14px;background:#fff;border:1px solid #eee;border-radius:10px;box-shadow:0 2px 4px rgba(0,0,0,.04)}.subscription-label{font-size:.85rem;display:block;color:#557;font-weight:600;margin-bottom:4px;text-transform:uppercase}.subscription-value{font-size:1rem;display:block;color:#111;font-weight:700}.subscription-plan-value{color:#b8860b;font-weight:800}.subscription-days-left{color:#c0392b;font-weight:800}@media (max-width: 900px){.nav-btn-flex{margin:4px 5px;max-width:48%;flex:1 1 45%}}@media (max-width: 640px){.nav-button{justify-content:center;margin:4px 2px;font-size:.8rem;padding:.4rem .8rem}.nav-btn-flex{max-width:100%;flex:1 1 100%;margin:4px 0}.test-list-item{flex-direction:column;align-items:flex-start;padding:10px 14px;gap:6px}.test-list-item-content{flex:1 1 100%}.test-list-item-content p{margin-bottom:6px}.test-list-item .btn-test{width:100%;text-align:center}}@media (max-width: 480px){.login-card{padding:25px 20px}.login-brand-title{font-size:1.1rem}}.nav-button{display:flex;align-items:center;padding:.5rem 1rem;color:var(--maroon-2);background-color:white;border:2px solid var(--sv-orange);border-radius:9999px;font-size:.9rem;font-weight:800;text-transform:uppercase;text-decoration:none;transition:all .3s ease;box-shadow:0 4px 8px rgba(0,0,0,.1);justify-content:center}.nav-button:hover{color:white;background-color:var(--sv-orange);border-color:var(--sv-blue);transform:scale(1.03);box-shadow:0 6px 15px rgba(255,140,0,.6)}.nav-btn-flex{flex-grow:0;flex-shrink:0;flex-basis:auto;margin:4px 20px;max-width:none}.menu-button-primary{background-color:var(--sv-orange)!important;color:white!important;border-color:var(--sv-yellow)!important;border-width:2px!important}.menu-button-primary:hover{background-color:white!important;color:var(--sv-orange)!important;border-color:var(--sv-orange)!important}.btn-promo-plan{padding:12px 20px;font-size:1rem;font-weight:800;color:#000;background:linear-gradient(135deg, var(--sv-yellow), var(--sv-orange));border:1px solid #e6a000;border-bottom:3px solid #cc8400;border-radius:8px;cursor:pointer;transition:all .2s ease-out;text-decoration:none;display:inline-block;text-shadow:0 1px 1px rgba(0,0,0,.1);box-shadow:0 1px 2px rgba(0,0,0,.05)}.btn-promo-plan:hover{background:linear-gradient(135deg, #FFEB8D, #FFA500);transform:translateY(-2px);box-shadow:0 4px 8px rgba(0,0,0,.1);border-bottom:3px solid #e68e00}body{padding-top:0}.class-selector-box{max-width:var(--page-max-width);margin:15px auto;padding:0;background:transparent;border-radius:0;box-shadow:none;border:none;display:flex;flex-direction:column;align-items:center;gap:10px}.class-selector-box label{display:none}.class-selector-controls{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:10px;width:auto}.class-selector-box select{padding:8px 12px;font-size:.9rem;border:1px solid #ddd;border-radius:8px;font-weight:700;font-family:'Roboto Slab', serif;flex:1 1 auto;cursor:pointer}.class-selector-box button{padding:8px 20px;font-size:.9rem;border:none;border-radius:8px;background:var(--sv-orange);color:#fff;font-weight:800;cursor:pointer;transition:all .3s ease;box-shadow:0 2px 8px rgba(255,140,0,.2);flex:1 1 auto}.class-selector-box button:hover{background:var(--sv-blue);box-shadow:0 4px 12px rgba(0,0,139,.2);transform:translateY(-1px)}.srm-contact-section{max-width:var(--page-max-width);width:calc(100% - 32px);margin:20px auto;padding:20px 25px;background:#ffffff;border-radius:16px;box-shadow:0 8px 25px rgba(0,0,139,.15);border:3px solid var(--sv-blue)}.sr-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;margin-top:0}.stat-item{padding:10px;background:linear-gradient(180deg,#fffdeb,#fff7c9);border-radius:10px;text-align:center;display:flex;flex-direction:column;align-items:center;background:#fffcf2;border:1px solid #f0eacb;box-shadow:0 2px 5px rgba(0,0,0,.05);transition:transform .2s}.stat-item:hover{transform:translateY(-2px)}.stat-icon{width:32px;height:32px;margin-bottom:4px;font-size:1.5rem;color:var(--sv-blue)}.stat-label{font-size:.85rem;color:#555;margin-top:4px;font-weight:600;margin-bottom:4px;display:block}.stat-value{font-size:.95rem;font-weight:900;color:var(--sv-maroon)}#quizOverlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(248,250,252,.98);z-index:10000;overflow-y:auto;padding:1rem;display:none}#quizContentContainer{margin:2rem auto}.quiz-option{display:block;background-color:#f8fafc;border:1px solid #e2e8f0;border-radius:.5rem;padding:.75rem 1rem;margin-bottom:.75rem;cursor:pointer;transition:all .2s ease-in-out}.quiz-option:hover{background-color:#f1f5f9}.quiz-option input{margin-right:.75rem}.review-correct{border-left:4px solid #16a34a}.review-incorrect{border-left:4px solid #dc2626}.test-list-item{flex-direction:column;align-items:stretch;background-color:#ffffff;border:1px solid #e0e0e0;border-radius:12px;padding:16px;box-shadow:0 4px 12px rgba(0,0,0,.05);gap:0}.sub-topics-container{width:100%;margin-top:0;padding-top:0;display:flex;flex-direction:column;gap:8px}.test-list-item:nth-child(1) .sub-topics-container{border-top:0}.test-list-item:nth-child(2) .sub-topics-container{border-top:0}.test-list-item:nth-child(3) .sub-topics-container{border-top:0}.sub-topic-item{display:flex;justify-content:space-between;align-items:center;background-color:#ffffff;padding:10px 12px;border-radius:8px;border:1px solid #e0e0e0;box-shadow:0 1px 3px rgba(0,0,0,.03)}.sub-topic-item span{font-size:.95rem;font-weight:600;color:#333}.sub-topic-item .btn-test{padding:6px 12px;font-size:.8rem;flex-shrink:0}.passage-intro{font-size:1.05rem;font-weight:600;color:#333;line-height:1.6;padding:4px 8px;background-color:#fdfdfd;border-radius:8px;border:1px solid #e0e0e0;margin-top:10px;margin-bottom:12px}.premium-section-header{text-align:center;margin-bottom:15px;font-size:1.1rem;font-weight:700;color:var(--sv-maroon);text-transform:uppercase;letter-spacing:1px;display:flex;align-items:center}.premium-section-header::before,.premium-section-header::after{content:'';flex-grow:1;height:2px;background-color:var(--sv-orange);margin:0 15px}.test-list-container{display:flex;flex-direction:column;gap:8px;width:100%;background:#fdfdfd;border:1px solid #e0e0e0;border-radius:12px;padding:12px}.subject-tests .test-list-item{gap:0}.subject-tests .test-list-item h3{display:none}#quizOverlay{position:fixed;inset:0;background-color:rgba(248,250,252,.98);z-index:10000;overflow-y:auto;padding:1rem;display:none}.quiz-container{max-width:800px;margin:2rem auto;background:#ffffff;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.1);border:1px solid #e2e8f0;overflow:hidden}.quiz-header{padding:1rem 1.5rem;background-color:#f8fafc;border-bottom:1px solid #e2e8f0;display:flex;justify-content:space-between;align-items:center}.quiz-header h2{font-size:1.25rem;font-weight:800;color:var(--sv-blue)}.quiz-close-btn{font-size:1.5rem;font-weight:600;color:#94a3b8;background:none;border:none;cursor:pointer;transition:color .2s}.quiz-close-btn:hover{color:#dc2626}.quiz-body{padding:1.5rem 2rem}#quizLoading{text-align:center;padding:4rem}#quizQuestionContainer{min-height:250px}.question-text{font-size:1.2rem;font-weight:700;color:#1e293b;margin-bottom:1.5rem;line-height:1.6}.quiz-options-grid{display:grid;grid-template-columns:1fr;gap:.75rem}@media (min-width: 640px){.quiz-options-grid{grid-template-columns:1fr 1fr}}.quiz-option-label{display:block;background-color:#f8fafc;border:2px solid #e2e8f0;border-radius:.5rem;padding:.85rem 1rem;cursor:pointer;transition:all .2s ease-in-out;font-size:1rem;font-weight:500;color:#334155}.quiz-option-label:hover{border-color:var(--sv-orange);background-color:#fffbeb}.quiz-option-label input{display:none}.quiz-option-label input:checked+span{font-weight:700;color:var(--sv-blue)}.quiz-option-label input:checked{}.option-selected{border-color:var(--sv-blue)!important;background-color:#eff6ff!important;box-shadow:0 0 0 2px rgba(59,130,246,.3)}.quiz-footer{padding:1rem 1.5rem;background-color:#f8fafc;border-top:1px solid #e2e8f0;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem}.quiz-nav-btn,.quiz-action-btn{padding:.6rem 1.25rem;font-size:.9rem;font-weight:700;border-radius:8px;border:none;cursor:pointer;transition:all .2s;box-shadow:0 2px 4px rgba(0,0,0,.05)}.quiz-nav-btn{background-color:#e2e8f0;color:#334155}.quiz-nav-btn:hover{background-color:#cbd5e1}.quiz-nav-btn:disabled{opacity:.5;cursor:not-allowed}.quiz-action-btn.next{background-color:var(--sv-orange);color:white}.quiz-action-btn.next:hover{background-color:#f97316}.quiz-action-btn.submit{background-color:#22c55e;color:white}.quiz-action-btn.submit:hover{background-color:#16a34a}#quizResults{text-align:center}.results-score{font-size:3rem;font-weight:900;color:var(--sv-blue);margin:1rem 0 .5rem 0}.results-feedback{font-size:1.5rem;font-weight:700;margin-bottom:1.5rem}.feedback-improve{color:#ef4444}.feedback-good{color:#f59e0b}.feedback-excellent{color:#22c55e}.results-summary{display:flex;justify-content:center;gap:1.5rem;margin-bottom:2rem}.summary-item{background:#f8fafc;padding:.75rem 1.25rem;border-radius:8px;border:1px solid #e2e8f0}.summary-item span{display:block}.summary-label{font-size:.9rem;color:#64748b}.summary-value{font-size:1.25rem;font-weight:700}.value-correct{color:#16a34a}.value-wrong{color:#dc2626}.results-actions{display:flex;justify-content:center;gap:1rem}#quizReview{padding:1.5rem .5rem}@media (min-width: 640px){#quizReview{padding:1.5rem 2rem}}.review-item{background:#ffffff;border:1px solid #e2e8f0;border-radius:8px;margin-bottom:1.5rem;box-shadow:0 2px 5px rgba(0,0,0,.03)}.review-question{padding:1rem 1.25rem;border-bottom:1px dashed #cbd5e1}.review-question p{font-size:1.1rem;font-weight:700;color:#1e293b}.review-options{padding:1rem 1.25rem}.review-option{font-size:.95rem;padding:.6rem .8rem;border-radius:6px;margin-bottom:.5rem;border:2px solid transparent}.review-option.correct{background-color:#f0fdf4;border-color:#86efac;color:#15803d;font-weight:700}.review-option.incorrect{background-color:#fef2f2;border-color:#fecaca;color:#b91c1c;font-weight:700;text-decoration:line-through}.review-explanation{background:#f1f5f9;padding:.8rem 1.25rem;border-top:1px dashed #cbd5e1;border-radius:0 0 8px 8px}.review-explanation strong{color:var(--sv-blue);font-size:.9rem;text-transform:uppercase}.review-explanation p{font-size:.95rem;color:#334155;margin-top:4px;line-height:1.5}.sub-section-header{font-size:1.1rem;font-weight:800;color:var(--sv-blue);padding:10px 4px 4px 4px;margin-top:8px;border-bottom:2px solid var(--sv-orange)}.sub-section-header:first-of-type{margin-top:0}.simple-footer{padding:15px 16px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;text-align:center;gap:10px}@media (min-width: 640px){.simple-footer{flex-direction:row;text-align:left}.simple-footer-social{justify-content:flex-start}.simple-footer-copy{text-align:right}}.simple-footer-social{display:flex;gap:15px;justify-content:center;flex-shrink:0}.social-icon{color:var(--sv-yellow);font-size:1.5rem;transition:color .2s, transform .2s}.social-icon:hover{color:white;transform:scale(1.1)}.simple-footer-copy{font-size:.75rem;color:#aaa;flex-grow:1;min-width:200px}.syllabus-grid-container{max-width:var(--page-max-width);margin:20px auto;padding:0 16px;display:grid;grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));gap:20px}.syllabus-card{background:#fff;border:1px solid #e0e0e0;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.05);padding:20px;overflow:hidden;transition:transform .3s}.syllabus-card:hover{transform:translateY(-5px);box-shadow:0 8px 20px rgba(0,0,0,.1)}.syllabus-card h3{font-size:1.5rem;font-weight:900;margin-bottom:15px;text-align:center;color:var(--sv-blue);text-transform:uppercase;letter-spacing:.5px;border-bottom:3px solid var(--sv-orange);padding-bottom:10px}.syllabus-card ul{list-style:none;padding:0;margin:0}.syllabus-card li{display:flex;align-items:center;font-size:1rem;color:#333;margin-bottom:8px;line-height:1.4}.syllabus-card li::before{content:'\f058';font-family:'Font Awesome 6 Free';font-weight:900;color:#1e6b34;margin-right:10px;font-size:.9rem}
+    
+    /* MODIFIED STYLES for Syllabus List (Removed blue border and added separation lines) */
+    .syllabus-section-card {
+        background: #ffffff; /* White background */
+        border: 1px solid #f0f0f0; /* Soft outer border */
+        border-radius: 12px;
+        padding: 20px 20px 10px 20px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+    .syllabus-section-card h3 {
+        font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+        font-weight: 900;
+        margin-bottom: 20px; /* Increased bottom margin for separation */
+        text-align: center;
+        color: var(--sv-blue); /* Section title color */
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        /* Line decorations */
+        display: flex;
+        align-items: center;
+        white-space: nowrap;
+    }
+    .syllabus-section-card h3::before,
+    .syllabus-section-card h3::after {
+        content: '';
+        flex-grow: 1;
+        height: 3px;
+        background: linear-gradient(to right, #ffeb8d, var(--sv-orange)); /* Yellow to Orange gradient */
+        margin: 0 10px;
+        border-radius: 9999px;
+    }
+    .syllabus-section-card h3::after {
+        background: linear-gradient(to left, #ffeb8d, var(--sv-orange));
+    }
+    .topic-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        counter-reset: topic-counter; /* Initialize counter */
+    }
+    .topic-list > li {
+        counter-increment: topic-counter; /* Increment counter */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 15px;
+        background-color: #fdfdfd;
+        border: 1px solid #e8e8e8;
+        border-radius: 8px;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+        margin-bottom: 8px;
+        transition: background-color 0.2s, transform 0.1s;
+    }
+    .topic-list > li:hover {
+        background-color: #e6f7ff; /* Light blue on hover */
+        border-color: #cceeff;
+        transform: translateY(-1px);
+    }
+    .topic-details {
+        display: flex;
+        align-items: center;
+        flex-grow: 1;
+        gap: 10px;
+    }
+    .topic-number {
+        font-weight: 900;
+        color: var(--sv-orange); /* Changed color for serial number */
+        font-size: 1.1rem;
+        flex-shrink: 0;
+        min-width: 30px; /* Ensure alignment */
+    }
+    .topic-number::before {
+        content: counter(topic-counter, decimal-leading-zero) "."; /* Added leading zero for style */
+    }
+    .topic-name {
+        flex-grow: 1;
+        font-size: 1rem;
+        color: #333;
+        font-weight: 600;
+        line-height: 1.4;
+    }
+    .btn-take-test {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+        font-weight: 800;
+        color: white;
+        background: linear-gradient(135deg, #1e6b34, #4caf50); /* Green gradient for test button */
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.2s, transform 0.2s;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        flex-shrink: 0;
+        min-width: 100px;
+        text-shadow: 0 1px 1px rgba(0,0,0,0.1);
+    }
+    .btn-take-test:hover {
+        background: linear-gradient(135deg, #4caf50, #66bb6a);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    
+    /* MODIFIED STYLES for Exam Pattern Table */
+    .exam-pattern-section {
+        max-width: var(--page-max-width);
+        margin: 20px auto;
+        padding: 0 16px;
+    }
+    .exam-pattern-card {
+        background: #fefcf3; /* Light yellow/cream background */
+        border: 3px solid var(--gold);
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(255, 215, 0, 0.2);
+        overflow: hidden;
+    }
+    .exam-pattern-header {
+        background-color: var(--gold);
+        color: var(--sv-maroon);
+        padding: 15px 20px;
+        text-align: center;
+        font-size: clamp(1.6rem, 3vw, 2rem);
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    .exam-pattern-table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+    }
+    .exam-pattern-table th, .exam-pattern-table td {
+        padding: 15px 10px;
+        text-align: left;
+        border-bottom: 1px solid #ffedb3; /* Lighter border */
+    }
+    .exam-pattern-table th {
+        background-color: #fffae6; /* Very light yellow */
+        color: var(--maroon-2);
+        font-weight: 800;
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        border-bottom: 2px solid var(--gold);
+    }
+    .exam-pattern-table td {
+        color: #444;
+        font-size: 1rem;
+        font-weight: 600;
+    }
+    .col-section {
+        width: 25%;
+        font-weight: 900 !important;
+        color: var(--sv-blue) !important;
+        border-left: 5px solid var(--sv-orange);
+        padding-left: 15px !important;
+    }
+    .col-topics {
+        width: 50%;
+        font-weight: 500 !important;
+        font-size: 0.9rem !important;
+        line-height: 1.4;
+    }
+    .col-marks, .col-questions {
+        width: 12.5%;
+        text-align: center !important;
+        font-weight: 900 !important;
+        color: var(--old-maroon) !important;
+    }
+    
+    @media (max-width: 768px) {
+        .exam-pattern-card {
+            border: 2px solid var(--gold);
+        }
+        .exam-pattern-table, .exam-pattern-table tbody, .exam-pattern-table tr, .exam-pattern-table td {
+            display: block;
+            width: 100%;
+        }
+        .exam-pattern-table thead {
+            display: none; /* Hide header row */
+        }
+        .exam-pattern-table tr {
+            margin-bottom: 15px;
+            border: 1px solid #ffedb3;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .exam-pattern-table td {
+            text-align: right !important;
+            padding: 8px 15px;
+            position: relative;
+            border-bottom: none;
+            font-size: 0.95rem;
+        }
+        .exam-pattern-table td::before {
+            content: attr(data-label);
+            position: absolute;
+            left: 15px;
+            font-weight: 700;
+            color: var(--sv-blue);
+            text-transform: uppercase;
+        }
+        .col-section {
+            background-color: #fffde6;
+            border-left: none;
+            text-align: center !important;
+            font-size: 1.1rem !important;
+            padding: 10px 15px !important;
+            border-bottom: 2px solid var(--sv-orange) !important;
+            color: var(--maroon-2) !important;
+        }
+        .col-section::before {
+            content: none;
+        }
+        .col-topics {
+            border-top: none;
+        }
+    }
+
+    /* MODIFIED SRM Contact Section Styles */
+    .srm-contact-section{
+        max-width:var(--page-max-width);
+        width:calc(100% - 32px);
+        margin:20px auto;
+        padding:20px 25px;
+        background: linear-gradient(135deg, #f7fcff, #e6f7ff); /* Light blue gradient */
+        border-radius:16px;
+        box-shadow:0 10px 30px rgba(0,0,139,.2);
+        border:4px solid var(--sv-blue);
+    }
+    .srm-contact-section h2{
+        font-size:clamp(1.5rem, 3vw, 2rem);
+        color:var(--sv-blue);
+        text-transform:uppercase;
+        font-weight:900;
+        margin-bottom:20px;
+        text-align:center;
+        letter-spacing:1px;
+        border-bottom: 3px solid var(--sv-orange);
+        padding-bottom: 10px;
+    }
+    .srm-info-card{
+        background:#ffffff;
+        padding:20px;
+        border-radius:12px;
+        box-shadow:0 4px 15px rgba(0,0,0,.1);
+        display:flex;
+        flex-direction:column;
+        gap:20px;
+        border: 1px solid #ddd;
+    }
+    .srm-left-explanation{
+        flex:1 1 50%;
+        padding-right:15px;
+        font-size:1rem;
+        color:#333;
+        line-height:1.6;
+        border-bottom:1px solid #eee;
+        padding-bottom:15px;
+    }
+    @media (min-width: 768px){
+        .srm-left-explanation{
+            border-bottom:none;
+            border-right:1px solid #eee;
+            padding-bottom:0;
+            padding-right:30px;
+        }
+    }
+    .srm-detail-group{
+        flex:1 1 50%;
+        display:flex;
+        flex-direction:column;
+        align-items:flex-start;
+        gap:15px;
+        padding-left:10px;
+    }
+    .srm-detail{
+        margin:0;
+        text-align:left;
+        width: 100%;
+        border-bottom: 1px dashed #e0e0e0;
+        padding-bottom: 5px;
+    }
+    .srm-detail:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+    .srm-label{
+        font-size:.9rem;
+        color:#555;
+        font-weight:700;
+        text-transform:uppercase;
+        margin-bottom:2px;
+        display:block;
+    }
+    .srm-value{
+        font-size:1.3rem;
+        color:var(--sv-orange);
+        font-weight:900;
+    }
+    .srm-value a{
+        color:var(--sv-orange);
+        text-decoration:none;
+        transition:color .2s;
+    }
+    .srm-value a:hover{
+        color:var(--sv-blue);
+    }
+
+    /* MODIFIED FOOTER ICONS */
+    .simple-footer-social .social-icon {
+        color: white; /* Changed from var(--sv-yellow) to white */
+    }
+    .simple-footer-social .social-icon:hover {
+        color: var(--sv-yellow); /* Hover back to yellow for contrast */
+        transform: scale(1.1);
+    }
+
+  </style>
+</head>
+<body class="bg-gray-50">
+<header class="bg-sv-blue shadow-lg header-bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 header-content">
+        <div class="flex flex-col md:flex-row items-center justify-between py-3 md:py-2 space-y-3 md:space-y-0 md:h-24">
+            <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4">
+                <img src="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg" 
+                    onerror="this.onerror=null; this.src='https://placehold.co/64x64/1e3a8a/ffffff?text=VEDA';" 
+                    alt="Veda Logo" 
+                    class="w-16 h-16 object-contain shadow-md rounded-full bg-white p-1 flex-shrink-0">
+                <div class="text-center sm:text-left flex flex-col justify-center">
+                    <h1 class="text-xl sm:text-2xl font-extrabold tracking-wider text-white">
+                        SRI VEDA TALENT COMPETITION
+                    </h1>
+                    <div class="w-2/3 max-w-xs h-0.5 bg-sv-yellow my-0.5 mx-auto sm:mx-0"></div>
+                    <p class="text-sm sm:text-base font-semibold text-sv-yellow mt-0.5">
+                        "Student Navodaya Corner"
+                    </p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-3 sm:space-x-6 lg:space-x-8">
+                <i class="loggedOutIcon fas fa-book text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Our Courses"></i>
+                <i class="loggedOutIcon fas fa-pencil-ruler text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Practice Tests"></i>
+                <i class="loggedOutIcon fas fa-graduation-cap text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Study Material"></i>
+                <i class="loggedOutIcon fas fa-lightbulb text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Insights & Guidance"></i>
+
+                <div id="loggedInControls" class="hidden flex items-center space-x-4"> 
+                    <div id="liveTime" class="timestamp text-sm text-white font-medium hidden">--/--/----, --:--:--</div>
+                    <div id="sessionTimer" class="session-timer text-sm text-sv-yellow font-bold hidden">Session: 00:00:00</div>
+                    <button id="logoutBtn" class="logout-btn-header hidden" onclick="handleLogout()">
+                        Logout
+                    </button>
+                </div>
+
+                <button id="menuToggle" class="header-menu-button">
+                    MENU <i class="fas fa-bars ml-1"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div id="dynamicMenu" class="hidden bg-sv-blue/95 border-b-4 border-sv-yellow transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+        <div class="flex flex-wrap justify-center gap-4">
+            <a href="https://www.svtc.life" class="nav-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                <i class="fas fa-home mr-1"></i> Home
+            </a>
+            <a href="https://www.svtc.life/Dashboard.html" class="nav-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                <i class="fas fa-tachometer-alt mr-1"></i> DASHBOARD
+            </a>
+            <a href="https://www.svtc.life/Join%20now.html" class="nav-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                <i class="fas fa-user-plus mr-1"></i> Join Now
+            </a>
+            <a href="https://www.svtc.life/Pricing.html" class="nav-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                <i class="fas fa-tags mr-1"></i> Pricing
+            </a>
+            <a href="https://www.svtc.life/Contact.html" class="nav-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                <i class="fas fa-envelope mr-1"></i> Contact
+            </a>
+            <a href="https://www.svtc.life/connect.html" class="nav-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                <i class="fas fa-headset mr-1"></i> Connect
+            </a>
+            <a href="https://www.svtc.life/About%20Us.html" class="nav-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                <i class="fas fa-info-circle mr-1"></i> About Us
+            </a>
+            <a href="https://www.svtc.life/Privacy%20policy.html" class="nav-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                <i class="fas fa-file-contract mr-1"></i> Terms & Privacy
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="loginScreen">
+    <div class="login-card">
+        <div class="login-branding">
+            <img src="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg" alt="SRI VEDA Logo" class="login-logo">
+            <h3 class="login-brand-title">SVTC LIFE</h3>
+        </div>
+        <h2 id="loginTitle">5<sup>th</sup> Class Navodaya</h2>
+        <p id="loginSubtitle">Username and Password with Caps.</p>
+        <form id="loginForm">
+            <div id="statusMessage" class="status-box status-error hidden" role="alert"></div>
+            <input type="text" id="username" name="username" required
+                class="login-input" placeholder="Username">
+            <input type="password" id="password" name="password" required
+                class="login-input" placeholder="Password">
+            <button type="submit" id="loginButton" class="login-btn-submit">
+                <span id="buttonText">Login</span>
+                <svg id="loadingSpinner" class="loading-spinner h-5 w-5 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" stroke="#ffffff"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+            </button>
+        </form>
+        <div class="register-link-container">
+            <a href="https://www.svtc.life/Join%20now.html" target="_blank" class="register-link-btn">
+                New Registers? Click Here
+            </a>
+        </div>
+    </div>
+</div>
+<div id="dashboardContent" class="hidden">
+  <div class="welcome-stars">
+    <div class="welcome">Welcome <span id="studentNameDisplay" class="student-name"></span>, <strong id="studentClassDisplay" style="color: var(--maroon-2);"></strong>...</div>
+    <div id="subscriptionBadge" class="subscription-badge"></div>
+  </div>
+  
+  <section class="motivational-passage max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
+    <div class="p-6 sm:p-8 bg-white border-2 border-sv-blue rounded-xl shadow-2xl shadow-sv-orange/30 text-center">
+        <h3 class="text-2xl sm:text-3xl font-extrabold text-sv-blue mb-4">
+            🚀 Welcome Future Navodaya Stars! 🚀
+        </h3>
+        <p class="text-gray-700 text-lg font-medium leading-relaxed">
+            Dear Students,
+            Welcome to this wonderful journey of preparing for the Navodaya Entrance Examination! You have taken the first brave step toward a brighter future, and that itself shows how special you are. Remember, every champion starts exactly where you are standing today — with a dream in the heart and determination in the mind.
+            Here, you are not just coming to study; you are coming to discover your true abilities. Believe that you can learn anything, solve any problem, and achieve any goal when you put your heart into it. Your teachers are here to guide you, but your hard work and discipline will lead you to success.
+            Take a deep breath, smile, and get ready.
+        </p>
+        <p class="text-xl font-black mt-4 text-sv-maroon">
+            A new chapter of your life begins right here, right now.
+        </p>
+    </div>
+  </section>
+
+  <!-- NEW SECTION: Exam Pattern Table -->
+  <section class="exam-pattern-section">
+      <div class="exam-pattern-card">
+          <h2 class="exam-pattern-header">Navodaya Vidyalaya Entrance Exam Pattern</h2>
+          <table class="exam-pattern-table">
+              <thead>
+                  <tr>
+                      <th class="col-section">Section</th>
+                      <th class="col-topics">Topics Covered (Syllabus Highlights)</th>
+                      <th class="col-marks">Marks</th>
+                      <th class="col-questions">Questions</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td class="col-section" data-label="Section">1. Mental Ability Test (MAT)</td>
+                      <td class="col-topics" data-label="Topics Covered">Analogy, Odd One Out, Pattern Completion, Figure Matching, Figure Series, Cube & Dice, Mirror Image, Paper Folding & Cutting, Spatial Orientation</td>
+                      <td class="col-marks" data-label="Marks">50 Marks</td>
+                      <td class="col-questions" data-label="Questions">40 Questions</td>
+                  </tr>
+                  <tr>
+                      <td class="col-section" data-label="Section">2. Arithmetic Test</td>
+                      <td class="col-topics" data-label="Topics Covered">Number System, Whole Numbers, Factors & Multiples, Simplification, LCM & HCF, Fraction Basics, Decimals, Percentage, Profit & Loss, Time & Distance, Time & Work, Geometry Basics, Perimeter, Area, Weight, Length, Money</td>
+                      <td class="col-marks" data-label="Marks">25 Marks</td>
+                      <td class="col-questions" data-label="Questions">20 Questions</td>
+                  </tr>
+                  <tr>
+                      <td class="col-section" data-label="Section">3. Language Test (English/Hindi/Telugu)</td>
+                      <td class="col-topics" data-label="Topics Covered">Reading Comprehension, Passage Questions, Grammar Basics, Vocabulary, Sentence Formation, Antonyms & Synonyms</td>
+                      <td class="col-marks" data-label="Marks">25 Marks</td>
+                      <td class="col-questions" data-label="Questions">20 Questions</td>
+                  </tr>
+              </tbody>
+              <tfoot>
+                  <tr>
+                      <td colspan="2" class="col-section" style="text-align: right; background-color: #ffe0b3; border-top: 3px solid var(--sv-orange);">Total</td>
+                      <td class="col-marks" style="background-color: #ffe0b3; border-top: 3px solid var(--sv-orange);">100 Marks</td>
+                      <td class="col-questions" style="background-color: #ffe0b3; border-top: 3px solid var(--sv-orange);">80 Questions</td>
+                  </tr>
+              </tfoot>
+          </table>
+      </div>
+  </section>
+  <!-- End NEW SECTION: Exam Pattern Table -->
+  
+  <!-- Syllabus section updated to dynamically load topics with serial numbers and 'Take Test' buttons -->
+  <section id="syllabusContainer" class="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
+    <div id="syllabusContent" class="flex flex-col gap-8">
+        <!-- Content will be rendered here by JavaScript -->
+    </div>
+  </section>
+  
+  <!-- MODIFIED SRM Contact Section -->
+  <section class="srm-contact-section">
+    <h2>Dedicated Student Relations Manager (SRM)</h2>
+    <div class="srm-info-card">
+        <div class="srm-left-explanation">
+            <p class="font-bold text-sv-blue mb-2">Your Personal Success Guide:</p>
+            <p>We are committed to your success! Your Student Relations Manager (SRM) is your dedicated point of contact for all support, academic guidance, subscription queries, and any coordination needed to maximize your learning experience with Sri Veda TC. Reach out directly for personalized assistance.</p>
+        </div>
+        
+        <div class="srm-detail-group md:flex-row md:flex-wrap md:justify-end md:items-center flex-1">
+            <div class="srm-detail">
+                <span class="srm-label">Manager Name</span>
+                <span class="srm-value" id="srmManagerName">Sri Veda Tc</span>
+            </div>
+            <div class="srm-detail">
+                <span class="srm-label">Direct Contact</span>
+                <span class="srm-value" id="srmDirectContactValue">
+                    <a href="tel:+918985170500" id="srmDirectContactLink">8985170500</a>
+                </span>
+            </div>
+        </div>
+    </div>
+  </section>
+</div>
+
+<!-- Quiz Overlay Structure (Hidden by default) -->
+<div id="quizOverlay" class="hidden">
+    <div class="quiz-container">
+        <div class="quiz-header">
+            <h2 id="quizTitle"></h2>
+            <button id="closeQuiz" class="quiz-close-btn" onclick="closeQuizOverlay()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="quiz-body">
+            <div id="quizLoading" class="hidden">
+                <svg class="loading-spinner h-8 w-8 text-sv-blue" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                <p class="text-lg font-medium text-gray-600 mt-2">Loading Test...</p>
+            </div>
+            <div id="quizQuestionContainer">
+                 <p class="text-xl text-center text-gray-500 font-medium">Test will load here.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Quiz Overlay -->
+
+<footer class="bg-sv-blue text-white py-4 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto simple-footer">
+        <div class="simple-footer-social">
+            <a href="https://www.facebook.com/share/1ZXXCLRGwh" target="_blank" rel="noopener noreferrer" title="Facebook">
+                <i class="fab fa-facebook-f social-icon"></i>
+            </a>
+            <a href="https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=zreta93" target="_blank" rel="noopener noreferrer" title="Instagram">
+                <i class="fab fa-instagram social-icon"></i>
+            </a>
+            <a href="httpst.me/srivedatc" target="_blank" rel="noopener noreferrer" title="Telegram">
+                <i class="fab fa-telegram-plane social-icon"></i>
+            </a>
+            <a href="http://wa.me/918985170500" target="_blank" rel="noopener noreferrer" title="WhatsApp">
+                <i class="fab fa-whatsapp social-icon"></i>
+            </a>
+        </div>
+        <div class="simple-footer-copy">
+            <p class="text-gray-400 text-xs sm:text-sm">
+                &copy; 2025 Sri Veda Talent Competition. All Rights Reserved.
+            </p>
+        </div>
+    </div>
+</footer>
+    <script>
+    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwxkXhT-S-ig4Ngrm-VpMmuhWQ1ZKadSLLx_FLDRHE6B_VJjJJEw9mjqu-G3unppbyk/exec";
+    const loginScreen = document.getElementById('loginScreen');
+    const dashboardContent = document.getElementById('dashboardContent');
+    const loginForm = document.getElementById('loginForm');
+    const statusMessage = document.getElementById('statusMessage');
+    const loginButton = document.getElementById('loginButton');
+    const buttonText = document.getElementById('buttonText');
+    const loadingSpinner = document.getElementById('loadingSpinner');
+    const loggedOutIcons = document.querySelectorAll('.loggedOutIcon'); 
+    const loggedInControls = document.getElementById('loggedInControls');
+    const menuToggle = document.getElementById('menuToggle');
+    const liveTime = document.getElementById('liveTime');
+    const sessionTimer = document.getElementById('sessionTimer');
+    const logoutBtn = document.getElementById('logoutBtn');
+    const studentNameDisplay = document.getElementById('studentNameDisplay');
+    const studentClassDisplay = document.getElementById('studentClassDisplay');
+    const subscriptionBadge = document.getElementById('subscriptionBadge'); 
+    const srmManagerName = document.getElementById('srmManagerName');
+    const srmDirectContactValue = document.getElementById('srmDirectContactValue');
+    const srmDirectContactLink = document.getElementById('srmDirectContactLink');
+    const syllabusContent = document.getElementById('syllabusContent'); // New element reference
+    const quizOverlay = document.getElementById('quizOverlay'); // Quiz Overlay reference
+    let studentClass = 0;
+    
+    // --- Syllabus Data ---
+    const syllabusData = [
+        {
+            title: "SECTION 1: Language Test",
+            topics: [
+                "Factual Comprehension",
+                "Inferential Comprehension",
+                "Vocabulary in Context",
+                "Sequential Order and Cause/Effect",
+                "Main Idea and Theme"
+            ]
+        },
+        {
+            title: "SECTION 2: Arithmetic Test",
+            topics: [
+                "Number and Numeric System",
+                "Four Fundamental Operations on Whole Numbers",
+                "Fractional Numbers and Four Fundamental Operations on them",
+                "Factors and Multiples including their properties",
+                "LCM and HCF of Numbers",
+                "Decimals and Fundamental Operations on them",
+                "Conversion of Fractions to Decimals and vice-versa",
+                "Measurement: Length, Mass, Capacity, Time, Money",
+                "Distance, Time and Speed",
+                "Approximation of Expressions",
+                "Simplification of Numerical Expressions",
+                "Percentage and its Applications",
+                "Profit and Loss",
+                "Simple Interest",
+                "Perimeter, Area and Volume"
+            ]
+        },
+        {
+            title: "SECTION 3: Mental Ability Test",
+            topics: [
+                "Odd Man Out",
+                "Figure Matching",
+                "Pattern Completion",
+                "Figure Series Completion",
+                "Analogy",
+                "Geometrical Figure Completion",
+                "Mirror Imaging",
+                "Punched Hold Pattern (Folding and Unfolding)",
+                "Space Visualization",
+                "Embedded Figures"
+            ]
+        }
+    ];
+
+    // --- Core Utility Functions (Time, Status, Loading) ---
+    function pad(n){return n.toString().padStart(2,'0')}
+    function updateTime(){
+        const now=new Date();
+        if (liveTime && !liveTime.classList.contains('hidden')) liveTime.textContent = `${pad(now.getDate())}/${pad(now.getMonth()+1)}/${now.getFullYear()}, ${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`
+    }
+    updateTime();
+    setInterval(updateTime,1000);
+    let session = parseInt(sessionStorage.getItem('sessionTime') || 0);
+    function formatHMS(s){const h=Math.floor(s/3600), m=Math.floor((s%3600)/60), sec=s%60;return `${pad(h)}:${pad(m)}:${pad(sec)}`}
+    function updateSession(){
+        session++;
+        sessionStorage.setItem('sessionTime', session);
+        if (sessionTimer && !sessionTimer.classList.contains('hidden')) sessionTimer.textContent = 'Session: '+formatHMS(session);
+    }
+    updateSession();
+    setInterval(updateSession,1000);
+    
+    function showStatus(message, isSuccess = false) {
+        statusMessage.textContent = message;
+        statusMessage.classList.remove('hidden', 'status-error', 'status-success');
+        if (isSuccess) {
+            statusMessage.classList.add('status-success');
+        } else {
+            statusMessage.classList.add('status-error');
+        }
+    }
+    function setLoading(isLoading) {
+        loginButton.disabled = isLoading;
+        if (isLoading) {
+            buttonText.textContent = "Loading...";
+            loadingSpinner.classList.remove('hidden');
+        } else {
+            buttonText.textContent = "Login";
+            loadingSpinner.classList.add('hidden');
+        }
+    }
+    function showServerMaintenance(message = 'This function is currently locked or under maintenance.'){
+      const t = document.createElement('div');
+      t.textContent = message;
+      t.style.position = 'fixed';
+      t.style.left = '50%';
+      t.style.top = '22px';
+      t.style.transform = 'translateX(-50%)';
+      t.style.background = 'linear-gradient(90deg, #b33030, #ff7b00)';
+      t.style.color = '#fff';
+      t.style.padding = '12px 20px';
+      t.style.borderRadius = '10px';
+      t.style.zIndex = 14000;
+      t.style.fontWeight = 900;
+      document.body.appendChild(t);
+      setTimeout(()=>{ t.style.transition = 'opacity .4s'; t.style.opacity = '0'; setTimeout(()=>t.remove(),500); }, 2500);
+    }
+    function openPricingPage() {
+        window.open('https://www.svtc.life/Pricing.html', '_blank');
+    }
+
+    // --- Syllabus Rendering and Test Functions ---
+
+    /**
+     * Renders the syllabus dynamically with serial numbers and 'Take Test' buttons.
+     */
+    function renderSyllabus() {
+        if (!syllabusContent) return;
+
+        let html = '';
+
+        syllabusData.forEach(section => {
+            let topicsListHtml = '';
+            
+            // Start a new ordered list for each section. The CSS handles the counter reset.
+            topicsListHtml += '<ol class="topic-list">';
+            
+            section.topics.forEach(topic => {
+                const safeTopicName = topic.replace(/'/g, "\\'");
+                topicsListHtml += `
+                    <li>
+                        <div class="topic-details">
+                            <span class="topic-number"></span>
+                            <span class="topic-name">${topic}</span>
+                        </div>
+                        <button class="btn-take-test" onclick="takeTest('${safeTopicName}')">
+                             Take Test
+                        </button>
+                    </li>
+                `;
+            });
+            topicsListHtml += '</ol>';
+
+            html += `
+                <div class="syllabus-section-card">
+                    <h3>${section.title}</h3>
+                    ${topicsListHtml}
+                </div>
+            `;
+        });
+
+        syllabusContent.innerHTML = html;
+    }
+
+    /**
+     * Placeholder function to handle the 'Take Test' click.
+     * In a real application, this would fetch the quiz data and start the test.
+     */
+    function takeTest(topicName) {
+        const quizTitle = document.getElementById('quizTitle');
+        const quizLoading = document.getElementById('quizLoading');
+        const quizQuestionContainer = document.getElementById('quizQuestionContainer');
+
+        quizTitle.textContent = `Practice Test: ${topicName}`;
+        quizQuestionContainer.innerHTML = ''; // Clear previous questions
+        quizLoading.classList.remove('hidden'); // Show loading spinner
+        
+        quizOverlay.classList.remove('hidden'); // Show the overlay
+        document.body.style.overflow = 'hidden'; // Prevent scrolling background
+
+        // Simulate fetching test data
+        setTimeout(() => {
+            quizLoading.classList.add('hidden');
+            // Placeholder content for the test
+            quizQuestionContainer.innerHTML = `
+                <div class="p-6 text-center">
+                    <p class="question-text">
+                        Test for <strong>"${topicName}"</strong> is ready! 
+                    </p>
+                    <p class="text-gray-600">
+                        (Actual questions will be loaded here from the server.)
+                    </p>
+                    <button class="quiz-action-btn submit mt-6" onclick="closeQuizOverlay()">
+                        Close Test
+                    </button>
+                </div>
+            `;
+        }, 1500);
+    }
+
+    /**
+     * Closes the quiz overlay and restores body scrolling.
+     */
+    function closeQuizOverlay() {
+        quizOverlay.classList.add('hidden');
+        document.body.style.overflow = 'auto'; 
+    }
+    
+    // --- Authentication and Dashboard Flow (Unchanged) ---
+
+    async function handleLogin(event) {
+        event.preventDefault();
+        setLoading(true);
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        
+        const bodyData = {
+            username: username,
+            password: password
+        };
+
+        try {
+            const response = await fetch(APPS_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'cors',
+                headers: {
+                    'Content-Type': 'text/plain;charset=utf-8'
+                },
+                body: JSON.stringify(bodyData)
+            });
+            const result = await response.json();
+            if (result.success) {
+                if (!result.class || !result.class.trim().startsWith("5")) {
+                    showStatus("Only 5th Class students are allowed here. Please contact 8985170500.", false);
+                    setLoading(false); 
+                    return; 
+                }
+                showStatus("Login successful!", true);
+                const sessionId = Date.now().toString(36) + Math.random().toString(36).substring(2); 
+                localStorage.setItem('sessionId', sessionId);
+                localStorage.setItem('loggedInUser', result.username);
+                sessionStorage.setItem('isLoggedIn', 'true');
+                sessionStorage.setItem('username', result.username); 
+                sessionStorage.setItem('fullName', result.fullName); 
+                sessionStorage.setItem('fatherName', result.fatherName); 
+                sessionStorage.setItem('mobileNumber', result.mobileNumber); 
+                sessionStorage.setItem('class', result.class); 
+                sessionStorage.setItem('schoolName', result.schoolName); 
+                sessionStorage.setItem('termsConditions', result.termsConditions); 
+                sessionStorage.setItem('subscription', result.plan); 
+                sessionStorage.setItem('isPremium', result.isPremium); 
+                sessionStorage.setItem('loginTimes', result.loginTimes); 
+                sessionStorage.setItem('startDate', result.startDate); 
+                sessionStorage.setItem('endDate', result.endDate); 
+                sessionStorage.setItem('daysLeft', result.daysLeft); 
+                sessionStorage.setItem('timeSpent', result.timeSpent); 
+                sessionStorage.setItem('generalTests', result.generalTests); 
+                sessionStorage.setItem('subjectTests', result.subjectTests); 
+                sessionStorage.setItem('managerName', result.managerName) || 'Sri Veda Tc'; 
+                sessionStorage.setItem('directContact', result.directContact) || '8985170500';
+                setTimeout(showDashboard, 1000); 
+            } else {
+                showStatus(result.message || "Login Failed Please check USERNAME & PASSWROD.", false);
+            }
+        } catch (error) {
+            console.error("Fetch Error:", error);
+            showStatus("Please retry.", false);
+        } finally {
+            setLoading(false);
+        }
+    }
+    
+    function handleLogout(external = false) {
+        if (!external) {
+            localStorage.removeItem('sessionId');
+            localStorage.removeItem('loggedInUser');
+        }
+        sessionStorage.clear();
+        session = 0;
+        updateSession();
+        loggedOutIcons.forEach(icon => icon.classList.remove('hidden')); 
+        loggedInControls.classList.add('hidden');
+        liveTime.classList.add('hidden');
+        sessionTimer.classList.add('hidden');
+        logoutBtn.classList.add('hidden'); 
+        dashboardContent.classList.add('hidden');
+        loginScreen.classList.remove('hidden');
+        loginForm.reset();
+        statusMessage.classList.add('hidden');
+        studentClass = 0; 
+
+        if (external) {
+             showStatus("You have been logged out.", false);
+        }
+    }
+
+    let sessionCheckInterval;
+
+    function startSessionPolling() {
+        if (sessionCheckInterval) clearInterval(sessionCheckInterval);
+
+        sessionCheckInterval = setInterval(() => {
+            const currentSessionId = localStorage.getItem('sessionId');
+            const isLoggedIn = sessionStorage.getItem('isLoggedIn') === 'true';
+
+            if (isLoggedIn && !currentSessionId) {
+                handleLogout(true);
+            } else if (isLoggedIn && localStorage.getItem('loggedInUser') !== sessionStorage.getItem('username')) {
+                 handleLogout(true);
+            } else if (!isLoggedIn && currentSessionId) {
+                localStorage.removeItem('sessionId');
+                localStorage.removeItem('loggedInUser');
+            }
+        }, 5000); 
+    }
+    
+    function checkLoginStatus() {
+        window.addEventListener('beforeunload', function() {
+            if (sessionStorage.getItem('isLoggedIn') === 'true') {
+                 const currentSessionId = localStorage.getItem('sessionId');
+                 const sessionStartId = sessionStorage.getItem('sessionStartId');
+                 if(currentSessionId && currentSessionId === sessionStartId) {
+                     localStorage.removeItem('sessionId');
+                     localStorage.removeItem('loggedInUser');
+                 }
+            }
+        });
+
+        if (sessionStorage.getItem('isLoggedIn') === 'true') {
+            startSessionPolling();
+            showDashboard();
+        } else {
+            loggedOutIcons.forEach(icon => icon.classList.remove('hidden')); 
+            loggedInControls.classList.add('hidden');
+            dashboardContent.classList.add('hidden');
+            loginScreen.classList.remove('hidden');
+        }
+    }
+
+    function showDashboard() {
+        window.scrollTo(0, 0);
+
+        sessionStorage.setItem('sessionStartId', localStorage.getItem('sessionId'));
+        startSessionPolling(); 
+        renderSyllabus(); // Call the new syllabus rendering function
+
+        const fullName = sessionStorage.getItem('fullName') || 'N/A';
+        const classString = sessionStorage.getItem('class') || 'N/A';
+        const subscription = sessionStorage.getItem('subscription') || 'N/A';
+        const managerName = sessionStorage.getItem('managerName') || 'Sri Veda Tc'; 
+        const directContact = sessionStorage.getItem('directContact') || '8985170500'; 
+        const classMatch = classString.match(/(\d+)/);
+        studentClass = classMatch ? parseInt(classMatch[1], 10) : 0; 
+        
+        loggedOutIcons.forEach(icon => icon.classList.add('hidden')); 
+        loggedInControls.classList.remove('hidden');
+        liveTime.classList.remove('hidden');
+        sessionTimer.classList.remove('hidden');
+        logoutBtn.classList.remove('hidden'); 
+        
+        studentNameDisplay.textContent = fullName;
+        studentClassDisplay.textContent = classString;
+        
+        if (srmManagerName) {
+            srmManagerName.textContent = managerName;
+        }
+        if (srmDirectContactLink) {
+            srmDirectContactLink.href = 'tel:' + directContact.replace(/\D/g, ''); 
+            srmDirectContactLink.textContent = directContact;
+        } else if (srmDirectContactValue) { 
+            srmDirectContactValue.textContent = directContact;
+        }
+        
+        let badgeClass = 'badge-free';
+        let displayText = subscription || 'Free Student';
+
+        if (subscription && typeof subscription === 'string') {
+            const plan = subscription.toLowerCase().trim();
+            if (plan.includes('silver')) {
+                badgeClass = 'badge-silver';
+                displayText = 'Silver Student';
+            } else if (plan.includes('gold')) {
+                badgeClass = 'badge-gold';
+                displayText = 'Gold Student';
+            } else if (plan.includes('platin')) {
+                badgeClass = 'badge-platinum';
+                displayText = 'Platinum Student';
+            } else {
+                displayText = 'Free Student';
+            }
+        } else {
+             displayText = 'Free Student';
+        }
+        
+        subscriptionBadge.className = 'subscription-badge'; 
+        subscriptionBadge.classList.add(badgeClass);
+        subscriptionBadge.textContent = displayText;
+
+        loginScreen.classList.add('hidden');
+        dashboardContent.classList.remove('hidden');
+    }
+    
+    // Make these functions globally accessible for HTML onclick attributes
+    window.openPricingPage = openPricingPage; 
+    window.takeTest = takeTest; 
+    window.closeQuizOverlay = closeQuizOverlay; 
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        const dynamicMenu = document.getElementById('dynamicMenu');
+        const menuToggle = document.getElementById('menuToggle');
+        if (menuToggle && dynamicMenu) {
+            menuToggle.addEventListener('click', () => {
+                dynamicMenu.classList.toggle('hidden');
+            });
+        }
+        loginForm.addEventListener('submit', handleLogin);
+        logoutBtn.addEventListener('click', handleLogout);
+        checkLoginStatus(); 
+    });
+</script>
+</body>
+</html>
