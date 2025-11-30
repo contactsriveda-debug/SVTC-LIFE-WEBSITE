@@ -3002,8 +3002,8 @@ body {
             });
             const result = await response.json();
             if (result.success) {
-                if (!result.class || !result.class.trim().startsWith("5")) {
-                    showStatus("Only 5th Class students are allowed here. Please contact 8985170500.", false);
+                if (!result.class || !result.class.trim().startsWith("2")) {
+                    showStatus("Only 5th Class Navodaya students are allowed here. Please contact 8985170500.", false);
                     setLoading(false); 
                     return; 
                 }
