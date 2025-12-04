@@ -24,2437 +24,1621 @@
       --tc-live-color: #ff8c00; 
       --tc-background-color: #fff9f9; 
     }
-.bg-sv-blue {
-    background-color: var(--sv-blue)
-}
-
-.text-sv-blue {
-    color: var(--sv-blue)
-}
-
-.bg-sv-orange {
-    background-color: var(--sv-orange)
-}
-
-.text-sv-orange {
-    color: var(--sv-orange)
-}
-
-.bg-sv-yellow {
-    background-color: var(--sv-yellow)
-}
-
-.text-sv-yellow {
-    color: var(--sv-yellow)
-}
-
-.hover\:shadow-sv-yellow\/50:hover {
-    box-shadow: 0 10px 15px -3px var(--sv-yellow), 0 4px 6px -4px var(--sv-yellow)
-}
-
-.course-button {
-    display: inline-block;
-    padding: .4rem .8rem;
-    margin: .2rem;
-    background-color: #f0f0f0;
-    border: 1px solid #ddd;
-    border-radius: 9999px;
-    font-size: .8rem;
-    font-weight: 500;
-    color: #333;
-    text-align: center;
-    text-decoration: none;
-    transition: all .3s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .05)
-}
-
-.course-button:hover {
-    background-color: var(--sv-orange);
-    color: white;
-    border-color: var(--sv-orange);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, .1)
-}
-
-.nav-button {
-    display: flex;
-    align-items: center;
-    padding: .5rem 1rem;
-    color: var(--sv-blue);
-    background-color: white;
-    border: 2px solid var(--sv-orange);
-    border-radius: 9999px;
-    font-size: .9rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: all .3s ease;
-    margin: 3px 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, .1)
-}
-
-.nav-button:hover {
-    color: white;
-    background-color: var(--sv-orange);
-    border-color: var(--sv-blue);
-    transform: scale(1.05);
-    box-shadow: 0 6px 15px rgba(255, 140, 0, .6)
-}
-
-.header-menu-button {
-    background-color: white !important;
-    color: var(--sv-orange) !important;
-    font-weight: 900;
-    padding: .6rem 1.25rem;
-    font-size: 1rem;
-    border-width: 4px;
-    border-color: var(--sv-orange) !important;
-    box-shadow: 0 6px 12px rgba(255, 140, 0, .7);
-    border-radius: 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    transition: all .3s ease
-}
-
-.header-menu-button:hover {
-    background-color: var(--sv-yellow) !important;
-    color: var(--sv-blue) !important;
-    transform: scale(1.05)
-}
-
-.header-bg {
-    position: relative;
-    overflow: hidden
-}
-
-.header-bg::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 120px;
-    height: 120px;
-    background-image: url('https://contactsriveda-debug.github.io/images/header%20coner.png');
-    background-size: 100% 100%;
-    opacity: 1;
-    background-repeat: no-repeat;
-    transform: translate(-30%, -30%);
-    z-index: 1
-}
-
-.header-bg::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 120px;
-    height: 120px;
-    background-image: url('https://contactsriveda-debug.github.io/images/header%20coner.png');
-    background-size: 100% 100%;
-    opacity: 1;
-    background-repeat: no-repeat;
-    transform: translate(30%, -30%) scaleX(-1);
-    z-index: 1
-}
-
-.header-content {
-    position: relative;
-    z-index: 10
-}
-
-.logout-btn-header {
-    background: #f87171;
-    color: white;
-    font-weight: 700;
-    padding: 6px 12px;
-    border-radius: 9999px;
-    font-size: .85rem;
-    transition: all .2s;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .2)
-}
-
-.logout-btn-header:hover {
-    background: #ef4444;
-    transform: translateY(-1px)
-}
-
-* {
-    box-sizing: border-box
-}
-
-body {
-    margin: 0;
-    font-family: 'Roboto Slab', serif;
-    background: linear-gradient(160deg, #ffffff 50%, #fdf8f8 100%);
-    color: #222
-}
-
-a {
-    color: inherit;
-    text-decoration: none
-}
-
-#loginScreen {
-    position: relative;
-    width: 100%;
-    height: auto;
-    min-height: calc(100vh - 200px);
-    background: linear-gradient(135deg, #6f2e2e, #a47b7b, #8b3a3a, #f7dada, #6f2e2e);
-    background-size: 400% 400%;
-    animation: gradientShift 12s ease infinite;
-    display: flex;
-    align-items: center;
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-    justify-content: center;
-    z-index: 1000;
-    overflow-y: auto
-}
-
-.login-card {
-    background: #fff;
-    padding: 30px 35px;
-    border-radius: 16px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, .1), 0 5px 10px rgba(0, 0, 0, .05);
-    width: 90%;
-    max-width: 320px;
-    animation: fadeIn .4s ease-out;
-    border: 1px solid #f0f0f0
-}
-
-.login-branding {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px
-}
-
-.login-logo {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    border: 3px solid var(--maroon-2);
-    margin-bottom: 10px
-}
-
-.login-brand-title {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--old-maroon);
-    text-align: center;
-    text-transform: uppercase;
-    line-height: 1.3
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px)
+    .bg-sv-blue { background-color: var(--sv-blue); }
+    .text-sv-blue { color: var(--sv-blue); }
+    .bg-sv-orange { background-color: var(--sv-orange); }
+    .text-sv-orange { color: var(--sv-orange); }
+    .bg-sv-yellow { background-color: var(--sv-yellow); }
+    .text-sv-yellow { color: var(--sv-yellow); }
+    .hover\:shadow-sv-yellow\/50:hover {
+        box-shadow: 0 10px 15px -3px var(--sv-yellow), 0 4px 6px -4px var(--sv-yellow);
     }
-    to {
-        opacity: 1, transform: translateY(0)
-    }
-}
-
-@keyframes gradientShift {
-    0% {
-        background-position: 0% 0%
-    }
-    50% {
-        background-position: 100% 100%
-    }
-    100% {
-        background-position: 0% 0%
-    }
-}
-
-.login-card h2 {
-    text-align: center;
-    margin: 0 0 10px;
-    color: var(--old-maroon);
-    font-size: 1.5rem;
-    font-weight: 700
-}
-
-.login-card p {
-    text-align: center;
-    margin: 0 0 25px;
-    color: #555;
-    font-size: 1rem
-}
-
-.login-input {
-    width: 100%;
-    padding: 14px 16px;
-    margin-bottom: 15px;
-    border: 2px solid #ddd;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-family: 'Roboto Slab', serif;
-    transition: border-color .2s, box-shadow .2s
-}
-
-.login-input:focus {
-    outline: none;
-    border-color: var(--old-maroon);
-    box-shadow: 0 0 0 3px rgba(139, 58, 58, .2)
-}
-
-.login-btn-submit {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
-    background: linear-gradient(135deg, var(--old-maroon), var(--maroon-2));
-    color: #fff;
-    font-size: 1rem;
-    font-weight: 800;
-    cursor: pointer;
-    transition: transform .2s, box-shadow .2s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px
-}
-
-.login-btn-submit:hover:not(:disabled) {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(139, 58, 58, .4)
-}
-
-.login-btn-submit:disabled {
-    background: #c79a9a;
-    cursor: not-allowed
-}
-
-.status-box {
-    padding: 12px 16px;
-    margin-bottom: 15px;
-    border-radius: 8px;
-    font-size: .95rem;
-    border: 1px solid
-}
-
-.hidden {
-    display: none !important
-}
-
-.status-error {
-    background: #fff1f2;
-    color: #e11d48
-}
-
-.status-success {
-    background: #f0fdf4;
-    color: #22c55e
-}
-
-.register-link-container {
-    text-align: center;
-    margin-top: 20px
-}
-
-.register-link-btn {
-    display: inline-block;
-    padding: 10px 16px;
-    background: #fdf8f8;
-    color: var(--maroon-2);
-    border-radius: 8px;
-    font-weight: 700;
-    text-decoration: none;
-    font-size: .95rem;
-    border: 1px solid var(--old-maroon);
-    transition: background .2s, box-shadow .2s, color .2s
-}
-
-.register-link-btn:hover {
-    background: var(--old-maroon);
-    color: #fff;
-    box-shadow: 0 2px 8px rgba(139, 58, 58, .3)
-}
-
-.loading-spinner {
-    animation: spin 1s linear infinite;
-    width: 20px;
-    height: 20px
-}
-
-@keyframes spin {
-    from {
-        transform: rotate(0deg)
-    }
-    to {
-        transform: rotate(360deg)
-    }
-}
-
-.welcome-stars {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    max-width: var(--page-max-width);
-    margin: 5px auto;
-    padding: 0 20px;
-    color: #6f2e2e
-}
-
-.welcome {
-    font-size: clamp(14px, 2vw, 20px)
-}
-
-.welcome .student-name {
-    color: #b33030;
-    font-weight: 700
-}
-
-.subscription-badge {
-    padding: 5px 12px;
-    border-radius: 9999px;
-    font-size: .9rem;
-    font-weight: 900;
-    text-transform: uppercase;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
-    transition: all .3s;
-    cursor: help;
-    display: inline-flex;
-    align-items: center;
-    letter-spacing: .5px
-}
-
-.badge-free {
-    background-color: #e0e0e0;
-    color: #555;
-    border: 1px solid #ccc
-}
-
-.badge-silver {
-    background-color: #c0c0c0;
-    color: #333;
-    border: 1px solid #a0a0a0;
-    background: linear-gradient(135deg, #f0f0f0, #c0c0c0)
-}
-
-.badge-gold {
-    background-color: #FFD700;
-    color: #800000;
-    border: 1px solid #ccac00;
-    background: linear-gradient(135deg, #ffeb8d, #FFD700)
-}
-
-.badge-platinum {
-    background-color: #e5e4e2;
-    color: #00008B;
-    border: 1px solid #b8b8b8;
-    background: linear-gradient(45deg, #e0e0e0, #ffffff)
-}
-
-.srm-contact-section {
-    max-width: var(--page-max-width);
-    width: calc(100% - 32px);
-    margin: 20px auto;
-    padding: 20px 25px;
-    background: #ffffff;
-    border-radius: 16px;
-    box-shadow: 0 8px 25px rgba(0, 0, 139, .15);
-    border: 3px solid var(--sv-blue)
-}
-
-.srm-contact-section h2 {
-    font-size: clamp(1.4rem, 2.5vw, 1.8rem);
-    color: var(--sv-blue);
-    text-transform: uppercase;
-    font-weight: 900;
-    margin-bottom: 15px;
-    text-align: center
-}
-
-.srm-info-card {
-    background: #fff;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, .05);
-    display: flex;
-    flex-direction: column;
-    gap: 15px
-}
-
-@media (min-width: 768px) {
-    .srm-info-card {
-        flex-direction: row;
-        align-items: center
-    }
-}
-
-.srm-left-explanation {
-    flex: 1 1 50%;
-    padding-right: 15px;
-    font-size: .95rem;
-    color: #333;
-    line-height: 1.5;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 10px
-}
-
-@media (min-width: 768px) {
-    .srm-left-explanation {
-        border-bottom: none;
-        border-right: 1px solid #ddd;
-        padding-bottom: 0;
-        padding-right: 25px
-    }
-}
-
-.srm-detail-group {
-    flex: 1 1 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    padding-left: 10px
-}
-
-.srm-detail {
-    margin: 5px 0;
-    text-align: left
-}
-
-.srm-label {
-    font-size: .9rem;
-    color: #555;
-    font-weight: 600;
-    text-transform: uppercase;
-    margin-bottom: 2px;
-    display: block
-}
-
-.srm-value {
-    font-size: 1.2rem;
-    color: var(--maroon-2);
-    font-weight: 800
-}
-
-.srm-value a {
-    color: var(--sv-orange);
-    text-decoration: none;
-    transition: color .2s
-}
-
-.srm-value a:hover {
-    color: var(--old-maroon)
-}
-
-.tc-panel-wrap {
-    max-width: var(--page-max-width);
-    margin: 15px auto;
-    padding: 0 16px
-}
-
-.tc-panel-main {
-    padding: 5px 15px;
-    border-radius: 12px;
-    background: var(--tc-background-color);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, .1);
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    overflow: hidden;
-    position: relative
-}
-
-.tc-panel-live-bar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 30%;
-    background: linear-gradient(90deg, #ffc107, var(--tc-live-color), #ff5722);
-    background-size: 200% 100%;
-    animation: liveScroll 8s linear infinite;
-    z-index: 1;
-    border-radius: 12px 0 0 12px;
-    transition: width 1s ease-out
-}
-
-@keyframes liveScroll {
-    0% {
-        background-position: 200% 0
-    }
-    100% {
-        background-position: -200% 0
-    }
-}
-
-.tc-content-overlay {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    color: var(--maroon-2);
-    font-weight: 800;
-    font-size: clamp(1rem, 2vw, 1.2rem)
-}
-
-.tc-score-display {
-    background: white;
-    padding: 4px 10px;
-    border-radius: 6px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, .1);
-    display: flex;
-    gap: 6px;
-    align-items: center
-}
-
-.tc-score-display h2 {
-    font-size: clamp(1.1rem, 2vw, 1.3rem);
-    margin: 0;
-    color: var(--sv-orange)
-}
-
-.tc-score-display small {
-    font-size: .75rem;
-    color: #555;
-    font-weight: 700
-}
-
-.tc-actions-list-container {
-    background-color: var(--tc-background-color);
-    border-radius: 0 0 12px 12px;
-    padding: 10px 15px;
-    border: 1px solid #ffcccc;
-    border-top: none
-}
-
-.tc-actions-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    justify-content: center
-}
-
-.tc-actions-list li {
-    background: #fff;
-    padding: 6px 10px;
-    border-radius: 8px;
-    flex: 1 1 120px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, .08);
-    font-size: .8rem;
-    color: #333;
-    font-weight: 600;
-    transition: transform .1s
-}
-
-.tc-actions-list li:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 3px 6px rgba(0, 0, 0, .15)
-}
-
-.dot.daily {
-    background: #ffb74d
-}
-
-.dot.openpractice {
-    background: #4caf50
-}
-
-.dot.completecourse {
-    background: #42a5f5
-}
-
-.dot.weekly {
-    background: #ba68c8
-}
-
-.dot.monthly {
-    background: #9575cd
-}
-
-.tc-actions-list li .dot {
-    flex-shrink: 0;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    margin-right: 2px
-}
-
-.tc-actions-list h3 {
-    font-size: clamp(.9rem, 2vw, 1rem);
-    color: var(--maroon-2);
-    font-weight: 800;
-    margin: 0 0 5px 0;
-    width: 100%;
-    text-align: center
-}
-
-.free-test-promo-section {
-    max-width: var(--page-max-width);
-    margin: 10px auto;
-    padding: 15px 16px;
-    text-align: center;
-    background: #f0f8ff;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, .05);
-    border: 1px solid #cceeff
-}
-
-.free-test-promo-section h3 {
-    font-size: clamp(1.3rem, 2.5vw, 1.6rem);
-    color: var(--maroon-2);
-    margin-bottom: 8px;
-    font-weight: 800;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, .05)
-}
-
-.free-test-promo-section p {
-    max-width: 700px;
-    margin: .5rem auto 1rem auto;
-    font-size: .95rem;
-    line-height: 1.4;
-    color: #333
-}
-
-.free-test-promo-section button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 10px;
-    background: linear-gradient(135deg, #1e6b34, #4caf50);
-    color: #fff;
-    font-weight: 800;
-    cursor: pointer;
-    transition: transform .2s, box-shadow .2s;
-    box-shadow: 0 4px 10px rgba(76, 175, 80, .3)
-}
-
-.free-test-promo-section button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(76, 175, 80, .4)
-}
-
-.live-tests {
-    width: 100%;
-    padding: 10px 0;
-    background: transparent
-}
-
-.tests-inner {
-    max-width: var(--page-max-width);
-    margin: 0 auto;
-    padding: 0 12px
-}
-
-.test-row {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 12px
-}
-
-.test-card {
-    padding: 12px;
-    min-height: 140px;
-    width: clamp(280px, 100%, 360px);
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: none;
-    position: relative;
-    overflow: hidden;
-    transition: transform .18s ease
-}
-
-.test-card h3 {
-    margin: 8px 0;
-    font-size: 1rem
-}
-
-.test-lead {
-    font-size: .9rem;
-    line-height: 1.4;
-    margin-bottom: 8px
-}
-
-.card-actions {
-    gap: 8px
-}
-
-.btn-test {
-    padding: 8px 12px;
-    font-size: .85rem;
-    background: linear-gradient(135deg, #009688, #00e0b3);
-    color: #fff;
-    border: none;
-    border-radius: 10px;
-    font-weight: 800;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px
-}
-
-.student-report {
-    max-width: var(--page-max-width);
-    margin: 10px auto;
-    padding: 0 16px
-}
-
-.sr-box {
-    background: #fff;
-    border-radius: 14px;
-    padding: 12px;
-    overflow: hidden
-}
-
-.plan-promo-box {
-    padding: 15px;
-    margin-bottom: 20px;
-    background: linear-gradient(135deg, #fffcf0, #fff3b2);
-    border: 2px solid var(--gold);
-    border-radius: 12px;
-    text-align: center;
-    box-shadow: 0 5px 15px rgba(255, 215, 0, .2)
-}
-
-.plan-promo-box h3 {
-    font-size: clamp(1rem, 1.8vw, 1.3rem);
-    margin-bottom: 10px
-}
-
-.plan-actions-container {
-    gap: 15px
-}
-
-.plan-action-card {
-    padding: 12px;
-    flex: 1 1 250px;
-    background: #fff;
-    border: 1px solid #ffeb8d;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, .05);
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between
-}
-
-.plan-action-card p {
-    font-size: .9rem;
-    margin-bottom: 12px
-}
-
-.plan-action-card button {
-    padding: 8px 15px;
-    font-size: .95rem;
-    border: none;
-    border-radius: 8px;
-    font-weight: 700;
-    cursor: pointer;
-    width: 100%;
-    transition: transform .2s
-}
-
-.plan-action-card .new-plan-btn {
-    background: linear-gradient(135deg, var(--gold), #ff8c00);
-    color: #fff
-}
-
-.plan-action-card .renewal-btn {
-    background: linear-gradient(135deg, #c0392b, #8b3a3a);
-    color: #fff
-}
-
-.plan-action-card .update-plan-btn {
-    background: linear-gradient(135deg, #7a67ff, #4b3eb0);
-    color: #fff
-}
-
-@media (max-width: 660px) {
-    .plan-actions-container {
-        flex-direction: column;
-        gap: 10px
-    }
-    .plan-action-card {
-        justify-content: flex-start;
-        flex: 0 0 auto
-    }
-    .plan-action-card p {
-        margin-bottom: 8px;
-        flex-grow: 0
-    }
-}
-
-.sr-stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 8px;
-    margin-top: 0
-}
-
-.stat-item {
-    padding: 10px;
-    background: linear-gradient(180deg, #fffdeb, #fff7c9);
-    border-radius: 10px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: #fffcf2;
-    border: 1px solid #f0eacb;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, .05);
-    transition: transform .2s
-}
-
-.stat-item:hover {
-    transform: translateY(-2px)
-}
-
-.stat-icon {
-    width: 32px;
-    height: 32px;
-    margin-bottom: 4px;
-    font-size: 1.5rem;
-    color: var(--sv-blue)
-}
-
-.stat-label {
-    font-size: .85rem;
-    color: #555;
-    margin-top: 4px;
-    font-weight: 600;
-    margin-bottom: 4px;
-    display: block
-}
-
-.stat-value {
-    font-size: .95rem;
-    font-weight: 900;
-    color: var(--sv-maroon)
-}
-
-.subject-tests {
-    max-width: var(--page-max-width);
-    margin: 20px auto;
-    padding: 15px;
-    background: #f5fbf5;
-    border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, .1)
-}
-
-.subject-tests h2 {
-    text-align: center;
-    font-size: clamp(1.4rem, 2.5vw, 1.8rem);
-    color: #1e6b34;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 20px;
-    font-weight: 800;
-    text-decoration: underline;
-    text-underline-offset: 6px;
-    text-decoration-thickness: 2px
-}
-
-.test-list-item {
-    padding: 12px 16px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    border-radius: 12px;
-    background: #fff;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, .05);
-    border: 1px solid #d4e9d9;
-    flex-direction: column;
-    align-items: stretch;
-    border: 1px solid #e0e0e0;
-    padding: 16px
-}
-
-.test-list-item-content {
-    flex: 1 1 300px
-}
-
-.test-list-item-content h3 {
-    font-size: clamp(1rem, 3.5vw, 1.1rem);
-    margin: 0 0 2px 0;
-    color: #1e6b34
-}
-
-.test-list-item-content p {
-    font-size: clamp(.8rem, 2.5vw, .9rem);
-    color: #555;
-    margin: 0;
-    line-height: 1.5
-}
-
-.test-list-item .btn-test {
-    padding: 8px 16px;
-    font-size: .85rem;
-    flex: 0 0 auto;
-    width: auto
-}
-
-.btn-test.locked {
-    background: #e9ecef;
-    color: var(--lock-color);
-    cursor: not-allowed
-}
-
-.btn-test.locked:hover {
-    transform: none;
-    box-shadow: none
-}
-
-.student-subject-tests {
-    max-width: var(--page-max-width);
-    margin: 20px auto;
-    padding: 15px;
-    background: #f9f8ff;
-    border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, .1);
-    border: 1px solid #e0d9f5
-}
-
-.student-subject-tests h2 {
-    text-align: center;
-    font-size: clamp(1.4rem, 2.5vw, 1.8rem);
-    color: #4a148c;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 20px;
-    font-weight: 800;
-    text-decoration: underline;
-    text-underline-offset: 6px;
-    text-decoration-thickness: 2px
-}
-
-.student-subject-tests .test-list-item {
-    border: 1px solid #e0d9f5
-}
-
-.student-subject-tests .test-list-item-content h3 {
-    color: #673ab7
-}
-
-.student-subject-tests .test-list-item .btn-test {
-    margin-top: 12px
-}
-
-.profile-section {
-    max-width: var(--page-max-width);
-    margin: 20px auto;
-    padding: 15px;
-    background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, .08)
-}
-
-.profile-section h2 {
-    margin-bottom: 20px;
-    font-size: clamp(1.4rem, 2.5vw, 1.8rem);
-    text-align: center;
-    color: var(--maroon-2);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 800;
-    text-decoration: underline;
-    text-underline-offset: 6px;
-    text-decoration-thickness: 2px
-}
-
-.profile-list {
-    gap: 12px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    list-style: none;
-    padding: 0;
-    margin: 0
-}
-
-.profile-item {
-    padding: 10px 14px;
-    background: #fdfdfd;
-    border: 1px solid #eee;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .04)
-}
-
-.profile-label {
-    font-size: .85rem;
-    display: block;
-    color: #777;
-    font-weight: 600;
-    margin-bottom: 4px;
-    text-transform: uppercase
-}
-
-.profile-value {
-    font-size: 1rem;
-    display: block;
-    color: #111;
-    font-weight: 700
-}
-
-.profile-value.agreed {
-    color: #1e6b34
-}
-
-.subscription-section {
-    max-width: var(--page-max-width);
-    margin: 20px auto;
-    padding: 15px;
-    background: #f7fcff;
-    border-radius: 16px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, .08);
-    border: 1px solid #e0f0ff
-}
-
-.subscription-section h2 {
-    margin-bottom: 20px;
-    font-size: clamp(1.4rem, 2.5vw, 1.8rem);
-    text-align: center;
-    color: #0d47a1;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 800;
-    text-decoration: underline;
-    text-underline-offset: 6px;
-    text-decoration-thickness: 2px
-}
-
-.subscription-list {
-    gap: 12px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    list-style: none;
-    padding: 0;
-    margin: 0
-}
-
-.subscription-item {
-    padding: 10px 14px;
-    background: #fff;
-    border: 1px solid #eee;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .04)
-}
-
-.subscription-label {
-    font-size: .85rem;
-    display: block;
-    color: #557;
-    font-weight: 600;
-    margin-bottom: 4px;
-    text-transform: uppercase
-}
-
-.subscription-value {
-    font-size: 1rem;
-    display: block;
-    color: #111;
-    font-weight: 700
-}
-
-.subscription-plan-value {
-    color: #b8860b;
-    font-weight: 800
-}
-
-.subscription-days-left {
-    color: #c0392b;
-    font-weight: 800
-}
-
-@media (max-width: 900px) {
-    .nav-btn-flex {
-        margin: 4px 5px;
-        max-width: 48%;
-        flex: 1 1 45%
-    }
-}
-
-@media (max-width: 640px) {
-    .nav-button {
-        justify-content: center;
-        margin: 4px 2px;
-        font-size: .8rem;
-        padding: .4rem .8rem
-    }
-    .nav-btn-flex {
-        max-width: 100%;
-        flex: 1 1 100%;
-        margin: 4px 0
-    }
-    .test-list-item {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 10px 14px;
-        gap: 6px
-    }
-    .test-list-item-content {
-        flex: 1 1 100%
-    }
-    .test-list-item-content p {
-        margin-bottom: 6px
-    }
-    .test-list-item .btn-test {
-        width: 100%;
-        text-align: center
-    }
-}
-
-@media (max-width: 480px) {
-    .login-card {
-        padding: 25px 20px
-    }
-    .login-brand-title {
-        font-size: 1.1rem
-    }
-}
-
-.nav-button {
-    display: flex;
-    align-items: center;
-    padding: .5rem 1rem;
-    color: var(--maroon-2);
-    background-color: white;
-    border: 2px solid var(--sv-orange);
-    border-radius: 9999px;
-    font-size: .9rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: all .3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, .1);
-    justify-content: center
-}
-
-.nav-button:hover {
-    color: white;
-    background-color: var(--sv-orange);
-    border-color: var(--sv-blue);
-    transform: scale(1.03);
-    box-shadow: 0 6px 15px rgba(255, 140, 0, .6)
-}
-
-.nav-btn-flex {
-    flex-grow: 0;
-    flex-shrink: 0;
-    flex-basis: auto;
-    margin: 4px 20px;
-    max-width: none
-}
-
-.menu-button-primary {
-    background-color: var(--sv-orange) !important;
-    color: white !important;
-    border-color: var(--sv-yellow) !important;
-    border-width: 2px !important
-}
-
-.menu-button-primary:hover {
-    background-color: white !important;
-    color: var(--sv-orange) !important;
-    border-color: var(--sv-orange) !important
-}
-
-.btn-promo-plan {
-    padding: 12px 20px;
-    font-size: 1rem;
-    font-weight: 800;
-    color: #000;
-    background: linear-gradient(135deg, var(--sv-yellow), var(--sv-orange));
-    border: 1px solid #e6a000;
-    border-bottom: 3px solid #cc8400;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all .2s ease-out;
-    text-decoration: none;
-    display: inline-block;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, .1);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, .05)
-}
-
-.btn-promo-plan:hover {
-    background: linear-gradient(135deg, #FFEB8D, #FFA500);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, .1);
-    border-bottom: 3px solid #e68e00
-}
-
-body {
-    padding-top: 0
-}
-
-.class-selector-box {
-    max-width: var(--page-max-width);
-    margin: 15px auto;
-    padding: 0;
-    background: transparent;
-    border-radius: 0;
-    box-shadow: none;
-    border: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px
-}
-
-.class-selector-box label {
-    display: none
-}
-
-.class-selector-controls {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    width: auto
-}
-
-.class-selector-box select {
-    padding: 8px 12px;
-    font-size: .9rem;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-weight: 700;
-    font-family: 'Roboto Slab', serif;
-    flex: 1 1 auto;
-    cursor: pointer
-}
-
-.class-selector-box button {
-    padding: 8px 20px;
-    font-size: .9rem;
-    border: none;
-    border-radius: 8px;
-    background: var(--sv-orange);
-    color: #fff;
-    font-weight: 800;
-    cursor: pointer;
-    transition: all .3s ease;
-    box-shadow: 0 2px 8px rgba(255, 140, 0, .2);
-    flex: 1 1 auto
-}
-
-.class-selector-box button:hover {
-    background: var(--sv-blue);
-    box-shadow: 0 4px 12px rgba(0, 0, 139, .2);
-    transform: translateY(-1px)
-}
-
-.srm-contact-section {
-    max-width: var(--page-max-width);
-    width: calc(100% - 32px);
-    margin: 20px auto;
-    padding: 20px 25px;
-    background: #ffffff;
-    border-radius: 16px;
-    box-shadow: 0 8px 25px rgba(0, 0, 139, .15);
-    border: 3px solid var(--sv-blue)
-}
-
-.sr-stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 8px;
-    margin-top: 0
-}
-
-.stat-item {
-    padding: 10px;
-    background: linear-gradient(180deg, #fffdeb, #fff7c9);
-    border-radius: 10px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: #fffcf2;
-    border: 1px solid #f0eacb;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, .05);
-    transition: transform .2s
-}
-
-.stat-item:hover {
-    transform: translateY(-2px)
-}
-
-.stat-icon {
-    width: 32px;
-    height: 32px;
-    margin-bottom: 4px;
-    font-size: 1.5rem;
-    color: var(--sv-blue)
-}
-
-.stat-label {
-    font-size: .85rem;
-    color: #555;
-    margin-top: 4px;
-    font-weight: 600;
-    margin-bottom: 4px;
-    display: block
-}
-
-.stat-value {
-    font-size: .95rem;
-    font-weight: 900;
-    color: var(--sv-maroon)
-}
-
-#quizOverlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(248, 250, 252, .98);
-    z-index: 10000;
-    overflow-y: auto;
-    padding: 1rem;
-    display: none
-}
-
-#quizContentContainer {
-    margin: 2rem auto
-}
-
-.quiz-option {
-    display: block;
-    background-color: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-radius: .5rem;
-    padding: .75rem 1rem;
-    margin-bottom: .75rem;
-    cursor: pointer;
-    transition: all .2s ease-in-out
-}
-
-.quiz-option:hover {
-    background-color: #f1f5f9
-}
-
-.quiz-option input {
-    margin-right: .75rem
-}
-
-.review-correct {
-    border-left: 4px solid #16a34a
-}
-
-.review-incorrect {
-    border-left: 4px solid #dc2626
-}
-
-.test-list-item {
-    flex-direction: column;
-    align-items: stretch;
-    background-color: #ffffff;
-    border: 1px solid #e0e0e0;
-    border-radius: 12px;
-    padding: 16px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, .05);
-    gap: 0
-}
-
-.sub-topics-container {
-    width: 100%;
-    margin-top: 0;
-    padding-top: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 8px
-}
-
-.test-list-item:nth-child(1) .sub-topics-container {
-    border-top: 0
-}
-
-.test-list-item:nth-child(2) .sub-topics-container {
-    border-top: 0
-}
-
-.test-list-item:nth-child(3) .sub-topics-container {
-    border-top: 0
-}
-
-.sub-topic-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #ffffff;
-    padding: 10px 12px;
-    border-radius: 8px;
-    border: 1px solid #e0e0e0;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, .03)
-}
-
-.sub-topic-item span {
-    font-size: .95rem;
-    font-weight: 600;
-    color: #333
-}
-
-.sub-topic-item .btn-test {
-    padding: 6px 12px;
-    font-size: .8rem;
-    flex-shrink: 0
-}
-
-.passage-intro {
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: #333;
-    line-height: 1.6;
-    padding: 4px 8px;
-    background-color: #fdfdfd;
-    border-radius: 8px;
-    border: 1px solid #e0e0e0;
-    margin-top: 10px;
-    margin-bottom: 12px
-}
-
-.premium-section-header {
-    text-align: center;
-    margin-bottom: 15px;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--sv-maroon);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    display: flex;
-    align-items: center
-}
-
-.premium-section-header::before,
-.premium-section-header::after {
-    content: '';
-    flex-grow: 1;
-    height: 2px;
-    background-color: var(--sv-orange);
-    margin: 0 15px
-}
-
-.test-list-container {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    width: 100%;
-    background: #fdfdfd;
-    border: 1px solid #e0e0e0;
-    border-radius: 12px;
-    padding: 12px
-}
-
-.subject-tests .test-list-item {
-    gap: 0
-}
-
-.subject-tests .test-list-item h3 {
-    display: none
-}
-
-#quizOverlay {
-    position: fixed;
-    inset: 0;
-    background-color: rgba(248, 250, 252, .98);
-    z-index: 10000;
-    overflow-y: auto;
-    padding: 1rem;
-    display: none
-}
-
-.quiz-container {
-    max-width: 800px;
-    margin: 2rem auto;
-    background: #ffffff;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, .1);
-    border: 1px solid #e2e8f0;
-    overflow: hidden
-}
-
-.quiz-header {
-    padding: 1rem 1.5rem;
-    background-color: #f8fafc;
-    border-bottom: 1px solid #e2e8f0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center
-}
-
-.quiz-header h2 {
-    font-size: 1.25rem;
-    font-weight: 800;
-    color: var(--sv-blue)
-}
-
-.quiz-close-btn {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #94a3b8;
-    background: none;
-    border: none;
-    cursor: pointer;
-    transition: color .2s
-}
-
-.quiz-close-btn:hover {
-    color: #dc2626
-}
-
-.quiz-body {
-    padding: 1.5rem 2rem
-}
-
-#quizLoading {
-    text-align: center;
-    padding: 4rem
-}
-
-#quizQuestionContainer {
-    min-height: 250px
-}
-
-.question-text {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: #1e293b;
-    margin-bottom: 1.5rem;
-    line-height: 1.6
-}
-
-.quiz-options-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: .75rem
-}
-
-@media (min-width: 640px) {
-    .quiz-options-grid {
-        grid-template-columns: 1fr 1fr
-    }
-}
-
-.quiz-option-label {
-    display: block;
-    background-color: #f8fafc;
-    border: 2px solid #e2e8f0;
-    border-radius: .5rem;
-    padding: .85rem 1rem;
-    cursor: pointer;
-    transition: all .2s ease-in-out;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #334155
-}
-
-.quiz-option-label:hover {
-    border-color: var(--sv-orange);
-    background-color: #fffbeb
-}
-
-.quiz-option-label input {
-    display: none
-}
-
-.quiz-option-label input:checked+span {
-    font-weight: 700;
-    color: var(--sv-blue)
-}
-
-.quiz-option-label input:checked {}
-
-.option-selected {
-    border-color: var(--sv-blue) !important;
-    background-color: #eff6ff !important;
-    box-shadow: 0 0 0 2px rgba(59, 130, 246, .3)
-}
-
-.quiz-footer {
-    padding: 1rem 1.5rem;
-    background-color: #f8fafc;
-    border-top: 1px solid #e2e8f0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem
-}
-
-.quiz-nav-btn,
-.quiz-action-btn {
-    padding: .6rem 1.25rem;
-    font-size: .9rem;
-    font-weight: 700;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    transition: all .2s;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .05)
-}
-
-.quiz-nav-btn {
-    background-color: #e2e8f0;
-    color: #334155
-}
-
-.quiz-nav-btn:hover {
-    background-color: #cbd5e1
-}
-
-.quiz-nav-btn:disabled {
-    opacity: .5;
-    cursor: not-allowed
-}
-
-.quiz-action-btn.next {
-    background-color: var(--sv-orange);
-    color: white
-}
-
-.quiz-action-btn.next:hover {
-    background-color: #f97316
-}
-
-.quiz-action-btn.submit {
-    background-color: #22c55e;
-    color: white
-}
-
-.quiz-action-btn.submit:hover {
-    background-color: #16a34a
-}
-
-#quizResults {
-    text-align: center
-}
-
-.results-score {
-    font-size: 3rem;
-    font-weight: 900;
-    color: var(--sv-blue);
-    margin: 1rem 0 .5rem 0
-}
-
-.results-feedback {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem
-}
-
-.feedback-improve {
-    color: #ef4444
-}
-
-.feedback-good {
-    color: #f59e0b
-}
-
-.feedback-excellent {
-    color: #22c55e
-}
-
-.results-summary {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-bottom: 2rem
-}
-
-.summary-item {
-    background: #f8fafc;
-    padding: .75rem 1.25rem;
-    border-radius: 8px;
-    border: 1px solid #e2e8f0
-}
-
-.summary-item span {
-    display: block
-}
-
-.summary-label {
-    font-size: .9rem;
-    color: #64748b
-}
-
-.summary-value {
-    font-size: 1.25rem;
-    font-weight: 700
-}
-
-.value-correct {
-    color: #16a34a
-}
-
-.value-wrong {
-    color: #dc2626
-}
-
-.results-actions {
-    display: flex;
-    justify-content: center;
-    gap: 1rem
-}
-
-#quizReview {
-    padding: 1.5rem .5rem
-}
-
-@media (min-width: 640px) {
-    #quizReview {
-        padding: 1.5rem 2rem
-    }
-}
-
-.review-item {
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, .03)
-}
-
-.review-question {
-    padding: 1rem 1.25rem;
-    border-bottom: 1px dashed #cbd5e1
-}
-
-.review-question p {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #1e293b
-}
-
-.review-options {
-    padding: 1rem 1.25rem
-}
-
-.review-option {
-    font-size: .95rem;
-    padding: .6rem .8rem;
-    border-radius: 6px;
-    margin-bottom: .5rem;
-    border: 2px solid transparent
-}
-
-.review-option.correct {
-    background-color: #f0fdf4;
-    border-color: #86efac;
-    color: #15803d;
-    font-weight: 700
-}
-
-.review-option.incorrect {
-    background-color: #fef2f2;
-    border-color: #fecaca;
-    color: #b91c1c;
-    font-weight: 700;
-    text-decoration: line-through
-}
-
-.review-explanation {
-    background: #f1f5f9;
-    padding: .8rem 1.25rem;
-    border-top: 1px dashed #cbd5e1;
-    border-radius: 0 0 8px 8px
-}
-
-.review-explanation strong {
-    color: var(--sv-blue);
-    font-size: .9rem;
-    text-transform: uppercase
-}
-
-.review-explanation p {
-    font-size: .95rem;
-    color: #334155;
-    margin-top: 4px;
-    line-height: 1.5
-}
-
-.sub-section-header {
-    font-size: 1.1rem;
-    font-weight: 800;
-    color: var(--sv-blue);
-    padding: 10px 4px 4px 4px;
-    margin-top: 8px;
-    border-bottom: 2px solid var(--sv-orange)
-}
-
-.sub-section-header:first-of-type {
-    margin-top: 0
-}
-
-.simple-footer {
-    padding: 15px 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    text-align: center;
-    gap: 10px
-}
-
-@media (min-width: 640px) {
-    .simple-footer {
-        flex-direction: row;
-        text-align: left
-    }
-    .simple-footer-social {
-        justify-content: flex-start
-    }
-    .simple-footer-copy {
-        text-align: right
-    }
-}
-
-.simple-footer-social {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    flex-shrink: 0
-}
-
-.social-icon {
-    color: white; /* Changed from var(--sv-yellow) to white */
-}
-
-.social-icon:hover {
-    color: var(--sv-yellow); /* Hover back to yellow for contrast */
-    transform: scale(1.1);
-}
-
-.simple-footer-copy {
-    font-size: .75rem;
-    color: #aaa;
-    flex-grow: 1;
-    min-width: 200px
-}
-
-.syllabus-grid-container {
-    max-width: var(--page-max-width);
-    margin: 20px auto;
-    padding: 0 16px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px
-}
-
-.syllabus-card {
-    background: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, .05);
-    padding: 20px;
-    overflow: hidden;
-    transition: transform .3s
-}
-
-.syllabus-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, .1)
-}
-
-.syllabus-card h3 {
-    font-size: 1.5rem;
-    font-weight: 900;
-    margin-bottom: 15px;
-    text-align: center;
-    color: var(--sv-blue);
-    text-transform: uppercase;
-    letter-spacing: .5px;
-    border-bottom: 3px solid var(--sv-orange);
-    padding-bottom: 10px
-}
-
-.syllabus-card ul {
-    list-style: none;
-    padding: 0;
-    margin: 0
-}
-
-.syllabus-card li {
-    display: flex;
-    align-items: center;
-    font-size: 1rem;
-    color: #333;
-    margin-bottom: 8px;
-    line-height: 1.4
-}
-
-.syllabus-card li::before {
-    content: '\f058';
-    font-family: 'Font Awesome 6 Free';
-    font-weight: 900;
-    color: #1e6b34;
-    margin-right: 10px;
-    font-size: .9rem
-}    
-    /* MODIFIED STYLES for Syllabus List (Removed blue border and added separation lines) */
-    .syllabus-section-card {
-        background: #ffffff; /* White background */
-        border: 1px solid #f0f0f0; /* Soft outer border */
-        border-radius: 12px;
-        padding: 20px 20px 10px 20px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    }
-    .syllabus-section-card h3 {
-        font-size: clamp(1.4rem, 2.5vw, 1.8rem);
-        font-weight: 900;
-        margin-bottom: 20px; /* Increased bottom margin for separation */
+    .course-button {
+        display: inline-block;
+        padding: 0.4rem 0.8rem;
+        margin: 0.2rem;
+        background-color: #f0f0f0;
+        border: 1px solid #ddd;
+        border-radius: 9999px;
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: #333;
         text-align: center;
-        color: var(--sv-blue); /* Section title color */
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        /* Line decorations */
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .course-button:hover {
+        background-color: var(--sv-orange);
+        color: white;
+        border-color: var(--sv-orange);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px (0,0,0,0.1);
+    }
+    .nav-button {
         display: flex;
         align-items: center;
-        white-space: nowrap;
-    }
-    .syllabus-section-card h3::before,
-    .syllabus-section-card h3::after {
-        content: '';
-        flex-grow: 1;
-        height: 3px;
-        background: linear-gradient(to right, #ffeb8d, var(--sv-orange)); /* Yellow to Orange gradient */
-        margin: 0 10px;
+        padding: 0.5rem 1rem;
+        color: var(--sv-blue);
+        background-color: white;
+        border: 2px solid var(--sv-orange);
         border-radius: 9999px;
+        font-size: 0.9rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        margin: 3px 0;
+        box-shadow: 0 4px 8px (0, 0, 0, 0.1);
     }
-    .syllabus-section-card h3::after {
-        background: linear-gradient(to left, #ffeb8d, var(--sv-orange));
+    .nav-button:hover {
+        color: white;
+        background-color: var(--sv-orange);
+        border-color: var(--sv-blue);
+        transform: scale(1.05);
+        box-shadow: 0 6px 15px (255, 140, 0, 0.6);
     }
-    .topic-list {
+    .header-menu-button {
+        background-color: white !important; 
+        color: var(--sv-orange) !important;
+        font-weight: 900;
+        
+        padding: 0.6rem 1.25rem; 
+        font-size: 1rem;
+        
+        border-width: 4px;
+        border-color: var(--sv-orange) !important;
+        box-shadow: 0 6px 12px (255, 140, 0, 0.7);
+        
+        border-radius: 1.5rem; 
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        transition: all 0.3s ease;
+    }
+    .header-menu-button:hover {
+        background-color: var(--sv-yellow) !important; 
+        color: var(--sv-blue) !important; 
+        transform: scale(1.05);
+    }
+    .header-bg {
+        position: relative;
+        overflow: hidden;
+    }
+    .header-bg::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 120px;
+        height: 120px;
+        background-image: url('https://contactsriveda-debug.github.io/images/header%20coner.png');
+        background-size: 100% 100%; 
+        opacity: 1; 
+        background-repeat: no-repeat;
+        transform: translate(-30%, -30%); 
+        z-index: 1;
+    }
+    .header-bg::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 120px;
+        height: 120px;
+        background-image: url('https://contactsriveda-debug.github.io/images/header%20coner.png');
+        background-size: 100% 100%; 
+        opacity: 1; 
+        background-repeat: no-repeat;
+        transform: translate(30%, -30%) scaleX(-1); 
+        z-index: 1;
+    }
+    .header-content {
+        position: relative;
+        z-index: 10;
+    }
+    .logout-btn-header {
+        background: #f87171;
+        color: white;
+        font-weight: 700;
+        padding: 6px 12px;
+        border-radius: 9999px;
+        font-size: 0.85rem;
+        transition: all 0.2s;
+        box-shadow: 0 2px 4px (0, 0, 0, 0.2);
+    }
+    .logout-btn-header:hover {
+        background: #ef4444;
+        transform: translateY(-1px);
+    }
+    * { box-sizing:border-box }
+    body {
+      margin:0;
+      font-family: 'Roboto Slab', serif;
+      /* UPDATED: Added a more vibrant background gradient */
+      background: linear-gradient(145deg, #f7f3f3, #ffe6e6, #f7f3f3); 
+      color:#222;
+    }
+    a { color:inherit; text-decoration: none; }
+    #loginScreen {
+      position: relative; 
+      width: 100%;
+      height: auto; 
+      min-height: calc(100vh - 200px); 
+      background: linear-gradient(135deg, #6f2e2e, #a47b7b, #8b3a3a, #f7dada, #6f2e2e);
+      background-size: 400% 400%; 
+      animation: gradientShift 12s ease infinite; 
+      display: flex;
+      align-items: center; 
+      padding-top: 3rem; 
+      padding-bottom: 3rem; 
+      justify-content: center;
+      z-index: 1000;
+      overflow-y: auto; 
+    }
+    .login-card {
+      background: #fff;
+      padding: 30px 35px; 
+      border-radius: 16px;
+      box-shadow: 0 10px 25px (0, 0, 0, 0.1), 0 5px 10px (0, 0, 0, 0.05);
+      width: 90%;
+      max-width: 320px;
+      animation: fadeIn .4s ease-out;
+      border: 1px solid #f0f0f0; 
+    }
+    .login-branding {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px; 
+    }
+    .login-logo {
+        width: 80px; 
+        height: 80px;
+        border-radius: 50%;
+        border: 3px solid var(--maroon-2); 
+        margin-bottom: 10px;
+    }
+    .login-brand-title {
+        font-size: 1.2rem; 
+        font-weight: 700;
+        color: var(--old-maroon);
+        text-align: center;
+        text-transform: uppercase;
+        line-height: 1.3;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1, transform: translateY(0); }
+    }
+    @keyframes gradientShift {
+        0% { background-position: 0% 0%; }
+        50% { background-position: 100% 100%; }
+        100% { background-position: 0% 0%; }
+    }
+    .login-card h2 {
+      text-align: center;
+      margin: 0 0 10px;
+      color: var(--old-maroon);
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+    .login-card p {
+      text-align: center;
+      margin: 0 0 25px;
+      color: #555;
+      font-size: 1rem;
+    }
+    .login-input {
+      width: 100%;
+      padding: 14px 16px;
+      margin-bottom: 15px;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: 'Roboto Slab', serif;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .login-input:focus {
+      outline: none;
+      border-color: var(--old-maroon);
+      box-shadow: 0 0 0 3px (139, 58, 58, 0.2);
+    }
+    .login-btn-submit {
+      width: 100%;
+      padding: 12px; 
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--old-maroon), var(--maroon-2));
+      color: #fff;
+      font-size: 1rem; 
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .login-btn-submit:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px (139, 58, 58, 0.4);
+    }
+    .login-btn-submit:disabled {
+      background: #c79a9a;
+      cursor: not-allowed;
+    }
+    .status-box {
+      padding: 12px 16px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      border: 1px solid;
+    }
+    .hidden { display: none !important; }
+    .status-error {
+        background: #fff1f2;
+        color: #e11d48;
+    }
+    .status-success {
+        background: #f0fdf4;
+        color: #22c55e;
+    }
+    .register-link-container {
+        text-align: center;
+        margin-top: 20px;
+    }
+    .register-link-btn {
+        display: inline-block;
+        padding: 10px 16px;
+        background: #fdf8f8; 
+        color: var(--maroon-2); 
+        border-radius: 8px;
+        font-weight: 700;
+        text-decoration: none;
+        font-size: 0.95rem;
+        border: 1px solid var(--old-maroon);
+        transition: background 0.2s, box-shadow 0.2s, color 0.2s;
+    }
+    .register-link-btn:hover {
+        background: var(--old-maroon);
+        color: #fff;
+        box-shadow: 0 2px 8px (139, 58, 58, 0.3);
+    }
+    .loading-spinner {
+        animation: spin 1s linear infinite;
+        width: 20px; 
+        height: 20px;
+    }
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .welcome-stars { 
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+      max-width:var(--page-max-width);
+      margin:5px auto; 
+      padding:0 20px;
+      color:#6f2e2e 
+    }
+    .welcome { font-size:clamp(14px,2vw,20px) }
+    .welcome .student-name { color:#b33030;font-weight:700 }
+    
+    /* --- Navodaya Welcome Passage Styles --- */
+    .navodaya-welcome-passage {
+        max-width: var(--page-max-width);
+        margin: 15px auto; 
+        padding: 20px 25px;
+        background: linear-gradient(135deg, #fefce8, #fffdf0); /* UPDATED: Light yellow/cream gradient */
+        border: 2px solid var(--sv-yellow); /* UPDATED: Yellow border */
+        box-shadow: 0 4px 15px (255, 215, 0, 0.2); /* UPDATED: Gold shadow */
+        border-radius: 12px;
+        text-align: center;
+        transition: all 0.3s;
+    }
+    .navodaya-welcome-passage:hover {
+        box-shadow: 0 6px 20px (255, 140, 0, 0.4);
+    }
+    .navodaya-welcome-passage .passage-title {
+        font-size: clamp(1.2rem, 2vw, 1.5rem);
+        color: var(--sv-maroon); /* Maroon color for the title */
+        font-weight: 900;
+        text-align: center;
+        margin-bottom: 10px;
+        text-shadow: 1px 1px 1px (0, 0, 0, 0.1);
+    }
+    .navodaya-welcome-passage .passage-text {
+        font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+        line-height: 1.6;
+        color: #444;
+        font-weight: 500;
+        margin: 0;
+    }
+    /* --- End Navodaya Welcome Passage Styles --- */
+
+    .subscription-badge {
+        padding: 5px 12px;
+        border-radius: 9999px;
+        font-size: 0.9rem;
+        font-weight: 900;
+        text-transform: uppercase;
+        box-shadow: 0 2px 5px (0,0,0,0.2);
+        transition: all 0.3s;
+        cursor: help;
+        display: inline-flex;
+        align-items: center;
+        letter-spacing: 0.5px;
+    }
+    .badge-free { 
+        background-color: #e0e0e0; 
+        color: #555; 
+        border: 1px solid #ccc; 
+    }
+    .badge-silver { 
+        background-color: #c0c0c0; 
+        color: #333; 
+        border: 1px solid #a0a0a0; 
+        background: linear-gradient(135deg, #f0f0f0, #c0c0c0);
+    }
+    .badge-gold { 
+        background-color: #FFD700; 
+        color: #800000; 
+        border: 1px solid #ccac00; 
+        background: linear-gradient(135deg, #ffeb8d, #FFD700);
+    }
+    .badge-platinum { 
+        background-color: #e5e4e2; 
+        color: #00008B; 
+        border: 1px solid #b8b8b8; 
+        background: linear-gradient(45deg, #e0e0e0, #ffffff); 
+    }
+
+    .srm-contact-section {
+        max-width: var(--page-max-width);
+        margin: 20px auto;
+        padding: 20px 25px;
+        /* UPDATED: Lighter background, more prominent border */
+        background: linear-gradient(135deg, #f0f8ff, #e6f7ff); 
+        border-radius: 16px;
+        box-shadow: 0 8px 25px (0, 0, 139, 0.15); 
+        border: 3px solid var(--sv-blue); 
+        transition: all 0.3s;
+    }
+    .srm-contact-section:hover {
+        box-shadow: 0 10px 30px (0, 0, 139, 0.3);
+    }
+    .srm-contact-section h2 {
+        font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+        color: var(--sv-blue); 
+        text-transform: uppercase;
+        font-weight: 900;
+        margin-bottom: 15px;
+        text-align: center; 
+    }
+    .srm-info-card {
+        background: #fff;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 3px 10px (0, 0, 0, 0.05);
+        display: flex; 
+        flex-direction: column; 
+        gap: 15px;
+    }
+    @media (min-width: 768px) {
+        .srm-info-card {
+            flex-direction: row; 
+            align-items: center;
+        }
+    }
+    .srm-left-explanation {
+        flex: 1 1 50%;
+        padding-right: 15px;
+        font-size: 0.95rem;
+        color: #333;
+        line-height: 1.5;
+        border-bottom: 1px solid #ddd; 
+        padding-bottom: 10px;
+    }
+    @media (min-width: 768px) {
+        .srm-left-explanation {
+            border-bottom: none;
+            border-right: 1px solid #ddd; 
+            padding-bottom: 0;
+            padding-right: 25px;
+        }
+    }
+    .srm-detail-group {
+        flex: 1 1 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding-left: 10px;
+    }
+
+    .srm-detail {
+        margin: 5px 0;
+        text-align: left;
+    }
+    .srm-label {
+        font-size: 0.9rem;
+        color: #555;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: 2px;
+        display: block;
+    }
+    .srm-value {
+        font-size: 1.2rem;
+        color: var(--maroon-2);
+        font-weight: 800;
+    }
+    .srm-value a {
+        color: var(--sv-orange);
+        text-decoration: none;
+        transition: color 0.2s;
+    }
+    .srm-value a:hover {
+        color: var(--old-maroon);
+    }
+
+    .tc-panel-wrap { 
+      max-width:var(--page-max-width);
+      margin:15px auto; 
+      padding:0 16px;
+    }
+    .tc-panel-main {
+      padding: 5px 15px; 
+      border-radius: 12px;
+      background: var(--tc-background-color);
+      box-shadow: 0 4px 12px (0,0,0,0.1);
+      border: 1px solid #ffcccc; 
+      height: 60px; 
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .tc-panel-live-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 30%; 
+      background: linear-gradient(90deg, #ffc107, var(--tc-live-color), #ff5722);
+      background-size: 200% 100%;
+      animation: liveScroll 8s linear infinite;
+      z-index: 1;
+      border-radius: 12px 0 0 12px;
+      transition: width 1s ease-out; 
+    }
+    @keyframes liveScroll {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+    }
+
+    .tc-content-overlay {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        color: var(--maroon-2);
+        font-weight: 800;
+        font-size: clamp(1rem, 2vw, 1.2rem);
+    }
+    
+    .tc-score-display {
+        background: white;
+        padding: 4px 10px; 
+        border-radius: 6px; 
+        box-shadow: 0 1px 3px (0,0,0,0.1);
+        display: flex;
+        gap: 6px;
+        align-items: center;
+    }
+    .tc-score-display h2 { 
+        font-size: clamp(1.1rem, 2vw, 1.3rem);
+        margin: 0;
+        color: var(--sv-orange);
+    }
+    .tc-score-display small {
+        font-size: 0.75rem; 
+        color: #555;
+        font-weight: 700;
+    }
+
+    .tc-actions-list-container {
+      background-color: var(--tc-background-color); 
+      border-radius: 0 0 12px 12px; 
+      padding: 10px 15px; 
+      border: 1px solid #ffcccc; 
+      border-top: none;
+    }
+
+    .tc-actions-list {
         list-style: none;
         padding: 0;
         margin: 0;
-        counter-reset: topic-counter; /* Initialize counter */
-    }
-    .topic-list > li {
-        counter-increment: topic-counter; /* Increment counter */
         display: flex;
-        /* ఇక్కడ align-items: flex-start; బదులు center ఉంచాము. Topic name పక్కన vertical buttons ఉంచాలి కాబట్టి */
-        justify-content: space-between;
-        align-items: center; 
-        padding: 10px 15px;
-        background-color: #fdfdfd;
-        border: 1px solid #e8e8e8;
+        flex-wrap: wrap;
+        gap: 6px;
+        justify-content: center;
+    } 
+    .tc-actions-list li { 
+        background: #fff;
+        padding: 6px 10px;
         border-radius: 8px;
-        box-shadow: 0 1px 4px rgba(0,0,0,0.03);
-        margin-bottom: 8px;
-        transition: background-color 0.2s, transform 0.1s;
-    }
-    .topic-list > li:hover {
-        background-color: #e6f7ff; /* Light blue on hover */
-        border-color: #cceeff;
-        transform: translateY(-1px);
-    }
-    .topic-details {
+        flex: 1 1 120px;
         display: flex;
         align-items: center;
-        flex-grow: 1;
-        gap: 10px;
-        /* బటన్ల కోసం స్థలం ఉంచి, టాపిక్ పేరు పక్కన బటన్లు నిలువుగా వచ్చేలా చేస్తాము. */
-        max-width: 60%;
-        min-width: 200px; /* చిన్న స్క్రీన్ల కోసం కనీస వెడల్పు */
-    }
-    @media (min-width: 640px) {
-        .topic-details {
-            max-width: none; /* డెస్క్టాప్లో డైనమిక్ గా మారడానికి */
-            flex-grow: 1; 
-        }
-    }
-    .topic-number {
-        font-weight: 900;
-        color: var(--sv-orange); /* Changed color for serial number */
-        font-size: 1.1rem;
-        flex-shrink: 0;
-        min-width: 30px; /* Ensure alignment */
-    }
-    .topic-number::before {
-        content: counter(topic-counter, decimal-leading-zero) "."; /* Added leading zero for style */
-    }
-    .topic-name {
-        flex-grow: 1;
-        font-size: 1rem;
+        gap: 6px;
+        box-shadow: 0 1px 3px (0,0,0,0.08);
+        font-size: 0.8rem;
         color: #333;
         font-weight: 600;
-        line-height: 1.4;
+        transition: transform 0.1s;
+    } 
+    .tc-actions-list li:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 3px 6px (0,0,0,0.15);
     }
-    /* MODIFIED Style for Horizontal Button Group */
-    .btn-test-group {
-        display: flex;
-        flex-direction: row; /* అడ్డంగా (ఒకే వరుసలో) పేర్చడానికి */
-        gap: 6px;
-        margin-left: 10px;
-        flex-shrink: 0; 
-        /* డెస్క్టాప్ లో బటన్లకు స్థిరమైన వెడల్పు */
-        min-width: 250px; 
+    .dot.daily { background:#ffb74d }.dot.openpractice { background:#4caf50 }.dot.completecourse { background:#42a5f5 }.dot.weekly { background:#ba68c8 }.dot.monthly { background:#9575cd }
+    .tc-actions-list li .dot {
+        flex-shrink: 0;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        margin-right: 2px;
     }
-    .btn-take-test {
-        padding: 6px 10px;
-        font-size: 0.8rem;
+    .tc-actions-list h3 { 
+        font-size: clamp(0.9rem, 2vw, 1rem);
+        color: var(--maroon-2);
         font-weight: 800;
-        color: white;
-        background: linear-gradient(135deg, #1e6b34, #4caf50); /* Green gradient for test button */
+        margin: 0 0 5px 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .free-test-promo-section { 
+      max-width:var(--page-max-width);
+      margin:10px auto; 
+      padding:15px 16px; 
+      text-align:center;
+      background: #f0f8ff; 
+      border-radius: 12px;
+      box-shadow: 0 2px 8px (0,0,0,0.05);
+      border: 1px solid #cceeff;
+    }
+
+    .free-test-promo-section h3 { font-size:clamp(1.3rem, 2.5vw, 1.6rem);color:var(--maroon-2);margin-bottom:8px;font-weight:800;text-shadow:1px 1px 1px (0,0,0,0.05) }
+    .free-test-promo-section p { max-width:700px;margin:0.5rem auto 1rem auto;font-size:0.95rem;line-height:1.4;color:#333 } 
+    .free-test-promo-section button { 
+        padding:10px 20px;
+        font-size:1rem;
+        border:none;border-radius:10px;
+        background:linear-gradient(135deg, #1e6b34, #4caf50);
+        color:#fff;
+        font-weight:800;
+        cursor:pointer;
+        transition:transform 0.2s, box-shadow 0.2s;
+        box-shadow:0 4px 10px (76, 175, 80, 0.3) 
+    }
+    .free-test-promo-section button:hover { 
+        transform:translateY(-2px);
+        box-shadow:0 6px 15px (76, 175, 80, 0.4) 
+    }
+    .live-tests { width:100%;padding:10px 0;background:transparent } 
+    .tests-inner { max-width:var(--page-max-width);margin:0 auto;padding:0 12px }
+    .test-row { display:flex;justify-content:center;flex-wrap:wrap;gap:12px } 
+    .test-card { 
+        padding:12px;
+        min-height:140px;
+        width:clamp(280px, 100%, 360px);
+        background:#fff;
+        border-radius:12px;
+        box-shadow:none;
+        position:relative;
+        overflow:hidden;
+        transition:transform .18s ease;
+    } 
+    .test-card h3 { margin:8px 0;font-size:1rem; }
+    .test-lead { font-size:.9rem;line-height:1.4;margin-bottom:8px; }
+    .card-actions { gap:8px }
+    .btn-test { 
+        padding:8px 12px;
+        font-size:.85rem;
+        background:linear-gradient(135deg,#009688,#00e0b3);
+        color:#fff;border:none;
+        border-radius:10px;
+        font-weight:800;
+        cursor:pointer;
+        display: flex; align-items: center; justify-content: center; gap: 6px;
+        transition: background 0.2s, transform 0.2s;
+    } 
+    .student-report { 
+      max-width:var(--page-max-width);
+      margin:10px auto; 
+      padding:0 16px 
+    }
+    .sr-box { 
+      background:#fff;
+      border-radius:14px;
+      padding:12px; 
+      overflow:hidden 
+    }
+    .plan-promo-box { 
+      padding:15px; 
+      margin-bottom: 20px; 
+      background: linear-gradient(135deg, #fffcf0, #fff3b2);
+      border: 2px solid var(--gold);
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 5px 15px (255, 215, 0, 0.2)
+    }
+    .plan-promo-box h3 { font-size: clamp(1rem, 1.8vw, 1.3rem);margin-bottom: 10px; }
+    .plan-actions-container { gap: 15px; } 
+    .plan-action-card { 
+        padding: 12px; 
+        flex: 1 1 250px;
+        background: #fff;
+        border: 1px solid #ffeb8d;
+        box-shadow: 0 2px 5px (0, 0, 0, 0.05);
+        border-radius: 8px;
+        display: flex;flex-direction: column;justify-content: space-between
+    } 
+    .plan-action-card p { font-size: 0.9rem; margin-bottom: 12px }
+    .plan-action-card button { 
+        padding: 8px 15px; 
+        font-size: 0.95rem; 
         border: none;
-        border-radius: 6px;
+        border-radius: 8px;
+        font-weight: 700;
         cursor: pointer;
-        transition: background-color 0.2s, transform 0.2s;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        text-shadow: 0 1px 1px rgba(0,0,0,0.1);
+        width: 100%;
+        transition: transform 0.2s
+    }
+    .plan-action-card .new-plan-btn { background: linear-gradient(135deg, var(--gold), #ff8c00);color: #fff }
+    .plan-action-card .renewal-btn { background: linear-gradient(135deg, #c0392b, #8b3a3a);color: #fff }
+    .plan-action-card .update-plan-btn { background: linear-gradient(135deg, #7a67ff, #4b3eb0);color: #fff }
+    @media (max-width: 660px) {
+      .plan-actions-container { flex-direction: column;gap: 10px }
+      .plan-action-card { justify-content: flex-start;flex: 0 0 auto }
+      .plan-action-card p { margin-bottom: 8px;flex-grow: 0 }
+    }
+    .sr-stats { 
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+      gap:8px;
+      margin-top:0 
+    } 
+    .stat-item { 
+        padding:10px;
+        background:linear-gradient(180deg,#fffdeb,#fff7c9);
+        border-radius:10px;
+        text-align:center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: #fffcf2;
+        border: 1px solid #f0eacb;
+        box-shadow: 0 2px 5px (0,0,0,0.05);
+        transition: transform 0.2s;
+    } 
+    .stat-item:hover {
+        transform: translateY(-2px);
+    }
+    .stat-icon { 
+      width:32px;
+      height:32px;
+      margin-bottom:4px;
+      font-size: 1.5rem;
+      color: var(--sv-blue);
+    } 
+    .stat-label { 
+      font-size:0.85rem; 
+      color: #555; 
+      margin-top: 4px; 
+      font-weight: 600;
+      margin-bottom: 4px;
+      display: block;
+    }
+    .stat-value { 
+      font-size:0.95rem; 
+      font-weight: 900; 
+      color: var(--sv-maroon);
+    }
+    .subject-tests { 
+      max-width: var(--page-max-width);
+      margin: 20px auto; 
+      padding: 15px; 
+      /* UPDATED: Light pink/maroon background */
+      background: linear-gradient(160deg, #fdf8f8, #f5e9e9);
+      border-radius: 16px;
+      box-shadow: 0 4px 12px (0,0,0,0.1);
+      border: 2px solid var(--old-maroon);
+      transition: all 0.3s;
+    }
+    .subject-tests:hover {
+        box-shadow: 0 8px 20px (139, 58, 58, 0.2);
+    }
+    .subject-tests h2 { text-align: center;font-size: clamp(1.4rem, 2.5vw, 1.8rem);color: #1e6b34;text-transform: uppercase;letter-spacing: 1px;margin-bottom: 20px;font-weight: 800;text-decoration: underline;text-underline-offset: 6px;text-decoration-thickness: 2px }
+    
+    .test-list-item { 
+        padding: 12px 16px; 
+        display: flex;flex-wrap: wrap;align-items: center;justify-content: space-between;
+        border-radius: 12px;
+        background: #fff;
+        box-shadow: 0 2px 8px (0,0,0,0.05);
+        border: 1px solid #d4e9d9;
+        flex-direction: column;
+        align-items: stretch;
+        border: 1px solid #e0e0e0;
+        padding: 16px;
+    } 
+    .test-list-item-content { flex: 1 1 300px }
+    .test-list-item-content h3 { font-size: clamp(1rem, 3.5vw, 1.1rem);margin: 0 0 2px 0;color: #1e6b34; } 
+    .test-list-item-content p { font-size: clamp(0.8rem, 2.5vw, 0.9rem);color: #555;margin: 0;line-height: 1.5 }
+    .test-list-item .btn-test-group {
+        display: flex;
+        gap: 8px;
+        margin-top: 8px; /* Added spacing above the button group */
+    }
+    .test-list-item .btn-test { 
+        padding:8px 10px;
+        font-size:0.8rem; /* Smaller font for multiple buttons */
+        flex: 1 1 0; /* Ensures buttons distribute space evenly */
+        background:linear-gradient(135deg,#009688,#00e0b3);
+        color:#fff;border:none;
+        border-radius:10px;
+        font-weight:800;
+        cursor:pointer;
+        display: flex; align-items: center; justify-content: center; gap: 4px;
+        transition: background 0.2s, transform 0.2s;
+    } 
+    .test-list-item .btn-test:nth-child(2) { background:linear-gradient(135deg,#42a5f5,#2979ff) } /* Blue variant for test 2 */
+    .test-list-item .btn-test:nth-child(3) { background:linear-gradient(135deg,#ffb74d,#ff9800) } /* Orange variant for test 3 */
+
+    .btn-test.locked { background: #e9ecef;color: var(--lock-color);cursor: not-allowed }
+    .btn-test.locked:hover { transform: none;box-shadow: none }
+    .student-subject-tests { 
+      max-width: var(--page-max-width);
+      margin: 20px auto; 
+      padding: 15px; 
+      /* UPDATED: Light blue/purple background */
+      background: linear-gradient(160deg, #f7fcff, #f2f7ff);
+      border-radius: 16px;
+      box-shadow: 0 4px 12px (0,0,0,0.1);
+      border: 2px solid #0d47a1; 
+      transition: all 0.3s;
+    }
+    .student-subject-tests:hover {
+        box-shadow: 0 8px 20px (0, 71, 161, 0.2);
+    }
+    .student-subject-tests h2 { text-align: center;font-size: clamp(1.4rem, 2.5vw, 1.8rem);color: #4a148c;text-transform: uppercase;letter-spacing: 1px;margin-bottom: 20px;font-weight: 800;text-decoration: underline;text-underline-offset: 6px;text-decoration-thickness: 2px }
+    .student-subject-tests .test-list-item { border: 1px solid #e0d9f5 }
+    .student-subject-tests .test-list-item-content h3 { color: #673ab7 }
+    .student-subject-tests .test-list-item .btn-test {
+        margin-top: 12px;
+    }
+    .profile-section { 
+      max-width: var(--page-max-width);
+      margin: 20px auto; 
+      padding: 15px; 
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 6px 18px (0,0,0,0.08)
+    }
+    .profile-section h2 { margin-bottom: 20px; font-size: clamp(1.4rem, 2.5vw, 1.8rem); text-align: center;color: var(--maroon-2);text-transform: uppercase;letter-spacing: 1px;font-weight: 800;text-decoration: underline;text-underline-offset: 6px;text-decoration-thickness: 2px }
+    .profile-list { gap: 12px; display: grid;grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));list-style: none;padding: 0;margin: 0 } 
+    .profile-item { 
+        padding: 10px 14px; 
+        background: #fdfdfd;
+        border: 1px solid #eee;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px (0,0,0,0.04)
+    } 
+    .profile-label { font-size: 0.85rem; display: block;color: #777;font-weight: 600;margin-bottom: 4px;text-transform: uppercase }
+    .profile-value { font-size: 1rem; display: block;color: #111;font-weight: 700 }
+    .profile-value.agreed { color: #1e6b34 }
+    .subscription-section { 
+      max-width: var(--page-max-width);
+      margin: 20px auto; 
+      padding: 15px; 
+      background: #f7fcff;
+      border-radius: 16px;
+        box-shadow: 0 6px 18px (0,0,0,0.08);
+      border: 1px solid #e0f0ff 
+    }
+    .subscription-section h2 { margin-bottom: 20px; font-size: clamp(1.4rem, 2.5vw, 1.8rem); text-align: center;color: #0d47a1;text-transform: uppercase;letter-spacing: 1px;font-weight: 800;text-decoration: underline;text-underline-offset: 6px;text-decoration-thickness: 2px }
+    .subscription-list { gap: 12px; display: grid;grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));list-style: none;padding: 0;margin: 0 } 
+    .subscription-item { 
+        padding: 10px 14px; 
+        background: #fff;
+        border: 1px solid #eee;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px (0,0,0,0.04)
+    } 
+    .subscription-label { font-size: 0.85rem; display: block;color: #557;font-weight: 600;margin-bottom: 4px;text-transform: uppercase }
+    .subscription-value { font-size: 1rem; display: block;color: #111;font-weight: 700 }
+    .subscription-plan-value { color: #b8860b;font-weight: 800 }
+    .subscription-days-left { color: #c0392b;font-weight: 800 }
+    @media (max-width: 900px) { 
+        .nav-btn-flex {
+            margin: 4px 5px; 
+            max-width: 48%; 
+            flex: 1 1 45%;
+        }
+    }
+    @media (max-width: 640px){
+      .nav-button {
+          justify-content: center;
+          margin: 4px 2px;
+          font-size: 0.8rem;
+          padding: 0.4rem 0.8rem;
+      }
+      .nav-btn-flex {
+          max-width: 100%; 
+          flex: 1 1 100%;
+          margin: 4px 0;
+      }
+      .test-list-container {
+      }
+      .test-list-item {
+        flex-direction: column; 
+        align-items: flex-start; 
+        padding: 10px 14px; 
+        gap: 6px; 
+      }
+      .test-list-item-content { flex: 1 1 100% }
+      .test-list-item-content p { margin-bottom: 6px }
+      .test-list-item .btn-test-group { width: 100%; margin-top: 10px; }
+      .test-list-item .btn-test { width: auto; flex: 1 1 30%; font-size: 0.75rem; padding: 6px 8px; }
+      .sub-topic-item {
+            flex-direction: column; 
+            align-items: flex-start;
+      }
+      .sub-topic-item span {
+          width: 100%; /* Full width for topic name on mobile */
+          margin-bottom: 8px; /* Space below topic name */
+      }
+    }
+    @media (max-width: 480px) {
+      .login-card {
+        padding: 25px 20px;
+      }
+      .login-brand-title {
+          font-size: 1.1rem;
+      }
+    }
+    
+    .nav-button {
         display: flex;
         align-items: center;
-        justify-content: center;
-        flex-grow: 1; /* డైనమిక్ గా పెరగడానికి */
-    }
-    .btn-take-test:hover {
-        background: linear-gradient(135deg, #4caf50, #66bb6a);
-        transform: translateY(-1px);
-        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    }
-    
-    @media (max-width: 640px) {
-        .topic-list > li {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 10px;
-            padding: 12px;
-        }
-        .topic-details {
-            max-width: 100%;
-            flex-basis: 100%;
-        }
-        .btn-test-group {
-            width: 100%;
-            flex-direction: row; /* అడ్డంగానే ఉంచబడింది */
-            flex-wrap: wrap;
-            justify-content: space-between; /* మొబైల్ లో సమానంగా పంచడానికి */
-            margin-left: 0;
-            gap: 8px;
-            min-width: auto;
-        }
-        .btn-take-test {
-            flex-grow: 1;
-            min-width: 80px;
-            padding: 8px 10px;
-            /* చిన్న స్క్రీన్లలో మూడు బటన్లు పక్కపక్కనే వచ్చేలా ఫ్లెక్సిబుల్ బేసిస్ */
-            flex-basis: calc(33.33% - 6px); 
-        }
-    }
-    
-    /* MODIFIED STYLES for Exam Pattern Table */
-    .exam-pattern-section {
-        max-width: var(--page-max-width);
-        margin: 20px auto;
-        padding: 0 16px;
-    }
-    .exam-pattern-card {
-        background: #fefcf3; /* Light yellow/cream background */
-        border: 3px solid var(--gold);
-        border-radius: 12px;
-        box-shadow: 0 8px 20px rgba(255, 215, 0, 0.2);
-        overflow: hidden;
-    }
-    .exam-pattern-header {
-        background-color: var(--gold);
-        color: var(--sv-maroon);
-        padding: 15px 20px;
-        text-align: center;
-        font-size: clamp(1.6rem, 3vw, 2rem);
-        font-weight: 900;
+        padding: 0.5rem 1rem; 
+        color: var(--maroon-2); 
+        background-color: white; 
+        border: 2px solid var(--sv-orange); 
+        border-radius: 9999px;
+        font-size: 0.9rem; 
+        font-weight: 800; 
         text-transform: uppercase;
-        letter-spacing: 1px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 8px (0, 0, 0, 0.1);
+        justify-content: center; 
     }
-    .exam-pattern-table {
-        width: 100%;
-        border-collapse: collapse;
-        table-layout: fixed;
+    .nav-button:hover {
+        color: white;
+        background-color: var(--sv-orange);
+        border-color: var(--sv-blue);
+        transform: scale(1.03); 
+        box-shadow: 0 6px 15px (255, 140, 0, 0.6);
     }
-    .exam-pattern-table th, .exam-pattern-table td {
-        padding: 15px 10px;
-        text-align: left;
-        border-bottom: 1px solid #ffedb3; /* Lighter border */
+    .nav-btn-flex {
+        flex-grow: 0; 
+        flex-shrink: 0;
+        flex-basis: auto; 
+        margin: 4px 20px; 
+        max-width: none; 
     }
-    .exam-pattern-table th {
-        background-color: #fffae6; /* Very light yellow */
-        color: var(--maroon-2);
-        font-weight: 800;
-        font-size: 0.95rem;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        border-bottom: 2px solid var(--gold);
+    .menu-button-primary {
+        background-color: var(--sv-orange) !important;
+        color: white !important;
+        border-color: var(--sv-yellow) !important; 
+        border-width: 2px !important; 
     }
-    .exam-pattern-table td {
-        color: #444;
+    .menu-button-primary:hover {
+        background-color: white !important;
+        color: var(--sv-orange) !important;
+        border-color: var(--sv-orange) !important; 
+    }
+    .btn-promo-plan {
+        padding: 12px 20px;
         font-size: 1rem;
-        font-weight: 600;
+        font-weight: 800;
+        color: #000; 
+        background: linear-gradient(135deg, var(--sv-yellow), var(--sv-orange));
+        border: 1px solid #e6a000; 
+        border-bottom: 3px solid #cc8400; 
+        border-radius: 8px; 
+        cursor: pointer;
+        transition: all 0.2s ease-out; 
+        text-decoration: none;
+        display: inline-block;
+        text-shadow: 0 1px 1px (0,0,0,0.1); 
+        box-shadow: 0 1px 2px (0,0,0,0.05);
     }
-    .col-section {
-        width: 25%;
-        font-weight: 900 !important;
-        color: var(--sv-blue) !important;
-        border-left: 5px solid var(--sv-orange);
-        padding-left: 15px !important;
+    .btn-promo-plan:hover {
+        background: linear-gradient(135deg, #FFEB8D, #FFA500); 
+        transform: translateY(-2px); 
+        box-shadow: 0 4px 8px (0,0,0,0.1); 
+        border-bottom: 3px solid #e68e00;
     }
-    .col-topics {
-        width: 50%;
-        font-weight: 500 !important;
-        font-size: 0.9rem !important;
-        line-height: 1.4;
+    body {
+        padding-top: 0; /* Changed from 20px */
     }
-    .col-marks, .col-questions {
-        width: 12.5%;
-        text-align: center !important;
-        font-weight: 900 !important;
-        color: var(--old-maroon) !important;
-    }
-    
-    @media (max-width: 768px) {
-        .exam-pattern-card {
-            border: 2px solid var(--gold);
-        }
-        .exam-pattern-table, .exam-pattern-table tbody, .exam-pattern-table tr, .exam-pattern-table td {
-            display: block;
-            width: 100%;
-        }
-        .exam-pattern-table thead {
-            display: none; /* Hide header row */
-        }
-        .exam-pattern-table tr {
-            margin-bottom: 15px;
-            border: 1px solid #ffedb3;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-        .exam-pattern-table td {
-            text-align: right !important;
-            padding: 8px 15px;
-            position: relative;
-            border-bottom: none;
-            font-size: 0.95rem;
-        }
-        .exam-pattern-table td::before {
-            content: attr(data-label);
-            position: absolute;
-            left: 15px;
-            font-weight: 700;
-            color: var(--sv-blue);
-            text-transform: uppercase;
-        }
-        .col-section {
-            background-color: #fffde6;
-            border-left: none;
-            text-align: center !important;
-            font-size: 1.1rem !important;
-            padding: 10px 15px !important;
-            border-bottom: 2px solid var(--sv-orange) !important;
-            color: var(--maroon-2) !important;
-        }
-        .col-section::before {
-            content: none;
-        }
-        .col-topics {
-            border-top: none;
-        }
-    }
-
-    /* MODIFIED SRM Contact Section Styles */
-    .srm-contact-section{
-        max-width:var(--page-max-width);
-        width:calc(100% - 32px);
-        margin:20px auto;
-        padding:20px 25px;
-        background: linear-gradient(135deg, #f7fcff, #e6f7ff); /* Light blue gradient */
-        border-radius:16px;
-        box-shadow:0 10px 30px rgba(0,0,139,.2);
-        border:4px solid var(--sv-blue);
-    }
-    .srm-contact-section h2{
-        font-size:clamp(1.5rem, 3vw, 2rem);
-        color:var(--sv-blue);
-        text-transform:uppercase;
-        font-weight:900;
-        margin-bottom:20px;
-        text-align:center;
-        letter-spacing:1px;
-        border-bottom: 3px solid var(--sv-orange);
-        padding-bottom: 10px;
-    }
-    .srm-info-card{
-        background:#ffffff;
-        padding:20px;
-        border-radius:12px;
-        box-shadow:0 4px 15px rgba(0,0,0,.1);
-        display:flex;
-        flex-direction:column;
-        gap:20px;
-        border: 1px solid #ddd;
-    }
-    .srm-left-explanation{
-        flex:1 1 50%;
-        padding-right:15px;
-        font-size:1rem;
-        color:#333;
-        line-height:1.6;
-        border-bottom:1px solid #eee;
-        padding-bottom:15px;
-    }
-    @media (min-width: 768px){
-        .srm-left-explanation{
-            border-bottom:none;
-            border-right:1px solid #eee;
-            padding-bottom:0;
-            padding-right:30px;
-        }
-    }
-    .srm-detail-group{
-        flex:1 1 50%;
-        display:flex;
-        flex-direction:column;
-        align-items:flex-start;
-        gap:15px;
-        padding-left:10px;
-    }
-    .srm-detail{
-        margin:0;
-        text-align:left;
-        width: 100%;
-        border-bottom: 1px dashed #e0e0e0;
-        padding-bottom: 5px;
-    }
-    .srm-detail:last-child {
-        border-bottom: none;
-        padding-bottom: 0;
-    }
-    .srm-label{
-        font-size:.9rem;
-        color:#555;
-        font-weight:700;
-        text-transform:uppercase;
-        margin-bottom:2px;
-        display:block;
-    }
-    .srm-value{
-        font-size:1.3rem;
-        color:var(--sv-orange);
-        font-weight:900;
-    }
-    .srm-value a{
-        color:var(--sv-orange);
-        text-decoration:none;
-        transition:color .2s;
-    }
-    .srm-value a:hover{
-        color:var(--sv-blue);
-    }
-
-    /* PREVIOUS PAPERS STYLES */
-    .previous-papers-section {
+    .class-selector-box {
         max-width: var(--page-max-width);
-        margin: 20px auto;
-        padding: 0 16px;
+        margin: 15px auto; 
+        padding: 0; 
+        background: transparent; 
+        border-radius: 0; 
+        box-shadow: none; 
+        border: none; 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px; 
     }
-    .papers-card {
-        background: #fff8e1; /* Light yellow background */
-        border: 3px solid var(--sv-orange);
-        border-radius: 12px;
-        box-shadow: 0 8px 20px rgba(255, 140, 0, 0.2);
-        padding: 20px;
+    .class-selector-box label {
+        display: none; 
     }
-    .papers-card h2 {
-        text-align: center;
-        font-size: clamp(1.5rem, 3vw, 2rem);
-        color: var(--maroon-2);
-        text-transform: uppercase;
-        font-weight: 900;
-        letter-spacing: 1px;
-        border-bottom: 3px solid var(--gold);
-        padding-bottom: 10px;
-        margin-bottom: 20px;
-    }
-    .papers-list {
+    .class-selector-controls {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 15px;
-        list-style: none;
-        padding: 0;
-        margin: 0;
+        align-items: center;
+        gap: 10px; 
+        width: auto; 
     }
-    .paper-item {
-        background: #fff;
-        border: 1px solid #ffd700;
-        border-radius: 8px;
-        padding: 15px;
+    .class-selector-box select {
+        padding: 8px 12px; 
+        font-size: 0.9rem; 
+        border: 1px solid #ddd; 
+        border-radius: 8px; 
+        font-weight: 700;
+        font-family: 'Roboto Slab', serif;
+        flex: 1 1 auto;
+        cursor: pointer;
+    }
+    .class-selector-box button {
+        padding: 8px 20px; 
+        font-size: 0.9rem; 
+        border: none;
+        border-radius: 8px; 
+        background: var(--sv-orange);
+        color: #fff;
+        font-weight: 800;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px (255, 140, 0, 0.2); 
+        flex: 1 1 auto;
+    }
+    .class-selector-box button:hover {
+        background: var(--sv-blue);
+        box-shadow: 0 4px 12px (0, 0, 139, 0.2);
+        transform: translateY(-1px);
+    }
+    .srm-contact-section { 
+        max-width: var(--page-max-width);
+        width: calc(100% - 32px); 
+        margin: 20px auto;
+        padding: 20px 25px;
+        background: #ffffff; 
+        border-radius: 16px;
+        box-shadow: 0 8px 25px (0, 0, 139, 0.15); 
+        border: 3px solid var(--sv-blue); 
+    }
+    .sr-stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(120px,1fr));
+        gap: 8px;
+        margin-top: 0;
+    }
+    .stat-item {
+        padding: 10px;
+        background: linear-gradient(180deg,#fffdeb,#fff7c9);
+        border-radius: 10px;
         text-align: center;
-        flex: 1 1 calc(20% - 15px); /* Desktop: 5 items per row */
-        max-width: 250px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        transition: transform 0.2s, box-shadow 0.2s;
         display: flex;
         flex-direction: column;
+        align-items: center;
+        background: #fffcf2;
+        border: 1px solid #f0eacb;
+        box-shadow: 0 2px 5px (0,0,0,0.05);
+        transition: transform 0.2s;
+    }
+    .stat-item:hover {
+        transform: translateY(-2px);
+    }
+    .stat-icon {
+        width: 32px;
+        height: 32px;
+        margin-bottom: 4px;
+        font-size: 1.5rem;
+        color: var(--sv-blue);
+    }
+    .stat-label {
+        font-size: 0.85rem;
+        color: #555;
+        margin-top: 4px;
+        font-weight: 600;
+        margin-bottom: 4px;
+        display: block;
+    }
+    .stat-value {
+        font-size: 0.95rem;
+        font-weight: 900;
+        color: var(--sv-maroon);
+    }
+    #quizOverlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: (248, 250, 252, 0.98); 
+        z-index: 10000;
+        overflow-y: auto; 
+        padding: 1rem;
+        display: none; 
+    }
+    #quizContentContainer {
+        margin: 2rem auto;
+    }
+    .quiz-option {
+        display: block;
+        background-color: #f8fafc; 
+        border: 1px solid #e2e8f0; 
+        border-radius: 0.5rem; 
+        padding: 0.75rem 1rem; 
+        margin-bottom: 0.75rem; 
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+    }
+    .quiz-option:hover { background-color: #f1f5f9; }
+    .quiz-option input { margin-right: 0.75rem; }
+    .review-correct { border-left: 4px solid #16a34a; }
+    .review-incorrect { border-left: 4px solid #dc2626; }
+    .test-list-item {
+        flex-direction: column;
+        align-items: stretch; 
+        background-color: #ffffff; 
+        border: 1px solid #e0e0e0; 
+        border-radius: 12px; 
+        padding: 16px; 
+        box-shadow: 0 4px 12px (0,0,0,0.05);
+        gap: 0; 
+    }
+    .sub-topics-container {
+        width: 100%;
+        margin-top: 0;
+        padding-top: 0; 
+        display: flex;
+        flex-direction: column;
+        gap: 8px; 
+    }
+    .test-list-item:nth-child(1) .sub-topics-container {
+        border-top: 0;
+    }
+    .test-list-item:nth-child(2) .sub-topics-container {
+        border-top: 0;
+    }
+    .test-list-item:nth-child(3) .sub-topics-container {
+        border-top: 0;
+    }
+    .sub-topic-item {
+        display: flex;
+        justify-content: space-between; 
+        align-items: center;
+        background-color: #fffcfc; /* Light background for items */
+        padding: 10px 12px;
+        border-radius: 8px;
+        border: 1px solid #e0e0e0;
+        box-shadow: 0 1px 3px (0,0,0,0.03);
+        
+        /* DEFAULT TO ROW LAYOUT FOR ALL DEVICES */
+        flex-direction: row; 
+        align-items: center;
+        padding-bottom: 10px; /* Reduced padding for compact single-row look */
+        
+        transition: background-color 0.2s, box-shadow 0.2s;
+    }
+    .sub-topic-item:hover {
+        background-color: #f5fcfc;
+        box-shadow: 0 2px 6px (0,0,0,0.08);
+    }
+
+    /* REMOVING 900px MEDIA QUERY OVERRIDE, APPLYING FLEX TO ALL */
+    /* @media (min-width: 900px) { ... } REMOVED */
+    
+    .sub-topic-item span {
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: #333;
+        flex-grow: 1; /* Topic name takes remaining space */
+        flex-basis: 60%; 
+        margin-bottom: 0;
+    }
+    
+    .sub-topic-item .btn-test-group {
+        flex-basis: auto; /* Allow buttons to take minimum necessary width */
+        justify-content: flex-end; 
+        margin-top: 0;
+        /* Ensure buttons are visible in one line even on small screens */
+        display: flex;
+        gap: 8px;
+        flex-shrink: 0; /* Prevent the button group from shrinking too much */
+    }
+    
+    /* MOBILE-SPECIFIC ADJUSTMENTS (Optional, as the general rule covers it, but kept for readability) */
+    @media (max-width: 500px) {
+        .sub-topic-item {
+            flex-wrap: wrap; /* Allow wrapping if space is extremely tight */
+            padding-bottom: 12px; 
+        }
+        .sub-topic-item span {
+            flex-basis: 100%; /* Topic takes full width */
+            margin-bottom: 8px; 
+        }
+        .sub-topic-item .btn-test-group {
+            width: 100%; /* Button group takes full width, buttons will be small and side-by-side */
+            justify-content: space-between;
+        }
+         .sub-topic-item .btn-test {
+             padding: 6px 8px; 
+             font-size: 0.7rem; 
+             flex: 1 1 30%; 
+         }
+    }
+
+
+    /* OLD CSS from previous version (now deleted in favor of universal rule) */
+    .passage-intro {
+        font-size: 1.05rem;
+        font-weight: 600;
+        color: #333;
+        line-height: 1.6;
+        padding: 4px 8px;
+        background-color: #fdfdfd;
+        border-radius: 8px;
+        border: 1px solid #e0e0e0;
+        margin-top: 10px;
+        margin-bottom: 12px;
+    }
+    
+    .premium-section-header {
+        text-align: center;
+        margin-bottom: 15px; 
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--sv-maroon);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        display: flex; 
+        align-items: center;
+    }
+    .premium-section-header::before,
+    .premium-section-header::after {
+        content: '';
+        flex-grow: 1;
+        height: 2px;
+        background-color: var(--sv-orange); 
+        margin: 0 15px;
+    }
+    .test-list-container {
+        display: flex;
+        flex-direction: column;
+        gap: 8px; 
+        width: 100%;
+        background: #fdfdfd;
+        border: 1px solid #e0e0e0;
+        border-radius: 12px;
+        padding: 12px;
+        /* UPDATED: Added a light blue background for the premium container */
+        background: linear-gradient(180deg, #f7faff, #ffffff);
+        border: 1px solid #d4e0ff;
+    }
+
+    .subject-tests .test-list-item {
+        gap: 0;
+    }
+
+    .subject-tests .test-list-item h3 {
+       display: none;
+    }
+
+    #quizOverlay {
+        position: fixed;
+        inset: 0;
+        background-color: (248, 250, 252, 0.98);
+        z-index: 10000;
+        overflow-y: auto;
+        padding: 1rem;
+        display: none; 
+    }
+    
+    .quiz-container {
+        max-width: 800px;
+        margin: 2rem auto;
+        background: #ffffff;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px (0,0,0,0.1);
+        border: 1px solid #e2e8f0;
+        overflow: hidden;
+    }
+
+    .quiz-header {
+        padding: 1rem 1.5rem;
+        background-color: #f8fafc;
+        border-bottom: 1px solid #e2e8f0;
+        display: flex;
         justify-content: space-between;
+        align-items: center;
     }
-    .paper-item:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 6px 15px rgba(255, 140, 0, 0.3);
-    }
-    .paper-year {
+
+    .quiz-header h2 {
         font-size: 1.25rem;
+        font-weight: 800;
+        color: var(--sv-blue);
+    }
+
+    .quiz-close-btn {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #94a3b8;
+        background: none;
+        border: none;
+        cursor: pointer;
+        transition: color 0.2s;
+    }
+    .quiz-close-btn:hover { color: #dc2626; }
+
+    .quiz-body { padding: 1.5rem 2rem; }
+    
+    #quizLoading { text-align: center; padding: 4rem; }
+    
+    #quizQuestionContainer {
+        min-height: 250px;
+    }
+
+    .question-text {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #1e293b;
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+    }
+
+    .quiz-options-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+
+    @media (min-width: 640px) {
+        .quiz-options-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    .quiz-option-label {
+        display: block;
+        background-color: #f8fafc;
+        border: 2px solid #e2e8f0;
+        border-radius: 0.5rem;
+        padding: 0.85rem 1rem;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        font-size: 1rem;
+        font-weight: 500;
+        color: #334155;
+    }
+    
+    .quiz-option-label:hover {
+        border-color: var(--sv-orange);
+        background-color: #fffbeb;
+    }
+
+    .quiz-option-label input { display: none; } 
+    
+    .quiz-option-label input:checked + span {
+        font-weight: 700;
+        color: var(--sv-blue);
+    }
+    .quiz-option-label input:checked {
+    }
+    .option-selected {
+        border-color: var(--sv-blue) !important;
+        background-color: #eff6ff !important;
+        box-shadow: 0 0 0 2px (59, 130, 246, 0.3);
+    }
+
+    .quiz-footer {
+        padding: 1rem 1.5rem;
+        background-color: #f8fafc;
+        border-top: 1px solid #e2e8f0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .quiz-nav-btn, .quiz-action-btn {
+        padding: 0.6rem 1.25rem;
+        font-size: 0.9rem;
+        font-weight: 700;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.2s;
+        box-shadow: 0 2px 4px (0,0,0,0.05);
+    }
+    
+    .quiz-nav-btn {
+        background-color: #e2e8f0;
+        color: #334155;
+    }
+    .quiz-nav-btn:hover { background-color: #cbd5e1; }
+    .quiz-nav-btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+    
+    .quiz-action-btn.next {
+        background-color: var(--sv-orange);
+        color: white;
+    }
+    .quiz-action-btn.next:hover { background-color: #f97316; }
+
+    .quiz-action-btn.submit {
+        background-color: #22c55e;
+        color: white;
+    }
+    .quiz-action-btn.submit:hover { background-color: #16a34a; }
+
+    #quizResults { text-align: center; }
+    .results-score {
+        font-size: 3rem;
         font-weight: 900;
         color: var(--sv-blue);
-        margin-bottom: 10px;
+        margin: 1rem 0 0.5rem 0;
     }
-    .paper-item a {
-        display: block;
-        width: 100%;
-        padding: 8px 12px;
-        font-size: 0.9rem;
-        font-weight: 800;
-        color: white;
-        background: linear-gradient(135deg, var(--sv-orange), #ff6f00);
-        border: none;
+    .results-feedback {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+    }
+    .feedback-improve { color: #ef4444; }
+    .feedback-good { color: #f59e0b; }
+    .feedback-excellent { color: #22c55e; }
+    
+    .results-summary {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    .summary-item {
+        background: #f8fafc;
+        padding: 0.75rem 1.25rem;
+        border-radius: 8px;
+        border: 1px solid #e2e8f0;
+    }
+    .summary-item span { display: block; }
+    .summary-label { font-size: 0.9rem; color: #64748b; }
+    .summary-value { font-size: 1.25rem; font-weight: 700; }
+    .value-correct { color: #16a34a; }
+    .value-wrong { color: #dc2626; }
+    
+    .results-actions {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+    }
+    
+    #quizReview {
+        padding: 1.5rem 0.5rem;
+    }
+    @media (min-width: 640px) { #quizReview { padding: 1.5rem 2rem; } }
+
+    .review-item {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 2px 5px (0,0,0,0.03);
+    }
+    .review-question {
+        padding: 1rem 1.25rem;
+        border-bottom: 1px dashed #cbd5e1;
+    }
+    .review-question p {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #1e293b;
+    }
+    .review-options {
+        padding: 1rem 1.25rem;
+    }
+    .review-option {
+        font-size: 0.95rem;
+        padding: 0.6rem 0.8rem;
         border-radius: 6px;
-        cursor: pointer;
-        text-decoration: none;
-        transition: background 0.2s;
+        margin-bottom: 0.5rem;
+        border: 2px solid transparent;
     }
-    .paper-item a:hover {
-        background: linear-gradient(135deg, #ff6f00, #ff8c00);
+    .review-option.correct {
+        background-color: #f0fdf4;
+        border-color: #86efac;
+        color: #15803d;
+        font-weight: 700;
+    }
+    .review-option.incorrect {
+        background-color: #fef2f2;
+        border-color: #fecaca;
+        color: #b91c1c;
+        font-weight: 700;
+        text-decoration: line-through;
+    }
+    .review-explanation {
+        background: #f1f5f9;
+        padding: 0.8rem 1.25rem;
+        border-top: 1px dashed #cbd5e1;
+        border-radius: 0 0 8px 8px;
+    }
+    .review-explanation strong {
+        color: var(--sv-blue);
+        font-size: 0.9rem;
+        text-transform: uppercase;
+    }
+    .review-explanation p {
+        font-size: 0.95rem;
+        color: #334155;
+        margin-top: 4px;
+        line-height: 1.5;
+    }
+    
+    .sub-section-header {
+        font-size: 1.1rem;
+        font-weight: 800;
+        color: var(--sv-blue);
+        padding: 10px 4px 4px 4px;
+        margin-top: 8px;
+        border-bottom: 2px solid var(--sv-orange);
+    }
+    .sub-section-header:first-of-type {
+        margin-top: 0;
     }
 
-    @media (max-width: 1024px) {
-        .paper-item {
-            flex: 1 1 calc(33.33% - 15px); /* Tablet: 3 items per row */
-        }
+    /* UPDATED: Navodaya Table Styling */
+    .exam-pattern-table-section {
+        max-width: var(--page-max-width);
+        margin: 25px auto;
+        padding: 0 16px;
     }
-    @media (max-width: 640px) {
-        .paper-item {
-            flex: 1 1 calc(50% - 15px); /* Mobile: 2 items per row */
-        }
+    .exam-pattern-table-section h2 {
+        font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+        color: var(--maroon-2);
+        border-bottom: 3px solid var(--sv-orange);
+        text-align: center;
+        margin-bottom: 18px;
+        padding-bottom: 8px;
+        font-weight: 900;
+        text-transform: uppercase;
     }
-
-
-    /* MODIFIED FOOTER ICONS */
-    .simple-footer-social .social-icon {
-        color: white; /* Changed from var(--sv-yellow) to white */
+    .exam-pattern-table-container {
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px (0,0,0,0.15);
+        border: 1px solid #f0e6e6;
     }
-    .simple-footer-social .social-icon:hover {
-        color: var(--sv-yellow); /* Hover back to yellow for contrast */
+    .exam-pattern-table-container table {
+        min-width: 100%;
+    }
+    .exam-pattern-table-container thead {
+        background: linear-gradient(90deg, var(--sv-maroon), var(--old-maroon));
+        color: white;
+    }
+    .exam-pattern-table-container th {
+        padding: 12px 10px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+    }
+    .exam-pattern-table-container tbody {
+        background-color: #fff;
+    }
+    .exam-pattern-table-container tbody tr:nth-child(even) {
+        background-color: #fefcfc; 
+    }
+    .exam-pattern-table-container tbody tr:hover {
+        background-color: #fffaf0; 
+        transition: background-color 0.2s;
+    }
+    .exam-pattern-table-container td {
+        padding: 10px;
+        font-size: 0.9rem;
+        color: #333;
+    }
+    .exam-pattern-table-container .total-row {
+        background: linear-gradient(90deg, var(--sv-yellow), var(--sv-orange));
+        color: var(--sv-blue);
+        font-size: 1rem;
+        font-weight: 900;
+        text-shadow: 0 1px 1px (255, 255, 255, 0.5);
+    }
+    /* FOOTER STYLES FOR NEW LAYOUT */
+    .footer-content-custom {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 10px 0;
+    }
+    .footer-social-icons {
+        margin-bottom: 10px;
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        flex-grow: 1;
+        width: 100%;
+        max-width: 200px;
+    }
+    .footer-social-icons a {
+        transition: color 0.2s, transform 0.2s;
+    }
+    .footer-social-icons a:hover {
+        color: var(--sv-yellow);
         transform: scale(1.1);
     }
-
+    .footer-copyright {
+        font-size: clamp(0.7rem, 2vw, 0.85rem); /* Responsive font size */
+        color: #ccc;
+        font-weight: 500;
+        flex-grow: 1;
+        width: 100%;
+        margin-top: 5px;
+    }
+    @media (min-width: 640px) {
+        .footer-content-custom {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer-social-icons {
+             margin-bottom: 0;
+             justify-content: flex-start;
+             max-width: 250px;
+        }
+        .footer-copyright {
+            margin-top: 0;
+            text-align: right;
+        }
+    }
+    /* END FOOTER STYLES */
   </style>
 </head>
 <body class="bg-gray-50">
@@ -2472,7 +1656,7 @@ body {
                     </h1>
                     <div class="w-2/3 max-w-xs h-0.5 bg-sv-yellow my-0.5 mx-auto sm:mx-0"></div>
                     <p class="text-sm sm:text-base font-semibold text-sv-yellow mt-0.5">
-                        "Student Navodaya Corner"
+                        "Student Premium Corner"
                     </p>
                 </div>
             </div>
@@ -2535,7 +1719,7 @@ body {
             <img src="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg" alt="SRI VEDA Logo" class="login-logo">
             <h3 class="login-brand-title">SVTC LIFE</h3>
         </div>
-        <h2 id="loginTitle">5<sup>th</sup> Class Navodaya</h2>
+        <h2 id="loginTitle">5<sup>th</sup> Class Login</h2>
         <p id="loginSubtitle">Username and Password with Caps.</p>
         <form id="loginForm">
             <div id="statusMessage" class="status-box status-error hidden" role="alert"></div>
@@ -2564,91 +1748,385 @@ body {
     <div id="subscriptionBadge" class="subscription-badge"></div>
   </div>
   
-  <section class="motivational-passage max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
-    <div class="p-6 sm:p-8 bg-white border-2 border-sv-blue rounded-xl shadow-2xl shadow-sv-orange/30 text-center">
-        <h3 class="text-2xl sm:text-3xl font-extrabold text-sv-blue mb-4">
-            🚀 Welcome Future Navodaya Stars! 🚀
-        </h3>
-        <p class="text-gray-700 text-lg font-medium leading-relaxed">
-            Dear Students,
-            Welcome to this wonderful journey of preparing for the Navodaya Entrance Examination! You have taken the first brave step toward a brighter future, and that itself shows how special you are. Remember, every champion starts exactly where you are standing today — with a dream in the heart and determination in the mind.
-            Here, you are not just coming to study; you are coming to discover your true abilities. Believe that you can learn anything, solve any problem, and achieve any goal when you put your heart into it. Your teachers are here to guide you, but your hard work and discipline will lead you to success.
-            Take a deep breath, smile, and get ready.
-        </p>
-        <p class="text-xl font-black mt-4 text-sv-maroon">
-            A new chapter of your life begins right here, right now.
-        </p>
-    </div>
-  </section>
+  <!-- NAVODAYA WELCOME PASSAGE - Updated Background/Border -->
+  <section class="navodaya-welcome-passage">
+    <div class="passage-inner">
+      <h2 class="passage-title">🚀 Welcome Future Navodaya Stars! 🚀</h2>
+      <p class="passage-text">
+        Dear Students, Welcome to this wonderful journey of preparing for the Navodaya Entrance Examination! You have taken the first brave step toward a brighter future, and that itself shows how special you are. Remember, every champion starts exactly where you are standing today — with a dream in the heart and determination in the mind. Here, you are not just coming to study; you are coming to discover your true abilities. Believe that you can learn anything, solve any problem, and achieve any goal when you put your heart into it. Your teachers are here to guide you, but your hard work and discipline will lead you to success. Take a deep breath, smile, and get ready.
 
-  <!-- NEW SECTION: Exam Pattern Table -->
-  <section class="exam-pattern-section">
-      <div class="exam-pattern-card">
-          <h2 class="exam-pattern-header">Navodaya Vidyalaya Entrance Exam Pattern</h2>
-          <table class="exam-pattern-table">
-              <thead>
-                  <tr>
-                      <th class="col-section">Section</th>
-                      <th class="col-topics">Topics Covered (Syllabus Highlights)</th>
-                      <th class="col-marks">Marks</th>
-                      <th class="col-questions">Questions</th>
-                  </tr>
-              </thead>
-              <tbody>
-                  <tr>
-                      <td class="col-section" data-label="Section">1. Mental Ability Test (MAT)</td>
-                      <td class="col-topics" data-label="Topics Covered">Analogy, Odd One Out, Pattern Completion, Figure Matching, Figure Series, Cube & Dice, Mirror Image, Paper Folding & Cutting, Spatial Orientation</td>
-                      <td class="col-marks" data-label="Marks">50 Marks</td>
-                      <td class="col-questions" data-label="Questions">40 Questions</td>
-                  </tr>
-                  <tr>
-                      <td class="col-section" data-label="Section">2. Arithmetic Test</td>
-                      <td class="col-topics" data-label="Topics Covered">Number System, Whole Numbers, Factors & Multiples, Simplification, LCM & HCF, Fraction Basics, Decimals, Percentage, Profit & Loss, Time & Distance, Time & Work, Geometry Basics, Perimeter, Area, Weight, Length, Money</td>
-                      <td class="col-marks" data-label="Marks">25 Marks</td>
-                      <td class="col-questions" data-label="Questions">20 Questions</td>
-                  </tr>
-                  <tr>
-                      <td class="col-section" data-label="Section">3. Language Test (English/Hindi/Telugu)</td>
-                      <td class="col-topics" data-label="Topics Covered">Reading Comprehension, Passage Questions, Grammar Basics, Vocabulary, Sentence Formation, Antonyms & Synonyms</td>
-                      <td class="col-marks" data-label="Marks">25 Marks</td>
-                      <td class="col-questions" data-label="Questions">20 Questions</td>
-                  </tr>
-              </tbody>
-              <tfoot>
-                  <tr>
-                      <td colspan="2" class="col-section" style="text-align: right; background-color: #ffe0b3; border-top: 3px solid var(--sv-orange);">Total</td>
-                      <td class="col-marks" style="background-color: #ffe0b3; border-top: 3px solid var(--sv-orange);">100 Marks</td>
-                      <td class="col-questions" style="background-color: #ffe0b3; border-top: 3px solid var(--sv-orange);">80 Questions</td>
-                  </tr>
-              </tfoot>
-          </table>
-      </div>
-  </section>
-  <!-- End NEW SECTION: Exam Pattern Table -->
-  
-  <!-- Syllabus section updated to dynamically load topics with serial numbers and 'Take Test' buttons -->
-  <section id="syllabusContainer" class="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
-    <div id="syllabusContent" class="flex flex-col gap-8">
-        <!-- Content will be rendered here by JavaScript -->
     </div>
   </section>
   
-  <!-- NEW SECTION: Previous Question Papers -->
-  <section id="previousPapersSection" class="previous-papers-section">
-      <div class="papers-card">
-          <h2>Previous Question Papers</h2>
-          <ul id="papersList" class="papers-list">
-              <!-- Previous papers will be dynamically loaded here -->
-          </ul>
-      </div>
+  <!-- NAVODAYA EXAM PATTERN TABLE - Updated Styling -->
+  <section class="exam-pattern-table-section">
+    <h2 class="">
+        Navodaya Vidyalaya Entrance Exam Pattern
+    </h2>
+    <div class="overflow-x-auto exam-pattern-table-container">
+        <table class="min-w-full bg-white divide-y divide-gray-200">
+            <thead class="bg-sv-blue text-white">
+                <tr>
+                    <th scope="col" class="px-3 py-3 text-left text-sm font-semibold uppercase tracking-wider">
+                        Section
+                    </th>
+                    <th scope="col" class="px-3 py-3 text-left text-sm font-semibold uppercase tracking-wider">
+                        Topics Covered (Syllabus Highlights)
+                    </th>
+                    <th scope="col" class="px-3 py-3 text-center text-sm font-semibold uppercase tracking-wider">
+                        Marks
+                    </th>
+                    <th scope="col" class="px-3 py-3 text-center text-sm font-semibold uppercase tracking-wider">
+                        Questions
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200 text-gray-700">
+                <tr class="hover:bg-gray-50 transition duration-150">
+                    <td class="px-3 py-3 whitespace-nowrap font-bold text-sv-blue">
+                        1. Mental Ability Test (MAT)
+                    </td>
+                    <td class="px-3 py-3 text-sm">
+                        Analogy, Odd One Out, Pattern Completion, Figure Matching, Figure Series, Cube & Dice, Mirror Image, Paper Folding & Cutting, Spatial Orientation
+                    </td>
+                    <td class="px-3 py-3 whitespace-nowrap text-center font-bold">
+                        50 Marks
+                    </td>
+                    <td class="px-3 py-3 whitespace-nowrap text-center font-bold">
+                        40 Questions
+                    </td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition duration-150 bg-gray-50">
+                    <td class="px-3 py-3 whitespace-nowrap font-bold text-sv-blue">
+                        2. Arithmetic Test
+                    </td>
+                    <td class="px-3 py-3 text-sm">
+                        Number System, Whole Numbers, Factors & Multiples, Simplification, LCM & HCF, Fraction Basics, Decimals, Percentage, Profit & Loss, Time & Distance, Time & Work, Geometry Basics, Perimeter, Area, Weight, Length, Money
+                    </td>
+                    <td class="px-3 py-3 whitespace-nowrap text-center font-bold">
+                        25 Marks
+                    </td>
+                    <td class="px-3 py-3 whitespace-nowrap text-center font-bold">
+                        20 Questions
+                    </td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition duration-150">
+                    <td class="px-3 py-3 whitespace-nowrap font-bold text-sv-blue">
+                        3. Language Test (English/Hindi/Telugu)
+                    </td>
+                    <td class="px-3 py-3 text-sm">
+                        Reading Comprehension, Passage Questions, Grammar Basics, Vocabulary, Sentence Formation, Antonyms & Synonyms
+                    </td>
+                    <td class="px-3 py-3 whitespace-nowrap text-center font-bold">
+                        25 Marks
+                    </td>
+                    <td class="px-3 py-3 whitespace-nowrap text-center font-bold">
+                        20 Questions
+                    </td>
+                </tr>
+                <tr class="total-row">
+                    <td class="px-3 py-3 whitespace-nowrap text-right text-base font-extrabold" colspan="2">
+                        Total
+                    </td>
+                    <td class="px-3 py-3 whitespace-nowrap text-center text-base font-extrabold">
+                        100 Marks
+                    </td>
+                    <td class="px-3 py-3 whitespace-nowrap text-center text-base font-extrabold">
+                        80 Questions
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
   </section>
-  <!-- End NEW SECTION -->
 
-  <!-- MODIFIED SRM Contact Section -->
+  
+  <section class="live-tests">
+    <div class="tests-inner">
+      <div class="test-row">
+      </div>
+    </div>
+  </section>
+  
+  <section class="student-report">
+    <div class="sr-box">
+      <div class="sr-stats">
+        <!-- These stat-items are REMOVED -->
+      </div>
+    </div>
+  </section>
+  
+  <section class="subject-tests" id="premiumSection" style="max-width: var(--page-max-width); margin-left: auto; margin-right: auto; padding-left: 16px; padding-right: 16px;">
+    <div class="premium-section-header">
+      <span>Premium Section</span>
+    </div>
+    <div class="test-list-container">
+      
+        <h4 class="sub-section-header">Section 1: Language Test (Topics 1-5)</h4>
+        
+        <!-- Topics 1-5 updated per user request -->
+        <div class="sub-topic-item" data-section="1" data-topic="1" id="ga_topic_1_item">
+            <span>1. Factual Comprehension</span>
+            <div class="btn-test-group">
+                <button class="btn-test" data-test-id="ga_topic_1_test1" onclick="handlePremiumTestClick(this)">Test 1</button>
+                <button class="btn-test" data-test-id="ga_topic_1_test2" onclick="handlePremiumTestClick(this)">Test 2</button>
+                <button class="btn-test" data-test-id="ga_topic_1_test3" onclick="handlePremiumTestClick(this)">Test 3</button>
+            </div>
+        </div>
+        <div class="sub-topic-item" data-section="1" data-topic="2" id="ga_topic_2_item">
+            <span>2. Inferential Comprehension</span>
+            <div class="btn-test-group">
+                <button class="btn-test" data-test-id="ga_topic_2_test1" onclick="handlePremiumTestClick(this)">Test 1</button>
+                <button class="btn-test" data-test-id="ga_topic_2_test2" onclick="handlePremiumTestClick(this)">Test 2</button>
+                <button class="btn-test" data-test-id="ga_topic_2_test3" onclick="handlePremiumTestClick(this)">Test 3</button>
+            </div>
+        </div>
+        <div class="sub-topic-item" data-section="1" data-topic="3" id="ga_topic_3_item">
+            <span>3. Vocabulary in Context</span>
+            <div class="btn-test-group">
+                <button class="btn-test" data-test-id="ga_topic_3_test1" onclick="handlePremiumTestClick(this)">Test 1</button>
+                <button class="btn-test" data-test-id="ga_topic_3_test2" onclick="handlePremiumTestClick(this)">Test 2</button>
+                <button class="btn-test" data-test-id="ga_topic_3_test3" onclick="handlePremiumTestClick(this)">Test 3</button>
+            </div>
+        </div>
+        <div class="sub-topic-item" data-section="1" data-topic="4" id="ga_topic_4_item">
+            <span>4. Sequential Order and Cause/Effect</span>
+            <div class="btn-test-group">
+                <button class="btn-test" data-test-id="ga_topic_4_test1" onclick="handlePremiumTestClick(this)">Test 1</button>
+                <button class="btn-test" data-test-id="ga_topic_4_test2" onclick="handlePremiumTestClick(this)">Test 2</button>
+                <button class="btn-test" data-test-id="ga_topic_4_test3" onclick="handlePremiumTestClick(this)">Test 3</button>
+            </div>
+        </div>
+        <div class="sub-topic-item" data-section="1" data-topic="5" id="ga_topic_5_item">
+            <span>5. Main Idea and Theme</span>
+            <div class="btn-test-group">
+                <button class="btn-test" data-test-id="ga_topic_5_test1" onclick="handlePremiumTestClick(this)">Test 1</button>
+                <button class="btn-test" data-test-id="ga_topic_5_test2" onclick="handlePremiumTestClick(this)">Test 2</button>
+                <button class="btn-test" data-test-id="ga_topic_5_test3" onclick="handlePremiumTestClick(this)">Test 3</button>
+            </div>
+        </div>
+      
+        <h4 class="sub-section-header">Section 2: Arithmetic Test (Topics 1-15)</h4>
+        
+        <!-- Arithmetic Test Topics (1-10) -->
+        <div class="sub-topic-item" data-section="2" data-topic="1" id="gm_topic_1_item">
+            <span>1. Number and Numeric System</span>
+            <div class="btn-test-group">
+                <button class="btn-test" data-test-id="gm_topic_1_test1" onclick="handlePremiumTestClick(this)">Test 1</button>
+                <button class="btn-test" data-test-id="gm_topic_1_test2" onclick="handlePremiumTestClick(this)">Test 2</button>
+                <button class="btn-test" data-test-id="gm_topic_1_test3" onclick="handlePremiumTestClick(this)">Test 3</button>
+            </div>
+        </div>
+        <div class="sub-topic-item" data-section="2" data-topic="2" id="gm_topic_2_item">
+            <span>2. Four Fundamental Operations on Whole Numbers</span>
+            <div class="btn-test-group">
+                <button class="btn-test" data-test-id="gm_topic_2_test1" onclick="handlePremiumTestClick(this)">Test 1</button>
+                <button class="btn-test" data-test-id="gm_topic_2_test2" onclick="handlePremiumTestClick(this)">Test 2</button>
+                <button class="btn-test" data-test-id="gm_topic_2_test3" onclick="handlePremiumTestClick(this)">Test 3</button>
+            </div>
+        </div>
+        <div class="sub-topic-item" data-section="2" data-topic="3" id="gm_topic_3_item">
+            <span>3. Fractional Numbers and Four Fundamental Operations on them</span>
+            <div class="btn-test-group">
+                <button class="btn-test" data-test-id="gm_topic_3_test1" onclick="handlePremiumTestClick(this)">Test 1</button>
+                <button class="btn-test" data-test-id="gm_topic_3_test2" onclick="handlePremiumTestClick(this)">Test 2</button>
+                <button class="btn-test" data-test-id="gm_topic_3_test3" onclick="handlePremiumTestClick(this)">Test 3</button>
+            </div>
+        </div>
+        <div class="sub-topic-item" data-section="2" data-topic="4" id="gm_topic_4_item">
+            <span>4. Factors and Multiples including their properties</span>
+            <div class="btn-test-group">
+                <button class="btn-test" data-test-id="gm_topic_4_test1" onclick="handlePremiumTestClick(this)">Test 1</button>
+                <button class="btn-test" data-test-id="gm_topic_4_test2" onclick="handlePremiumTestClick(this)">Test 2</button>
+                <button class="btn-test" data-test-id="gm_topic_4_test3" onclick="handlePremiumTestClick(this)">Test 3</button>
+            </div>
+        </div>
+        <div class="sub-topic-item" data-section="2" data-topic="5" id="gm_topic_5_item">
+            <span>5. LCM and HCF of Numbers</span>
+            <div class="btn-test-group">
+                <button class="btn-test" data-test-id="gm_topic_5_test1" onclick="handlePremiumTestClick(this)">Test 1</button>
+                <button class="btn-test" data-test-id="gm_topic_5_test2" onclick="handlePremiumTestClick(this)">Test 2</button>
+                <button class="btn-test" data-test-id="gm_topic_5_test3" onclick="handlePremiumTestClick(this)">Test 3</button>
+            </div>
+        </div>
+        <div class="sub-topic-item" data-section="2" data-topic="6" id="gm_topic_6_item">
+            <span>6. Decimals and Fundamental Operations on them</span>
+            <div class="btn-test-group">
+                <button class="btn-test" data-test-id="gm_topic_6_test1" onclick="handlePremiumTestClick(this)">Test 1</button>
+                <button class="btn-test" data-test-id="gm_topic_6_test2" onclick="handlePremiumTestClick(this)">Test 2</button>
+                <button class="btn-test" data-test-id="gm_topic_6_test3" onclick="handlePremiumTestClick(this)">Test 3</button>
+            </div>
+        </div>
+        <div class="sub-topic-item" data-section="2" data-topic="7" id="gm_topic_7_item">
+            <span>7. Conversion of Fractions to Decimals and vice-versa</span>
+            <div class="btn-test-group">
+                <button class="btn-test" data-test-id="gm_topic_7_test1" onclick="handlePremiumTestClick(this)">Test 1</button>
+                <button class="btn-test" data-test-id="gm_topic_7_test2" onclick="handlePremiumTestClick(this)">Test 2</button>
+                <button class="btn-test" data-test-id="gm_topic_7_test3" onclick="handlePremiumTestClick(this)">Test 3</button>
+            </div>
+        </div>
+        <div class="sub-topic-item" data-section="2" data-topic="8" id="gm_topic_8_item">
+            <span>8. Measurement</span>
+            <div class="btn-test-group">
+                <button class="btn-test" data-test-id="gm_topic_8_test1" onclick="handlePremiumTestClick(this)">Test 1</button>
+                <button class="btn-test" data-test-id="gm_topic_8_test2" onclick="handlePremiumTestClick(this)">Test 2</button>
+                <button class="btn-test" data-test-id="gm_topic_8_test3" onclick="handlePremiumTestClick(this)">Test 3</button>
+            </div>
+        </div>
+        <div class="sub-topic-item" data-section="2" data-topic="9" id="gm_topic_9_item">
+            <span>9. Distance, Time and Speed</span>
+            <div class="btn-test-group">
+                <button class="btn-test" data-test-id="gm_topic_9_test1" onclick="handlePremiumTestClick(this)">Test 1</button>
+                <button class="btn-test" data-test-id="gm_topic_9_test2" onclick="handlePremiumTestClick(this)">Test 2</button>
+                <button class="btn-test" data-test-id="gm_topic_9_test3" onclick="handlePremiumTestClick(this)">Test 3</button>
+            </div>
+        </div>
+        <div class="sub-topic-item" data-section="2" data-topic="10" id="gm_topic_10_item">
+            <span>10. Approximation of Expressions</span>
+            <div class="btn-test-group">
+                <button class="btn-test" data-test-id="gm_topic_10_test1" onclick="handlePremiumTestClick(this)">Test 1</button>
+                <button class="btn-test" data-test-id="gm_topic_10_test2" onclick="handlePremiumTestClick(this)">Test 2</button>
+                <button class="btn-test" data-test-id="gm_topic_10_test3" onclick="handlePremiumTestClick(this)">Test 3</button>
+            </div>
+        </div>
+        
+        <!-- Arithmetic Test Topics (11-15) -->
+        <h4 class="sub-section-header" style="margin-top: 15px; border-bottom: 1px dashed var(--sv-blue);">Arithmetic Test Topics (11-15)</h4>
+
+        <div class="sub-topic-item" data-section="2" data-topic="11" id="ga_topic_6_item">
+            <span>11. Simplification of Numerical Expressions</span>
+            <div class="btn-test-group">
+                <button class="btn-test" data-test-id="ga_topic_6_test1" onclick="handlePremiumTestClick(this)">Test 1</button>
+                <button class="btn-test" data-test-id="ga_topic_6_test2" onclick="handlePremiumTestClick(this)">Test 2</button>
+                <button class="btn-test" data-test-id="ga_topic_6_test3" onclick="handlePremiumTestClick(this)">Test 3</button>
+            </div>
+        </div>
+        <div class="sub-topic-item" data-section="2" data-topic="12" id="ga_topic_7_item">
+            <span>12. Percentage and its Applications</span>
+            <div class="btn-test-group">
+                <button class="btn-test" data-test-id="ga_topic_7_test1" onclick="handlePremiumTestClick(this)">Test 1</button>
+                <button class="btn-test" data-test-id="ga_topic_7_test2" onclick="handlePremiumTestClick(this)">Test 2</button>
+                <button class="btn-test" data-test-id="ga_topic_7_test3" onclick="handlePremiumTestClick(this)">Test 3</button>
+            </div>
+        </div>
+        <div class="sub-topic-item" data-section="2" data-topic="13" id="ga_topic_8_item">
+            <span>13. Profit and Loss</span>
+            <div class="btn-test-group">
+                <button class="btn-test" data-test-id="ga_topic_8_test1" onclick="handlePremiumTestClick(this)">Test 1</button>
+                <button class="btn-test" data-test-id="ga_topic_8_test2" onclick="handlePremiumTestClick(this)">Test 2</button>
+                <button class="btn-test" data-test-id="ga_topic_8_test3" onclick="handlePremiumTestClick(this)">Test 3</button>
+            </div>
+        </div>
+        <div class="sub-topic-item" data-section="2" data-topic="14" id="ga_topic_9_item">
+            <span>14. Simple Interest</span>
+            <div class="btn-test-group">
+                <button class="btn-test" data-test-id="ga_topic_9_test1" onclick="handlePremiumTestClick(this)">Test 1</button>
+                <button class="btn-test" data-test-id="ga_topic_9_test2" onclick="handlePremiumTestClick(this)">Test 2</button>
+                <button class="btn-test" data-test-id="ga_topic_9_test3" onclick="handlePremiumTestClick(this)">Test 3</button>
+            </div>
+        </div>
+        <div class="sub-topic-item" data-section="2" data-topic="15" id="ga_topic_10_item">
+            <span>15. Perimeter, Area and Volume</span>
+            <div class="btn-test-group">
+                <button class="btn-test" data-test-id="ga_topic_10_test1" onclick="handlePremiumTestClick(this)">Test 1</button>
+                <button class="btn-test" data-test-id="ga_topic_10_test2" onclick="handlePremiumTestClick(this)">Test 2</button>
+                <button class="btn-test" data-test-id="ga_topic_10_test3" onclick="handlePremiumTestClick(this)">Test 3</button>
+            </div>
+        </div>
+
+
+        <h4 class="sub-section-header">Section 3: Mental Ability Test (Topics 1-10)</h4>
+        
+        <!-- Mental Ability Test Topics (1-10) -->
+        <div class="sub-topic-item" data-section="3" data-topic="1" id="am_topic_1_item">
+            <span>1. Odd Man Out</span>
+            <div class="btn-test-group">
+                <button class="btn-test" data-test-id="am_topic_1_test1" onclick="handlePremiumTestClick(this)">Test 1</button>
+                <button class="btn-test" data-test-id="am_topic_1_test2" onclick="handlePremiumTestClick(this)">Test 2</button>
+                <button class="btn-test" data-test-id="am_topic_1_test3" onclick="handlePremiumTestClick(this)">Test 3</button>
+            </div>
+        </div>
+        <div class="sub-topic-item" data-section="3" data-topic="2" id="am_topic_2_item">
+            <span>2. Figure Matching</span>
+            <div class="btn-test-group">
+                <button class="btn-test" data-test-id="am_topic_2_test1" onclick="handlePremiumTestClick(this)">Test 1</button>
+                <button class="btn-test" data-test-id="am_topic_2_test2" onclick="handlePremiumTestClick(this)">Test 2</button>
+                <button class="btn-test" data-test-id="am_topic_2_test3" onclick="handlePremiumTestClick(this)">Test 3</button>
+            </div>
+        </div>
+        <div class="sub-topic-item" data-section="3" data-topic="3" id="am_topic_3_item">
+            <span>3. Pattern Completion</span>
+            <div class="btn-test-group">
+                <button class="btn-test" data-test-id="am_topic_3_test1" onclick="handlePremiumTestClick(this)">Test 1</button>
+                <button class="btn-test" data-test-id="am_topic_3_test2" onclick="handlePremiumTestClick(this)">Test 2</button>
+                <button class="btn-test" data-test-id="am_topic_3_test3" onclick="handlePremiumTestClick(this)">Test 3</button>
+            </div>
+        </div>
+        <div class="sub-topic-item" data-section="3" data-topic="4" id="am_topic_4_item">
+            <span>4. Figure Series Completion</span>
+            <div class="btn-test-group">
+                <button class="btn-test" data-test-id="am_topic_4_test1" onclick="handlePremiumTestClick(this)">Test 1</button>
+                <button class="btn-test" data-test-id="am_topic_4_test2" onclick="handlePremiumTestClick(this)">Test 2</button>
+                <button class="btn-test" data-test-id="am_topic_4_test3" onclick="handlePremiumTestClick(this)">Test 3</button>
+            </div>
+        </div>
+        <div class="sub-topic-item" data-section="3" data-topic="5" id="am_topic_5_item">
+            <span>5. Analogy</span>
+            <div class="btn-test-group">
+                <button class="btn-test" data-test-id="am_topic_5_test1" onclick="handlePremiumTestClick(this)">Test 1</button>
+                <button class="btn-test" data-test-id="am_topic_5_test2" onclick="handlePremiumTestClick(this)">Test 2</button>
+                <button class="btn-test" data-test-id="am_topic_5_test3" onclick="handlePremiumTestClick(this)">Test 3</button>
+            </div>
+        </div>
+        <div class="sub-topic-item" data-section="3" data-topic="6" id="am_topic_6_item">
+            <span>6. Geometrical Figure Completion</span>
+            <div class="btn-test-group">
+                <button class="btn-test" data-test-id="am_topic_6_test1" onclick="handlePremiumTestClick(this)">Test 1</button>
+                <button class="btn-test" data-test-id="am_topic_6_test2" onclick="handlePremiumTestClick(this)">Test 2</button>
+                <button class="btn-test" data-test-id="am_topic_6_test3" onclick="handlePremiumTestClick(this)">Test 3</button>
+            </div>
+        </div>
+        <div class="sub-topic-item" data-section="3" data-topic="7" id="am_topic_7_item">
+            <span>7. Mirror Imaging</span>
+            <div class="btn-test-group">
+                <button class="btn-test" data-test-id="am_topic_7_test1" onclick="handlePremiumTestClick(this)">Test 1</button>
+                <button class="btn-test" data-test-id="am_topic_7_test2" onclick="handlePremiumTestClick(this)">Test 2</button>
+                <button class="btn-test" data-test-id="am_topic_7_test3" onclick="handlePremiumTestClick(this)">Test 3</button>
+            </div>
+        </div>
+        <div class="sub-topic-item" data-section="3" data-topic="8" id="am_topic_8_item">
+            <span>8. Punched Hold Pattern (Folding and Unfolding)</span>
+            <div class="btn-test-group">
+                <button class="btn-test" data-test-id="am_topic_8_test1" onclick="handlePremiumTestClick(this)">Test 1</button>
+                <button class="btn-test" data-test-id="am_topic_8_test2" onclick="handlePremiumTestClick(this)">Test 2</button>
+                <button class="btn-test" data-test-id="am_topic_8_test3" onclick="handlePremiumTestClick(this)">Test 3</button>
+            </div>
+        </div>
+        <div class="sub-topic-item" data-section="3" data-topic="9" id="am_topic_9_item">
+            <span>9. Space Visualization</span>
+            <div class="btn-test-group">
+                <button class="btn-test" data-test-id="am_topic_9_test1" onclick="handlePremiumTestClick(this)">Test 1</button>
+                <button class="btn-test" data-test-id="am_topic_9_test2" onclick="handlePremiumTestClick(this)">Test 2</button>
+                <button class="btn-test" data-test-id="am_topic_9_test3" onclick="handlePremiumTestClick(this)">Test 3</button>
+            </div>
+        </div>
+        <div class="sub-topic-item" data-section="3" data-topic="10" id="am_topic_10_item">
+            <span>10. Embedded Figures</span>
+            <div class="btn-test-group">
+                <button class="btn-test" data-test-id="am_topic_10_test1" onclick="handlePremiumTestClick(this)">Test 1</button>
+                <button class="btn-test" data-test-id="am_topic_10_test2" onclick="handlePremiumTestClick(this)">Test 2</button>
+                <button class="btn-test" data-test-id="am_topic_10_test3" onclick="handlePremiumTestClick(this)">Test 3</button>
+            </div>
+        </div>
+
+    </div>
+  </section>
+  
   <section class="srm-contact-section">
     <h2>Dedicated Student Relations Manager (SRM)</h2>
     <div class="srm-info-card">
         <div class="srm-left-explanation">
+            <p class="font-bold text-sv-blue mb-2">Your Personal Success Guide:</p>
             <p>We are committed to your success! Your Student Relations Manager (SRM) is your dedicated point of contact for all support, academic guidance, subscription queries, and any coordination needed to maximize your learning experience with Sri Veda TC. Reach out directly for personalized assistance.</p>
         </div>
         
@@ -2666,59 +2144,220 @@ body {
         </div>
     </div>
   </section>
+  
+
+  <section class="student-subject-tests" id="studentSubjectTestsSection">
+    <h2>Student Subject Tests Corner</h2>
+    <div class="test-list-container">
+      <article class="test-list-item" id="item_telugu">
+        <div class="test-list-item-content">
+          <h3><strong>Telugu Subject Tests</strong></h3>
+          <p>Test your understanding of Telugu grammar and literature.</p>
+        </div>
+        <button id="btn_telugu" class="btn-test" data-test-id="telugu" onclick="handleTestClick(this)">Take Test</button>
+      </article>
+      <article class="test-list-item" id="item_english">
+        <div class="test-list-item-content">
+          <h3><strong>English Subject Tests</strong></h3>
+          <p>Assess your English comprehension, vocabulary, and grammar skills.</p>
+        </div>
+        <button id="btn_english" class="btn-test" data-test-id="english" onclick="handleTestClick(this)">Take Test</button>
+      </article>
+      <article class="test-list-item" id="item_evs_sem1">
+        <div class="test-list-item-content">
+          <h3><strong>Evs SEM1 Subject Tests</strong></h3>
+          <p>Explore your knowledge of Environmental Science (Semester 1) concepts.</p>
+        </div>
+        <button id="btn_evs_sem1" class="btn-test" data-test-id="evs_sem1" onclick="handleTestClick(this)">Take Test</button>
+      </article>
+      <article class="test-list-item" id="item_evs_sem2">
+        <div class="test-list-item-content">
+          <h3><strong>Evs SEM2 Subject Tests</strong></h3>
+          <p>Explore your knowledge of Environmental Science (Semester 2) concepts.</p>
+        </div>
+        <button id="btn_evs_sem2" class="btn-test" data-test-id="evs_sem2" onclick="handleTestClick(this)">Take Test</button> 
+      </article>
+      <article class="test-list-item" id="item_maths_sem1">
+        <div class="test-list-item-content">
+          <h3><strong>Maths SEM1 Subject Tests</strong></h3>
+          <p>Practice and master all the mathematics (Semester 1) topics.</p>
+        </div>
+        <button id="btn_maths_sem1" class="btn-test" data-test-id="maths_sem1" onclick="handleTestClick(this)">Take Test</button>
+      </article>
+      <article class="test-list-item" id="item_maths_sem2">
+        <div class="test-list-item-content">
+          <h3><strong>Maths SEM2 Subject Tests</strong></h3>
+          <p>Practice and master all the mathematics (Semester 2) topics.</p>
+        </div>
+        <button id="btn_maths_sem2" class="btn-test" data-test-id="maths_sem2" onclick="handleTestClick(this)">Take Test</button>
+      </article>
+      <article class="test-list-item" id="item_hindi">
+        <div class="test-list-item-content">
+          <h3><strong>Hindi Subject Tests</strong></h3>
+          <p>Test your knowledge of Hindi grammar and language skills.</p>
+        </div>
+        <button id="btn_hindi" class="btn-test" data-test-id="hindi" onclick="handleTestClick(this)">Take Test</button>
+      </article>
+      <article class="test-list-item" id="item_general_science">
+        <div class="test-list-item-content">
+          <h3><strong>General Science Subject Tests</strong></h3>
+          <p>Explore general science topics covering basics of Physics, Chemistry, and Biology.</p>
+        </div>
+        <button id="btn_general_science" class="btn-test" data-test-id="general_science" onclick="handleTestClick(this)">Take Test</button>
+      </article>
+      <article class="test-list-item" id="item_physical_sem1">
+        <div class="test-list-item-content">
+          <h3><strong>Physical Science SEM 1 Tests</strong></h3>
+          <p>Semester 1 assessment for Physics and Chemistry topics.</p>
+        </div>
+        <button id="btn_physical_sem1" class="btn-test" data-test-id="physical_sem1" onclick="handleTestClick(this)">Take Test</button>
+      </article>
+      <article class="test-list-item" id="item_physical_sem2">
+        <div class="test-list-item-content">
+          <h3><strong>Physical Science SEM 2 Tests</strong></h3>
+          <p>Semester 2 assessment for Physics and Chemistry topics.</p>
+        </div>
+        <button id="btn_physical_sem2" class="btn-test" data-test-id="physical_sem2" onclick="handleTestClick(this)">Take Test</button>
+      </article>
+      <article class="test-list-item" id="item_biological_sem1">
+        <div class="test-list-item-content">
+          <h3><strong>Biological Science SEM 1 Tests</strong></h3>
+          <p>Semester 1 assessment for Biology and Life Science topics.</p>
+        </div>
+        <button id="btn_biological_sem1" class="btn-test" data-test-id="biological_sem1" onclick="handleTestClick(this)">Take Test</button>
+      </article>
+      <article class="test-list-item" id="item_biological_sem2">
+        <div class="test-list-item-content">
+          <h3><strong>Biological Science SEM 2 Tests</strong></h3>
+          <p>Semester 2 assessment for Biology and Life Science topics.</p>
+        </div>
+        <button id="btn_biological_sem2" class="btn-test" data-test-id="biological_sem2" onclick="handleTestClick(this)">Take Test</button>
+      </article>
+      <article class="test-list-item" id="item_social_sem1">
+        <div class="test-list-item-content">
+          <h3><strong>Social Studies SEM 1 Tests</strong></h3>
+          <p>Semester 1 assessment covering History, Civics, and Geography.</p>
+          </div>
+        <button id="btn_social_sem1" class="btn-test" data-test-id="social_sem1" onclick="handleTestClick(this)">Take Test</button>
+      </article>
+      <article class="test-list-item" id="item_social_sem2">
+        <div class="test-list-item-content">
+          <h3><strong>Social Studies SEM 2 Tests</strong></h3>
+          <p>Semester 2 assessment covering History, Civics, and Geography.</p>
+        </div>
+        <button id="btn_social_sem2" class="btn-test" data-test-id="social_sem2" onclick="handleTestClick(this)">Take Test</button>
+      </article>
+    </div>
+  </section>
 </div>
 
-<!-- Quiz Overlay Structure (Hidden by default) -->
-<div id="quizOverlay" class="hidden">
+<div id="quizOverlay">
     <div class="quiz-container">
-        <div class="quiz-header">
-            <h2 id="quizTitle"></h2>
-            <button id="closeQuiz" class="quiz-close-btn" onclick="closeQuizOverlay()">
-                <i class="fas fa-times"></i>
-            </button>
+        <div id="quizLoading" class="quiz-body">
+            <svg class="mx-auto animate-spin h-10 w-10 text-sv-orange" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            <p class="mt-4 font-semibold text-lg text-gray-600">Loading Free Test...</p>
+            <p class="text-gray-500">Please wait while we fetch the questions.</p>
         </div>
-        <div class="quiz-body">
-            <div id="quizLoading" class="hidden">
-                <svg class="loading-spinner h-8 w-8 text-sv-blue" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                </svg>
-                <p class="text-lg font-medium text-gray-600 mt-2">Loading Test...</p>
+        
+        <div id="quizInterface" class="hidden">
+            <div class="quiz-header">
+                <h2 id="quizHeaderTitle">Test Title: Question 1 of 15</h2>
+                <button class="quiz-close-btn" onclick="closeQuiz(true)">×</button>
             </div>
-            <div id="quizQuestionContainer">
-                 <p class="text-xl text-center text-gray-500 font-medium">Test will load here.</p>
+            <div class="quiz-body">
+                <div id="quizQuestionContainer">
+                    <p class="question-text" id="quizQuestionText"></p>
+                    <div class="quiz-options-grid" id="quizOptions">
+                    </div>
+                </div>
+            </div>
+            <div class="quiz-footer">
+                <div class="flex gap-4">
+                    <button class="quiz-nav-btn" id="quizPrevBtn" onclick="navigateQuestion(-1)">Previous</button>
+                    <button class="quiz-nav-btn" id="quizExitBtn" onclick="closeQuiz(true)" style="background-color: #fef2f2; color: #dc2626; border: 1px solid #fecaca; font-weight: 700;">Exit Test</button>
+                </div>
+                <button class="quiz-action-btn next" id="quizNextBtn" onclick="navigateQuestion(1)">Next</button>
+                <button class="quiz-action-btn submit hidden" id="quizSubmitBtn" onclick="submitQuiz()">Submit Test</button>
             </div>
         </div>
+
+        <div id="quizResults" class="hidden quiz-body">
+            <h2 class="text-2xl font-bold text-gray-800">Test Completed!</h2>
+            <p class="text-gray-600">Here is your performance summary.</p>
+            
+            <p class="results-score" id="resultsScore">12 / 15</p>
+            <p class="results-feedback" id="resultsFeedback">Excellent</p>
+
+            <div class="results-summary">
+                <div class="results-summary-inner flex justify-center gap-4">
+                    <div class="summary-item">
+                        <span class="summary-label">Correct</span>
+                        <span class="summary-value value-correct" id="resultsCorrect">12</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">Wrong</span>
+                        <span class="summary-value value-wrong" id="resultsWrong">3</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">Unanswered</span>
+                        <span class="summary-value" id="resultsUnanswered">0</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="results-actions">
+                <button class="quiz-nav-btn" onclick="closeQuiz(false)">Close</button>
+                <button class="quiz-action-btn next" onclick="showReview()">Review Test</button>
+            </div>
+        </div>
+        
+        <div id="quizReview" class="hidden">
+             <div class="quiz-header">
+                <h2>Review Your Answers</h2>
+                <button class="quiz-close-btn" onclick="closeQuiz(false)">×</button>
+            </div>
+            <div class="quiz-body" id="quizReviewContainer">
+            </div>
+             <div class="quiz-footer">
+                <button class="quiz-nav-btn" onclick="closeQuiz(false)">Close Review</button>
+            </div>
+        </div>
+
     </div>
 </div>
-<!-- End Quiz Overlay -->
+
 
 <footer class="bg-sv-blue text-white py-4 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-7xl mx-auto simple-footer">
-        <div class="simple-footer-social">
-            <a href="https://www.facebook.com/share/1ZXXCLRGwh" target="_blank" rel="noopener noreferrer" title="Facebook">
-                <i class="fab fa-facebook-f social-icon"></i>
+    <div class="max-w-7xl mx-auto footer-content-custom">
+        <div class="footer-social-icons text-xl">
+            <a href="https://www.facebook.com/share/1ZXXCLRGwh" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-sv-yellow transition">
+                <i class="fab fa-facebook-f"></i>
             </a>
-            <a href="https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=zreta93" target="_blank" rel="noopener noreferrer" title="Instagram">
-                <i class="fab fa-instagram social-icon"></i>
+            <a href="https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=zreta93" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-sv-yellow transition">
+                <i class="fab fa-instagram"></i>
             </a>
-            <a href="httpst.me/srivedatc" target="_blank" rel="noopener noreferrer" title="Telegram">
-                <i class="fab fa-telegram-plane social-icon"></i>
+            <a href="httpst.me/srivedatc" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-sv-yellow transition">
+                <i class="fab fa-telegram-plane"></i>
             </a>
-            <a href="http://wa.me/918985170500" target="_blank" rel="noopener noreferrer" title="WhatsApp">
-                <i class="fab fa-whatsapp social-icon"></i>
+            <a href="http://wa.me/918985170500" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-sv-yellow transition">
+                <i class="fab fa-whatsapp"></i>
             </a>
         </div>
-        <div class="simple-footer-copy">
-            <p class="text-gray-400 text-xs sm:text-sm">
-                &copy; 2025 Sri Veda Talent Competition. All Rights Reserved.
-            </p>
-        </div>
+        <p class="footer-copyright text-gray-400">
+            &copy; 2025 Sri Veda Talent Competition. All Rights Reserved.
+        </p>
     </div>
 </footer>
     <script>
-    // FIXED: Removed Markdown link formatting from the URL string.
     const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwxkXhT-S-ig4Ngrm-VpMmuhWQ1ZKadSLLx_FLDRHE6B_VJjJJEw9mjqu-G3unppbyk/exec";
+    const QUIZ_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxsZbSOXy1UdQQcYPsoOuVbh40l7ccL9GenBreiS7kfP7yRPV2jIFrgBqD2yA5bDGE/exec";
+    const LOCK_ICON_SVG = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="inline-block mr-1" viewBox="0 0 16 16" style="margin-bottom: 2px;">
+            <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/>
+        </svg>`;
+    const TAKE_TEST_TEXT = "Take Test";
     const loginScreen = document.getElementById('loginScreen');
     const dashboardContent = document.getElementById('dashboardContent');
     const loginForm = document.getElementById('loginForm');
@@ -2734,74 +2373,34 @@ body {
     const logoutBtn = document.getElementById('logoutBtn');
     const studentNameDisplay = document.getElementById('studentNameDisplay');
     const studentClassDisplay = document.getElementById('studentClassDisplay');
-    const subscriptionBadge = document.getElementById('subscriptionBadge'); 
+    // REMOVED: profileUsername, profileFullName, etc. references in JS due to HTML removal
+    // REMOVED: subFullName, subPlan, etc. references in JS due to HTML removal
+    const studentSubjectTestsSection = document.getElementById('studentSubjectTestsSection');
     const srmManagerName = document.getElementById('srmManagerName');
     const srmDirectContactValue = document.getElementById('srmDirectContactValue');
     const srmDirectContactLink = document.getElementById('srmDirectContactLink');
-    const syllabusContent = document.getElementById('syllabusContent'); // New element reference
-    const papersList = document.getElementById('papersList'); // New element reference for previous papers
-    const quizOverlay = document.getElementById('quizOverlay'); // Quiz Overlay reference
+    const subscriptionBadge = document.getElementById('subscriptionBadge'); 
     let studentClass = 0;
     
-    // --- Syllabus Data ---
-    const syllabusData = [
-        {
-            title: "SECTION 1: Language Test",
-            topics: [
-                "Factual Comprehension",
-                "Inferential Comprehension",
-                "Vocabulary in Context",
-                "Sequential Order and Cause/Effect",
-                "Main Idea and Theme"
-            ]
-        },
-        {
-            title: "SECTION 2: Arithmetic Test",
-            topics: [
-                "Number and Numeric System",
-                "Four Fundamental Operations on Whole Numbers",
-                "Fractional Numbers and Four Fundamental Operations on them",
-                "Factors and Multiples including their properties",
-                "LCM and HCF of Numbers",
-                "Decimals and Fundamental Operations on them",
-                "Conversion of Fractions to Decimals and vice-versa",
-                "Measurement: Length, Mass, Capacity, Time, Money",
-                "Distance, Time and Speed",
-                "Approximation of Expressions",
-                "Simplification of Numerical Expressions",
-                "Percentage and its Applications",
-                "Profit and Loss",
-                "Simple Interest",
-                "Perimeter, Area and Volume"
-            ]
-        },
-        {
-            title: "SECTION 3: Mental Ability Test",
-            topics: [
-                "Odd Man Out",
-                "Figure Matching",
-                "Pattern Completion",
-                "Figure Series Completion",
-                "Analogy",
-                "Geometrical Figure Completion",
-                "Mirror Imaging",
-                "Punched Hold Pattern (Folding and Unfolding)",
-                "Space Visualization",
-                "Embedded Figures"
-            ]
-        }
-    ];
+    // Variable to store the Y-coordinate of the button clicked to open the quiz
+    let lastScrollPosition = 0; 
+    let lastClickedElementId = null; 
 
-    // --- Previous Question Papers Data ---
-    const previousPapersData = [
-        { year: "2023-24", link: "#" }, // Placeholder link
-        { year: "2022-23", link: "#" }, 
-        { year: "2021-22", link: "#" }, 
-        { year: "2020-21", link: "#" }, 
-        { year: "2019-20", link: "#" } 
-    ];
+    // Define URLs for subject tests (assuming they open externally or are not yet implemented in the quiz overlay)
+    const urlMap = {
+        'telugu': {
+            3: '',
+            4: '',
+            5: '',
+            6: 'https://www.svtc.life',
+            7: 'https://www.svtc.life',
+            8: 'https://www.svtc.life',
+            9: 'https://www.svtc.life',
+            10: 'https://www.svtc.life',
+        },
+    };
+    const externalUrlMap = {}; // Placeholder for external links if any
 
-    // --- Core Utility Functions (Time, Status, Loading) ---
     function pad(n){return n.toString().padStart(2,'0')}
     function updateTime(){
         const now=new Date();
@@ -2858,127 +2457,6 @@ body {
         window.open('https://www.svtc.life/Pricing.html', '_blank');
     }
 
-    // --- Syllabus Rendering and Test Functions ---
-
-    /**
-     * Renders the syllabus dynamically with serial numbers and three HORIZONTALLY stacked 'Test' buttons.
-     */
-    function renderSyllabus() {
-        if (!syllabusContent) return;
-
-        let html = '';
-
-        syllabusData.forEach(section => {
-            let topicsListHtml = '';
-            
-            // Start a new ordered list for each section. The CSS handles the counter reset.
-            topicsListHtml += '<ol class="topic-list">';
-            
-            section.topics.forEach(topic => {
-                // Escape single quotes for use in JS string passed to onclick
-                const safeTopicName = topic.replace(/'/g, "\\'"); 
-                topicsListHtml += `
-                    <li>
-                        <div class="topic-details">
-                            <span class="topic-number"></span>
-                            <span class="topic-name">${topic}</span>
-                        </div>
-                        
-                        <!-- Three horizontally stacked test buttons as requested -->
-                        <div class="btn-test-group">
-                            <button class="btn-take-test test-btn-1" onclick="takeTest('${safeTopicName}', 1)">
-                                 <i class="fas fa-flask mr-1"></i> Test 1
-                            </button>
-                            <button class="btn-take-test test-btn-2" onclick="takeTest('${safeTopicName}', 2)">
-                                 <i class="fas fa-vial mr-1"></i> Test 2
-                            </button>
-                            <button class="btn-take-test test-btn-3" onclick="takeTest('${safeTopicName}', 3)">
-                                 <i class="fas fa-microscope mr-1"></i> Test 3
-                            </button>
-                        </div>
-                    </li>
-                `;
-            });
-            topicsListHtml += '</ol>';
-
-            html += `
-                <div class="syllabus-section-card">
-                    <h3>${section.title}</h3>
-                    ${topicsListHtml}
-                </div>
-            `;
-        });
-
-        syllabusContent.innerHTML = html;
-    }
-
-    /**
-     * Renders the previous year question papers list.
-     */
-    function loadPreviousPapers() {
-        if (!papersList) return;
-
-        let html = '';
-        previousPapersData.forEach(paper => {
-            html += `
-                <li class="paper-item">
-                    <div class="paper-year">Year: ${paper.year}</div>
-                    <a href="${paper.link}" target="_blank" onclick="showServerMaintenance('Opening PDF for ${paper.year}. (Placeholder link)'); return false;">
-                        <i class="fas fa-eye mr-1"></i> See Now
-                    </a>
-                </li>
-            `;
-        });
-        papersList.innerHTML = html;
-    }
-
-    /**
-     * Placeholder function to handle the 'Take Test' click.
-     * Updated to accept testNumber.
-     */
-    function takeTest(topicName, testNumber) {
-        const quizTitle = document.getElementById('quizTitle');
-        const quizLoading = document.getElementById('quizLoading');
-        const quizQuestionContainer = document.getElementById('quizQuestionContainer');
-
-        // Fixed Template Literal issue in previous step
-        quizTitle.textContent = `Practice Test ${testNumber}: ${topicName}`; 
-        quizQuestionContainer.innerHTML = ''; // Clear previous questions
-        quizLoading.classList.remove('hidden'); // Show loading spinner
-        
-        quizOverlay.classList.remove('hidden'); // Show the overlay
-        document.body.style.overflow = 'hidden'; // Prevent scrolling background
-
-        // Simulate fetching test data
-        setTimeout(() => {
-            quizLoading.classList.add('hidden');
-            // Placeholder content for the test
-            quizQuestionContainer.innerHTML = `
-                <div class="p-6 text-center">
-                    <p class="question-text">
-                        Test ${testNumber} for <strong>"${topicName}"</strong> is ready! 
-                    </p>
-                    <p class="text-gray-600">
-                        (Actual questions will be loaded here from the server.)
-                    </p>
-                    <button class="quiz-action-btn submit mt-6" onclick="closeQuizOverlay()">
-                        Close Test
-                    </button>
-                </div>
-            `;
-        }, 1500);
-    }
-
-    /**
-     * Closes the quiz overlay and restores body scrolling.
-     */
-    function closeQuizOverlay() {
-        quizOverlay.classList.add('hidden');
-        document.body.style.overflow = 'auto'; 
-    }
-    
-    // --- Authentication and Dashboard Flow (Unchanged) ---
-
     async function handleLogin(event) {
         event.preventDefault();
         setLoading(true);
@@ -2991,7 +2469,6 @@ body {
         };
 
         try {
-            // Error was here: APPS_SCRIPT_URL was formatted as a Markdown link. Fixed in previous step.
             const response = await fetch(APPS_SCRIPT_URL, {
                 method: 'POST',
                 mode: 'cors',
@@ -3002,15 +2479,20 @@ body {
             });
             const result = await response.json();
             if (result.success) {
-                if (!result.class || !result.class.trim().startsWith("2")) {
-                    showStatus("Only 5th Class Navodaya students are allowed here. Please contact 8985170500.", false);
+                if (!result.class || !result.class.trim().startsWith("5")) {
+                    showStatus("Only 5th Class students are allowed here. Please contact 8985170500.", false);
                     setLoading(false); 
                     return; 
                 }
+
                 showStatus("Login successful!", true);
+                
+                // --- Start of New Single Session Logic: Set Unique Session ID and Store Data ---
                 const sessionId = Date.now().toString(36) + Math.random().toString(36).substring(2); 
                 localStorage.setItem('sessionId', sessionId);
                 localStorage.setItem('loggedInUser', result.username);
+                // The rest of the data remains in sessionStorage, but the session control relies on localStorage
+                // Clearing sessionStorage is not needed here as it will be populated in showDashboard
                 sessionStorage.setItem('isLoggedIn', 'true');
                 sessionStorage.setItem('username', result.username); 
                 sessionStorage.setItem('fullName', result.fullName); 
@@ -3028,14 +2510,14 @@ body {
                 sessionStorage.setItem('timeSpent', result.timeSpent); 
                 sessionStorage.setItem('generalTests', result.generalTests); 
                 sessionStorage.setItem('subjectTests', result.subjectTests); 
-                sessionStorage.setItem('managerName', result.managerName) || 'Sri Veda Tc'; 
-                sessionStorage.setItem('directContact', result.directContact) || '8985170500';
+                sessionStorage.setItem('managerName', result.managerName); 
+                sessionStorage.setItem('directContact', result.directContact); 
+                
                 setTimeout(showDashboard, 1000); 
             } else {
                 showStatus(result.message || "Login Failed Please check USERNAME & PASSWROD.", false);
             }
         } catch (error) {
-            // Log the error for debugging purposes but show a generic message to the user
             console.error("Fetch Error:", error);
             showStatus("Please retry.", false);
         } finally {
@@ -3045,9 +2527,11 @@ body {
     
     function handleLogout(external = false) {
         if (!external) {
+            // Only clear the active session ID if this tab triggered the logout
             localStorage.removeItem('sessionId');
             localStorage.removeItem('loggedInUser');
         }
+        
         sessionStorage.clear();
         session = 0;
         updateSession();
@@ -3059,14 +2543,15 @@ body {
         dashboardContent.classList.add('hidden');
         loginScreen.classList.remove('hidden');
         loginForm.reset();
-        statusMessage.classList.add('hidden');
         studentClass = 0; 
+        updatePremiumButtonsVisuals(false);
 
         if (external) {
              showStatus("You have been logged out.", false);
         }
     }
 
+    // --- Start of New Single Session Logic: Session Polling ---
     let sessionCheckInterval;
 
     function startSessionPolling() {
@@ -3077,19 +2562,25 @@ body {
             const isLoggedIn = sessionStorage.getItem('isLoggedIn') === 'true';
 
             if (isLoggedIn && !currentSessionId) {
+                // If sessionStorage says logged in, but localStorage session ID is gone, force logout
                 handleLogout(true);
             } else if (isLoggedIn && localStorage.getItem('loggedInUser') !== sessionStorage.getItem('username')) {
+                // If another user logged in on this browser (or session ID changed for a different user)
                  handleLogout(true);
             } else if (!isLoggedIn && currentSessionId) {
+                // Should not happen, but if it does, clear localStorage to ensure consistency
                 localStorage.removeItem('sessionId');
                 localStorage.removeItem('loggedInUser');
             }
-        }, 5000); 
+        }, 5000); // Check every 5 seconds
     }
     
+    // Check if user is logged in on load
     function checkLoginStatus() {
+        // Clear sessionStorage on browser/tab close
         window.addEventListener('beforeunload', function() {
             if (sessionStorage.getItem('isLoggedIn') === 'true') {
+                 // Check if the current tab is the active session before clearing localStorage data
                  const currentSessionId = localStorage.getItem('sessionId');
                  const sessionStartId = sessionStorage.getItem('sessionStartId');
                  if(currentSessionId && currentSessionId === sessionStartId) {
@@ -3109,32 +2600,34 @@ body {
             loginScreen.classList.remove('hidden');
         }
     }
+    // --- End of New Single Session Logic ---
 
     function showDashboard() {
         window.scrollTo(0, 0);
 
+        // Ensure current session ID is tracked in sessionStorage for the 'beforeunload' check
         sessionStorage.setItem('sessionStartId', localStorage.getItem('sessionId'));
         startSessionPolling(); 
-        renderSyllabus(); // Call the syllabus rendering function
-        loadPreviousPapers(); // Call the new previous papers function
 
+        const username = sessionStorage.getItem('username') || 'N/A';
         const fullName = sessionStorage.getItem('fullName') || 'N/A';
         const classString = sessionStorage.getItem('class') || 'N/A';
         const subscription = sessionStorage.getItem('subscription') || 'N/A';
         const managerName = sessionStorage.getItem('managerName') || 'Sri Veda Tc'; 
         const directContact = sessionStorage.getItem('directContact') || '8985170500'; 
+        const isPremium = sessionStorage.getItem('isPremium') === 'true';
+        
         const classMatch = classString.match(/(\d+)/);
         studentClass = classMatch ? parseInt(classMatch[1], 10) : 0; 
-        
         loggedOutIcons.forEach(icon => icon.classList.add('hidden')); 
         loggedInControls.classList.remove('hidden');
         liveTime.classList.remove('hidden');
         sessionTimer.classList.remove('hidden');
         logoutBtn.classList.remove('hidden'); 
-        
         studentNameDisplay.textContent = fullName;
         studentClassDisplay.textContent = classString;
         
+
         if (srmManagerName) {
             srmManagerName.textContent = managerName;
         }
@@ -3170,16 +2663,569 @@ body {
         subscriptionBadge.classList.add(badgeClass);
         subscriptionBadge.textContent = displayText;
 
+        setupSubjectButtons();
+        updatePremiumButtonsVisuals(isPremium);
+        // animateTCRing() REMOVED
         loginScreen.classList.add('hidden');
         dashboardContent.classList.remove('hidden');
+        if (studentSubjectTestsSection && [3, 4, 5].includes(studentClass)) {
+             studentSubjectTestsSection.classList.add('hidden');
+        } else if (studentSubjectTestsSection) {
+             studentSubjectTestsSection.classList.remove('hidden');
+        }
     }
     
-    // Make these functions globally accessible for HTML onclick attributes
-    window.openPricingPage = openPricingPage; 
-    window.takeTest = takeTest; 
-    window.closeQuizOverlay = closeQuizOverlay; 
-    window.loadPreviousPapers = loadPreviousPapers; // Export the new function
+    function setupSubjectButtons() {
+    }
+
+    // animateTCRing function removed
+
+    const quizTestConfig = {
+        'free_test': {
+            url: QUIZ_SCRIPT_URL + '?sheet=FREE',
+            title: 'Free Test',
+            section: null,
+            topic: null
+        },
+        // Section 1: Language Test (5 Topics, 3 Tests Each)
+        'ga_topic_1_test1': { url: QUIZ_SCRIPT_URL + '?sheet=S111', title: 'Factual Comprehension - T1', section: 1, topic: 1 },
+        'ga_topic_1_test2': { url: QUIZ_SCRIPT_URL + '?sheet=S112', title: 'Factual Comprehension - T2', section: 1, topic: 1 },
+        'ga_topic_1_test3': { url: QUIZ_SCRIPT_URL + '?sheet=S113', title: 'Factual Comprehension - T3', section: 1, topic: 1 },
+        
+        'ga_topic_2_test1': { url: QUIZ_SCRIPT_URL + '?sheet=S121', title: 'Inferential Comprehension - T1', section: 1, topic: 2 },
+        'ga_topic_2_test2': { url: QUIZ_SCRIPT_URL + '?sheet=S122', title: 'Inferential Comprehension - T2', section: 1, topic: 2 },
+        'ga_topic_2_test3': { url: QUIZ_SCRIPT_URL + '?sheet=S123', title: 'Inferential Comprehension - T3', section: 1, topic: 2 },
+        
+        'ga_topic_3_test1': { url: QUIZ_SCRIPT_URL + '?sheet=S131', title: 'Vocabulary in Context - T1', section: 1, topic: 3 },
+        'ga_topic_3_test2': { url: QUIZ_SCRIPT_URL + '?sheet=S132', title: 'Vocabulary in Context - T2', section: 1, topic: 3 },
+        'ga_topic_3_test3': { url: QUIZ_SCRIPT_URL + '?sheet=S133', title: 'Vocabulary in Context - T3', section: 1, topic: 3 },
+        
+        'ga_topic_4_test1': { url: QUIZ_SCRIPT_URL + '?sheet=S141', title: 'Sequential Order and Cause/Effect - T1', section: 1, topic: 4 },
+        'ga_topic_4_test2': { url: QUIZ_SCRIPT_URL + '?sheet=S142', title: 'Sequential Order and Cause/Effect - T2', section: 1, topic: 4 },
+        'ga_topic_4_test3': { url: QUIZ_SCRIPT_URL + '?sheet=S143', title: 'Sequential Order and Cause/Effect - T3', section: 1, topic: 4 },
+        
+        'ga_topic_5_test1': { url: QUIZ_SCRIPT_URL + '?sheet=S151', title: 'Main Idea and Theme - T1', section: 1, topic: 5 },
+        'ga_topic_5_test2': { url: QUIZ_SCRIPT_URL + '?sheet=S152', title: 'Main Idea and Theme - T2', section: 1, topic: 5 },
+        'ga_topic_5_test3': { url: QUIZ_SCRIPT_URL + '?sheet=S153', title: 'Main Idea and Theme - T3', section: 1, topic: 5 },
+        
+        
+        // Section 2: Arithmetic Test (15 Topics, 3 Tests Each)
+        'gm_topic_1_test1': { url: QUIZ_SCRIPT_URL + '?sheet=S211', title: 'Number and Numeric System - T1', section: 2, topic: 1 },
+        'gm_topic_1_test2': { url: QUIZ_SCRIPT_URL + '?sheet=S212', title: 'Number and Numeric System - T2', section: 2, topic: 1 },
+        'gm_topic_1_test3': { url: QUIZ_SCRIPT_URL + '?sheet=S213', title: 'Number and Numeric System - T3', section: 2, topic: 1 },
+        
+        'gm_topic_2_test1': { url: QUIZ_SCRIPT_URL + '?sheet=S221', title: 'Four Fundamental Operations on Whole Numbers - T1', section: 2, topic: 2 },
+        'gm_topic_2_test2': { url: QUIZ_SCRIPT_URL + '?sheet=S222', title: 'Four Fundamental Operations on Whole Numbers - T2', section: 2, topic: 2 },
+        'gm_topic_2_test3': { url: QUIZ_SCRIPT_URL + '?sheet=S223', title: 'Four Fundamental Operations on Whole Numbers - T3', section: 2, topic: 2 },
+        
+        'gm_topic_3_test1': { url: QUIZ_SCRIPT_URL + '?sheet=S231', title: 'Fractional Numbers and Four Fundamental Operations on them - T1', section: 2, topic: 3 },
+        'gm_topic_3_test2': { url: QUIZ_SCRIPT_URL + '?sheet=S232', title: 'Fractional Numbers and Four Fundamental Operations on them - T2', section: 2, topic: 3 },
+        'gm_topic_3_test3': { url: QUIZ_SCRIPT_URL + '?sheet=S233', title: 'Fractional Numbers and Four Fundamental Operations on them - T3', section: 2, topic: 3 },
+        
+        'gm_topic_4_test1': { url: QUIZ_SCRIPT_URL + '?sheet=S241', title: 'Factors and Multiples including their properties - T1', section: 2, topic: 4 },
+        'gm_topic_4_test2': { url: QUIZ_SCRIPT_URL + '?sheet=S242', title: 'Factors and Multiples including their properties - T2', section: 2, topic: 4 },
+        'gm_topic_4_test3': { url: QUIZ_SCRIPT_URL + '?sheet=S243', title: 'Factors and Multiples including their properties - T3', section: 2, topic: 4 },
+        
+        'gm_topic_5_test1': { url: QUIZ_SCRIPT_URL + '?sheet=S251', title: 'LCM and HCF of Numbers - T1', section: 2, topic: 5 },
+        'gm_topic_5_test2': { url: QUIZ_SCRIPT_URL + '?sheet=S252', title: 'LCM and HCF of Numbers - T2', section: 2, topic: 5 },
+        'gm_topic_5_test3': { url: QUIZ_SCRIPT_URL + '?sheet=S253', title: 'LCM and HCF of Numbers - T3', section: 2, topic: 5 },
+        
+        'gm_topic_6_test1': { url: QUIZ_SCRIPT_URL + '?sheet=S261', title: 'Decimals and Fundamental Operations on them - T1', section: 2, topic: 6 },
+        'gm_topic_6_test2': { url: QUIZ_SCRIPT_URL + '?sheet=S262', title: 'Decimals and Fundamental Operations on them - T2', section: 2, topic: 6 },
+        'gm_topic_6_test3': { url: QUIZ_SCRIPT_URL + '?sheet=S263', title: 'Decimals and Fundamental Operations on them - T3', section: 2, topic: 6 },
+        
+        'gm_topic_7_test1': { url: QUIZ_SCRIPT_URL + '?sheet=S271', title: 'Conversion of Fractions to Decimals and vice-versa - T1', section: 2, topic: 7 },
+        'gm_topic_7_test2': { url: QUIZ_SCRIPT_URL + '?sheet=S272', title: 'Conversion of Fractions to Decimals and vice-versa - T2', section: 2, topic: 7 },
+        'gm_topic_7_test3': { url: QUIZ_SCRIPT_URL + '?sheet=S273', title: 'Conversion of Fractions to Decimals and vice-versa - T3', section: 2, topic: 7 },
+        
+        'gm_topic_8_test1': { url: QUIZ_SCRIPT_URL + '?sheet=S281', title: 'Measurement - T1', section: 2, topic: 8 },
+        'gm_topic_8_test2': { url: QUIZ_SCRIPT_URL + '?sheet=S282', title: 'Measurement - T2', section: 2, topic: 8 },
+        'gm_topic_8_test3': { url: QUIZ_SCRIPT_URL + '?sheet=S283', title: 'Measurement - T3', section: 2, topic: 8 },
+        
+        'gm_topic_9_test1': { url: QUIZ_SCRIPT_URL + '?sheet=S291', title: 'Distance, Time and Speed - T1', section: 2, topic: 9 },
+        'gm_topic_9_test2': { url: QUIZ_SCRIPT_URL + '?sheet=S292', title: 'Distance, Time and Speed - T2', section: 2, topic: 9 },
+        'gm_topic_9_test3': { url: QUIZ_SCRIPT_URL + '?sheet=S293', title: 'Distance, Time and Speed - T3', section: 2, topic: 9 },
+        
+        'gm_topic_10_test1': { url: QUIZ_SCRIPT_URL + '?sheet=S2101', title: 'Approximation of Expressions - T1', section: 2, topic: 10 },
+        'gm_topic_10_test2': { url: QUIZ_SCRIPT_URL + '?sheet=S2102', title: 'Approximation of Expressions - T2', section: 2, topic: 10 },
+        'gm_topic_10_test3': { url: QUIZ_SCRIPT_URL + '?sheet=S2103', title: 'Approximation of Expressions - T3', section: 2, topic: 10 },
+        
+        'ga_topic_6_test1': { url: QUIZ_SCRIPT_URL + '?sheet=S2111', title: 'Simplification of Numerical Expressions - T1', section: 2, topic: 11 },
+        'ga_topic_6_test2': { url: QUIZ_SCRIPT_URL + '?sheet=S2112', title: 'Simplification of Numerical Expressions - T2', section: 2, topic: 11 },
+        'ga_topic_6_test3': { url: QUIZ_SCRIPT_URL + '?sheet=S2113', title: 'Simplification of Numerical Expressions - T3', section: 2, topic: 11 },
+        
+        'ga_topic_7_test1': { url: QUIZ_SCRIPT_URL + '?sheet=S2121', title: 'Percentage and its Applications - T1', section: 2, topic: 12 },
+        'ga_topic_7_test2': { url: QUIZ_SCRIPT_URL + '?sheet=S2122', title: 'Percentage and its Applications - T2', section: 2, topic: 12 },
+        'ga_topic_7_test3': { url: QUIZ_SCRIPT_URL + '?sheet=S2123', title: 'Percentage and its Applications - T3', section: 2, topic: 12 },
+        
+        'ga_topic_8_test1': { url: QUIZ_SCRIPT_URL + '?sheet=S2131', title: 'Profit and Loss - T1', section: 2, topic: 13 },
+        'ga_topic_8_test2': { url: QUIZ_SCRIPT_URL + '?sheet=S2132', title: 'Profit and Loss - T2', section: 2, topic: 13 },
+        'ga_topic_8_test3': { url: QUIZ_SCRIPT_URL + '?sheet=S2133', title: 'Profit and Loss - T3', section: 2, topic: 13 },
+        
+        'ga_topic_9_test1': { url: QUIZ_SCRIPT_URL + '?sheet=S2141', title: 'Simple Interest - T1', section: 2, topic: 14 },
+        'ga_topic_9_test2': { url: QUIZ_SCRIPT_URL + '?sheet=S2142', title: 'Simple Interest - T2', section: 2, topic: 14 },
+        'ga_topic_9_test3': { url: QUIZ_SCRIPT_URL + '?sheet=S2143', title: 'Simple Interest - T3', section: 2, topic: 14 },
+        
+        'ga_topic_10_test1': { url: QUIZ_SCRIPT_URL + '?sheet=S2151', title: 'Perimeter, Area and Volume - T1', section: 2, topic: 15 },
+        'ga_topic_10_test2': { url: QUIZ_SCRIPT_URL + '?sheet=S2152', title: 'Perimeter, Area and Volume - T2', section: 2, topic: 15 },
+        'ga_topic_10_test3': { url: QUIZ_SCRIPT_URL + '?sheet=S2153', title: 'Perimeter, Area and Volume - T3', section: 2, topic: 15 },
+
+
+        // Section 3: Mental Ability Test (10 Topics, 3 Tests Each)
+        'am_topic_1_test1': { url: QUIZ_SCRIPT_URL + '?sheet=S311', title: 'Odd Man Out - T1', section: 3, topic: 1 },
+        'am_topic_1_test2': { url: QUIZ_SCRIPT_URL + '?sheet=S312', title: 'Odd Man Out - T2', section: 3, topic: 1 },
+        'am_topic_1_test3': { url: QUIZ_SCRIPT_URL + '?sheet=S313', title: 'Odd Man Out - T3', section: 3, topic: 1 },
+        
+        'am_topic_2_test1': { url: QUIZ_SCRIPT_URL + '?sheet=S321', title: 'Figure Matching - T1', section: 3, topic: 2 },
+        'am_topic_2_test2': { url: QUIZ_SCRIPT_URL + '?sheet=S322', title: 'Figure Matching - T2', section: 3, topic: 2 },
+        'am_topic_2_test3': { url: QUIZ_SCRIPT_URL + '?sheet=S323', title: 'Figure Matching - T3', section: 3, topic: 2 },
+        
+        'am_topic_3_test1': { url: QUIZ_SCRIPT_URL + '?sheet=S331', title: 'Pattern Completion - T1', section: 3, topic: 3 },
+        'am_topic_3_test2': { url: QUIZ_SCRIPT_URL + '?sheet=S332', title: 'Pattern Completion - T2', section: 3, topic: 3 },
+        'am_topic_3_test3': { url: QUIZ_SCRIPT_URL + '?sheet=S333', title: 'Pattern Completion - T3', section: 3, topic: 3 },
+        
+        'am_topic_4_test1': { url: QUIZ_SCRIPT_URL + '?sheet=S341', title: 'Figure Series Completion - T1', section: 3, topic: 4 },
+        'am_topic_4_test2': { url: QUIZ_SCRIPT_URL + '?sheet=S342', title: 'Figure Series Completion - T2', section: 3, topic: 4 },
+        'am_topic_4_test3': { url: QUIZ_SCRIPT_URL + '?sheet=S343', title: 'Figure Series Completion - T3', section: 3, topic: 4 },
+        
+        'am_topic_5_test1': { url: QUIZ_SCRIPT_URL + '?sheet=S351', title: 'Analogy - T1', section: 3, topic: 5 },
+        'am_topic_5_test2': { url: QUIZ_SCRIPT_URL + '?sheet=S352', title: 'Analogy - T2', section: 3, topic: 5 },
+        'am_topic_5_test3': { url: QUIZ_SCRIPT_URL + '?sheet=S353', title: 'Analogy - T3', section: 3, topic: 5 },
+        
+        'am_topic_6_test1': { url: QUIZ_SCRIPT_URL + '?sheet=S361', title: 'Geometrical Figure Completion - T1', section: 3, topic: 6 },
+        'am_topic_6_test2': { url: QUIZ_SCRIPT_URL + '?sheet=S362', title: 'Geometrical Figure Completion - T2', section: 3, topic: 6 },
+        'am_topic_6_test3': { url: QUIZ_SCRIPT_URL + '?sheet=S363', title: 'Geometrical Figure Completion - T3', section: 3, topic: 6 },
+        
+        'am_topic_7_test1': { url: QUIZ_SCRIPT_URL + '?sheet=S371', title: 'Mirror Imaging - T1', section: 3, topic: 7 },
+        'am_topic_7_test2': { url: QUIZ_SCRIPT_URL + '?sheet=S372', title: 'Mirror Imaging - T2', section: 3, topic: 7 },
+        'am_topic_7_test3': { url: QUIZ_SCRIPT_URL + '?sheet=S373', title: 'Mirror Imaging - T3', section: 3, topic: 7 },
+        
+        'am_topic_8_test1': { url: QUIZ_SCRIPT_URL + '?sheet=S381', title: 'Punched Hold Pattern (Folding and Unfolding) - T1', section: 3, topic: 8 },
+        'am_topic_8_test2': { url: QUIZ_SCRIPT_URL + '?sheet=S382', title: 'Punched Hold Pattern (Folding and Unfolding) - T2', section: 3, topic: 8 },
+        'am_topic_8_test3': { url: QUIZ_SCRIPT_URL + '?sheet=S383', title: 'Punched Hold Pattern (Folding and Unfolding) - T3', section: 3, topic: 8 },
+        
+        'am_topic_9_test1': { url: QUIZ_SCRIPT_URL + '?sheet=S391', title: 'Space Visualization - T1', section: 3, topic: 9 },
+        'am_topic_9_test2': { url: QUIZ_SCRIPT_URL + '?sheet=S392', title: 'Space Visualization - T2', section: 3, topic: 9 },
+        'am_topic_9_test3': { url: QUIZ_SCRIPT_URL + '?sheet=S393', title: 'Space Visualization - T3', section: 3, topic: 9 },
+        
+        'am_topic_10_test1': { url: QUIZ_SCRIPT_URL + '?sheet=S3101', title: 'Embedded Figures - T1', section: 3, topic: 10 },
+        'am_topic_10_test2': { url: QUIZ_SCRIPT_URL + '?sheet=S3102', title: 'Embedded Figures - T2', section: 3, topic: 10 },
+        'am_topic_10_test3': { url: QUIZ_SCRIPT_URL + '?sheet=S3103', title: 'Embedded Figures - T3', section: 3, topic: 10 }
+    };
+
+
+    // The entire existing Javascript code remains here, with only the quizTestConfig updated 
+    // to map the new topic IDs to the existing sheet URLs (LT11, AT21, etc.).
+    // The handlePremiumTestClick function is correctly set up to use the data-test-id
+    // which now includes the test number (e.g., 'ga_topic_1_test1').
+
+    // Updated handleTestClick to accept the button element
+    function handleTestClick(buttonElement) {
+        const testId = buttonElement.getAttribute('data-test-id');
+        const isPremium = sessionStorage.getItem('isPremium') === 'true';
+
+        if (!isPremium) {
+            showServerMaintenance('This is a premium feature. Please upgrade your plan to access.');
+            return;
+        }
+
+        // Store the current scroll position and the element ID before opening the quiz
+        lastScrollPosition = window.scrollY;
+        lastClickedElementId = buttonElement.closest('article, .sub-topic-item').id;
+
+        if (urlMap[testId] && urlMap[testId][studentClass]) {
+            const url = urlMap[testId][studentClass];
+            if (url) {
+                window.open(url, '_blank');
+            } else {
+                showServerMaintenance('This test is not yet available for your class.');
+            }
+        } else if (externalUrlMap[testId]) { 
+             const url = externalUrlMap[testId];
+             window.open(url, '_blank');
+        } else {
+            showServerMaintenance('This test is currently unavailable. Please check back later.');
+            console.warn(`No URL found for testId: ${testId} and class: ${studentClass}`);
+        }
+    }
+
+    function updatePremiumButtonsVisuals(isPremium) {
+        // Updated selector to target the new button group structure
+        const premiumButtons = document.querySelectorAll('.subject-tests .sub-topic-item .btn-test');
+        
+        premiumButtons.forEach(button => {
+            if (isPremium) {
+                button.classList.remove('locked');
+                button.disabled = false;
+                button.innerHTML = button.textContent; // Use existing text (Test 1, Test 2, etc.)
+            } else {
+                button.classList.add('locked');
+                button.disabled = true;
+                button.innerHTML = `${LOCK_ICON_SVG} ${button.textContent}`;
+            }
+        });
+    }
+
+    // Updated handlePremiumTestClick to accept the button element
+    function handlePremiumTestClick(buttonElement) {
+        const testId = buttonElement.getAttribute('data-test-id');
+        const isPremium = sessionStorage.getItem('isPremium') === 'true';
+        
+        if (testId === 'free_test') {
+            startQuiz('free_test');
+            return;
+        }
+
+        if (!isPremium) {
+            showServerMaintenance('This is a premium feature. Please upgrade your plan to access.');
+            return; 
+        }
+
+        if (quizTestConfig[testId]) {
+            // Store the current scroll position and the element ID before opening the quiz
+            lastScrollPosition = window.scrollY;
+            lastClickedElementId = buttonElement.closest('article, .sub-topic-item').id;
+
+            startQuiz(testId);
+        } else if (externalUrlMap[testId]) {
+            const url = externalUrlMap[testId];
+            console.log(`Navigating to test: ${url}`);
+            window.open(url, '_blank');
+        } else {
+            console.warn(`No URL or Quiz Config found for testId: ${testId}`);
+            showServerMaintenance('This test is currently unavailable.');
+        }
+    }
+
+    function handlePlanClick(planType) {
+        const urls = {
+            'take_plan': 'https://www.svtc.life/Pricing.html', // Redirecting to Pricing as an assumption
+            'renew_plan': 'https://www.svtc.life/Contact.html', // Redirecting to Contact for renewal help
+            'update_plan': 'https://www.svtc.life/Contact.html' // Redirecting to Contact for upgrade help
+        };
+        const url = urls[planType] || 'https://www.svtc.life/Pricing.html';
+        console.log(`Plan action: ${planType}, URL: ${url}`);
+        window.open(url, '_blank');
+    }
+
+
+    let allQuestions = [];
+    let userAnswers = {}; 
+    let currentTestConfig = {}; 
+    let currentQuestionIndex = 0;
+    
+    const quizOverlay = document.getElementById('quizOverlay');
+    const quizLoading = document.getElementById('quizLoading');
+    const quizInterface = document.getElementById('quizInterface');
+    const quizResults = document.getElementById('quizResults');
+    const quizReview = document.getElementById('quizReview');
+
+    const quizHeaderTitle = document.getElementById('quizHeaderTitle');
+    const quizQuestionText = document.getElementById('quizQuestionText');
+    const quizOptions = document.getElementById('quizOptions');
+    
+    const quizPrevBtn = document.getElementById('quizPrevBtn');
+    const quizNextBtn = document.getElementById('quizNextBtn');
+    const quizSubmitBtn = document.getElementById('quizSubmitBtn');
+
+    function startQuiz(testId) {
+        currentTestConfig = quizTestConfig[testId];
+        
+        if (!currentTestConfig) {
+             showServerMaintenance('Test configuration not found.');
+             return;
+        }
+        
+        dashboardContent.style.display = 'none';
+        quizOverlay.style.display = 'block';
+        
+        quizInterface.classList.add('hidden');
+        quizResults.classList.add('hidden');
+        quizReview.classList.add('hidden');
+        quizLoading.classList.remove('hidden');
+
+        allQuestions = [];
+        userAnswers = {};
+        currentQuestionIndex = 0;
+
+        fetchQuestions(currentTestConfig.url); 
+    }
+
+    async function fetchQuestions(apiUrl) {
+        try {
+            const response = await fetch(apiUrl);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const result = await response.json();
+
+            if (result.success && result.data) {
+                let rawData = result.data;
+                
+                const isFreeTest = (currentTestConfig.title === 'Free Test');
+                const questionLimit = isFreeTest ? 15 : 50;
+
+                allQuestions = rawData.filter(q => q.serialNumber && q.question && String(q.serialNumber).toLowerCase() !== 'serialnumber').slice(0, questionLimit);
+                
+                if (allQuestions.length === 0) {
+                    throw new Error("No valid questions found.");
+                }
+
+                quizLoading.classList.add('hidden');
+                quizInterface.classList.remove('hidden');
+                showQuestion(0);
+
+            } else {
+                throw new Error(result.error || "Failed to load data.");
+            }
+        } catch (error) {
+            console.error("Error fetching questions:", error);
+            quizLoading.innerHTML = `<p class="text-red-600 font-semibold">Error: ${error.message}</p><p class="mt-4">Please try again later.</p><button class="quiz-nav-btn mt-6" onclick="closeQuiz(false)">Close</button>`;
+        }
+    }
+    
+    function showQuestion(index) {
+        if (index < 0 || index >= allQuestions.length) return;
+
+        currentQuestionIndex = index;
+        const question = allQuestions[index];
+        
+        // --- Updated Quiz Title Logic ---
+        let titlePrefix = currentTestConfig.title;
+        // Check if the title already contains the test number (T1, T2, T3) before adding topic/section
+        if (!titlePrefix.includes(' - T')) {
+            if (currentTestConfig.section && currentTestConfig.topic) {
+                titlePrefix = `S${currentTestConfig.section}.T${currentTestConfig.topic} - ${currentTestConfig.title}`;
+            }
+        }
+        quizHeaderTitle.textContent = `${titlePrefix}: Question ${index + 1} of ${allQuestions.length}`;
+        // --- End of Updated Quiz Title Logic ---
+
+        quizQuestionText.textContent = question.question;
+
+        quizOptions.innerHTML = ''; 
+        const options = [question.option1, question.option2, question.option3, question.option4];
+        
+        options.forEach((optionText, i) => {
+            const optionIndex = i + 1; 
+            const isChecked = (userAnswers[index] === optionIndex);
+            
+            const optionId = `q${index}_opt${optionIndex}`;
+            quizOptions.innerHTML += `
+                <label for="${optionId}" class="quiz-option-label ${isChecked ? 'option-selected' : ''}" onclick="updateSelectedOption(this)">
+                    <input 
+                        type="radio" 
+                        name="question_${index}" 
+                        id="${optionId}" 
+                        value="${optionIndex}"
+                        ${isChecked ? 'checked' : ''}
+                        onchange="selectAnswer(${optionIndex})">
+                    <span>${optionIndex}. ${optionText}</span>
+                </label>
+            `;
+        });
+
+        quizPrevBtn.disabled = (index === 0);
+        quizNextBtn.classList.toggle('hidden', index === allQuestions.length - 1);
+        quizSubmitBtn.classList.toggle('hidden', index !== allQuestions.length - 1);
+        
+    }
+    
+    function updateSelectedOption(labelElement) {
+        const groupName = labelElement.htmlFor.split('_')[0]; 
+        document.querySelectorAll(`label[for^="${groupName}_"]`).forEach(label => {
+            label.classList.remove('option-selected');
+        });
+        labelElement.classList.add('option-selected');
+    }
+
+    function selectAnswer(optionIndex) {
+        userAnswers[currentQuestionIndex] = optionIndex;
+    }
+
+    function navigateQuestion(direction) {
+        const newIndex = currentQuestionIndex + direction;
+        if (newIndex >= 0 && newIndex < allQuestions.length) {
+            showQuestion(newIndex);
+        }
+    }
+
+    function submitQuiz() {
+        calculateAndShowResults();
+    }
+
+
+
+// This map converts option text indicators (like 'ONE', 'OPTION 1') to their index (1-4)
+    const correctOptionMap = {
+        "ONE": 1, "OPTION 1": 1, "1": 1,
+        "TWO": 2, "OPTION 2": 2, "2": 2,
+        "THREE": 3, "OPTION 3": 3, "3": 3,
+        "FOUR": 4, "OPTION 4": 4, "4": 4
+    };
+
+    function calculateAndShowResults() {
+        let correctCount = 0;
+        let wrongCount = 0;
+
+        for (let i = 0; i < allQuestions.length; i++) {
+            const question = allQuestions[i];
+            
+            const correctOptionValue = String(question.correctOption || "").toUpperCase().trim();
+            let correctIndex = null;
+            
+            // Attempt 1: Map the value directly from the sheet (supports '1', 'FOUR', 'OPTION 2', etc.)
+            correctIndex = correctOptionMap[correctOptionValue];
+
+            // Attempt 2: If mapping failed, try parsing as an integer
+            if (!correctIndex) {
+                const numValue = parseInt(correctOptionValue, 10);
+                if (!isNaN(numValue) && numValue >= 1 && numValue <= 4) {
+                    correctIndex = numValue;
+                }
+            }
+
+            // Attempt 3 (Fallback/Old Logic): If all else fails, match by option text. (Only if G column has the full text of A/B/C/D)
+            if (!correctIndex && correctOptionValue.length > 0) {
+                const option1Text = String(question.option1 || "").toUpperCase().trim();
+                const option2Text = String(question.option2 || "").toUpperCase().trim();
+                const option3Text = String(question.option3 || "").toUpperCase().trim();
+                const option4Text = String(question.option4 || "").toUpperCase().trim();
+
+                if (correctOptionValue === option1Text) { correctIndex = 1; }
+                else if (correctOptionValue === option2Text) { correctIndex = 2; }
+                else if (correctOptionValue === option3Text) { correctIndex = 3; }
+                else if (correctOptionValue === option4Text) { correctIndex = 4; }
+            }
+        }        
+        const unansweredCount = allQuestions.length - (correctCount + wrongCount);
+        
+        let feedbackText = "";
+        let feedbackClass = "";
+
+        // Percentage calculation based on total questions
+        const scorePercentage = (correctCount / allQuestions.length) * 100;
+
+        if (scorePercentage < 60) {
+            feedbackText = "Needs Improvement";
+            feedbackClass = "feedback-improve";
+        } else if (scorePercentage >= 60 && scorePercentage < 80) { 
+            feedbackText = "Very Good";
+            feedbackClass = "feedback-good";
+        } else { 
+            feedbackText = "Excellent";
+            feedbackClass = "feedback-excellent";
+        }
+
+        document.getElementById('resultsScore').textContent = `${correctCount} / ${allQuestions.length}`;
+        document.getElementById('resultsFeedback').textContent = feedbackText;
+        document.getElementById('resultsFeedback').className = `results-feedback ${feedbackClass}`;
+        document.getElementById('resultsCorrect').textContent = correctCount;
+        document.getElementById('resultsWrong').textContent = wrongCount;
+        document.getElementById('resultsUnanswered').textContent = unansweredCount;
+
+        quizInterface.classList.add('hidden');
+        quizResults.classList.remove('hidden');
+    }
+
+    function showReview() {
+        const reviewContainer = document.getElementById('quizReviewContainer');
+        reviewContainer.innerHTML = ''; 
+
+        allQuestions.forEach((question, i) => {
+            
+            const correctAnswerText = String(question.correctOption || "").trim();
+            let correctIndex;
+
+            if (correctAnswerText && correctAnswerText === String(question.option1 || "").trim()) {
+                correctIndex = 1;
+            } else if (correctAnswerText && correctAnswerText === String(question.option2 || "").trim()) {
+                correctIndex = 2;
+            } else if (correctAnswerText && correctAnswerText === String(question.option3 || "").trim()) {
+                correctIndex = 3;
+            } else if (correctAnswerText && correctAnswerText === String(question.option4 || "").trim()) {
+                correctIndex = 4;
+            } else {
+                const correctOptionString = String(question.correctOption || "").toUpperCase().trim();
+                correctIndex = correctOptionMap[correctOptionString];
+            }
+
+            const userIndex = userAnswers[i]; 
+            const options = [question.option1, question.option2, question.option3, question.option4];
+
+            let optionsHtml = '';
+            options.forEach((optionText, optIdx) => {
+                const optionNum = optIdx + 1;
+                let optionClass = 'review-option';
+                
+                if (optionNum === correctIndex) {
+                    optionClass += ' correct'; 
+                } else if (optionNum === userIndex && userIndex !== correctIndex) {
+                    optionClass += ' incorrect'; 
+                }
+
+                optionsHtml += `<div class="${optionClass}">${optionNum}. ${optionText}</div>`;
+            });
+
+            reviewContainer.innerHTML += `
+                <div class="review-item">
+                    <div class="review-question">
+                        <p>${i + 1}. ${question.question}</p>
+                    </div>
+                    <div class="review-options">
+                        ${optionsHtml}
+                    </div>
+                    ${question.explanation ? `
+                    <div class="review-explanation">
+                        <strong>Explanation:</strong>
+                        <p>${question.explanation}</p>
+                    </div>` : ''}
+                </div>
+            `;
+        });
+
+        quizResults.classList.add('hidden');
+        quizReview.classList.remove('hidden');
+    }
+
+    function closeQuiz(checkInProgress = false) {
+        if (checkInProgress) {
+             // You can add a confirmation modal here instead of using the native alert/confirm
+        }
+        
+        quizOverlay.style.display = 'none';
+        dashboardContent.style.display = 'block';
+
+        // Reset quiz state
+        quizInterface.classList.add('hidden');
+        quizResults.classList.add('hidden');
+        quizReview.classList.add('hidden');
+        quizLoading.classList.remove('hidden'); 
+
+        // --- New Logic: Scroll back to the original position ---
+        if (lastClickedElementId) {
+            const targetElement = document.getElementById(lastClickedElementId);
+            if (targetElement) {
+                // Scroll the dashboard content so that the clicked element is in view
+                targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } else {
+                // If element is gone, scroll to the previous general scroll position
+                window.scrollTo({ top: lastScrollPosition, behavior: 'smooth' });
+            }
+            lastClickedElementId = null; // Clear the stored element ID
+        } else {
+             window.scrollTo({ top: lastScrollPosition, behavior: 'smooth' });
+        }
+    }
+
+    
+    window.handleTestClick = handleTestClick;
+    window.handlePremiumTestClick = handlePremiumTestClick; 
+    window.startQuiz = startQuiz; 
+    window.handlePlanClick = handlePlanClick; 
+    window.takeTest = handleTestClick;
     window.showServerMaintenance = showServerMaintenance;
+    window.openPricingPage = openPricingPage; 
     
     document.addEventListener('DOMContentLoaded', () => {
         const dynamicMenu = document.getElementById('dynamicMenu');
