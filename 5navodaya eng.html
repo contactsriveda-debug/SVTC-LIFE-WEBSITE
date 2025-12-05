@@ -1639,6 +1639,14 @@
         }
     }
     /* END FOOTER STYLES */
+
+    /* NEW CSS: Blur Effect for Background Content */
+    #dashboardContent.blur-background-active {
+        filter: blur(16px); /* Apply strong blur effect */
+        opacity: 0.7; /* Optional: dim the background slightly */
+        transition: filter 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        pointer-events: none; /* Disable interaction with elements in the background */
+    }
   </style>
 </head>
 <body class="bg-gray-50">
@@ -2936,7 +2944,11 @@
              return;
         }
         
-        dashboardContent.style.display = 'none';
+        // ADDED: Apply blur effect to the dashboard content
+        dashboardContent.classList.add('blur-background-active');
+
+        // Show quiz overlay and hide dashboard
+        dashboardContent.style.display = 'block'; // Keep it visible for the blur filter to apply
         quizOverlay.style.display = 'block';
         
         quizInterface.classList.add('hidden');
@@ -3194,6 +3206,10 @@
         }
         
         quizOverlay.style.display = 'none';
+        
+        // ADDED: Remove blur effect from the dashboard content
+        dashboardContent.classList.remove('blur-background-active');
+
         dashboardContent.style.display = 'block';
 
         // Reset quiz state
