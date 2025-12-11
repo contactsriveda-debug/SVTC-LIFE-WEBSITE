@@ -3072,10 +3072,16 @@ const quizTestConfig = {
     
     const freeQuizApiUrl = QUIZ_SCRIPT_URL + "?sheet=FREE";
     
-    const correctOptionMap = {
+     const correctOptionMap = {
         "ONE": 1, "TWO": 2, "THREE": 3, "FOUR": 4, "1": 1, "2": 2, "3": 3, "4": 4,
-        "OPTION 1": 1, "OPTION 2": 2, "OPTION 3": 3, "OPTION 4": 4
+        "OPTION 1": 1, "OPTION 2": 2, "OPTION 3": 3, "OPTION 4": 4,
+              "Option 1": 1, "Option 2": 2, "Option 3": 3, "Option 4": 4,
+              "OPTION A": 1, "OPTION B": 2, "OPTION C": 3, "OPTION D": 4,
+              "Option A": 1, "Option B": 2, "Option C": 3, "Option D": 4,
+              "A": 1, "B": 2, "C": 3, "D": 4
+
     };
+	
     
     const quizOverlay = document.getElementById('quizOverlay');
     const quizLoading = document.getElementById('quizLoading');
@@ -3402,6 +3408,7 @@ quizHeaderTitle.textContent = `${titlePrefix}: Question ${index + 1} / ${questio
 </script>
 </body>
 </html>
+
 
 
 
