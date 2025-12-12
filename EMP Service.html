@@ -430,6 +430,51 @@
         let currentEmpId = null;
         let currentSessionId = null;
 
+        // Function to create the dynamic WhatsApp share link
+        function getWhatsAppShareLink(reg) {
+            // 1. Dynamic Variables
+            // Get phone number from 6th column (reg.number). Clean it up and use as the recipient.
+            const phoneNumber = reg.number ? reg.number.toString().replace(/\D/g, '') : '919392100363'; 
+            
+            // Get Name from 4th column
+            const studentName = reg.name || 'Student';
+            
+            // Get Class from 5th column
+            const studentClass = reg.class || 'Class'; 
+            
+            // Create the URL part for the class (e.g., "4th Class" -> "4th%20Class.html")
+            const loginLinkClassPart = reg.class ? `${reg.class.replace(/\s/g, '%20')}.html` : 'Join%20now.html';
+            
+            // Get Username from 2nd column
+            const username = reg.username || 'USERNAME';
+            
+            // Get Password from 3rd column
+            const password = reg.password || 'PASSWORD';
+
+            // 2. Raw Message Template (using dynamic variables and the user's provided Telugu/English structure)
+            const rawMessage = 
+                `Hello Student, click the link and login:\n` +
+                `హలో స్టూడెంట్, లింక్ క్లిక్ చేసి లాగిన్ అవండి:\n` +
+                `https://www.svtc.life/${loginLinkClassPart}\n\n` +
+                `Username & Password in CAPITAL LETTERS only / Username ని CAPITAL LETTERS లో మాత్రమే పెట్టండి.\n\n` +
+                `YOUR NAME IS : ${studentName}\n` +
+                `1. YOUR CLASS IS : ${studentClass}\n` +
+                `2. YOUR USERNAME IS : ${username}\n` +
+                `3. YOUR PASSWORD IS : ${password}\n\n` +
+                `4. Note this :-\n` +
+                `▶️ Any doubt? ask to SRM / ఏ డౌట్ ఉన్నా వెంటనే మీ SRM కి సంప్రదించండి.\n` +
+                `▶️ Don’t share your login details / లాగిన్ వివరాలు ఎవరికీనా షేయర్ చేయకండి.\n` +
+                `▶️ After test'S must to logout / మీ టెస్ట్‌లు అయిన వెంటనే తప్పకుండా లాగ్ అవుట్ అవ్వండి.\n` +
+                `▶️ Don’t login on two devices / రెండు డివైసుల్లో ఒకేసారి లాగిన్ అవ్వకండి.\n` +
+                `▶️ We track your login + exams / మీ లాగిన్, చేసిన ఎగ్జామ్‌లు మా దగ్గర రికార్డ్ అవుతాయి`;
+
+            // 3. Encode the entire message body and return the final WhatsApp link
+            const encodedMessage = encodeURIComponent(rawMessage);
+            
+            return `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+        }
+
+
         document.addEventListener('DOMContentLoaded', () => {
             
             const loginScreen = document.getElementById('loginScreen');
@@ -559,6 +604,8 @@
                         <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Plan</th>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Expiration Date</th>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Remaining Days</th>
+                        <!-- NEW SHARE COLUMN ADDED -->
+                        <th scope="col" class="px-6 py-3 text-center text-xs font-bold text-gray-600 uppercase tracking-wider">Share</th>
                     </tr>
                 `;
                 registrationThead.innerHTML = headerHtml;
@@ -567,8 +614,11 @@
                 registrationTbody.innerHTML = '';
                 
                 
-                // Calculate colspan for the 'No data' row
-                const colspan = (currentEmpId === 'EMPBSN' || currentEmpId === 'EMPKNR') ? 10 : 9;
+                // Calculate colspan for the 'No data' row: 9 existing + 1 new Share column = 10. +1 for Manager Name = 11.
+                let colspan = 10;
+                if (currentEmpId === 'EMPBSN' || currentEmpId === 'EMPKNR') {
+                    colspan = 11;
+                }
 
                 if (!data.registrations || data.registrations.length === 0) {
                     registrationTbody.innerHTML = `<tr><td colspan="${colspan}" class="px-6 py-4 text-center text-gray-500">No registrations found for this employee.</td></tr>`;
@@ -578,6 +628,9 @@
                 data.registrations.forEach(reg => {
                     const expDate = (reg.plan && reg.plan.toString().toLowerCase() === 'free') ? '-' : (reg.expDate || '-');
                     const remDays = (reg.plan && reg.plan.toString().toLowerCase() === 'free') ? null : reg.remDays;
+                    
+                    // Generate WhatsApp link using the new function
+                    const whatsappLink = getWhatsAppShareLink(reg);
 
                     let row = `
                         <tr>
@@ -616,6 +669,18 @@
                             <td class="px-6 py-4 whitespace-nowrap text-sm">${getPlanBadge(reg.plan)}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">${expDate}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm">${getRemainingDays(remDays)}</td>
+                            
+                            <!-- NEW SHARE BUTTON COLUMN -->
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-center">
+                                ${ (reg.number && reg.number !== '-') ? 
+                                    `<a href="${whatsappLink}" target="_blank" class="text-white bg-green-500 hover:bg-green-600 font-bold py-1 px-3 rounded-full transition duration-150 flex items-center justify-center space-x-1 mx-auto shadow-md">
+                                        <i class="fab fa-whatsapp text-lg"></i>
+                                        <span class="hidden sm:inline">Share</span>
+                                    </a>` 
+                                : 
+                                    `<span class="text-gray-400 text-xs">No Number</span>`
+                                }
+                            </td>
                         </tr>
                     `;
                     registrationTbody.innerHTML += row;
@@ -650,9 +715,10 @@
                         <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Plan</th>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Expiration Date</th>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Remaining Days</th>
+                        <th scope="col" class="px-6 py-3 text-center text-xs font-bold text-gray-600 uppercase tracking-wider">Share</th>
                     </tr>
                 `;
-                registrationTbody.innerHTML = '<tr><td colspan="9" class="px-6 py-4 text-center text-gray-500">Authentication failed or data not found.</td></tr>';
+                registrationTbody.innerHTML = '<tr><td colspan="10" class="px-6 py-4 text-center text-gray-500">Authentication failed or data not found.</td></tr>';
             }
 
             function showLoginMessage(text, isError = false) {
