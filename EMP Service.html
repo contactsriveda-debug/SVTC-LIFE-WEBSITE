@@ -596,7 +596,7 @@
                 `;
                 
                 
-                if (currentEmpId === 'EMPBSN' || currentEmpId === 'EMPKNR') {
+                if (currentEmpId === 'EMPSV' || currentEmpId === 'EMPSV') {
                     headerHtml += `<th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Manager Name</th>`;
                 }
 
@@ -616,7 +616,7 @@
                 
                 // Calculate colspan for the 'No data' row: 9 existing + 1 new Share column = 10. +1 for Manager Name = 11.
                 let colspan = 10;
-                if (currentEmpId === 'EMPBSN' || currentEmpId === 'EMPKNR') {
+                if (currentEmpId === 'EMPSV' || currentEmpId === 'EMPSV') {
                     colspan = 11;
                 }
 
@@ -661,7 +661,7 @@
 
                     
                     
-                    if (currentEmpId === 'EMPBSN' || currentEmpId === 'EMPKNR') {
+                    if (currentEmpId === 'EMPSV' || currentEmpId === 'EMPSV') {
                         row += `<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">${reg.managerName || '-'}</td>`;
                     }
 
@@ -917,4 +917,5 @@
     </script>
 </body>
 </html>
+
 
