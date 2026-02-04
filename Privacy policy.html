@@ -3,46 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Updated title to reflect the content and the new overall template title -->
-    <title>Sri Veda Talent Competition - Privacy Policy</title>
+    <title>Sri Veda Talent Competition - Terms of Use</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Roboto Slab Font (from user's template) -->
+    <!-- Roboto Slab Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700;900&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome Icons (from user's template) -->
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Favicon -->
     <link rel="icon" type="image/jpeg" href="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg">
 
     <style>
-        /* Custom Colors from user's template */
         :root {
-            --sv-blue: #00008B; /* New Dark Blue */
-            --sv-orange: #FF8C00; /* Orange */
-            --sv-yellow: #FFD700; /* Gold Yellow */
-            --sv-maroon: #800000; /* Maroon */
+            --sv-blue: #00008B;
+            --sv-orange: #FF8C00;
+            --sv-yellow: #FFD700;
+            --sv-maroon: #800000;
         }
         
         body, h1, h2, h3, h4, h5, h6 {
             font-family: 'Roboto Slab', serif;
         }
         
-        /* Utility Classes (from user's template) */
         .bg-sv-blue { background-color: var(--sv-blue); }
         .text-sv-blue { color: var(--sv-blue); }
         .bg-sv-orange { background-color: var(--sv-orange); }
         .text-sv-orange { color: var(--sv-orange); }
-        .bg-sv-yellow { color: var(--sv-yellow); }
+        .bg-sv-yellow { background-color: var(--sv-yellow); }
         .text-sv-yellow { color: var(--sv-yellow); }
         
-        /* --- REMOVED unused .nav-button and .menu-button-primary styles --- */
-
-        /* Course Button Styles (used in dynamic menu) */
         .course-button {
             display: inline-block;
             padding: 0.4rem 0.8rem;
@@ -66,24 +60,11 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
 
-        /* Responsive Nav Button Adjustments */
-        @media (max-width: 640px) {
-            .nav-button {
-                flex-grow: 1;
-                justify-content: center;
-                margin: 4px 2px;
-                font-size: 0.8rem;
-                padding: 0.4rem 0.8rem;
-            }
-        }
-        
-        /* Custom Header Corner Design (from user's template) */
         .header-bg {
             position: relative;
             overflow: hidden;
         }
         
-        /* Left Corner PNG Image Design */
         .header-bg::before {
             content: '';
             position: absolute;
@@ -99,7 +80,6 @@
             z-index: 1;
         }
         
-        /* Right Corner PNG Image Design (Mirrored for Symmetry) */
         .header-bg::after {
             content: '';
             position: absolute;
@@ -115,90 +95,86 @@
             z-index: 1;
         }
         
-        /* Ensure content is above the corner designs */
         .header-content {
             position: relative;
             z-index: 10;
         }
 
-        /* Custom style for the prominent menu button in the header - RE-DEFINED to match latest user image */
         .header-menu-button {
-            /* White background, Orange text, Orange border */
             background-color: white !important; 
             color: var(--sv-orange) !important;
             font-weight: 900;
-            
             padding: 0.6rem 1.25rem; 
-            font-size: 1rem; /* base size */
-            
+            font-size: 1rem;
             border-width: 4px;
             border-color: var(--sv-orange) !important;
             box-shadow: 0 6px 12px rgba(255, 140, 0, 0.7);
-            
-            /* Bent corners */
-            border-radius: 1.5rem; /* Rounded-xl equivalent */
+            border-radius: 1.5rem;
         }
         .header-menu-button:hover {
-            /* Hover state */
             background-color: var(--sv-yellow) !important; 
             color: var(--sv-blue) !important; 
         }
         
-        /* --- STYLES FOR PRIVACY POLICY CONTENT (KEPT FROM OLD FILE) --- */
+        /* Stylish Content Cards */
         .policy-card {
             background-color: white;
-            border-radius: 12px;
-            padding: 24px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            border-left: 6px solid var(--sv-orange); /* Orange accent bar */
-            margin-bottom: 1.5rem;
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid var(--sv-orange);
+            margin-bottom: 2rem;
+            transition: transform 0.2s ease;
+        }
+        .policy-card:hover {
+            transform: translateY(-2px);
         }
         .policy-card h2 {
             color: var(--sv-blue);
-            font-size: 1.5rem;
-            font-weight: 700;
-            border-bottom: 1px dashed #ddd;
-            padding-bottom: 5px;
-            margin-bottom: 15px;
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
         }
-        .policy-card ul {
-            list-style-type: none; 
-            padding-left: 0;
-        }
-        .policy-card ul li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 12px;
-            font-size: 0.95rem;
-            color: #333; /* Darker text for readability */
-        }
-        .policy-card ul li::before {
-            content: "•";
-            color: var(--sv-orange); /* Orange bullet points */
+        .policy-card h2 i {
+            margin-right: 12px;
+            color: var(--sv-orange);
             font-size: 1.2rem;
-            font-weight: 900;
-            position: absolute;
-            left: 0;
-            top: -2px;
         }
         .policy-card p {
-            color: #333;
+            color: #4a5568;
+            line-height: 1.7;
             margin-bottom: 1rem;
-            line-height: 1.6;
+            font-size: 0.95rem;
         }
-        /* End of Policy Styles */
+        .highlight-box {
+            background-color: #fffaf0;
+            border-left: 4px solid var(--sv-orange);
+            padding: 1rem;
+            margin: 1rem 0;
+            font-style: italic;
+            border-radius: 0 8px 8px 0;
+        }
+        .legal-preamble {
+            background: linear-gradient(135deg, #00008B 0%, #000050 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
     </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-slate-50">
 
-    <!-- UPDATED HEADER SECTION -->
+    <!-- HEADER SECTION -->
     <header class="bg-sv-blue shadow-lg header-bg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 header-content">
             <div class="flex flex-col md:flex-row items-center justify-between py-3 md:py-2 space-y-3 md:space-y-0 md:h-24">
                 
-                <!-- Left Group: Logo and Title/Slogan -->
+                <!-- Left Group: Logo and Title -->
                 <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4">
-                    
                     <img src="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg" 
                             onerror="this.onerror=null; this.src='https://placehold.co/64x64/1e3a8a/ffffff?text=VEDA';" 
                             alt="Veda Logo" 
@@ -208,25 +184,20 @@
                         <h1 class="text-xl sm:text-2xl font-extrabold tracking-wider text-white">
                             SRI VEDA TALENT COMPETITION
                         </h1>
-                        
                         <div class="w-2/3 max-w-xs h-0.5 bg-sv-yellow my-0.5 mx-auto sm:mx-0"></div>
-
-                        <p class="text-sm sm:text-base font-semibold text-sv-yellow mt-0.5">
-                            "Privacy Policy Corner"
+                        <p class="text-sm sm:text-base font-semibold text-sv-yellow mt-0.5 uppercase tracking-widest">
+                            Terms & Conditions
                         </p>
                     </div>
                 </div>
 
-                <!-- Right Group: Icons + MENU Button -->
+                <!-- Right Group: Icons + MENU -->
                 <div class="flex items-center space-x-3 sm:space-x-6 lg:space-x-8">
-                    <!-- Icons -->
-                    <i class="fas fa-book text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Our Courses"></i>
-                    <i class="fas fa-pencil-ruler text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Practice Tests"></i>
-                    <i class="fas fa-graduation-cap text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Study Material"></i>
-                    <i class="fas fa-lightbulb text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Insights & Guidance"></i>
+                    <i class="fas fa-book text-xl sm:text-2xl text-sv-yellow hover:text-white transition cursor-pointer"></i>
+                    <i class="fas fa-pencil-ruler text-xl sm:text-2xl text-sv-yellow hover:text-white transition cursor-pointer"></i>
+                    <i class="fas fa-graduation-cap text-xl sm:text-2xl text-sv-yellow hover:text-white transition cursor-pointer"></i>
                     
-                    <!-- MENU Button: Now placed inside the header, after the icons -->
-                    <button id="menuToggle" class="header-menu-button flex items-center justify-center flex-shrink-0">
+                    <button id="menuToggle" class="header-menu-button flex items-center justify-center">
                         MENU <i class="fas fa-bars ml-1"></i>
                     </button>
                 </div>
@@ -234,318 +205,165 @@
         </div>
     </header>
 
-    <!-- REMOVED: THE ENTIRE <nav> SECTION IS REMOVED AS REQUESTED -->
-    
-    <!-- Dynamic Horizontal Menu Section (Initially hidden) -->
-    <div id="dynamicMenu" class="hidden bg-sv-blue/95 border-b-4 border-sv-yellow transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+    <!-- Dynamic Menu Section -->
+    <div id="dynamicMenu" class="hidden bg-sv-blue border-b-4 border-sv-yellow">
+        <div class="max-w-7xl mx-auto px-4 py-3">
             <div class="flex flex-wrap justify-center gap-2">
-                
-                <!-- 1. Home Link -->
-                <a href="https://www.svtc.life" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
-                    <i class="fas fa-home mr-1"></i> Home
-                </a>
-
-                <!-- 2. DASHBOARD Link (Retained in Dynamic Menu) -->
-                <a href="https://www.svtc.life/Dashboard.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
-                    <i class="fas fa-tachometer-alt mr-1"></i> DASHBOARD
-                </a>
-                
-                <!-- 3. Join Now Link (Retained in Dynamic Menu) -->
-                <a href="https://www.svtc.life/Join%20now.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
-                    <i class="fas fa-user-plus mr-1"></i> Join Now
-                </a>
-                
-                <!-- 4. Pricing Link (Retained in Dynamic Menu) -->
-                <a href="https://www.svtc.life/Pricing.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
-                    <i class="fas fa-tags mr-1"></i> Pricing
-                </a>
-                
-                <!-- 5. Contact Link -->
-                <a href="https://www.svtc.life/Contact.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
-                    <i class="fas fa-envelope mr-1"></i> Contact
-                </a>
-                
-                <!-- 6. Connect Link -->
-                <a href="https://www.svtc.life/connect.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
-                    <i class="fas fa-headset mr-1"></i> Connect
-                </a>
-
-                <!-- 7. About Us Link -->
-                <a href="https://www.svtc.life/About%20Us.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
-                    <i class="fas fa-info-circle mr-1"></i> About Us
-                </a>
-                
-                <!-- 8. Terms & Privacy Link -->
-                <a href="https://www.svtc.life/Privacy%20policy.html" class="course-button bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
-                    <i class="fas fa-file-contract mr-1"></i> Terms & Privacy
-                </a>
+                <a href="https://www.svtc.life" class="course-button" target="_blank">Home</a>
+                <a href="https://www.svtc.life/Dashboard.html" class="course-button" target="_blank">Dashboard</a>
+                <a href="https://www.svtc.life/Join%20now.html" class="course-button" target="_blank">Join Now</a>
+                <a href="https://www.svtc.life/Pricing.html" class="course-button" target="_blank">Pricing</a>
+                <a href="https://www.svtc.life/Contact.html" class="course-button" target="_blank">Contact</a>
+                <a href="https://www.svtc.life/Privacy%20policy.html" class="course-button" target="_blank">Privacy Policy</a>
             </div>
         </div>
     </div>
     
-    <!-- START OF PRESERVED MAIN CONTENT AREA (Privacy Policy) -->
     <main class="max-w-4xl mx-auto py-12 px-4 sm:px-6">
 
-        <!-- Main Title Block -->
-        <div class="text-center mb-10 pb-4 border-b-4 border-sv-orange">
-            <h1 class="text-4xl font-extrabold text-sv-blue tracking-tight">PRIVACY POLICY</h1>
-            <p class="text-sm text-gray-500 mt-1">Last Updated: November 3, 2025</p>
+        <!-- Legal Framework Preamble -->
+        <div class="legal-preamble">
+            <h2 class="text-2xl font-bold mb-4 flex items-center">
+                <i class="fas fa-balance-scale mr-3"></i> Statutory Declaration
+            </h2>
+            <p class="text-sm opacity-90 leading-relaxed">
+                This document is an electronic record in terms of the <strong>Information Technology Act, 2000</strong> and rules thereunder as applicable and the amended provisions pertaining to electronic records in various statutes as amended by the Information Technology Act, 2000. This electronic record is generated by a computer system and does not require any physical or digital signatures.
+            </p>
+            <p class="text-sm opacity-90 mt-4 leading-relaxed">
+                This document is published in accordance with the provisions of Rule 3 (1) of the Information Technology (Intermediaries guidelines) Rules, 2011 that require publishing the rules and regulations, privacy policy and Terms of Use for access or usage of domain name <strong>https://www.svtc.life/</strong> ('Website').
+            </p>
         </div>
 
-        <section class="policy-card">
-            <h2>1. Our Company: Commitment to Original Content and Intellectual Property</h2>
-            <p>Welcome to  Sri Veda Talent Competition  (“Company”, “we”, “our”, or “us”). We are an independent educational platform dedicated to  enhancing students’ General Awareness, Advanced Mathematical ability, and Logical Reasoning  through high-quality, structured online tests. By using our services, you agree to the terms outlined below, which protect both you and our intellectual property.</p>
-            
-            <h3 class="text-lg font-semibold text-sv-orange mt-4 mb-2">1.1 Originality of Content - Our Core Promise</h3>
-            <p>Every single test, question paper, and study material offered on our platform is  100% originally created by our dedicated content team . We guarantee that we do  not copy, source, or reuse  content from any external platform, existing exam papers, or other educational institutions. This commitment ensures our content is unique, relevant, and free from any external copyright issues.</p>
-            
-            <h3 class="text-lg font-semibold text-sv-orange mt-4 mb-2">1.2 Strict Copyright Protection and Enforcement</h3>
-            <p>All test papers, questions, visual content, and educational materials are the  exclusive Intellectual Property of Sri Veda Talent Competition . </p>
-            <ul class="list-disc pl-5 mt-3 space-y-2 text-sm text-gray-700">
-                <li> Sharing and Copying is Prohibited:  Any unauthorized reproduction, duplication, sharing, or transmission of our test content, whether digital or physical, is  strictly prohibited .</li>
-                <li> Immediate Legal Action:  Violation of our content copyright will lead to immediate and  strict legal action  against the perpetrator under applicable copyright laws.</li>
-                <li> Verification Request:  If you ever suspect that any of our content resembles materials from other sources, please  contact us immediately  for internal verification and clarification.</li>
-            </ul>
-        </section>
-
-        <section class="policy-card">
-            <h2>2. Student Participation, Goals, and Self-Improvement Policy</h2>
-            <p>Our platform is designed to promote  self-paced learning and self-discipline . We ensure every student, regardless of their background, receives  equal and fair treatment  and access to all subscribed materials.</p>
-            
-            <h3 class="text-lg font-semibold text-sv-orange mt-4 mb-2">2.1 No Personalized Coaching or Guarantees</h3>
-            <p>Please note that  we do not offer personalized coaching, one-on-one classes, or private tutoring . Our service is focused purely on providing structured tests and materials for self-assessment. </p>
-            <ul class="list-disc pl-5 mt-3 space-y-2 text-sm text-gray-700">
-                <li> Equal Opportunity:  Every student is treated equally. We provide the same comprehensive resources to all subscribers.</li>
-                <li> No Result Guarantee:  We  do not guarantee  any specific ranks, marks, or success in external government or board exams. Student outcomes are entirely dependent on their individual effort, practice, and self-discipline.</li>
-                <li> Doubt Resolution Only:  Subscription primarily grants access to tests. We will only provide explanations and clarify doubts when a student initiates a request (via WhatsApp or phone), otherwise, detailed explanations are generally provided after the test.</li>
-            </ul>
-
-            <h3 class="text-lg font-semibold text-sv-orange mt-4 mb-2">2.2 Importance of Self-Confidence and Discipline</h3>
-            <p>To truly improve your talent and knowledge,  self-confidence and honesty  during the tests are crucial. You must write the exams independently, preferably with a parent present to supervise, to gain genuine insight into your capabilities. Cheating is self-sabotage.</p>
-        </section>
-
-        <section class="policy-card">
-            <h2>3. Registration, Subscription, and Access Details</h2>
-            <p>To access our premium tests (General Awareness, Advanced Mathematics, and Moral Awareness), a paid subscription is required, following the details provided on the  'Pricing' page .</p>
-            
-            <h3 class="text-lg font-semibold text-sv-orange mt-4 mb-2">3.1 Account Registration and Confidentiality</h3>
-            <p>Upon registration using your valid details (name, contact number, email ID), you will receive a unique  Username and Password . </p>
-            <ul class="list-disc pl-5 mt-3 space-y-2 text-sm text-gray-700">
-                <li> Confidentiality is Key:  You are  solely responsible  for keeping your login credentials secret. Do not share your username or password with anyone.</li>
-                <li> Free Trial:  A single  Free Test  is available for first-time users to evaluate our platform before committing to a subscription.</li>
-            </ul>
-
-            <h3 class="text-lg font-semibold text-sv-orange mt-4 mb-2">3.2 Strict Policy Against Multiple Logins (Security)</h3>
-            <p class="text-red-700 font-bold">This is a zero-tolerance policy:</p>
-            <ul class="list-disc pl-5 mt-3 space-y-2 text-sm text-gray-700">
-                <li> Immediate Cancellation:  Logging in from  two different devices simultaneously  (even with different mobiles) will result in an  immediate warning email .</li>
-                <li> Permanent Block:  Following the warning, if the double login persists or is repeated, the account will be  permanently cancelled/blocked  without refund.</li>
-                <li> Legal Recourse:  Repeated misuse of the login or sharing credentials to copy content may result in  legal reporting to the police  as it directly harms the company's integrity and intellectual property.</li>
-            </ul>
-        </section>
-
-        <section class="policy-card">
-            <h2>4. Payments and Non-Refundable Policy</h2>
-            <p class="text-red-700 font-bold text-xl">ALL PAYMENTS ARE STRICTLY FINAL AND NON-REFUNDABLE.</p>
-            <p>Before proceeding with payment, you must read, understand, and agree to this stringent refund policy. Fees cover immediate access to tests, service costs, and transaction taxes, which are irreversible once access is granted.</p>
-
-            <h3 class="text-lg font-semibold text-sv-orange mt-4 mb-2">4.1 Irreversible Payment Confirmation</h3>
-            <ul class="list-disc pl-5 mt-3 space-y-2 text-sm text-gray-700">
-                <li> Think Before Paying:  You must  think a hundred times  and clear all doubts before making a payment.</li>
-                <li> No Refund After Payment:  Once the amount is paid and the subscription is active,  we will not return even one rupee  for any reason, including change of mind, technical issues (unless proven on our end), or incorrect payments.</li>
-            </ul>
-
-            <h3 class="text-lg font-semibold text-sv-orange mt-4 mb-2">4.2 Payment Channels and Fraud Prevention</h3>
-            <ul class="list-disc pl-5 mt-3 space-y-2 text-sm text-gray-700">
-                <li> Official Channels Only:  Payments must be made directly through the official website to ensure instant, automated service activation.</li>
-                <li> Unauthorized Payments:  We are  not responsible  for any amount paid to unauthorized persons. If you join through a referral, confirm the person's identity and ensure they register you correctly on the website.</li>
-                <li> Referral Agreement:  If joining via a referral, make a clear agreement with them regarding service and doubt support, as they receive a referral bonus to serve you. However, the company's direct refund policy remains  Non-Refundable .</li>
-            </ul>
-        </section>
-
-        <section class="policy-card">
-            <h2>5. Communication and Support Policy</h2>
-            <p>We are committed to providing support, but promptness depends on volume. We ensure clear communication channels are available.</p>
-            
-            <h3 class="text-lg font-semibold text-sv-orange mt-4 mb-2">5.1 Response Delays and WhatsApp Priority</h3>
-            <p>Due to the increasing number of student participants,  call response times may occasionally be delayed . We kindly ask for your patience.</p>
-            <ul class="list-disc pl-5 mt-3 space-y-2 text-sm text-gray-700">
-                <li> WhatsApp is Best:  The most efficient way to get support is by sending a detailed  WhatsApp message . We will reply as soon as possible.</li>
-                <li> Issue Resolution:  For technical or login issues, please send a  screenshot  via WhatsApp. This dramatically speeds up our ability to help you.</li>
-                <li> Team Callbacks:  Our team will call you back if necessary for explanations or clarifications. You will be clearly informed who has been  assigned  to assist you.</li>
-            </ul>
-
-            <h3 class="text-lg font-semibold text-sv-orange mt-4 mb-2">5.2 Technical & System Integrity</h3>
-            <p>The system is set up for automatic updates. Though we strive for continuous service, we reserve the right to:</p>
-            <ul class="list-disc pl-5 mt-3 space-y-2 text-sm text-gray-700">
-                <li> Maintenance:  Temporarily block access or put the system under technical maintenance without prior notice.</li>
-                <li> Updates:  Update or modify the platform features at any time.</li>
-            </ul>
-        </section>
-
-        <section class="policy-card">
-            <h2>6. Data Privacy and Security Measures</h2>
-            <p>We take the security of your data seriously. The privacy of students and employees is our top priority.</p>
-            
-            <h3 class="text-lg font-semibold text-sv-orange mt-4 mb-2">6.1 Data Collection and Protection</h3>
-            <p>We collect essential data (Name, Phone Number, Email, Login/Password) necessary only for service delivery.  Your data is never sold, rented, or shared  with any third party.</p>
-            <ul class="list-disc pl-5 mt-3 space-y-2 text-sm text-gray-700">
-                <li> Student Data:  Data is stored securely and is visible to you in your personal/student profile after login.</li>
-                <li> User Responsibility:  You are equally responsible for keeping your login credentials secret. Sharing your password exposes your data to risks.</li>
-            </ul>
-
-            <h3 class="text-lg font-semibold text-sv-orange mt-4 mb-2">6.2 Data Retention and Deletion</h3>
-            <ul class="list-disc pl-5 mt-3 space-y-2 text-sm text-gray-700">
-                <li> Subscription Expiry:  Your data will be automatically  removed from our database  upon subscription expiry.</li>
-                <li> Manual Deletion Request:  If you wish to remove your data earlier, you must send an official email request, and our team will comply.</li>
-            </ul>
-        </section>
-
-        <section class="policy-card">
-            <h2>7. Employee Conduct and Disciplinary Action Policy</h2>
-            <p>This section outlines the rules for all full-time or part-time employees working on behalf of Sri Veda Talent Competition.</p>
-
-            <h3 class="text-lg font-semibold text-sv-orange mt-4 mb-2">7.1 Code of Conduct and Work Ethic</h3>
-            <ul class="list-disc pl-5 mt-3 space-y-2 text-sm text-gray-700">
-                <li> Genuineness:  All employee work must be genuine and adhere to company conditions.</li>
-                <li> Communication:  Employees must maintain a  respectful and professional tone  with students, avoiding abusive language or unnecessary communication outside of work-related topics.</li>
-                <li> Monitoring:  Every employee action and time spent on tasks is  recorded  and monitored for efficiency and compliance.</li>
-            </ul>
-
-            <h3 class="text-lg font-semibold text-sv-orange mt-4 mb-2">7.2 Financial and Enrollment Rules</h3>
-            <ul class="list-disc pl-5 mt-3 space-y-2 text-sm text-gray-700">
-                <li> Immediate Informing:  If an employee accepts direct payment from a student, the employee must  immediately inform the management  and ensure the subscription is activated promptly.</li>
-                <li> Fraud is Zero-Tolerance:  Taking money from students for enrollment but failing to activate their subscription will result in  immediate police complaint  and termination.</li>
-                <li> Data Confidentiality:  Employees are  strictly forbidden  from sharing any student data with third parties. Violation will result in severe legal action.</li>
-            </ul>
-
-            <h3 class="text-lg font-semibold text-sv-orange mt-4 mb-2">7.3 Employee Compensation and Termination</h3>
-            <ul class="list-disc pl-5 mt-3 space-y-2 text-sm text-gray-700">
-                <li> No Fixed Salary:  We  do not offer a fixed monthly salary . Compensation is solely based on enrollment joining fees and commission/incentives as per company offers.</li>
-                <li> Payment Schedule:  Earnings are typically disbursed on the 1st of the month or on a weekly basis, as decided by management. The final decision rests with the management.</li>
-                <li> Termination:  The management reserves the absolute right to  terminate an employee's contract  at any time without prior notice or explanation.</li>
-            </ul>
-        </section>
-
-        <section class="policy-card">
-            <h2>8. Management Rights, Liability, and Final Authority</h2>
-            <p class="font-bold">Sri Veda Talent Competition reserves the absolute and non-negotiable right to govern all aspects of the service, content, and organization.</p>
-            
-            <h3 class="text-lg font-semibold text-sv-orange mt-4 mb-2">8.1 Absolute Authority and Modification Rights</h3>
-            <ul class="list-disc pl-5 mt-3 space-y-2 text-sm text-gray-700">
-                <li> Policy Changes:  We hold the full right to  update, modify, cancel, or revise  any part of this Policy, pricing, or the service itself without prior notification.</li>
-                <li> Service Interruption:  The company holds the right to temporarily block the server or place the system  under maintenance  at any time.</li>
-                <li> Company Discontinuation:  The company may choose to  cease operations  at any time. In such an event, no financial compensation or liability will be borne by the company to subscribers or employees.</li>
-            </ul>
-            
-            <h3 class="text-lg font-semibold text-sv-orange mt-4 mb-2">8.2 Limitation of Liability</h3>
-            <p>The company is  not liable  for any harm, loss, or consequences arising from:</p>
-            <ul class="list-disc pl-5 mt-3 space-y-2 text-sm text-gray-700">
-                <li>Technical errors, internet failure, or device malfunction.</li>
-                <li>Student's personal login errors or data leaks due to sharing credentials.</li>
-                <li>Any actions taken by a third-party referral agent that violates this policy.</li>
-            </ul>
-            <p class="mt-2 text-red-700 font-bold">The final decision on all matters, disputes, and policy interpretations rests solely with the Company Management.</p>
-        </section>
-
-        <!-- Final Contact Information Section -->
-        <section class="policy-card bg-sv-blue/5 border-sv-blue">
-            <h2>9. Contact Us for Clarification</h2>
-            <p>We urge you to contact us for any doubts *before* making a subscription. We are here to clarify any point in this policy.</p>
-            <div class="mt-4 p-4 bg-white rounded-lg shadow-inner">
-                <p class="font-bold text-lg text-sv-blue">Sri Veda Talent Competition</p>
-                <p class="text-sm mt-3">Email: <a href="mailto:Contact.sriveda@gmail.com" class="text-sv-orange hover:underline">Contact.sriveda@gmail.com</a></p>
-                <p class="text-sm">Phone: <a href="tel:8985170500" class="text-sv-orange hover:underline">8985170500</a></p>
+        <!-- Section 1: Ownership -->
+        <div class="policy-card">
+            <h2><i class="fas fa-id-card"></i> Ownership & Registration</h2>
+            <p>The Platform is owned by <strong>9346119924</strong>, a company incorporated under the Companies Act, 1956 with its registered office at:</p>
+            <div class="highlight-box">
+                House No 1-113 a Chakravarthula Palli Muthyalapadu, Chagalamarri, Kurnool, Nandyal, Andhra Pradesh.
             </div>
-        </section>
-        
-        <p class="text-center text-xs text-gray-500 mt-8">© Sri Veda Talent Competition – All Rights Reserved. | Designed for clarity and transparency.</p>
+            <p>(Hereinafter referred to as ‘Platform Owner’, 'we', 'us', 'our').</p>
+        </div>
+
+        <!-- Section 2: Agreement -->
+        <div class="policy-card">
+            <h2><i class="fas fa-file-signature"></i> Acceptance of Terms</h2>
+            <p>Your use of the Platform and services and tools are governed by the following terms and conditions (“Terms of Use”). By mere use of the Platform, You shall be contracting with the Platform Owner and these terms and conditions including the policies constitute Your binding obligations.</p>
+            <p class="font-bold text-sv-maroon">
+                ACCESSING, BROWSING OR OTHERWISE USING THE PLATFORM INDICATES YOUR AGREEMENT TO ALL THE TERMS AND CONDITIONS UNDER THESE TERMS OF USE.
+            </p>
+        </div>
+
+        <!-- Section 3: User Responsibilities -->
+        <div class="policy-card">
+            <h2><i class="fas fa-user-check"></i> Registration & Accuracy</h2>
+            <p>To access and use the Services, you agree to provide true, accurate and complete information to us during and after registration. You shall be responsible for all acts done through the use of your registered account on the Platform.</p>
+        </div>
+
+        <!-- Section 4: Warranties -->
+        <div class="policy-card">
+            <h2><i class="fas fa-exclamation-triangle"></i> No Warranties</h2>
+            <p>Neither we nor any third parties provide any warranty or guarantee as to the accuracy, timeliness, performance, completeness or suitability of the information and materials offered. You acknowledge that such information may contain inaccuracies or errors and we expressly exclude liability for such errors to the fullest extent permitted by law.</p>
+        </div>
+
+        <!-- Section 5: Intellectual Property -->
+        <div class="policy-card">
+            <h2><i class="fas fa-copyright"></i> Proprietary Rights</h2>
+            <p>The contents of the Platform and the Services are proprietary to us and are licensed to us. You will not have any authority to claim any intellectual property rights, title, or interest in its contents, including but not limited to the design, layout, look, and graphics.</p>
+            <p class="text-sm text-sv-orange font-bold uppercase">Unauthorized use of the Platform may lead to legal action.</p>
+        </div>
+
+        <!-- Section 6: Indemnity -->
+        <div class="policy-card">
+            <h2><i class="fas fa-shield-alt"></i> Indemnification</h2>
+            <p>You shall indemnify and hold harmless Platform Owner, its affiliates, and their respective officers from any claim or demand, including reasonable attorney's fees, made by any third party due to or arising out of Your breach of these Terms of Use, Privacy Policy, or Your violation of any law.</p>
+        </div>
+
+        <!-- Section 7: Refund Policy -->
+        <div class="policy-card border-sv-maroon">
+            <h2 class="text-sv-maroon"><i class="fas fa-hand-holding-usd"></i> Refund Policy</h2>
+            <p>If any refund is approved by the company, it will follow the standard processing cycle:</p>
+            <div class="bg-red-50 p-4 rounded-lg border border-red-100 flex items-center">
+                <i class="fas fa-clock text-red-500 text-2xl mr-4"></i>
+                <span class="text-red-800 font-bold">Approved refunds will take 7 working days to credit to your original source account.</span>
+            </div>
+        </div>
+
+        <!-- Section 8: Legal Jurisdiction -->
+        <div class="policy-card">
+            <h2><i class="fas fa-gavel"></i> Governing Law & Jurisdiction</h2>
+            <p>These Terms and any dispute relating to them shall be governed by and construed in accordance with the laws of <strong>India</strong>.</p>
+            <p>All disputes arising out of or in connection with these Terms shall be subject to the exclusive jurisdiction of the courts in <strong>Nandyal / Kurnool</strong>.</p>
+        </div>
+
+        <!-- Section 9: Contact -->
+        <div class="policy-card bg-sv-blue/5 border-sv-blue">
+            <h2><i class="fas fa-headset"></i> Support & Communication</h2>
+            <p>All concerns or communications relating to these Terms must be communicated to us using the official contact information:</p>
+            <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="p-3 bg-white rounded shadow-sm">
+                    <p class="text-xs text-gray-500">Platform Owner</p>
+                    <p class="font-bold">Sri Veda Talent Competition</p>
+                </div>
+                <div class="p-3 bg-white rounded shadow-sm">
+                    <p class="text-xs text-gray-500">Official Contact</p>
+                    <p class="font-bold text-sv-orange">9346119924</p>
+                </div>
+            </div>
+        </div>
 
     </main>
-    <!-- END OF PRESERVED MAIN CONTENT AREA -->
 
-    <!-- NEW FOOTER SECTION (from user's template) -->
+    <!-- FOOTER SECTION -->
     <footer class="bg-sv-blue text-white py-5 px-4 sm:px-6 lg:px-8">
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-                
                 <div>
                     <img class="h-12 w-auto mb-2 object-contain shadow-md rounded-full bg-white p-1" 
                             src="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg" 
-                            alt="Sri Veda Logo"
-                            onerror="this.onerror=null; this.src='https://placehold.co/48x48/1e3a8a/ffffff?text=VEDA';">
+                            alt="Sri Veda Logo">
                     <p class="text-gray-300 text-xs">
                         Sri Veda Talent Competition<br>
                         Empowering students with knowledge and skills for a bright future.
                     </p>
                 </div>
-
                 <div>
                     <h5 class="text-base font-bold text-sv-yellow mb-2">Quick Links</h5>
                     <ul class="space-y-1 text-sm">
-                        <!-- Footer Quick Links -->
                         <li><a href="https://www.svtc.life/index.html" class="text-gray-300 hover:text-white transition" target="_blank">Home</a></li>
-                        <li><a href="https://www.svtc.life/Join%20now.html" class="text-gray-300 hover:text-white transition" target="_blank">Join Now</a></li>
                         <li><a href="https://www.svtc.life/Pricing.html" class="text-gray-300 hover:text-white transition" target="_blank">Pricing</a></li>
-                        <li><a href="https://www.svtc.life/connect.html" class="text-gray-300 hover:text-white transition" target="_blank">Connect</a></li>
                     </ul>
                 </div>
-
                 <div>
                     <h5 class="text-base font-bold text-sv-yellow mb-2">Company</h5>
                     <ul class="space-y-1 text-sm">
-                        <!-- Footer Company Links -->
                         <li><a href="https://www.svtc.life/About%20Us.html" class="text-gray-300 hover:text-white transition" target="_blank">About Us</a></li>
-                        <li><a href="https://www.svtc.life/Contact.html" class="text-gray-300 hover:text-white transition" target="_blank">Contact</a></li>
                         <li><a href="https://www.svtc.life/Privacy%20policy.html" class="text-gray-300 hover:text-white transition" target="_blank">Terms & Privacy</a></li>
                     </ul>
                 </div>
-
                 <div>
                     <h5 class="text-base font-bold text-sv-yellow mb-2">Get In Touch</h5>
                     <ul class="space-y-1 text-sm">
                         <li class="flex items-center">
                             <i class="fas fa-phone-alt mr-3 text-sv-yellow text-xs"></i>
-                            <a href="tel:+918985170500" class="text-gray-300 hover:text-white transition" target="_blank">+91 8985170500</a>
+                            <a href="tel:+918985170500" class="text-gray-300 hover:text-white transition">+91 8985170500</a>
                         </li>
                     </ul>
-                    <h5 class="text-base font-bold text-sv-yellow mt-3 mb-2">Connect With Us</h5>
-                    <div class="flex space-x-3">
-                        <a href="https://www.facebook.com/share/1ZXXCLRGwh" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-sv-yellow transition text-lg">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=zreta93" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-sv-yellow transition text-lg">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="httpst.me/srivedatc" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-sv-yellow transition text-lg">
-                            <i class="fab fa-telegram-plane"></i>
-                        </a>
-                        <a href="http://wa.me/918985170500" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-sv-yellow transition text-lg">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                    </div>
                 </div>
             </div>
-            
             <div class="border-t border-gray-700 mt-4 pt-4 text-center">
                 <p class="text-gray-400 text-xs">
-                    &copy; 2025 Sri Veda Talent Competition. All Rights Reserved. | Designed for clarity and transparency.
+                    &copy; 2025 Sri Veda Talent Competition. All Rights Reserved.
                 </p>
             </div>
         </div>
     </footer>
 
-    <!-- Javascript for Dynamic Menu Toggle -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const menuToggle = document.getElementById('menuToggle');
             const dynamicMenu = document.getElementById('dynamicMenu');
-
             if (menuToggle && dynamicMenu) {
-                // Event listener to toggle the visibility of the dynamic menu
                 menuToggle.addEventListener('click', () => {
-                    // Toggles the 'hidden' class to show/hide the menu
                     dynamicMenu.classList.toggle('hidden');
                 });
             }
@@ -553,4 +371,3 @@
     </script>
 </body>
 </html>
-
