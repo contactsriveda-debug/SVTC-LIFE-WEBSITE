@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sri Veda Talent Competition - Subscription</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" type="image/jpeg" href="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg">
+
+    <style>
+        :root {
+            --sv-blue: #00008B;
+            --sv-orange: #FF8C00;
+            --sv-yellow: #FFD700;
+            --sv-maroon: #800000;
+            --bg-color-1: #d1e7f6; /* Light Blue */
+            --bg-color-2: #f0f4f8; /* Light Gray */
+            --bg-color-3: #fdf6e3; /* Light Yellow */
+        }
+        body {
+            font-family: 'Roboto Slab', serif;
+            color: #1f2937;
+            /* Dynamic Background Setup */
+            background: linear-gradient(-45deg, var(--bg-color-1), var(--bg-color-2), var(--bg-color-3), var(--bg-color-1));
+            background-size: 400% 400%;
+            animation: gradient-animation 15s ease infinite;
+        }
+        @keyframes gradient-animation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .bg-sv-blue { background-color: var(--sv-blue); }
+        .text-sv-blue { color: var(--sv-blue); }
+        .bg-sv-orange { background-color: var(--sv-orange); }
+        .text-sv-orange { color: var(--sv-orange); }
+        .bg-sv-yellow { color: var(--sv-yellow); }
+        .text-sv-yellow { color: var(--sv-yellow); }
+        
+        .header-bg {
+            position: relative;
+            overflow: hidden;
+        }
+        .header-bg::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 120px; height: 120px;
+            background-image: url('https://contactsriveda-debug.github.io/images/header%20coner.png');
+            background-size: 100% 100%; opacity: 1; background-repeat: no-repeat;
+            transform: translate(-30%, -30%); z-index: 1;
+        }
+        .header-bg::after {
+            content: '';
+            position: absolute;
+            top: 0; right: 0;
+            width: 120px; height: 120px;
+            background-image: url('https://contactsriveda-debug.github.io/images/header%20coner.png');
+            background-size: 100% 100%; opacity: 1; background-repeat: no-repeat;
+            transform: translate(30%, -30%) scaleX(-1); z-index: 1;
+        }
+        .header-content {
+            position: relative;
+            z-index: 10;
+        }
+        @keyframes blink { 50% { opacity: 0.5; } }
+        .blink { animation: blink 1.2s infinite; }
+        .header-logo {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            background-color: white;
+            padding: 5px;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Custom style for the prominent menu button in the header */
+        .header-menu-button {
+            /* White background, Orange text, Orange border - as requested */
+            background-color: white !important; 
+            color: var(--sv-orange) !important;
+            font-weight: 900;
+            
+            padding: 0.6rem 1.25rem; 
+            font-size: 1rem;
+            
+            border-width: 4px;
+            border-color: var(--sv-orange) !important;
+            box-shadow: 0 6px 12px rgba(255, 140, 0, 0.7);
+            
+            /* Bent corners */
+            border-radius: 1.5rem; /* Rounded-xl equivalent */
+            
+            /* Flex properties for alignment */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .header-menu-button:hover {
+            /* Hover state */
+            background-color: var(--sv-yellow) !important; 
+            color: var(--sv-blue) !important; 
+        }
+
+        .iron-gradient {
+            background: linear-gradient(145deg,#4b5563,#374151,#1f2937);
+            color: #d1d5db;
+        }
+        .light-gold-gradient {
+            background: linear-gradient(145deg,#fffbeb,#fef3c7,#fde68a);
+            color:#44403c;
+        }
+        .nav-button-sub {
+            display: flex;
+            align-items: center;
+            padding: 0.4rem 0.6rem;
+            color: #1f2937;
+            background-color: white;
+            border: 2px solid #F59E0B;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.2s ease-in-out;
+            margin: 4px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            flex-shrink: 0;
+        }
+        .nav-button-sub:hover {
+            color: white; 
+            background-color: #F59E0B;
+            border-color: #4F46E5;
+            transform: scale(1.03);
+        }
+        @media (max-width: 640px) {
+            .nav-button-sub {
+                flex-grow: 1;
+                justify-content: center;
+                font-size: 0.7rem;
+                padding: 0.35rem 0.5rem;
+            }
+        }
+
+        /* Razorpay Button Styling Fixes (Ensure Razorpay element takes full width) */
+        #razorpay-button-container-platina form,
+        #razorpay-button-container-gold form,
+        #razorpay-button-renew form,
+        #razorpay-button-upgrade form {
+            width: 100%; 
+        }
+
+        /* Inspirational Text Styling */
+        .inspirational-banner {
+            background: linear-gradient(90deg, #60a5fa, #3b82f6);
+            color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 15px rgba(59, 130, 246, 0.5);
+            padding: 1.5rem;
+        }
+        .inspirational-text {
+            font-size: 1.5rem;
+            font-weight: 900;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        .inspirational-subtext {
+            font-size: 1rem;
+            font-weight: 500;
+            opacity: 0.9;
+        }
+        /* Ensure all plan boxes have similar initial styling */
+        .plan-box {
+            border-width: 2px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+        .plan-box:hover {
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(-4px);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="bg-sv-blue shadow-lg header-bg" id="formHeader">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 header-content">
+            <div class="flex flex-col md:flex-row items-center justify-between py-3 md:py-2 space-y-3 md:space-y-0 md:h-24">
+                <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4">
+                    <img src="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg" 
+                                onerror="this.onerror=null; this.src='https://placehold.co/64x64/1e3a8a/ffffff?text=VEDA';" 
+                                alt="Veda Logo" 
+                                class="w-16 h-16 object-contain shadow-md rounded-full bg-white p-1 flex-shrink-0">
+                    <div class="text-center sm:text-left flex flex-col justify-center">
+                        <h1 class="text-xl sm:text-2xl font-extrabold tracking-wider text-white">
+                            SRI VEDA TALENT COMPETITION
+                        </h1>
+                        <div class="w-2/3 max-w-xs h-0.5 bg-sv-yellow my-0.5 mx-auto sm:mx-0"></div>
+                        <p class="text-sm sm:text-base font-semibold text-sv-yellow mt-0.5">
+                            "Student Subscription Corner"
+                        </p>
+                    </div>
+                </div>
+                <!-- Right Group: Icons + MENU Button -->
+                <div class="flex items-center space-x-3 sm:space-x-6 lg:space-x-8">
+                    <!-- Icons -->
+                    <i class="fas fa-book text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Our Courses"></i>
+                    <i class="fas fa-pencil-ruler text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Practice Tests"></i>
+                    <i class="fas fa-graduation-cap text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Study Material"></i>
+                    <i class="fas fa-lightbulb text-xl sm:text-2xl text-sv-yellow hover:text-white transition duration-300 transform hover:scale-110 cursor-pointer" title="Insights & Guidance"></i>
+                    
+                    <!-- MENU Button -->
+                    <button id="menuToggle" class="header-menu-button">
+                        MENU <i class="fas fa-bars ml-1"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Dynamic Horizontal Menu Section -->
+    <div id="dynamicMenu" class="hidden bg-sv-blue/95 border-b-4 border-sv-yellow transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="https://www.svtc.life" class="nav-button-sub bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                    <i class="fas fa-home mr-1"></i> Home
+                </a>
+                <a href="https://www.svtc.life/Dashboard.html" class="nav-button-sub bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                    <i class="fas fa-tachometer-alt mr-1"></i> DASHBOARD
+                </a>
+                <a href="https://www.svtc.life/Join%20now.html" class="nav-button-sub bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                    <i class="fas fa-user-plus mr-1"></i> Join Now
+                </a>
+                <a href="https://www.svtc.life/Pricing.html" class="nav-button-sub bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                    <i class="fas fa-tags mr-1"></i> Pricing
+                </a>
+                <a href="https://www.svtc.life/Contact.html" class="nav-button-sub bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                    <i class="fas fa-envelope mr-1"></i> Contact
+                </a>
+                <a href="https://www.svtc.life/connect.html" class="nav-button-sub bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                    <i class="fas fa-headset mr-1"></i> Connect
+                </a>
+                <a href="https://www.svtc.life/About%20Us.html" class="nav-button-sub bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                    <i class="fas fa-info-circle mr-1"></i> About Us
+                </a>
+                <a href="https://www.svtc.life/Privacy%20policy.html" class="nav-button-sub bg-sv-yellow/80 text-sv-blue hover:bg-sv-orange hover:text-white" target="_blank">
+                    <i class="fas fa-file-contract mr-1"></i> Terms & Privacy
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- UPDATED: Inspirational Words for Payment in English -->
+    <section class="max-w-6xl mx-auto mt-8 px-4">
+        <div class="inspirational-banner flex flex-col items-center justify-center text-center">
+            <p class="inspirational-text mb-1">
+                <i class="fas fa-bolt mr-2 text-yellow-300"></i>
+                This is an Investment in Your Future!
+                <i class="fas fa-bolt ml-2 text-yellow-300"></i>
+            </p>
+            <p class="inspirational-subtext">
+                Choose your subscription today and step forward on the path to success.
+            </p>
+        </div>
+    </section>
+
+    <section class="max-w-6xl mx-auto mt-8 px-4">
+        <div class="border-4 border-dashed border-red-500 p-3 rounded-xl bg-red-50 shadow-lg text-center">
+            <h2 class="text-lg sm:text-xl font-extrabold text-red-700 mb-2 tracking-tight">🚨 Limited Time Offer! Offer ends in...</h2>
+            <div id="countdown-timer" class="flex justify-center space-x-3 text-gray-800">
+                <div class="flex flex-col items-center p-1 sm:p-2 bg-white rounded-xl shadow-md border border-red-300 min-w-[50px] sm:min-w-[70px]">
+                    <span id="hours" class="text-2xl sm:text-3xl font-extrabold text-indigo-600">00</span>
+                    <span class="text-xs font-medium uppercase mt-0">Hours</span>
+                </div>
+                <div class="flex flex-col items-center p-1 sm:p-2 bg-white rounded-xl shadow-md border border-red-300 min-w-[50px] sm:min-w-[70px]">
+                    <span id="minutes" class="text-2xl sm:text-3xl font-extrabold text-indigo-600">00</span>
+                    <span class="text-xs font-medium uppercase mt-0">Minutes</span>
+                </div>
+                <div class="flex flex-col items-center p-1 sm:p-2 bg-white rounded-xl shadow-md border border-red-300 min-w-[50px] sm:min-w-[70px]">
+                    <span id="seconds" class="text-2xl sm:text-3xl font-extrabold text-indigo-600">00</span>
+                    <span class="text-xs font-medium uppercase mt-0">Seconds</span>
+                </div>
+            </div>
+            <p id="offer-message" class="mt-3 text-base font-semibold text-red-600 hidden">Offer has ended! Check back soon.</p>
+        </div>
+    </section>
+
+    <!-- Updated grid layout to accommodate 2 columns on large screens -->
+    <main class="max-w-4xl mx-auto py-12 px-4 sm:px-6 grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Platina Plan (Removed MOST POPULAR and extra styling for equal size) -->
+        <div class="relative rounded-2xl plan-box p-8 text-center border-purple-500 bg-gradient-to-br from-purple-100 to-indigo-200 text-gray-800">
+            <div class="absolute top-4 right-4 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full">61% OFF</div>
+            <h2 class="text-2xl font-semibold mb-4 text-purple-700">Platina Plan</h2>
+            <p class="text-4xl font-bold text-indigo-800 mb-1">₹499 <span class="text-sm line-through text-gray-500 ml-2">₹1299</span></p>
+            <p class="text-base text-gray-600 mb-4">(180 days access)</p>
+            <ul class="space-y-2 mb-6 text-left px-4 text-gray-700">
+                <!-- PLATINA FEATURES -->
+                <li><i class="fas fa-crown text-purple-600 mr-2"></i> Access to all learning materials</li>
+                <li><i class="fas fa-crown text-purple-600 mr-2"></i> **Excellent!** All Tests will be unlocked</li>
+                <li><i class="fas fa-crown text-purple-600 mr-2"></i> Most Advanced Practice Texts</li>
+                <li><i class="fas fa-crown text-purple-600 mr-2"></i> All India Level Syllabus Coverage</li>
+                <li><i class="fas fa-crown text-purple-600 mr-2"></i> Low Price, High Learning Value</li>
+                <li><i class="fas fa-crown text-purple-600 mr-2"></i> Dedicated doubt resolution channel</li>
+                <li><i class="fas fa-crown text-purple-600 mr-2"></i> This is for One Time Subscription (180 days)</li>
+                <li><i class="fas fa-crown text-purple-600 mr-2"></i> Monthly Performance Review Sessions</li>
+                <li><i class="fas fa-crown text-purple-600 mr-2"></i> Best Vedic & Advance Maths Training</li>
+                <li><i class="fas fa-crown text-purple-600 mr-2"></i> Support via Live Calls & Mentorship</li>
+            </ul>
+            
+            <!-- PLATINA PLAN BUTTON: Razorpay Script -->
+            <div id="razorpay-button-container-platina" class="w-full mt-4">
+                <form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_RlnPyMWDvMW4kw" async> </script> </form>
+            </div>
+            <!-- End of Platina Plan Payment Button -->
+        </div>
+
+        <!-- Gold Plan (Updated to match Platina content and size) -->
+        <div class="relative rounded-2xl plan-box p-8 text-center border-yellow-500 light-gold-gradient">
+            <div class="absolute top-4 right-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full">58% OFF</div>
+            <h2 class="text-2xl font-semibold mb-4">Gold Plan</h2>
+            <p class="text-4xl font-bold text-yellow-800 mb-1">₹999 <span class="text-sm line-through text-gray-400 ml-2">₹2399</span></p>
+            <p class="text-base text-gray-600 mb-4">(364 days access)</p>
+            <ul class="space-y-2 mb-6 text-left px-4 text-gray-700">
+                <!-- GOLD PLAN FEATURES: Exact same list as Platina for equal size -->
+                <li><i class="fas fa-star text-yellow-700 mr-2"></i> Access to all learning materials</li>
+                <li><i class="fas fa-star text-yellow-700 mr-2"></i> **Excellent!** All Tests will be unlocked</li>
+                <li><i class="fas fa-star text-yellow-700 mr-2"></i> Most Advanced Practice Texts</li>
+                <li><i class="fas fa-star text-yellow-700 mr-2"></i> All India Level Syllabus Coverage</li>
+                <li><i class="fas fa-star text-yellow-700 mr-2"></i> Low Price, High Learning Value</li>
+                <li><i class="fas fa-star text-yellow-700 mr-2"></i> Dedicated doubt resolution channel</li>
+                <li><i class="fas fa-star text-yellow-700 mr-2"></i> This is for One Time Subscription (180 days)</li>
+                <li><i class="fas fa-star text-yellow-700 mr-2"></i> Monthly Performance Review Sessions</li>
+                <li><i class="fas fa-star text-yellow-700 mr-2"></i> Best Vedic & Advance Maths Training</li>
+                <li><i class="fas fa-star text-yellow-700 mr-2"></i> Support via Live Calls & Mentorship</li>
+            </ul>
+            
+            <!-- Gold Plan Single Payment Button (Razorpay Script Added) -->
+            <div id="razorpay-button-container-gold" class="w-full mt-4">
+                <!-- Using the original Gold Plan ID: pl_RdD1xNHLisK0WS -->
+                <form class="w-full"><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_RdD1xNHLisK0WS" async> </script> </form>
+            </div>
+            <!-- End of Gold Plan Single Payment Button -->
+
+        </div>
+    </main>
+    
+    <!-- Relocated Upgrade Section (First bottom section) -->
+    <section class="max-w-6xl mx-auto mt-8 px-4 sm:px-6 text-center">
+        <div class="bg-white rounded-2xl shadow-lg p-6 border-2 border-purple-300 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6">
+            <h3 class="text-xl font-semibold text-gray-800">Upgrade Subscribers?</h3>
+            <p class="text-gray-700">Please click here to Upgrade your plan.</p>
+            <!-- Razorpay Button for Upgrade -->
+            <div id="razorpay-button-upgrade" class="w-auto">
+                <form class="w-full"><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_RdD8XcxjDv7H6M" async> </script> </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Existing Subscribers (Renew) Section (Second bottom section) -->
+    <section class="max-w-6xl mx-auto mt-8 px-4 sm:px-6 text-center">
+        <div class="bg-white rounded-2xl shadow-lg p-6 border-2 border-indigo-300 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6">
+            <h3 class="text-xl font-semibold text-gray-800">Existing Subscribers?</h3>
+            <p class="text-gray-700">Please click here to renew your plan.</p>
+            <!-- Razorpay Button for Renew -->
+            <div id="razorpay-button-renew" class="w-auto">
+                <form class="w-full"><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_RdD8XcxjDv7H6M" async> </script> </form>
+            </div>
+        </div>
+    </section>
+    
+    <section class="text-center mt-12 bg-blue-50 py-10 px-6 rounded-lg shadow-inner max-w-5xl mx-auto">
+        <h2 class="text-2xl font-semibold text-blue-700 mb-4">🎓 Learn, Practice & Achieve More!</h2>
+        <p class="text-gray-700 leading-relaxed max-w-3xl mx-auto mb-4">We provide <strong>tests for each lesson</strong>, conduct <strong>General and Subject exams</strong> and track your <strong>daily TC score</strong>. Get special sessions, live calls & mentorship for Classes 3-10.</p>
+        <p class="text-gray-600 italic mb-6">This small package gives you big knowledge — start your journey today!</p>
+    </section>
+
+    <footer class="bg-sv-blue text-white py-5 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div>
+                    <img class="h-12 w-auto mb-2 object-contain shadow-md rounded-full bg-white p-1" 
+                                src="https://contactsriveda-debug.github.io/images/veda-logo-circle.jpg" 
+                                alt="Sri Veda Logo"
+                                onerror="this.onerror=null; this.src='https://placehold.co/48x48/1e3a8a/ffffff?text=VEDA';">
+                    <p class="text-gray-300 text-xs">
+                        Sri Veda Talent Competition<br>
+                        Empowering students with knowledge and skills for a bright future.
+                    </p>
+                </div>
+                <div>
+                    <h5 class="text-base font-bold text-sv-yellow mb-2">Quick Links</h5>
+                    <ul class="space-y-1 text-sm">
+                        <li><a href="https://www.svtc.life/index.html" class="text-gray-300 hover:text-white transition" target="_blank">Home</a></li>
+                        <li><a href="https://www.svtc.life/Join%20now.html" class="text-gray-300 hover:text-white transition" target="_blank">Join Now</a></li>
+                        <li><a href="https://www.svtc.life/Pricing.html" class="text-gray-300 hover:text-white transition" target="_blank">Pricing</a></li>
+                        <li><a href="https://www.svtc.life/connect.html" class="text-gray-300 hover:text-white transition" target="_blank">Connect</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-base font-bold text-sv-yellow mb-2">Company</h5>
+                    <ul class="space-y-1 text-sm">
+                        <li><a href="https://www.svtc.life/About%20Us.html" class="text-gray-300 hover:text-white transition" target="_blank">About Us</a></li>
+                        <li><a href="https://www.svtc.life/Contact.html" class="text-gray-300 hover:text-white transition" target="_blank">Contact</a></li>
+                        <li><a href="https://www.svtc.life/Privacy%20policy.html" class="text-gray-300 hover:text-white transition" target="_blank">Terms & Privacy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-base font-bold text-sv-yellow mb-2">Get In Touch</h5>
+                    <ul class="space-y-1 text-sm">
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-sv-yellow text-xs"></i>
+                            <a href="tel:+918985170500" class="text-gray-300 hover:text-white transition" target="_blank">+91 8985170500</a>
+                        </li>
+                    </ul>
+                    <h5 class="text-base font-bold text-sv-yellow mt-3 mb-2">Connect With Us</h5>
+                    <div class="flex space-x-3">
+                        <a href="https://www.facebook.com/share/1ZXXCLRGwh" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-sv-yellow transition text-lg">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=zreta93" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-sv-yellow transition text-lg">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="httpst.me/srivedatc" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-sv-yellow transition text-lg">
+                            <i class="fab fa-telegram-plane"></i>
+                        </a>
+                        <a href="http://wa.me/918985170500" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-sv-yellow transition text-lg">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-4 pt-4 text-center">
+                <p class="text-gray-400 text-xs">
+                    &copy; 2025 Sri Veda Talent Competition. All Rights Reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        
+        function formatTime(time) { return time < 10 ? '0' + time : time; }
+
+        function startCountdown() {
+            // Timer logic for a rotating 24hr ON / 12hr OFF offer cycle
+            const SEED_DATE_ISO = '2025-10-20T00:00:00+05:30';
+            const seedTime = new Date(SEED_DATE_ISO).getTime();
+            const PHASE_1_MS = 24 * 60 * 60 * 1000; // 24 hours ON
+            const PHASE_2_MS = 12 * 60 * 60 * 1000; // 12 hours OFF (Not used here, simplified to always count down)
+            const TOTAL_CYCLE_MS = PHASE_1_MS; // Simplified to 24-hour cycle for countdown display
+            
+            const timerElements = {
+                hours: document.getElementById('hours'),
+                minutes: document.getElementById('minutes'),
+                seconds: document.getElementById('seconds')
+            };
+            const countdownEl = document.getElementById('countdown-timer');
+            const offerMessageEl = document.getElementById('offer-message');
+
+
+            function updateTimer() {
+                const now = new Date().getTime();
+                const totalElapsedMs = now - seedTime;
+                
+                // Calculate remaining time in the current 24-hour cycle
+                const msIntoCurrentCycle = totalElapsedMs % TOTAL_CYCLE_MS;
+                const remainingMs = TOTAL_CYCLE_MS - msIntoCurrentCycle;
+
+
+                const hours = Math.floor((remainingMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((remainingMs % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((remainingMs % (1000 * 60)) / 1000);
+
+                timerElements.hours.textContent = formatTime(hours);
+                timerElements.minutes.textContent = formatTime(minutes);
+                timerElements.seconds.textContent = formatTime(seconds);
+
+                countdownEl.classList.remove('hidden');
+                offerMessageEl.classList.add('hidden');
+            }
+
+            updateTimer(); 
+            setInterval(updateTimer, 1000);
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.getElementById('menuToggle');
+            const dynamicMenu = document.getElementById('dynamicMenu');
+
+            if (menuToggle && dynamicMenu) {
+                menuToggle.addEventListener('click', () => {
+                    dynamicMenu.classList.toggle('hidden');
+                });
+            }
+        });
+
+        window.onload = () => {
+            startCountdown();
+        };
+    </script>
+
+</body>
+</html>
