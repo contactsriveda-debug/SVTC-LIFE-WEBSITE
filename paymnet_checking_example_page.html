@@ -14,86 +14,68 @@
         #notification {
             transform: translateY(100%);
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            visibility: hidden;
         }
-        #notification.show { transform: translateY(0); }
+        #notification.show { transform: translateY(0); visibility: visible; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 overflow-x-hidden">
 
-    <!-- Notification Toast -->
+    <!-- Custom Notification (Replacing Alerts) -->
     <div id="notification" class="fixed bottom-8 left-1/2 -translate-x-1/2 z-[100] w-full max-w-md px-4 pointer-events-none">
-        <div class="bg-slate-900 text-white p-4 rounded-2xl shadow-2xl flex items-center space-x-4 pointer-events-auto border border-white/10">
-            <div id="notif-icon" class="w-10 h-10 rounded-full flex items-center justify-center bg-blue-500 text-white">
-                <i class="fa-solid fa-info"></i>
+        <div id="notif-bg" class="bg-slate-900 text-white p-5 rounded-2xl shadow-2xl flex items-start space-x-4 pointer-events-auto border border-white/10">
+            <div id="notif-icon" class="w-10 h-10 shrink-0 rounded-full flex items-center justify-center bg-blue-500 text-white font-bold">
+                !
             </div>
             <div class="flex-1">
-                <p id="notif-msg" class="text-sm font-medium">Processing your request...</p>
+                <p id="notif-msg" class="text-sm font-medium leading-relaxed">Processing...</p>
             </div>
-            <button onclick="hideNotification()" class="text-slate-400 hover:text-white transition">
+            <button onclick="hideNotification()" class="text-slate-400 hover:text-white shrink-0">
                 <i class="fa-solid fa-xmark"></i>
             </button>
         </div>
     </div>
 
-    <!-- Main Donation Section -->
+    <!-- Main Content -->
     <section class="hero-gradient min-h-screen flex items-center py-20">
         <div class="max-w-6xl mx-auto px-4 grid lg:grid-cols-2 gap-16 items-center">
             
-            <div class="space-y-8">
-                <div class="inline-flex items-center space-x-2 px-3 py-1 text-xs font-semibold tracking-wider text-emerald-600 uppercase bg-emerald-50 rounded-full">
-                    <span class="relative flex h-2 w-2">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                    </span>
-                    <span>Secure Donation Portal</span>
+            <div class="space-y-8 text-center lg:text-left">
+                <div class="inline-flex items-center space-x-2 px-3 py-1 text-xs font-semibold text-emerald-600 bg-emerald-50 rounded-full">
+                    <span>LIVE PORTAL: SVTC FOUNDATION</span>
                 </div>
-                <h1 class="text-5xl md:text-6xl font-bold leading-tight">
-                    Every Contribution <br><span class="text-blue-600">Creates Change.</span>
+                <h1 class="text-4xl md:text-6xl font-bold leading-tight">
+                    Every Rupee <br><span class="text-blue-600">Makes Impact.</span>
                 </h1>
-                <p class="text-lg text-slate-600 max-w-lg leading-relaxed">
-                    Your support allows us to continue our work and reach those who need it most.
+                <p class="text-lg text-slate-600 leading-relaxed">
+                    Make sure your Razorpay Dashboard is in <span class="font-bold text-emerald-600 uppercase">Live Mode</span>. 
+                    Domain: <span class="text-blue-600">svtc.life</span>
                 </p>
-                
-                <div class="grid grid-cols-2 gap-6 pt-4">
-                    <div class="p-4 bg-white rounded-2xl shadow-sm border border-slate-100">
-                        <div class="text-2xl font-bold text-blue-600">Secure</div>
-                        <div class="text-sm text-slate-500">Encrypted Payments</div>
-                    </div>
-                    <div class="p-4 bg-white rounded-2xl shadow-sm border border-slate-100">
-                        <div class="text-2xl font-bold text-blue-600">Live</div>
-                        <div class="text-sm text-slate-500">Real-time Tracking</div>
-                    </div>
-                </div>
             </div>
 
-            <!-- Donation Form -->
-            <div class="bg-white p-8 md:p-10 rounded-[2.5rem] shadow-2xl border border-slate-100 relative overflow-hidden">
-                <form id="donationForm" class="relative z-10 space-y-6">
+            <!-- Donation Card -->
+            <div class="bg-white p-8 rounded-[2.5rem] shadow-2xl border border-slate-100 relative">
+                <form id="donationForm" class="space-y-6">
                     <div>
-                        <label class="block text-sm font-semibold mb-2 text-slate-700">Amount (INR)</label>
-                        <div class="grid grid-cols-3 gap-3 mb-4">
-                            <button type="button" onclick="setAmount(500)" class="amt-btn py-3 border border-slate-200 rounded-xl hover:bg-blue-50 font-bold">₹500</button>
-                            <button type="button" onclick="setAmount(1000)" class="amt-btn py-3 border border-slate-200 rounded-xl hover:bg-blue-50 font-bold">₹1000</button>
-                            <button type="button" onclick="setAmount(2000)" class="amt-btn py-3 border border-slate-200 rounded-xl hover:bg-blue-50 font-bold">₹2000</button>
-                        </div>
-                        <input type="number" id="amount" name="amount" placeholder="Enter Amount" required
-                            class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-4 focus:outline-none focus:ring-2 focus:ring-blue-500 transition font-bold text-lg">
+                        <label class="block text-sm font-semibold mb-2">Donation Amount (₹)</label>
+                        <input type="number" id="amount" name="amount" placeholder="Minimum ₹1" required min="1"
+                            class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-4 outline-none font-bold text-lg focus:ring-2 focus:ring-blue-500 transition">
                     </div>
 
                     <div class="space-y-4">
-                        <input type="text" name="name" placeholder="Full Name" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-4">
-                        <input type="email" name="email" placeholder="Email Address" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-4">
-                        <input type="tel" name="phone" placeholder="Phone Number" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-4">
+                        <input type="text" name="name" placeholder="Full Name" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-4 outline-none">
+                        <input type="email" name="email" placeholder="Email Address" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-4 outline-none">
+                        <input type="tel" name="phone" placeholder="Mobile Number" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-4 outline-none">
                     </div>
 
-                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-5 rounded-2xl transition-all shadow-xl shadow-blue-600/30">
-                        Proceed to Payment
+                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-5 rounded-2xl transition shadow-xl">
+                        Donate via Razorpay
                     </button>
                 </form>
 
-                <div id="loading" class="hidden absolute inset-0 bg-white/90 z-20 flex flex-col items-center justify-center space-y-4 text-center p-6">
-                    <div class="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
-                    <p class="font-bold text-blue-600">Connecting to Razorpay...</p>
+                <div id="loading" class="hidden absolute inset-0 bg-white/95 z-20 flex flex-col items-center justify-center text-center p-6 rounded-[2.5rem]">
+                    <div class="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mb-4"></div>
+                    <p class="font-bold text-blue-600">Connecting to Gateway...</p>
                 </div>
             </div>
         </div>
@@ -101,72 +83,93 @@
 
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script>
+        // API CONFIGURATION
+        const RAZORPAY_KEY = "rzp_live_RYLfVWwqlbtIE"; 
+        const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbwOVQBCgUpvpU5wuIbcZKFdg91wB0T-wntqdepl-9MZHufzg5CN-uY_sMIkqUmZXKFK/exec";
+
         const notif = document.getElementById('notification');
         const notifMsg = document.getElementById('notif-msg');
-        const notifIcon = document.getElementById('notif-icon');
+        const loading = document.getElementById('loading');
 
         function showNotification(msg, type = 'info') {
-            notifMsg.innerText = msg;
+            notifMsg.innerHTML = msg;
             notif.classList.add('show');
-            notifIcon.className = `w-10 h-10 rounded-full flex items-center justify-center text-white ${type === 'error' ? 'bg-red-500' : 'bg-blue-500'}`;
-            setTimeout(() => notif.classList.remove('show'), 6000);
+            const iconWrap = document.getElementById('notif-icon');
+            const bgWrap = document.getElementById('notif-bg');
+            
+            if(type === 'error') {
+                iconWrap.className = "w-10 h-10 shrink-0 rounded-full flex items-center justify-center bg-red-500 text-white font-bold";
+                iconWrap.innerHTML = "!";
+            } else {
+                iconWrap.className = "w-10 h-10 shrink-0 rounded-full flex items-center justify-center bg-emerald-500 text-white font-bold";
+                iconWrap.innerHTML = "✓";
+            }
+            setTimeout(hideNotification, 10000);
         }
 
-        function setAmount(val) {
-            document.getElementById('amount').value = val;
-            document.querySelectorAll('.amt-btn').forEach(btn => {
-                btn.classList.toggle('bg-blue-600', btn.innerText === '₹' + val);
-                btn.classList.toggle('text-white', btn.innerText === '₹' + val);
-            });
-        }
-
-        const RAZORPAY_KEY = "rzp_live_RYLfVWwqlbtIE"; 
-        // ఇక్కడ మీ కొత్త URL అప్‌డేట్ చేయబడింది
-        const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbwOVQBCgUpvpU5wuIbcZKFdg91wB0T-wntqdepl-9MZHufzg5CN-uY_sMIkqUmZXKFK/exec";
+        function hideNotification() { notif.classList.remove('show'); }
 
         document.getElementById('donationForm').addEventListener('submit', async (e) => {
             e.preventDefault();
-            const loading = document.getElementById('loading');
             loading.classList.remove('hidden');
-
+            
             const formData = new FormData(e.target);
             const data = Object.fromEntries(formData.entries());
-            const finalAmount = Math.round(parseFloat(data.amount) * 100);
+            const paiseAmount = Math.round(parseFloat(data.amount) * 100);
 
-            // Log attempt to Google Sheet
-            fetch(WEBHOOK_URL, {
-                method: 'POST',
-                mode: 'no-cors',
-                body: JSON.stringify({ type: 'attempt', ...data })
-            }).catch(() => {});
+            // Log attempt
+            fetch(WEBHOOK_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify({ type: 'attempt', ...data }) }).catch(()=>{});
 
             const options = {
                 "key": RAZORPAY_KEY,
-                "amount": finalAmount,
+                "amount": paiseAmount,
                 "currency": "INR",
-                "name": "Donation Support",
-                "description": "Contribution",
+                "name": "SVTC Foundation",
+                "description": "Donation for Social Cause",
                 "handler": function (response) {
-                    showNotification("Payment Successful!", "success");
-                    // Success data logging
+                    showNotification("Payment Successful! Your data is being saved to the Google Sheet.", "success");
                     fetch(WEBHOOK_URL, {
                         method: 'POST',
                         mode: 'no-cors',
-                        body: JSON.stringify({ type: 'success', payment_id: response.razorpay_payment_id, ...data })
+                        body: JSON.stringify({ 
+                            type: 'success', 
+                            payment_id: response.razorpay_payment_id,
+                            ...data 
+                        })
+                    }).then(() => {
+                        setTimeout(() => window.location.reload(), 4000);
                     });
-                    setTimeout(() => window.location.reload(), 3000);
                 },
-                "modal": { "ondismiss": () => loading.classList.add('hidden') },
+                "modal": { 
+                    "ondismiss": () => loading.classList.add('hidden'),
+                    "escape": false
+                },
                 "prefill": { "name": data.name, "email": data.email, "contact": data.phone },
                 "theme": { "color": "#2563eb" }
             };
-            
-            const rzp = new Razorpay(options);
-            rzp.on('payment.failed', (resp) => {
+
+            try {
+                const rzp = new Razorpay(options);
+                
+                rzp.on('payment.failed', function (resp) {
+                    loading.classList.add('hidden');
+                    // EXACT ERROR REASON
+                    showNotification("<b>Payment Failed:</b> " + resp.error.description + "<br><small>Reason: " + resp.error.reason + "</small>", "error");
+                });
+
+                rzp.open();
+                
+                // If it crashes before opening
+                setTimeout(() => {
+                    if (!document.querySelector('.razorpay-container')) {
+                        loading.classList.add('hidden');
+                    }
+                }, 3000);
+
+            } catch (err) {
                 loading.classList.add('hidden');
-                showNotification("Error: " + resp.error.description, "error");
-            });
-            rzp.open();
+                showNotification("<b>Setup Error:</b> Please check if your Razorpay API Key is active and your domain is whitelisted.", "error");
+            }
         });
     </script>
 </body>
