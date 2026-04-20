@@ -21,7 +21,7 @@
 </head>
 <body class="bg-slate-50 text-slate-900 overflow-x-hidden">
 
-    <!-- Custom Notification (Replacing Alerts) -->
+    <!-- Custom Notification -->
     <div id="notification" class="fixed bottom-8 left-1/2 -translate-x-1/2 z-[100] w-full max-w-md px-4 pointer-events-none">
         <div id="notif-bg" class="bg-slate-900 text-white p-5 rounded-2xl shadow-2xl flex items-start space-x-4 pointer-events-auto border border-white/10">
             <div id="notif-icon" class="w-10 h-10 shrink-0 rounded-full flex items-center justify-center bg-blue-500 text-white font-bold">
@@ -48,8 +48,7 @@
                     Every Rupee <br><span class="text-blue-600">Makes Impact.</span>
                 </h1>
                 <p class="text-lg text-slate-600 leading-relaxed">
-                    Make sure your Razorpay Dashboard is in <span class="font-bold text-emerald-600 uppercase">Live Mode</span>. 
-                    Domain: <span class="text-blue-600">svtc.life</span>
+                    If you see "Connecting to Gateway" for too long, ensure your browser is not blocking popups and you are on <b>https://www.svtc.life</b>.
                 </p>
             </div>
 
@@ -57,7 +56,7 @@
             <div class="bg-white p-8 rounded-[2.5rem] shadow-2xl border border-slate-100 relative">
                 <form id="donationForm" class="space-y-6">
                     <div>
-                        <label class="block text-sm font-semibold mb-2">Donation Amount (₹)</label>
+                        <label class="block text-sm font-semibold mb-2 text-slate-700">Donation Amount (₹)</label>
                         <input type="number" id="amount" name="amount" placeholder="Minimum ₹1" required min="1"
                             class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-4 outline-none font-bold text-lg focus:ring-2 focus:ring-blue-500 transition">
                     </div>
@@ -68,20 +67,23 @@
                         <input type="tel" name="phone" placeholder="Mobile Number" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-4 outline-none">
                     </div>
 
-                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-5 rounded-2xl transition shadow-xl">
+                    <button type="submit" id="submitBtn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-5 rounded-2xl transition shadow-xl disabled:bg-slate-300">
                         Donate via Razorpay
                     </button>
                 </form>
 
                 <div id="loading" class="hidden absolute inset-0 bg-white/95 z-20 flex flex-col items-center justify-center text-center p-6 rounded-[2.5rem]">
                     <div class="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mb-4"></div>
-                    <p class="font-bold text-blue-600">Connecting to Gateway...</p>
+                    <p class="font-bold text-blue-600" id="loadingText">Connecting to Gateway...</p>
+                    <button onclick="location.reload()" class="mt-4 text-xs text-blue-600 underline">Refresh & Try Again</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <!-- Essential Razorpay Library -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js" onerror="alert('Razorpay library failed to load. Check your internet or ad-blocker.')"></script>
+    
     <script>
         // API CONFIGURATION
         const RAZORPAY_KEY = "rzp_live_RYLfVWwqlbtIE"; 
@@ -90,12 +92,12 @@
         const notif = document.getElementById('notification');
         const notifMsg = document.getElementById('notif-msg');
         const loading = document.getElementById('loading');
+        const loadingText = document.getElementById('loadingText');
 
         function showNotification(msg, type = 'info') {
             notifMsg.innerHTML = msg;
             notif.classList.add('show');
             const iconWrap = document.getElementById('notif-icon');
-            const bgWrap = document.getElementById('notif-bg');
             
             if(type === 'error') {
                 iconWrap.className = "w-10 h-10 shrink-0 rounded-full flex items-center justify-center bg-red-500 text-white font-bold";
@@ -111,7 +113,15 @@
 
         document.getElementById('donationForm').addEventListener('submit', async (e) => {
             e.preventDefault();
+            
+            // Diagnostics
+            if (typeof Razorpay === 'undefined') {
+                showNotification("<b>Error:</b> Razorpay library not loaded. Please disable Ad-blockers or try another browser.", "error");
+                return;
+            }
+
             loading.classList.remove('hidden');
+            loadingText.innerText = "Connecting to Gateway...";
             
             const formData = new FormData(e.target);
             const data = Object.fromEntries(formData.entries());
@@ -126,8 +136,10 @@
                 "currency": "INR",
                 "name": "SVTC Foundation",
                 "description": "Donation for Social Cause",
+                "image": "https://www.svtc.life/favicon.ico", // Optional logo
                 "handler": function (response) {
-                    showNotification("Payment Successful! Your data is being saved to the Google Sheet.", "success");
+                    loadingText.innerText = "Payment Success! Saving data...";
+                    showNotification("Payment Successful! Saving to Sheet.", "success");
                     fetch(WEBHOOK_URL, {
                         method: 'POST',
                         mode: 'no-cors',
@@ -137,38 +149,49 @@
                             ...data 
                         })
                     }).then(() => {
-                        setTimeout(() => window.location.reload(), 4000);
+                        setTimeout(() => window.location.reload(), 3000);
                     });
                 },
                 "modal": { 
-                    "ondismiss": () => loading.classList.add('hidden'),
+                    "ondismiss": () => {
+                        loading.classList.add('hidden');
+                        showNotification("Payment was cancelled or closed.", "info");
+                    },
                     "escape": false
                 },
-                "prefill": { "name": data.name, "email": data.email, "contact": data.phone },
-                "theme": { "color": "#2563eb" }
+                "prefill": { 
+                    "name": data.name, 
+                    "email": data.email, 
+                    "contact": data.phone 
+                },
+                "theme": { "color": "#2563eb" },
+                "retry": { "enabled": false }
             };
+
+            // Safety timeout: If gateway doesn't open in 8 seconds
+            const gatewayTimeout = setTimeout(() => {
+                if (!document.querySelector('.razorpay-container')) {
+                    loading.classList.add('hidden');
+                    showNotification("<b>Timeout:</b> Gateway is taking too long. Possible reasons:<br>1. Domain not verified.<br>2. Razorpay Dashboard needs more business details.<br>3. Internet issues.", "error");
+                }
+            }, 8000);
 
             try {
                 const rzp = new Razorpay(options);
                 
                 rzp.on('payment.failed', function (resp) {
+                    clearTimeout(gatewayTimeout);
                     loading.classList.add('hidden');
-                    // EXACT ERROR REASON
-                    showNotification("<b>Payment Failed:</b> " + resp.error.description + "<br><small>Reason: " + resp.error.reason + "</small>", "error");
+                    showNotification("<b>Payment Failed:</b> " + resp.error.description + "<br>Reason: " + resp.error.reason, "error");
                 });
 
                 rzp.open();
                 
-                // If it crashes before opening
-                setTimeout(() => {
-                    if (!document.querySelector('.razorpay-container')) {
-                        loading.classList.add('hidden');
-                    }
-                }, 3000);
-
             } catch (err) {
+                clearTimeout(gatewayTimeout);
                 loading.classList.add('hidden');
-                showNotification("<b>Setup Error:</b> Please check if your Razorpay API Key is active and your domain is whitelisted.", "error");
+                showNotification("<b>Critical Error:</b> " + err.message, "error");
+                console.error(err);
             }
         });
     </script>
